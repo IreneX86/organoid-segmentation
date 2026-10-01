@@ -30,10 +30,18 @@ class MitoCVReportTests(unittest.TestCase):
             }
             (directory / "split.json").write_text(json.dumps(split), encoding="utf-8")
             with (directory / "test_per_image.csv").open("w", newline="", encoding="utf-8") as handle:
-                writer = csv.DictWriter(handle, fieldnames=["filename", "dice", "iou", "precision", "recall"])
+                writer = csv.DictWriter(handle, fieldnames=["filename", "dice", "iou", "precision", "recall", "foreground_fraction_true"])
                 writer.writeheader()
                 for name in split["test"]:
-                    writer.writerow({"filename": name, "dice": .8, "iou": 2/3, "precision": .8, "recall": .8})
+                    writer.writerow({"filename": name, "dice": .8, "iou": 2/3, "precision": .8, "recall": .8,
+                                     "foreground_fraction_true": .01 + int(name[5:8]) / 1000})
+            with (directory / "threshold_policy_per_image.csv").open("w", newline="", encoding="utf-8") as handle:
+                writer = csv.DictWriter(handle, fieldnames=["filename"] + [f"{policy}_{metric}"
+                    for policy in ("validation", "fixed_050") for metric in ("dice", "iou", "precision", "recall")])
+                writer.writeheader()
+                for name in split["test"]:
+                    writer.writerow({"filename": name, **{f"{policy}_{metric}": (.6666666666666666 if metric == "iou" else .8)
+                        for policy in ("validation", "fixed_050") for metric in ("dice", "iou", "precision", "recall")}})
 
     def tearDown(self) -> None:
         self.temporary.cleanup()
@@ -41,7 +49,8 @@ class MitoCVReportTests(unittest.TestCase):
     def test_complete_five_fold_report(self) -> None:
         report = summarize_cv(self.root)
         self.assertEqual(report["image_count"], 36)
-        self.assertAlmostEqual(report["pooled_per_image"]["dice_mean"], .8)
+        self.assertAlmostEqual(report["pooled_per_image"]["dice"]["mean"], .8)
+        self.assertEqual(len(report["per_image"]), 36)
 
     def test_rejects_outer_test_leakage(self) -> None:
         path = self.root / "fold_0" / "split.json"
@@ -54,6 +63,18 @@ class MitoCVReportTests(unittest.TestCase):
     def test_rejects_missing_fold_report(self) -> None:
         (self.root / "fold_4" / "test_per_image.csv").unlink()
         with self.assertRaises(FileNotFoundError):
+            summarize_cv(self.root)
+
+    def test_rejects_changed_threshold_export(self) -> None:
+        path = self.root / "fold_0" / "threshold_policy_per_image.csv"
+        with path.open(newline="", encoding="utf-8") as handle:
+            rows = list(csv.DictReader(handle))
+        rows[0]["validation_dice"] = "0.2"
+        with path.open("w", newline="", encoding="utf-8") as handle:
+            writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+            writer.writeheader()
+            writer.writerows(rows)
+        with self.assertRaisesRegex(ValueError, "disagree"):
             summarize_cv(self.root)
 
 

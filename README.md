@@ -28,7 +28,12 @@ five-fold evidence gap are recorded in [MITO_EXPERIMENT_LOG.md](MITO_EXPERIMENT_
 After all five unchanged baseline folds finish, validate their reports with
 `python code/mito_cv_report.py /path/to/mito/fold_runs` before interpreting an
 out-of-fold score. The reporter fails if folds overlap or any test report is
-missing; it does not train or alter the data.
+missing; it does not train or alter the data. For each Mito fold, run
+`python code/mito_export_predictions.py --project-root /path/to/project
+--run-dir /path/to/fold` after training to save test masks at the
+validation-selected and fixed 0.50 thresholds. The exporter uses the same
+checkpoint for both policies and never selects a threshold from outer-test
+labels.
 
 ## Geometry contract
 

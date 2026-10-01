@@ -59,3 +59,23 @@ with uncertainty from queue, transfer, and runtime variation. This is a
 substantial GPU experiment, so it has **not** been started. Do not run a
 candidate model, tune from outer-fold scores, or deploy a new Pod before the
 baseline CV and its resource plan are reviewed.
+
+## 2026-10-01 — five-fold baseline authorized; GPU stock blocker
+
+The user authorized fold 1–4 unchanged baseline training with an additional
+Runpod budget cap of US$5.00. No fold has yet started. A live Runpod read
+showed Secure Cloud A40 at US$0.49/hour, but two creation requests returned
+`There are no longer any instances available with the requested specifications`.
+The second request was constrained to CUDA 12.8 after a capacity read; it also
+failed. A subsequent capacity read showed CUDA 12.8 `Out` and CUDA 13.2 `Low`.
+`list_pods` returned an empty list, so no GPU charges were started by this
+stage. Do not create a different GPU class without a revised, validated
+environment and budget check.
+
+`code/mito_export_predictions.py` was prepared for post-training inference at
+the validation-selected threshold and the pre-registered fixed 0.50 threshold
+using the *same checkpoint*. The five-fold reporter now summarizes both
+policies, all 36 per-image OOF rows, fold means, distribution statistics, and
+foreground-fraction correlation. It still refuses incomplete or overlapping
+folds. The prior fold-0 checkpoint must be exported in the same way before a
+threshold-policy comparison is reported.
