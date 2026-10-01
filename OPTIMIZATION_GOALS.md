@@ -9,6 +9,9 @@ organoid images are not in this repository yet. Their eventual prediction masks
 must preserve each input TIFF's filename, width, height, and pixel coordinates.
 
 The frozen fold-0 baseline is documented in `baseline/mito_fold0_20261001/`.
+The unchanged five-fold baseline was subsequently completed and is documented
+in `baseline/mito_five_fold_20261001/`; it is the comparison reference for
+future **exploratory** one-factor experiments, not an external test estimate.
 Its 22/7/7 train/validation/internal-test split is not an external test.
 No hyperparameter choice may be made to improve the scores of particular
 fold-0 test images. Those image-level results have already been inspected, so

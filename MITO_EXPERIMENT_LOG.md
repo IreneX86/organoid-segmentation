@@ -79,3 +79,36 @@ policies, all 36 per-image OOF rows, fold means, distribution statistics, and
 foreground-fraction correlation. It still refuses incomplete or overlapping
 folds. The prior fold-0 checkpoint must be exported in the same way before a
 threshold-policy comparison is reported.
+
+## 2026-10-01 — authorized five-fold baseline completed
+
+One Secure Cloud A40 Pod (`v84qbcjw5r6fld`, US$0.49/hour) became available
+after a fresh CUDA-13.2 capacity read. Its container reused the previously
+successful `runpod/pytorch:1.0.2-cu1281-torch280-ubuntu2404` image and
+Python 3.11 / TensorFlow 2.21.0 / NumPy 2.4.6 / tifffile 2026.3.3 setup.
+The pod exposed one A40; `cuInit(0)=0`, TensorFlow saw one physical and one
+logical GPU, and a matrix multiplication executed on GPU. A fresh preflight
+passed before **each** unchanged baseline fold 1–4. Fold 0 was copied from
+the frozen local checkpoint and used only for inference; it was not retrained.
+
+One technical packaging issue was corrected on the temporary Pod: the Mac
+archive contained 268-byte AppleDouble `._mask_*.tif` metadata sidecars.
+They were moved to a separate directory; all 36 genuine input TIFFs and 36
+manual masks stayed untouched. No scientific training settings changed.
+
+All four new folds exited zero and produced model, split, history, selected
+threshold, per-image metrics and two sets of full-resolution masks. All five
+checkpoint archives were downloaded to the ignored local `runpod_results/`
+directory, SHA256-verified, and passed Keras ZIP checks. The 36 × 2 masks
+were checked for filename, 1200×1200 shape and uint8 0/255 values. The Pod
+was then terminated; Runpod listed no Pods, Endpoints or Network Volumes.
+Thus no resource remains accruing spend. The final invoice amount may lag in
+Runpod billing; the run time at US$0.49/hour implies roughly US$0.65–0.70,
+well under the US$5 cap.
+
+The complete small-file CV record is in `baseline/mito_five_fold_20261001/`.
+The locked five-fold OOF Dice is 0.8543 ± 0.0628 across 36 images, with
+median 0.8756 and range 0.7266–0.9296. This is a baseline, not a model
+improvement. The pre-registered fixed-0.50 threshold comparison changed
+mean Dice by only −0.0004 relative to validation-selected thresholds.
+No optimization training followed.

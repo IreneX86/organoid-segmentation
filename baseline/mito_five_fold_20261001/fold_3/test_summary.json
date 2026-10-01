@@ -1,0 +1,15 @@
+{
+  "dice_mean": 0.8224901631464377,
+  "dice_std": 0.04746643708866659,
+  "foreground_fraction_predicted_mean": 0.06957242063492063,
+  "foreground_fraction_predicted_std": 0.022538089964474955,
+  "foreground_fraction_true_mean": 0.07101765873015874,
+  "foreground_fraction_true_std": 0.02901364652448598,
+  "image_count": 7.0,
+  "iou_mean": 0.700883140322168,
+  "iou_std": 0.06900998421276869,
+  "precision_mean": 0.8238899492734654,
+  "precision_std": 0.09802963274673634,
+  "recall_mean": 0.8296701346869096,
+  "recall_std": 0.04709047238326052
+}

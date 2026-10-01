@@ -21,8 +21,15 @@ not establish performance on future external organoid images. The exact split,
 history, and metrics are in `baseline/mito_fold0_20261001/`. Checkpoints,
 raw TIFFs, and Runpod logs are intentionally kept outside Git.
 
+The unchanged full five-fold Mito baseline is documented in
+[baseline/mito_five_fold_20261001/README.md](baseline/mito_five_fold_20261001/README.md).
+Across all 36 out-of-fold images, mean Dice was 0.8543 ± 0.0628 (sample SD),
+with median 0.8756 and minimum 0.7266. These are internal development data,
+not an external unseen-data result. No optimized model has been trained yet.
+
 Use [OPTIMIZATION_GOALS.md](OPTIMIZATION_GOALS.md) for the next experimental
-stage. No model changes or additional training are part of this baseline freeze.
+stage. The original fold-0 baseline commit, tag and artifacts remain unchanged;
+folds 1–4 were subsequently trained with the same baseline method.
 The read-only Mito data audit, first pre-registered comparison, and current
 five-fold evidence gap are recorded in [MITO_EXPERIMENT_LOG.md](MITO_EXPERIMENT_LOG.md).
 After all five unchanged baseline folds finish, validate their reports with
