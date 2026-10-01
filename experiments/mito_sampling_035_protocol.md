@@ -1,6 +1,7 @@
 # Mito sampling experiment 01 — locked protocol
 
-Status: **prepared, not run**. This is an exploratory experiment on the 36
+Status: **five-fold validation-only run complete; candidate rejected by the
+locked validation gate**. This is an exploratory experiment on the 36
 labelled development images. The unchanged five-fold baseline is frozen at
 commit `b6f2e87`; no baseline checkpoint, split, metric, or tag is overwritten.
 
@@ -53,13 +54,17 @@ labelled images. Do not use low-scoring outer-test images to tune 0.35, the
 
 ## Execution and safety
 
-Use the previously verified Runpod Secure Cloud A40 environment only after
-separate authorization for this **five-fold GPU experiment**. Run one Pod and
+The user authorized this GPU experiment. Use the previously verified Runpod
+Secure Cloud A40 environment. Run one Pod and
 one fold at a time, with CUDA driver and TensorFlow GPU preflight before each
 training run. Estimate the full cost from current live price and cap it before
 launch. Save each fold to a new versioned output directory; first download
 and verify checkpoints, histories, thresholds, metrics, predictions, and logs,
 then terminate the Pod. Do not modify Cetus job 105331.
 
-No Runpod resource has been created for this protocol. No TIFF, mask,
-checkpoint, prediction, secret, or log belongs in Git.
+The five-fold candidate training completed on 2026-10-02 Sydney time. All
+five validation Dice gains were below the fixed +0.01 gate, so no candidate
+checkpoint was evaluated on outer test. The locked decisions and unchanged
+baseline OOF comparison are in `experiments/results/`. The downloaded models
+and GPU logs remain in ignored local `runpod_results/`; the Pod was deleted.
+No TIFF, mask, checkpoint, prediction, secret, or log belongs in Git.

@@ -1,0 +1,37 @@
+{
+  "decisions": [
+    {
+      "baseline_best_validation_dice": 0.8650501523025304,
+      "candidate_best_validation_dice": 0.8654984043197366,
+      "fold": 0,
+      "selected_candidate": false
+    },
+    {
+      "baseline_best_validation_dice": 0.8585078395966751,
+      "candidate_best_validation_dice": 0.8586352178567397,
+      "fold": 1,
+      "selected_candidate": false
+    },
+    {
+      "baseline_best_validation_dice": 0.8310991643144732,
+      "candidate_best_validation_dice": 0.8307617079302176,
+      "fold": 2,
+      "selected_candidate": false
+    },
+    {
+      "baseline_best_validation_dice": 0.8667572289488721,
+      "candidate_best_validation_dice": 0.8682634442035471,
+      "fold": 3,
+      "selected_candidate": false
+    },
+    {
+      "baseline_best_validation_dice": 0.8625897904154117,
+      "candidate_best_validation_dice": 0.8689460165468051,
+      "fold": 4,
+      "selected_candidate": false
+    }
+  ],
+  "minimum_validation_dice_gain": 0.01,
+  "protocol": "mito_one_factor_validation_gate_v1",
+  "variant": "sampling_035"
+}

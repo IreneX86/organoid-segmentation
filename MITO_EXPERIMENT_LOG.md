@@ -148,3 +148,37 @@ training entry point rejects attempts to combine this loss candidate with the
 0.35 sampling candidate. Both candidate types use the same per-fold validation
 gate and defer outer-test scoring until their decisions are fixed. This second
 candidate has not yet been trained or evaluated.
+
+## 2026-10-02 — sampling five-fold result; Tversky pilot timed out
+
+The authorized Mito-only sampling experiment ran on one Secure Cloud A40 Pod
+(`hn5syvugzi6vwk`) at US$0.49/hour, using Python 3.11, TensorFlow 2.21.0,
+NumPy 2.4.6 and tifffile 2026.3.3. CUDA driver and TensorFlow GPU preflight
+passed before every fold. The unchanged frozen five-fold split was used;
+candidate training and threshold calibration did not open outer-test labels.
+All five 0.35-sampling candidate folds completed. Before outer-test access,
+`code/mito_candidate_gate.py` locked the pre-registered +0.01 validation-Dice
+rule. Candidate minus baseline best validation Dice by fold was approximately
++0.00045, +0.00013, −0.00034, +0.00151 and +0.00636. **No fold passed the
+gate.** Accordingly, no candidate outer-test mask was scored; the selected
+36-image OOF method remained the frozen baseline with Dice 0.854309 ±
+0.062776, IoU 0.750677, precision 0.839055 and recall 0.877258. These are
+the baseline's metrics, not evidence that the raw 0.35 model achieved them.
+The locked decisions and comparison are tracked in `experiments/results/`.
+
+A separate BCE+Tversky pilot started on the same Pod only after the sampling
+run ended. Fold 0 passed GPU preflight and wrote 77 validation-history rows,
+but hit the pilot's 25-minute timeout (exit 124) before normal completion;
+fold 1 did not start. Its interim best validation Dice was 0.863576 versus
+0.865050 for baseline fold 0. This is **incomplete diagnostic data**, not a
+valid Tversky CV result, and no outer-test label was read. The incomplete
+checkpoint, history and logs are SHA256-verified in ignored local
+`runpod_results/mito_ablation_20261001/`.
+
+All five completed sampling checkpoints, histories and logs were downloaded
+and SHA256-checked before Pod deletion. Runpod `list_pods` then returned an
+empty list. Final pod-specific billing for this session was **US$1.373148**
+(GPU US$1.352199, disk US$0.020949), below the US$2 guard. Cetus was not
+changed. The result does not support replacing the frozen baseline with
+0.35 sampling; further optimization needs a separately budgeted, complete
+five-fold comparison, ideally one factor at a time.

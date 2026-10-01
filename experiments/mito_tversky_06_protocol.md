@@ -1,6 +1,7 @@
 # Mito loss experiment 02 — locked protocol
 
-Status: **prepared, not run**. This is a separate one-factor candidate, never
+Status: **pilot attempted, incomplete; no CV or outer-test result**. This is a
+separate one-factor candidate, never
 combined with the sampling experiment. Baseline reference is the frozen five-
 fold run at commit `b6f2e87`.
 
@@ -45,3 +46,12 @@ The baseline OOF findings helped motivate this factor, so scores on the same
 36 images remain exploratory. Fresh independent labelled data will be needed
 for an unbiased final generalization claim. Raw masks, TIFFs, checkpoints,
 predictions, GPU logs, credentials, and SSH keys must stay out of Git.
+
+On 2026-10-02 Sydney time, a two-fold validation-only pilot was attempted
+within the existing Pod's cost allowance. Fold 0 reached 77 recorded epochs
+but hit the pilot's 25-minute timeout (exit 124) before training and
+calibration completed; fold 1 was not started. Its interim maximum validation
+Dice was 0.863576 versus the frozen fold-0 baseline's 0.865050. This interim
+number is diagnostic only and must not be used as a completed comparison.
+No outer-test label was read and no Tversky model was selected. The incomplete
+archive and timeout log are retained outside Git in `runpod_results/`.
