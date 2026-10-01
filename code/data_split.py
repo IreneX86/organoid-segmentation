@@ -55,6 +55,24 @@ def build_fold_split(
     if not 0 <= fold < num_folds:
         raise ValueError(f"fold must be in [0, {num_folds - 1}]")
     fold_ids = _balanced_fold_ids(pairs, num_folds, random_seed)
+    return split_from_fold_ids(pairs, fold_ids, fold, num_folds), fold_ids
+
+
+def split_from_fold_ids(
+    pairs: list[ImageLabelPair],
+    fold_ids: dict[str, int],
+    fold: int,
+    num_folds: int,
+) -> FoldSplit:
+    """Apply a frozen fold map without recalculating it from manual masks."""
+
+    if not 0 <= fold < num_folds:
+        raise ValueError(f"fold must be in [0, {num_folds - 1}]")
+    filenames = {pair.filename for pair in pairs}
+    if set(fold_ids) != filenames:
+        raise ValueError("Frozen fold map filenames differ from the paired TIFFs")
+    if any(not isinstance(index, int) or not 0 <= index < num_folds for index in fold_ids.values()):
+        raise ValueError("Frozen fold map contains an invalid fold index")
     validation_fold = (fold + 1) % num_folds
 
     train = [
@@ -62,5 +80,4 @@ def build_fold_split(
     ]
     validation = [pair for pair in pairs if fold_ids[pair.filename] == validation_fold]
     test = [pair for pair in pairs if fold_ids[pair.filename] == fold]
-    return FoldSplit(train=train, validation=validation, test=test), fold_ids
-
+    return FoldSplit(train=train, validation=validation, test=test)

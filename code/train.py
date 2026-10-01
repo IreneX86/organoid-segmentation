@@ -10,7 +10,7 @@ from pathlib import Path
 import numpy as np
 import tensorflow as tf
 
-from data_split import build_fold_split
+from data_split import build_fold_split, split_from_fold_ids
 from evaluation import (
     FullImageValidationCallback,
     choose_threshold,
@@ -51,6 +51,27 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--epochs", type=int, default=100)
     parser.add_argument("--learning-rate", type=float, default=1e-4)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument(
+        "--mito-positive-patch-probability",
+        type=float,
+        default=0.6,
+        help="Mito-only foreground-centred patch probability (baseline: 0.6).",
+    )
+    parser.add_argument(
+        "--expected-mito-fold-map",
+        type=Path,
+        help="Mito-only frozen baseline split.json; fail if fold assignments differ.",
+    )
+    parser.add_argument(
+        "--require-new-run-dir",
+        action="store_true",
+        help="Fail if the target fold output directory already exists.",
+    )
+    parser.add_argument(
+        "--defer-mito-outer-test",
+        action="store_true",
+        help="Train/calibrate Mito using validation only; score outer test later.",
+    )
     return parser.parse_args()
 
 
@@ -79,6 +100,16 @@ def _write_split_manifest(
 
 def main() -> None:
     args = parse_args()
+    if not 0 <= args.mito_positive_patch_probability <= 1:
+        raise ValueError("mito-positive-patch-probability must be between 0 and 1")
+    if args.target != "mito" and (
+        args.mito_positive_patch_probability != 0.6
+        or args.expected_mito_fold_map is not None
+        or args.defer_mito_outer_test
+    ):
+        raise ValueError("Mito experiment options cannot be used for LD or Nuc")
+    if args.defer_mito_outer_test and args.expected_mito_fold_map is None:
+        raise ValueError("Deferred Mito outer test requires a frozen fold map")
     config = PipelineConfig(
         patch_size=args.patch_size,
         overlap=args.overlap,
@@ -96,16 +127,52 @@ def main() -> None:
         project_root / target_spec.input_relative_dir,
         project_root / target_spec.label_relative_dir,
     )
-    dataset_report = validate_pairs(pairs)
-    split, fold_ids = build_fold_split(
-        pairs,
-        fold=args.fold,
-        num_folds=args.num_folds,
-        random_seed=args.seed,
-    )
+    if args.expected_mito_fold_map is not None:
+        # Apply the already frozen map directly. Recomputing it would read
+        # outer-test mask foreground fractions during candidate setup.
+        expected = json.loads(args.expected_mito_fold_map.read_text(encoding="utf-8"))
+        if expected.get("target") != "mito" or expected.get("num_folds") != args.num_folds:
+            raise ValueError("Expected fold map is not a matching Mito split")
+        fold_ids = expected["fold_ids"]
+        split = split_from_fold_ids(pairs, fold_ids, args.fold, args.num_folds)
+    else:
+        split, fold_ids = build_fold_split(
+            pairs,
+            fold=args.fold,
+            num_folds=args.num_folds,
+            random_seed=args.seed,
+        )
+    # During the candidate's validation-only stage, do not even open the
+    # outer-test mask. The frozen fold map assigns it using filenames alone.
+    report_pairs = split.train + split.validation if args.defer_mito_outer_test else pairs
+    dataset_report = validate_pairs(report_pairs)
 
     run_dir = args.output_root.resolve() / args.target / f"fold_{args.fold}"
+    if args.require_new_run_dir and run_dir.exists():
+        raise FileExistsError(f"Refusing to overwrite an existing run: {run_dir}")
     run_dir.mkdir(parents=True, exist_ok=True)
+    if args.target == "mito":
+        # Record the single experimental factor next to each fold's split and metrics.
+        with (run_dir / "experiment_config.json").open("w", encoding="utf-8") as handle:
+            json.dump(
+                {
+                    "target": args.target,
+                    "fold": args.fold,
+                    "num_folds": args.num_folds,
+                    "seed": args.seed,
+                    "positive_patch_probability": args.mito_positive_patch_probability,
+                    "patch_size": args.patch_size,
+                    "overlap": args.overlap,
+                    "batch_size": args.batch_size,
+                    "steps_per_epoch": args.steps_per_epoch,
+                    "epochs": args.epochs,
+                    "learning_rate": args.learning_rate,
+                    "outer_test_deferred": args.defer_mito_outer_test,
+                },
+                handle,
+                indent=2,
+                sort_keys=True,
+            )
     with (run_dir / "dataset_report.json").open("w", encoding="utf-8") as handle:
         json.dump(dataset_report, handle, indent=2)
     _write_split_manifest(
@@ -126,6 +193,7 @@ def main() -> None:
         steps_per_epoch=args.steps_per_epoch,
         lower_percentile=config.lower_percentile,
         upper_percentile=config.upper_percentile,
+        positive_patch_probability=args.mito_positive_patch_probability,
         random_seed=config.random_seed,
         augment=True,
     )
@@ -192,6 +260,11 @@ def main() -> None:
             handle,
             indent=2,
         )
+
+    if args.defer_mito_outer_test:
+        # Inner-validation model choice happens before outer-test evaluation.
+        print("MITO_OUTER_TEST_DEFERRED: no outer-test metric was computed")
+        return
 
     test_predictions = predict_pairs(
         best_model,

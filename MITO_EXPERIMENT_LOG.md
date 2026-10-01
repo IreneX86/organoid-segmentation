@@ -112,3 +112,28 @@ median 0.8756 and range 0.7266–0.9296. This is a baseline, not a model
 improvement. The pre-registered fixed-0.50 threshold comparison changed
 mean Dice by only −0.0004 relative to validation-selected thresholds.
 No optimization training followed.
+
+## 2026-10-01 — sampling candidate prepared, no GPU experiment started
+
+The first Mito-only candidate is pre-registered in
+`experiments/mito_sampling_035_protocol.md`: reduce foreground-centred patch
+sampling from 0.60 to 0.35 while keeping the original model, loss,
+augmentation, optimizer, training budget, and inference unchanged. This is a
+single-factor, exploratory comparison motivated after seeing baseline OOF
+results. It is **not** an independently confirmed improvement.
+
+`code/train.py` now accepts the Mito-only sampling parameter with an unchanged
+0.60 default. For candidate runs it can consume the exact frozen fold map,
+refuse existing output directories, and defer all outer-test evaluation. In
+that mode it validates only training/validation TIFF pairs; no outer-test mask
+is opened during training or calibration. `code/mito_sampling_gate.py` fixes a
+conservative per-fold choice using only the two models' validation histories:
+0.35 is selected only if best full-image validation Dice improves by at least
+0.01, otherwise the frozen 0.60 baseline is retained. Candidate outer-test
+predictions can only be exported after this gate is saved. Tests check frozen
+split membership and rejection of prematurely scored candidate runs.
+
+No candidate model has been trained, no Runpod resource has been created, and
+no new Dice result exists. The next step is a five-fold GPU candidate run,
+which requires a separate execution/budget gate under the user's earlier
+instruction to stop before large GPU experiments.
