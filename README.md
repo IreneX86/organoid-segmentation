@@ -23,6 +23,12 @@ raw TIFFs, and Runpod logs are intentionally kept outside Git.
 
 Use [OPTIMIZATION_GOALS.md](OPTIMIZATION_GOALS.md) for the next experimental
 stage. No model changes or additional training are part of this baseline freeze.
+The read-only Mito data audit, first pre-registered comparison, and current
+five-fold evidence gap are recorded in [MITO_EXPERIMENT_LOG.md](MITO_EXPERIMENT_LOG.md).
+After all five unchanged baseline folds finish, validate their reports with
+`python code/mito_cv_report.py /path/to/mito/fold_runs` before interpreting an
+out-of-fold score. The reporter fails if folds overlap or any test report is
+missing; it does not train or alter the data.
 
 ## Geometry contract
 
