@@ -1,4 +1,4 @@
-"""The sampling gate must use validation scores and reject early test scoring."""
+"""Candidate gates must use validation scores and reject early test scoring."""
 
 from __future__ import annotations
 
@@ -10,10 +10,10 @@ import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from mito_sampling_gate import select_folds
+from mito_candidate_gate import select_folds
 
 
-class MitoSamplingGateTests(unittest.TestCase):
+class MitoCandidateGateTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory()
         self.root = Path(self.temporary.name)
@@ -31,6 +31,7 @@ class MitoSamplingGateTests(unittest.TestCase):
             (cand / "experiment_config.json").write_text(json.dumps({
                 "target": "mito", "fold": fold,
                 "positive_patch_probability": 0.35,
+                "loss": "bce_dice",
                 "outer_test_deferred": True,
             }), encoding="utf-8")
             (cand / "baseline_unet.keras").write_bytes(b"synthetic model")
@@ -46,11 +47,21 @@ class MitoSamplingGateTests(unittest.TestCase):
 
     def test_selects_candidate_only_after_margin(self) -> None:
         decisions = select_folds(self.baseline, self.candidate)["decisions"]
-        self.assertEqual(decisions[0]["selected_positive_patch_probability"], 0.35)
+        self.assertTrue(decisions[0]["selected_candidate"])
         self.assertTrue(all(
-            decision["selected_positive_patch_probability"] == 0.6
+            not decision["selected_candidate"]
             for decision in decisions[1:]
         ))
+
+    def test_checks_loss_variant_without_combining_sampling_change(self) -> None:
+        for fold in range(5):
+            path = self.candidate / "mito" / f"fold_{fold}" / "experiment_config.json"
+            config = json.loads(path.read_text(encoding="utf-8"))
+            config["positive_patch_probability"] = 0.6
+            config["loss"] = "bce_tversky_06"
+            path.write_text(json.dumps(config), encoding="utf-8")
+        report = select_folds(self.baseline, self.candidate, "tversky_06")
+        self.assertEqual(report["variant"], "tversky_06")
 
     def test_rejects_candidate_outer_test_scored_early(self) -> None:
         (self.candidate / "mito" / "fold_2" / "test_per_image.csv").write_text("", encoding="utf-8")

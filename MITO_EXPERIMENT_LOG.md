@@ -126,7 +126,7 @@ results. It is **not** an independently confirmed improvement.
 0.60 default. For candidate runs it can consume the exact frozen fold map,
 refuse existing output directories, and defer all outer-test evaluation. In
 that mode it validates only training/validation TIFF pairs; no outer-test mask
-is opened during training or calibration. `code/mito_sampling_gate.py` fixes a
+is opened during training or calibration. `code/mito_candidate_gate.py` fixes a
 conservative per-fold choice using only the two models' validation histories:
 0.35 is selected only if best full-image validation Dice improves by at least
 0.01, otherwise the frozen 0.60 baseline is retained. Candidate outer-test
@@ -137,3 +137,14 @@ No candidate model has been trained, no Runpod resource has been created, and
 no new Dice result exists. The next step is a five-fold GPU candidate run,
 which requires a separate execution/budget gate under the user's earlier
 instruction to stop before large GPU experiments.
+
+## 2026-10-01 — second independent loss candidate prepared
+
+At the user's request for multiple factors, a **separate** Mito loss ablation
+was specified in `experiments/mito_tversky_06_protocol.md`. It replaces only
+the overlap term of BCE+Dice with mild precision-aware Tversky (FP weight 0.6,
+FN weight 0.4); foreground-centred sampling remains at baseline 0.60. The
+training entry point rejects attempts to combine this loss candidate with the
+0.35 sampling candidate. Both candidate types use the same per-fold validation
+gate and defer outer-test scoring until their decisions are fixed. This second
+candidate has not yet been trained or evaluated.

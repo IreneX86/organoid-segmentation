@@ -29,9 +29,9 @@ def main() -> None:
         help="For a deferred outer test, write metrics after the validation-only decision.",
     )
     parser.add_argument(
-        "--sampling-decisions",
+        "--candidate-decisions",
         type=Path,
-        help="Required for a validation-only sampling candidate's outer-test export.",
+        help="Required for a validation-only candidate's outer-test export.",
     )
     args = parser.parse_args()
     run_dir = args.run_dir.resolve()
@@ -40,15 +40,25 @@ def main() -> None:
         with experiment_path.open(encoding="utf-8") as handle:
             experiment = json.load(handle)
         if experiment.get("outer_test_deferred") is True:
-            if args.sampling_decisions is None or not args.write_test_report:
+            if args.candidate_decisions is None or not args.write_test_report:
                 raise ValueError("Deferred candidate requires locked decisions and test report")
-            with args.sampling_decisions.open(encoding="utf-8") as handle:
+            with args.candidate_decisions.open(encoding="utf-8") as handle:
                 decisions = json.load(handle)
             fold = experiment["fold"]
             matching = [item for item in decisions.get("decisions", []) if item["fold"] == fold]
-            if (decisions.get("protocol") != "mito_sampling_035_validation_gate_v1"
+            expected_variant = (
+                "sampling_035"
+                if experiment.get("positive_patch_probability") == 0.35
+                and experiment.get("loss") == "bce_dice"
+                else "tversky_06"
+                if experiment.get("positive_patch_probability") == 0.6
+                and experiment.get("loss") == "bce_tversky_06"
+                else None
+            )
+            if (decisions.get("protocol") != "mito_one_factor_validation_gate_v1"
+                    or decisions.get("variant") != expected_variant
                     or len(matching) != 1
-                    or matching[0]["selected_positive_patch_probability"] != 0.35):
+                    or matching[0]["selected_candidate"] is not True):
                 raise ValueError("This fold was not selected by the validation-only gate")
     if args.write_test_report and any(
         (run_dir / name).exists() for name in ("test_per_image.csv", "test_summary.json")

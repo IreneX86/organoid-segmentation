@@ -18,7 +18,11 @@ from evaluation import (
     predict_pairs,
     write_metric_report,
 )
-from losses import binary_crossentropy_dice_loss, soft_dice_coefficient
+from losses import (
+    binary_crossentropy_dice_loss,
+    binary_crossentropy_tversky_06_loss,
+    soft_dice_coefficient,
+)
 from model import build_unet_2d
 from patch_dataset import RandomPatchSequence
 from pipeline_config import PipelineConfig, get_target_spec
@@ -56,6 +60,12 @@ def parse_args() -> argparse.Namespace:
         type=float,
         default=0.6,
         help="Mito-only foreground-centred patch probability (baseline: 0.6).",
+    )
+    parser.add_argument(
+        "--mito-loss",
+        choices=("bce_dice", "bce_tversky_06"),
+        default="bce_dice",
+        help="Mito-only loss ablation; baseline is bce_dice.",
     )
     parser.add_argument(
         "--expected-mito-fold-map",
@@ -104,12 +114,15 @@ def main() -> None:
         raise ValueError("mito-positive-patch-probability must be between 0 and 1")
     if args.target != "mito" and (
         args.mito_positive_patch_probability != 0.6
+        or args.mito_loss != "bce_dice"
         or args.expected_mito_fold_map is not None
         or args.defer_mito_outer_test
     ):
         raise ValueError("Mito experiment options cannot be used for LD or Nuc")
     if args.defer_mito_outer_test and args.expected_mito_fold_map is None:
         raise ValueError("Deferred Mito outer test requires a frozen fold map")
+    if args.mito_loss != "bce_dice" and args.mito_positive_patch_probability != 0.6:
+        raise ValueError("Do not combine the Mito loss and sampling ablations")
     config = PipelineConfig(
         patch_size=args.patch_size,
         overlap=args.overlap,
@@ -161,6 +174,7 @@ def main() -> None:
                     "num_folds": args.num_folds,
                     "seed": args.seed,
                     "positive_patch_probability": args.mito_positive_patch_probability,
+                    "loss": args.mito_loss,
                     "patch_size": args.patch_size,
                     "overlap": args.overlap,
                     "batch_size": args.batch_size,
@@ -199,9 +213,14 @@ def main() -> None:
     )
 
     model = build_unet_2d()
+    selected_loss = (
+        binary_crossentropy_tversky_06_loss
+        if args.mito_loss == "bce_tversky_06"
+        else binary_crossentropy_dice_loss
+    )
     model.compile(
         optimizer=tf.keras.optimizers.Adam(learning_rate=args.learning_rate),
-        loss=binary_crossentropy_dice_loss,
+        loss=selected_loss,
         metrics=[soft_dice_coefficient],
     )
 

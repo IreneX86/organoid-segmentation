@@ -24,7 +24,8 @@ inner validation set; the remaining three folds are training images. Candidate
 models use `--mito-positive-patch-probability 0.35`,
 `--expected-mito-fold-map`, `--defer-mito-outer-test`, and a fresh output root.
 
-After **all five validation-only candidate runs**, compare candidate and
+After **all five validation-only candidate runs**, run
+`code/mito_candidate_gate.py --variant sampling_035` to compare candidate and
 baseline on each fold's *same validation set* using the maximum recorded
 `val_full_dice` at threshold 0.50. Select 0.35 for that outer fold only if its
 best validation Dice exceeds the baseline best by at least **0.01**; otherwise
