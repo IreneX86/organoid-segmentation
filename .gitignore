@@ -1,0 +1,46 @@
+# Biological images and annotations are local-only.
+data/
+label_ref/
+organoid_data/
+*.tif
+*.tiff
+
+# Models, predictions, experiment output, and transfer archives.
+*.keras
+*.h5
+*.npz
+*.npy
+*.tar
+*.tar.gz
+*.zip
+artifacts/
+outputs/
+predictions/
+runpod_results/
+*.log
+
+# Local work copies and Cetus-specific scripts with account paths.
+phase12_work/
+legacy/
+*.pbs
+
+# Python and OS generated files.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.DS_Store
+
+# Credentials and private configuration.
+.env
+.env.*
+.ssh/
+.aws/
+credentials/
+*credentials*
+id_rsa*
+id_ed25519*
+*.pem
+*.key
+known_hosts*
+.netrc
