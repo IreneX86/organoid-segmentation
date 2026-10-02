@@ -62,6 +62,13 @@ def parse_args() -> argparse.Namespace:
         help="Mito-only foreground-centred patch probability (baseline: 0.6).",
     )
     parser.add_argument(
+        "--mito-hard-negative-fraction",
+        type=float,
+        choices=(0.0, 0.2),
+        default=0.0,
+        help="Mito-only locked hard-negative branch; 0.2 is the fixed protocol.",
+    )
+    parser.add_argument(
         "--mito-loss",
         choices=("bce_dice", "bce_tversky_06"),
         default="bce_dice",
@@ -120,6 +127,7 @@ def main() -> None:
         raise ValueError("mito-positive-patch-probability must be between 0 and 1")
     if args.target != "mito" and (
         args.mito_positive_patch_probability != 0.6
+        or args.mito_hard_negative_fraction != 0.0
         or args.mito_loss != "bce_dice"
         or args.mito_architecture != "baseline"
         or args.expected_mito_fold_map is not None
@@ -130,6 +138,14 @@ def main() -> None:
         raise ValueError("Deferred Mito outer test requires a frozen fold map")
     if args.mito_loss != "bce_dice" and args.mito_positive_patch_probability != 0.6:
         raise ValueError("Do not combine the Mito loss and sampling ablations")
+    if args.mito_hard_negative_fraction and (
+        args.mito_positive_patch_probability != 0.6
+        or args.mito_loss != "bce_dice"
+        or args.mito_architecture != "baseline"
+        or args.patch_size != 512
+        or args.overlap != 128
+    ):
+        raise ValueError("Hard-negative sampling must use the isolated baseline settings")
     if args.mito_architecture != "baseline" and (
         args.mito_loss != "bce_dice"
         or args.mito_positive_patch_probability != 0.6
@@ -186,6 +202,7 @@ def main() -> None:
                     "num_folds": args.num_folds,
                     "seed": args.seed,
                     "positive_patch_probability": args.mito_positive_patch_probability,
+                    "hard_negative_fraction": args.mito_hard_negative_fraction,
                     "loss": args.mito_loss,
                     "architecture": args.mito_architecture,
                     "patch_size": args.patch_size,
@@ -212,6 +229,22 @@ def main() -> None:
         [pair.filename for pair in split.validation],
         [pair.filename for pair in split.test],
     )
+    if args.mito_hard_negative_fraction:
+        from hard_negative_sampling import hard_negative_centers
+        # Audit candidate availability using training pairs exclusively. If an
+        # image has none, its hard branch falls back to a uniform crop.
+        center_counts = {
+            pair.filename: len(hard_negative_centers(
+                str(pair.image_path), str(pair.label_path),
+                config.lower_percentile, config.upper_percentile,
+            )) for pair in split.train
+        }
+        with (run_dir / "hard_negative_center_counts.json").open(
+            "x", encoding="utf-8"
+        ) as handle:
+            json.dump(center_counts, handle, indent=2, sort_keys=True)
+        print(f"Hard-negative zero-centre training images: "
+              f"{sum(count == 0 for count in center_counts.values())}")
 
     train_sequence = RandomPatchSequence(
         split.train,
@@ -221,6 +254,7 @@ def main() -> None:
         lower_percentile=config.lower_percentile,
         upper_percentile=config.upper_percentile,
         positive_patch_probability=args.mito_positive_patch_probability,
+        hard_negative_fraction=args.mito_hard_negative_fraction,
         random_seed=config.random_seed,
         augment=True,
     )

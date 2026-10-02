@@ -32,6 +32,10 @@ The completed optimization record is in
 [reports/mito_optimization_round2_20261002.md](reports/mito_optimization_round2_20261002.md).
 The subsequent read-only error analysis, derived figures and local biological
 panel index are in [reports/mito_error_analysis_20261002.md](reports/mito_error_analysis_20261002.md).
+The fixed bright-background hard-negative sampling comparison completed five
+Mito folds but selected none by the validation-only rule; the frozen baseline
+remains current. See [reports/mito_hard_negative_5fold_20261002.md](reports/mito_hard_negative_5fold_20261002.md)
+for the paired OOF and validation-only FP/recall analysis.
 
 Use [OPTIMIZATION_GOALS.md](OPTIMIZATION_GOALS.md) for the next experimental
 stage. The original fold-0 baseline commit, tag and artifacts remain unchanged;

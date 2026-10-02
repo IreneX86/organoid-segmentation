@@ -290,3 +290,33 @@ hard-negative sampling test; they do not prove FP biological identity or
 annotation inconsistency. The fixed one-factor plan is
 `experiments/mito_hard_negative_protocol.md`. No sampler implementation,
 training, Pod, TIFF/mask edit or Cetus change occurred during this audit.
+
+## 2026-10-02 — bright-background hard-negative sampling, five folds
+
+The fixed protocol was implemented as one Mito-only sampling change: 0.60
+foreground-centred, 0.20 unchanged uniform, and 0.20 training-fold-only
+bright-background hard-negative centres. Frozen splits, U-Net, loss,
+normalization, augmentation, patch size, optimizer, validation threshold and
+overlap were unchanged. All five folds completed (76, 82, 48, 57, 46 epochs);
+each training image had eligible hard-negative centres.
+
+The locked validation-only gate selected **0/5** folds. Fold mean validation
+Dice changes were −0.002276, +0.000833, −0.000682, +0.000211 and +0.000383;
+fold 4's low-foreground validation subset lost 0.023823 Dice. No candidate
+outer-test label was read. The selected-policy 36-image OOF Dice therefore
+remained the frozen baseline **0.854309 ± 0.062776**; paired OOF change is
+zero by the predeclared fallback rule, not a measurement of raw candidate test
+performance. A post-decision validation-only FP audit found, for the seven
+low-foreground images, average FP −370 and distant FP −55 pixels per image,
+but recall −0.005463 and Dice −0.002682; across all 36 validation images,
+average distant FP increased by 115 pixels. The method is **rejected** and its
+threshold/probability will not be scanned.
+
+One Secure Cloud A40 Pod was used. The first preflight stopped before training
+because macOS AppleDouble `._*.tif` metadata doubled the apparent file count.
+A clean copy excluding only those generated metadata files was used for a
+same-science technical retry on the same Pod. GPU preflight passed; all five
+SHA256-verified model/results archives were downloaded locally before Pod
+deletion. `list_pods` was empty after cleanup. The detailed research record,
+validation and OOF FP tables, and billing are in
+`reports/mito_hard_negative_5fold_20261002.md` and `experiments/results/`.

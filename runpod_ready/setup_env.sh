@@ -31,11 +31,12 @@ fi
 conda activate organoid-runpod
 
 # Match the versions observed in the Cetus organoid environment. TensorFlow's
-# `and-cuda` extra supplies the Linux CUDA/cuDNN runtime libraries via pip.
+# `and-cuda` supplies CUDA/cuDNN; the Mito hard-negative ablation uses SciPy.
 python -m pip install --no-cache-dir \
     'tensorflow[and-cuda]==2.21.0' \
     'numpy==2.4.6' \
-    'tifffile==2026.3.3'
+    'tifffile==2026.3.3' \
+    'scipy==1.16.2'
 python -m pip check
 python --version
-python -m pip show tensorflow numpy tifffile | grep -E '^(Name|Version):'
+python -m pip show tensorflow numpy tifffile scipy | grep -E '^(Name|Version):'

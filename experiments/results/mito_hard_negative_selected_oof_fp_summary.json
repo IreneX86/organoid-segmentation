@@ -1,0 +1,38 @@
+{
+  "all": {
+    "baseline_distant_fp_pixels": 108432,
+    "baseline_fp_pixels": 533991,
+    "image_count": 36,
+    "images_dice_improved": 0,
+    "images_dice_worsened": 0,
+    "mean_delta_dice": 0.0,
+    "mean_delta_precision": 0.0,
+    "mean_delta_recall": 0.0,
+    "selected_distant_fp_pixels": 108432,
+    "selected_fp_pixels": 533991
+  },
+  "higher_foreground": {
+    "baseline_distant_fp_pixels": 80890,
+    "baseline_fp_pixels": 429215,
+    "image_count": 29,
+    "images_dice_improved": 0,
+    "images_dice_worsened": 0,
+    "mean_delta_dice": 0.0,
+    "mean_delta_precision": 0.0,
+    "mean_delta_recall": 0.0,
+    "selected_distant_fp_pixels": 80890,
+    "selected_fp_pixels": 429215
+  },
+  "low_foreground": {
+    "baseline_distant_fp_pixels": 27542,
+    "baseline_fp_pixels": 104776,
+    "image_count": 7,
+    "images_dice_improved": 0,
+    "images_dice_worsened": 0,
+    "mean_delta_dice": 0.0,
+    "mean_delta_precision": 0.0,
+    "mean_delta_recall": 0.0,
+    "selected_distant_fp_pixels": 27542,
+    "selected_fp_pixels": 104776
+  }
+}

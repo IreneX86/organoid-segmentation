@@ -1,0 +1,32 @@
+{
+  "all": {
+    "image_count": 36,
+    "images_dice_improved": 21,
+    "images_dice_worsened": 15,
+    "mean_delta_dice": -0.00029180825125393574,
+    "mean_delta_distant_fp_pixels": 114.97222222222223,
+    "mean_delta_fp_pixels": 118.52777777777777,
+    "mean_delta_precision": -0.0007798982608631377,
+    "mean_delta_recall": 0.0006754264993120553
+  },
+  "higher_foreground": {
+    "image_count": 29,
+    "images_dice_improved": 16,
+    "images_dice_worsened": 13,
+    "mean_delta_dice": 0.0002852196005455782,
+    "mean_delta_distant_fp_pixels": 156.10344827586206,
+    "mean_delta_fp_pixels": 236.51724137931035,
+    "mean_delta_precision": -0.0009124303450672684,
+    "mean_delta_recall": 0.002157023802945399
+  },
+  "low_foreground": {
+    "image_count": 7,
+    "images_dice_improved": 5,
+    "images_dice_worsened": 2,
+    "mean_delta_dice": -0.002682352208709065,
+    "mean_delta_distant_fp_pixels": -55.42857142857143,
+    "mean_delta_fp_pixels": -370.2857142857143,
+    "mean_delta_precision": -0.000230836769160311,
+    "mean_delta_recall": -0.005462619472883227
+  }
+}

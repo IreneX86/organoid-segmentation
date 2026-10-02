@@ -1,4 +1,4 @@
-"""Select a three-pool Mito candidate using only each fold's validation set.
+"""Select a Mito candidate using only each fold's validation set.
 
 This deliberately never opens an outer-test TIFF or mask. Decisions are
 written once, before any candidate outer-test export is permitted.
@@ -75,6 +75,10 @@ def main() -> None:
     parser.add_argument("--baseline-root", type=Path, required=True)
     parser.add_argument("--baseline-model-root", type=Path, required=True)
     parser.add_argument("--candidate-root", type=Path, required=True)
+    parser.add_argument(
+        "--variant", choices=("three_pool", "hard_negative"),
+        default="three_pool",
+    )
     args = parser.parse_args()
 
     import tensorflow as tf
@@ -98,12 +102,21 @@ def main() -> None:
         if baseline_split != candidate_split:
             raise ValueError(f"Fold {fold} differs from frozen split")
         exp = json.loads((candidate / "experiment_config.json").read_text())
+        expected_architecture = "three_pool" if args.variant == "three_pool" else "baseline"
+        expected_hard_fraction = 0.2 if args.variant == "hard_negative" else 0.0
         if (exp.get("target") != "mito" or exp.get("fold") != fold
-                or exp.get("architecture") != "three_pool"
+                or exp.get("architecture") != expected_architecture
                 or exp.get("loss") != "bce_dice"
                 or exp.get("positive_patch_probability") != 0.6
+                or exp.get("hard_negative_fraction", 0.0) != expected_hard_fraction
+                or exp.get("patch_size") != 512
+                or exp.get("overlap") != 128
+                or exp.get("batch_size") != 4
+                or exp.get("steps_per_epoch") != 100
+                or exp.get("epochs") != 100
+                or exp.get("learning_rate") != 1e-4
                 or exp.get("outer_test_deferred") is not True):
-            raise ValueError(f"Fold {fold} is not the isolated three-pool candidate")
+            raise ValueError(f"Fold {fold} is not the isolated {args.variant} candidate")
         if (candidate / "test_per_image.csv").exists() or (candidate / "predictions").exists():
             raise ValueError(f"Fold {fold} had premature outer-test evaluation")
         val_pairs = [by_name[name] for name in baseline_split["validation"]]
@@ -130,8 +143,10 @@ def main() -> None:
               f"selected={result['selected_candidate']}", flush=True)
 
     report = {
-        "protocol": "mito_three_pool_validation_gate_v1",
-        "variant": "three_pool",
+        "protocol": ("mito_hard_negative_validation_gate_v1"
+                     if args.variant == "hard_negative"
+                     else "mito_three_pool_validation_gate_v1"),
+        "variant": args.variant,
         "selection_rule": {
             "overall_mean_delta_at_least": 0.003,
             "or_low_foreground_delta_at_least": 0.010,

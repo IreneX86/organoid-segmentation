@@ -1,0 +1,92 @@
+{
+  "billing_status": "pending_final_settlement",
+  "environment": {
+    "numpy": "2.4.6",
+    "python": "3.11.16",
+    "scipy": "1.16.2",
+    "tensorflow": "2.21.0",
+    "tifffile": "2026.3.3"
+  },
+  "experiment": "mito_hard_negative_5fold_20261002",
+  "folds": [
+    {
+      "best_validation_dice": 0.8630685946599297,
+      "eligible_centers_max": 37203,
+      "eligible_centers_min": 4274,
+      "epochs": 76,
+      "fold": 0,
+      "zero_eligible_training_images": 0
+    },
+    {
+      "best_validation_dice": 0.8597239434760672,
+      "eligible_centers_max": 40045,
+      "eligible_centers_min": 4274,
+      "epochs": 82,
+      "fold": 1,
+      "zero_eligible_training_images": 0
+    },
+    {
+      "best_validation_dice": 0.8307244185172353,
+      "eligible_centers_max": 40045,
+      "eligible_centers_min": 4274,
+      "epochs": 48,
+      "fold": 2,
+      "zero_eligible_training_images": 0
+    },
+    {
+      "best_validation_dice": 0.8672362580654911,
+      "eligible_centers_max": 40045,
+      "eligible_centers_min": 4561,
+      "epochs": 57,
+      "fold": 3,
+      "zero_eligible_training_images": 0
+    },
+    {
+      "best_validation_dice": 0.8633308993114814,
+      "eligible_centers_max": 39449,
+      "eligible_centers_min": 4658,
+      "epochs": 46,
+      "fold": 4,
+      "zero_eligible_training_images": 0
+    }
+  ],
+  "gpu": "NVIDIA A40 Secure Cloud",
+  "gpu_hourly_usd": 0.49,
+  "local_archives": [
+    {
+      "bytes": 87051677,
+      "name": "hard_negative_fold0.tar.gz",
+      "sha256": "ea8cfebcbec2ef800acf950ae052898a837e940a20ef858fdd05ffcc612f851a"
+    },
+    {
+      "bytes": 87098290,
+      "name": "hard_negative_fold1.tar.gz",
+      "sha256": "b89ae4608ed2af78ef7daa22ab90f407dfec4677937f3d53ea04658eceec6eca"
+    },
+    {
+      "bytes": 86788256,
+      "name": "hard_negative_fold2.tar.gz",
+      "sha256": "427bcee786e00146e510f745db1c36c21adfd38d14116b41d0ab908964efb4d7"
+    },
+    {
+      "bytes": 86920599,
+      "name": "hard_negative_fold3.tar.gz",
+      "sha256": "7603b573b437919309c7fc3c02e8320b1b89d6c716ecc13105e48fab4d306337"
+    },
+    {
+      "bytes": 86876602,
+      "name": "hard_negative_fold4.tar.gz",
+      "sha256": "56a3b3e9fc1d56802644f0d4aa9fb96b198f4a07891bb625f2d8efd38e48afa5"
+    },
+    {
+      "bytes": 7781,
+      "name": "hard_negative_final.tar.gz",
+      "sha256": "201fcf344877f26673aed76ab7b7f88220bdf9a921dd101312859369444a1d3a"
+    }
+  ],
+  "outer_candidate_test_scored": false,
+  "pod_deleted": true,
+  "pod_id": "txecsmz46nxbtl",
+  "protocol": "experiments/mito_hard_negative_protocol.md",
+  "validation_selected_folds": 0
+}

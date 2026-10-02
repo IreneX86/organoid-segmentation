@@ -49,12 +49,16 @@ def _sample_patch(
     patch_size: int,
     rng: np.random.Generator,
     positive_patch_probability: float,
+    hard_negative_fraction: float = 0.0,
+    hard_negative_centers: np.ndarray | None = None,
 ) -> tuple[np.ndarray, np.ndarray]:
     image, mask = _pad_to_patch(image, mask, patch_size)
     max_y = image.shape[0] - patch_size
     max_x = image.shape[1] - patch_size
 
-    use_positive_center = mask.any() and rng.random() < positive_patch_probability
+    # The default branch preserves the frozen baseline's random draw exactly.
+    draw = rng.random()
+    use_positive_center = mask.any() and draw < positive_patch_probability
     if use_positive_center:
         foreground_y, foreground_x = np.nonzero(mask)
         selected = int(rng.integers(len(foreground_y)))
@@ -62,6 +66,15 @@ def _sample_patch(
         center_x = int(foreground_x[selected])
         y0 = int(np.clip(center_y - patch_size // 2, 0, max_y))
         x0 = int(np.clip(center_x - patch_size // 2, 0, max_x))
+    elif (hard_negative_fraction > 0
+          and draw < positive_patch_probability + hard_negative_fraction
+          and hard_negative_centers is not None
+          and len(hard_negative_centers)):
+        center_y, center_x = hard_negative_centers[
+            int(rng.integers(len(hard_negative_centers)))
+        ]
+        y0 = int(np.clip(int(center_y) - patch_size // 2, 0, max_y))
+        x0 = int(np.clip(int(center_x) - patch_size // 2, 0, max_x))
     else:
         y0 = int(rng.integers(max_y + 1))
         x0 = int(rng.integers(max_x + 1))
@@ -119,6 +132,7 @@ class RandomPatchSequence(tf.keras.utils.Sequence):
         lower_percentile: float,
         upper_percentile: float,
         positive_patch_probability: float = 0.6,
+        hard_negative_fraction: float = 0.0,
         random_seed: int = 42,
         augment: bool = True,
         **kwargs: object,
@@ -130,6 +144,8 @@ class RandomPatchSequence(tf.keras.utils.Sequence):
             raise ValueError("batch_size and steps_per_epoch must be positive")
         if not 0 <= positive_patch_probability <= 1:
             raise ValueError("positive_patch_probability must be between 0 and 1")
+        if not 0 <= hard_negative_fraction <= 1 - positive_patch_probability:
+            raise ValueError("hard-negative fraction must fit the non-positive branch")
 
         self.pairs = pairs
         self.batch_size = batch_size
@@ -138,6 +154,11 @@ class RandomPatchSequence(tf.keras.utils.Sequence):
         self.lower_percentile = lower_percentile
         self.upper_percentile = upper_percentile
         self.positive_patch_probability = positive_patch_probability
+        self.hard_negative_fraction = hard_negative_fraction
+        if hard_negative_fraction:
+            # SciPy is an opt-in dependency; the frozen baseline needs none.
+            from hard_negative_sampling import hard_negative_centers
+            self._hard_negative_centers = hard_negative_centers
         self.random_seed = random_seed
         self.augment = augment
         self.epoch_index = 0
@@ -162,12 +183,21 @@ class RandomPatchSequence(tf.keras.utils.Sequence):
                 self.lower_percentile,
                 self.upper_percentile,
             )
+            centers = (
+                self._hard_negative_centers(
+                    str(pair.image_path), str(pair.label_path),
+                    self.lower_percentile, self.upper_percentile,
+                )
+                if self.hard_negative_fraction else None
+            )
             image_patch, mask_patch = _sample_patch(
                 image,
                 mask,
                 self.patch_size,
                 rng,
                 self.positive_patch_probability,
+                self.hard_negative_fraction,
+                centers,
             )
             if self.augment:
                 image_patch, mask_patch = _augment_patch(image_patch, mask_patch, rng)
