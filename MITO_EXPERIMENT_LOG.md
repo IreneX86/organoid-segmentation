@@ -214,6 +214,10 @@ baseline checkpoint, Cetus job or future unseen data was changed.
 
 ## 2026-10-02 — second-round thin-structure and inference-context ablations
 
+The research record covering the frozen baseline and all four completed
+one-factor comparisons is indexed at
+`reports/mito_optimization_round2_20261002.md`.
+
 The frozen Mito five-fold baseline remained unchanged at OOF Dice **0.854309
 ± 0.062776** (36 images). A read-only audit of the labelled development pool
 and frozen OOF predictions found seven images with ≤5% foreground: mean Dice

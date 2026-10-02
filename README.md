@@ -25,7 +25,11 @@ The unchanged full five-fold Mito baseline is documented in
 [baseline/mito_five_fold_20261001/README.md](baseline/mito_five_fold_20261001/README.md).
 Across all 36 out-of-fold images, mean Dice was 0.8543 ± 0.0628 (sample SD),
 with median 0.8756 and minimum 0.7266. These are internal development data,
-not an external unseen-data result. No optimized model has been trained yet.
+not an external unseen-data result. Subsequent one-factor Mito candidates did
+not establish a reliable improvement, so the frozen baseline remains current.
+
+The completed optimization record is in
+[reports/mito_optimization_round2_20261002.md](reports/mito_optimization_round2_20261002.md).
 
 Use [OPTIMIZATION_GOALS.md](OPTIMIZATION_GOALS.md) for the next experimental
 stage. The original fold-0 baseline commit, tag and artifacts remain unchanged;
