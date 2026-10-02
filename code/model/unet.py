@@ -58,3 +58,44 @@ def build_unet_2d(input_channels: int = 1, base_filters: int = 32) -> Model:
     )
     return Model(inputs=inputs, outputs=outputs, name="unet_2d_baseline")
 
+
+def build_unet_2d_three_pool(input_channels: int = 1, base_filters: int = 32) -> Model:
+    """Mito candidate with one fewer pooling stage and an unchanged 3×3 block.
+
+    A typical labelled Mito pixel is within roughly two pixels of an edge.
+    Keeping the deepest feature map at 1/8 rather than 1/16 resolution tests
+    whether the baseline's fourth downsampling loses thin-structure detail.
+    The remaining blocks, skip connections, and output grid are unchanged.
+    """
+
+    inputs = tf.keras.Input(shape=(None, None, input_channels), name="image")
+    encoder_1 = _convolution_block(inputs, base_filters)
+    encoder_2 = _convolution_block(layers.MaxPooling2D()(encoder_1), base_filters * 2)
+    encoder_3 = _convolution_block(layers.MaxPooling2D()(encoder_2), base_filters * 4)
+    bottleneck = _convolution_block(
+        layers.MaxPooling2D()(encoder_3), base_filters * 8, dropout_rate=0.4
+    )
+    decoder_3 = _convolution_block(
+        layers.Concatenate()([
+            layers.UpSampling2D(interpolation="bilinear")(bottleneck), encoder_3,
+        ]),
+        base_filters * 4,
+        dropout_rate=0.2,
+    )
+    decoder_2 = _convolution_block(
+        layers.Concatenate()([
+            layers.UpSampling2D(interpolation="bilinear")(decoder_3), encoder_2,
+        ]),
+        base_filters * 2,
+        dropout_rate=0.1,
+    )
+    decoder_1 = _convolution_block(
+        layers.Concatenate()([
+            layers.UpSampling2D(interpolation="bilinear")(decoder_2), encoder_1,
+        ]),
+        base_filters,
+    )
+    output = layers.Conv2D(
+        1, 1, activation="sigmoid", name="foreground_probability"
+    )(decoder_1)
+    return Model(inputs=inputs, outputs=output, name="unet_2d_three_pool")

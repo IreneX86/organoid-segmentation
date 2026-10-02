@@ -47,6 +47,11 @@ def main() -> None:
             fold = experiment["fold"]
             matching = [item for item in decisions.get("decisions", []) if item["fold"] == fold]
             expected_variant = (
+                "three_pool"
+                if experiment.get("architecture") == "three_pool"
+                and experiment.get("positive_patch_probability") == 0.6
+                and experiment.get("loss") == "bce_dice"
+                else
                 "sampling_035"
                 if experiment.get("positive_patch_probability") == 0.35
                 and experiment.get("loss") == "bce_dice"
@@ -55,7 +60,12 @@ def main() -> None:
                 and experiment.get("loss") == "bce_tversky_06"
                 else None
             )
-            if (decisions.get("protocol") != "mito_one_factor_validation_gate_v1"
+            expected_protocol = (
+                "mito_three_pool_validation_gate_v1"
+                if expected_variant == "three_pool"
+                else "mito_one_factor_validation_gate_v1"
+            )
+            if (decisions.get("protocol") != expected_protocol
                     or decisions.get("variant") != expected_variant
                     or len(matching) != 1
                     or matching[0]["selected_candidate"] is not True):

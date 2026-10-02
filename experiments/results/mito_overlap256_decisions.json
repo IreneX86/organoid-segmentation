@@ -1,0 +1,331 @@
+{
+  "baseline_overlap": 128,
+  "candidate_overlap": 256,
+  "decisions": [
+    {
+      "baseline_validation_dice_mean": 0.865344467719425,
+      "candidate_validation_dice_mean": 0.8653044966256925,
+      "fold": 0,
+      "low_foreground_image_count": 1,
+      "low_foreground_mean_delta": -0.00012526602297047162,
+      "mean_delta": -3.9971093732469954e-05,
+      "per_image": [
+        {
+          "baseline_dice": 0.8459465063238648,
+          "candidate_dice": 0.8458212403008943,
+          "delta_dice": -0.00012526602297047162,
+          "filename": "mask_002.tif",
+          "foreground_fraction_true": 0.0111125
+        },
+        {
+          "baseline_dice": 0.9162995070137417,
+          "candidate_dice": 0.9162796789788288,
+          "delta_dice": -1.9828034912960923e-05,
+          "filename": "mask_011.tif",
+          "foreground_fraction_true": 0.05531319444444444
+        },
+        {
+          "baseline_dice": 0.8148735317431721,
+          "candidate_dice": 0.8147206625215392,
+          "delta_dice": -0.00015286922163293415,
+          "filename": "mask_013.tif",
+          "foreground_fraction_true": 0.05151736111111111
+        },
+        {
+          "baseline_dice": 0.7880389014807009,
+          "candidate_dice": 0.7880243093816313,
+          "delta_dice": -1.4592099069621334e-05,
+          "filename": "mask_017.tif",
+          "foreground_fraction_true": 0.06680555555555556
+        },
+        {
+          "baseline_dice": 0.8620390777841064,
+          "candidate_dice": 0.862009715324166,
+          "delta_dice": -2.9362459940340813e-05,
+          "filename": "mask_029.tif",
+          "foreground_fraction_true": 0.07199305555555556
+        },
+        {
+          "baseline_dice": 0.9274512953069555,
+          "candidate_dice": 0.9274866984207784,
+          "delta_dice": 3.540311382288497e-05,
+          "filename": "mask_031.tif",
+          "foreground_fraction_true": 0.11930347222222222
+        },
+        {
+          "baseline_dice": 0.9027624543834337,
+          "candidate_dice": 0.9027891714520099,
+          "delta_dice": 2.671706857615419e-05,
+          "filename": "mask_036.tif",
+          "foreground_fraction_true": 0.09528958333333333
+        }
+      ],
+      "selected_candidate": false,
+      "threshold": 0.45000000000000007,
+      "validation_std_delta": 4.278287543958703e-05,
+      "worst_paired_delta": -0.00015286922163293415
+    },
+    {
+      "baseline_validation_dice_mean": 0.8588905845707457,
+      "candidate_validation_dice_mean": 0.8589316063401887,
+      "fold": 1,
+      "low_foreground_image_count": 1,
+      "low_foreground_mean_delta": 0.0003440446405279518,
+      "mean_delta": 4.1021769443015466e-05,
+      "per_image": [
+        {
+          "baseline_dice": 0.7892094809900039,
+          "candidate_dice": 0.7895535256305318,
+          "delta_dice": 0.0003440446405279518,
+          "filename": "mask_005.tif",
+          "foreground_fraction_true": 0.02928263888888889
+        },
+        {
+          "baseline_dice": 0.9234921161137932,
+          "candidate_dice": 0.9235072307628558,
+          "delta_dice": 1.5114649062564212e-05,
+          "filename": "mask_015.tif",
+          "foreground_fraction_true": 0.06549652777777777
+        },
+        {
+          "baseline_dice": 0.9252537707805791,
+          "candidate_dice": 0.9252522050049098,
+          "delta_dice": -1.565775669343239e-06,
+          "filename": "mask_018.tif",
+          "foreground_fraction_true": 0.0780861111111111
+        },
+        {
+          "baseline_dice": 0.7761559999337299,
+          "candidate_dice": 0.7761231938071812,
+          "delta_dice": -3.280612654865678e-05,
+          "filename": "mask_020.tif",
+          "foreground_fraction_true": 0.05631944444444444
+        },
+        {
+          "baseline_dice": 0.7869401363548931,
+          "candidate_dice": 0.78679765475283,
+          "delta_dice": -0.00014248160206309368,
+          "filename": "mask_021.tif",
+          "foreground_fraction_true": 0.05024722222222222
+        },
+        {
+          "baseline_dice": 0.9130652211257658,
+          "candidate_dice": 0.9131491864534869,
+          "delta_dice": 8.396532772103615e-05,
+          "filename": "mask_025.tif",
+          "foreground_fraction_true": 0.09313263888888888
+        },
+        {
+          "baseline_dice": 0.8981173666964551,
+          "candidate_dice": 0.8981382479695258,
+          "delta_dice": 2.0881273070649797e-05,
+          "filename": "mask_034.tif",
+          "foreground_fraction_true": 0.12017430555555556
+        }
+      ],
+      "selected_candidate": false,
+      "threshold": 0.45000000000000007,
+      "validation_std_delta": -1.1090556954196362e-05,
+      "worst_paired_delta": -0.00014248160206309368
+    },
+    {
+      "baseline_validation_dice_mean": 0.831598344014495,
+      "candidate_validation_dice_mean": 0.8315612121537023,
+      "fold": 2,
+      "low_foreground_image_count": 2,
+      "low_foreground_mean_delta": -5.849341689934118e-05,
+      "mean_delta": -3.71318607926988e-05,
+      "per_image": [
+        {
+          "baseline_dice": 0.8870621676644735,
+          "candidate_dice": 0.8870027049121864,
+          "delta_dice": -5.9462752287187115e-05,
+          "filename": "mask_003.tif",
+          "foreground_fraction_true": 0.06323819444444445
+        },
+        {
+          "baseline_dice": 0.7542056651875899,
+          "candidate_dice": 0.7542253272643873,
+          "delta_dice": 1.9662076797377637e-05,
+          "filename": "mask_004.tif",
+          "foreground_fraction_true": 0.0336125
+        },
+        {
+          "baseline_dice": 0.8882789462490444,
+          "candidate_dice": 0.8882495135222142,
+          "delta_dice": -2.9432726830203038e-05,
+          "filename": "mask_007.tif",
+          "foreground_fraction_true": 0.12184166666666667
+        },
+        {
+          "baseline_dice": 0.778853989760434,
+          "candidate_dice": 0.7787173408498379,
+          "delta_dice": -0.00013664891059606,
+          "filename": "mask_014.tif",
+          "foreground_fraction_true": 0.04971388888888889
+        },
+        {
+          "baseline_dice": 0.8039425032872926,
+          "candidate_dice": 0.803836407666073,
+          "delta_dice": -0.00010609562121954852,
+          "filename": "mask_019.tif",
+          "foreground_fraction_true": 0.05955347222222222
+        },
+        {
+          "baseline_dice": 0.8446052637636324,
+          "candidate_dice": 0.8448304429470893,
+          "delta_dice": 0.0002251791834568806,
+          "filename": "mask_026.tif",
+          "foreground_fraction_true": 0.07935
+        },
+        {
+          "baseline_dice": 0.8642398721889978,
+          "candidate_dice": 0.8640667479141276,
+          "delta_dice": -0.00017312427487015114,
+          "filename": "mask_027.tif",
+          "foreground_fraction_true": 0.08981388888888889
+        }
+      ],
+      "selected_candidate": false,
+      "threshold": 0.40000000000000013,
+      "validation_std_delta": 3.0765853134551158e-06,
+      "worst_paired_delta": -0.00017312427487015114
+    },
+    {
+      "baseline_validation_dice_mean": 0.867025753290311,
+      "candidate_validation_dice_mean": 0.8670939637189994,
+      "fold": 3,
+      "low_foreground_image_count": 2,
+      "low_foreground_mean_delta": -1.1348481710082847e-05,
+      "mean_delta": 6.821042868850047e-05,
+      "per_image": [
+        {
+          "baseline_dice": 0.9032744326270832,
+          "candidate_dice": 0.9032117583015786,
+          "delta_dice": -6.267432550455254e-05,
+          "filename": "mask_006.tif",
+          "foreground_fraction_true": 0.042660416666666666
+        },
+        {
+          "baseline_dice": 0.7552056471407,
+          "candidate_dice": 0.7552456245027844,
+          "delta_dice": 3.997736208438685e-05,
+          "filename": "mask_009.tif",
+          "foreground_fraction_true": 0.048508333333333334
+        },
+        {
+          "baseline_dice": 0.8276197502527529,
+          "candidate_dice": 0.8277999792260047,
+          "delta_dice": 0.00018022897325176146,
+          "filename": "mask_022.tif",
+          "foreground_fraction_true": 0.06064513888888889
+        },
+        {
+          "baseline_dice": 0.8158671648730862,
+          "candidate_dice": 0.8163096138228458,
+          "delta_dice": 0.000442448949759644,
+          "filename": "mask_023.tif",
+          "foreground_fraction_true": 0.06182847222222222
+        },
+        {
+          "baseline_dice": 0.9349346420255746,
+          "candidate_dice": 0.9348598466798753,
+          "delta_dice": -7.47953456993189e-05,
+          "filename": "mask_024.tif",
+          "foreground_fraction_true": 0.08178888888888888
+        },
+        {
+          "baseline_dice": 0.8852267637794697,
+          "candidate_dice": 0.8852055800293686,
+          "delta_dice": -2.1183750101183563e-05,
+          "filename": "mask_030.tif",
+          "foreground_fraction_true": 0.08705
+        },
+        {
+          "baseline_dice": 0.9090209336818826,
+          "candidate_dice": 0.9090505399772641,
+          "delta_dice": 2.9606295381512382e-05,
+          "filename": "mask_033.tif",
+          "foreground_fraction_true": 0.12337430555555555
+        },
+        {
+          "baseline_dice": 0.9050566919419378,
+          "candidate_dice": 0.9050687672122736,
+          "delta_dice": 1.2075270335754063e-05,
+          "filename": "mask_035.tif",
+          "foreground_fraction_true": 0.13404930555555555
+        }
+      ],
+      "selected_candidate": false,
+      "threshold": 0.5500000000000002,
+      "validation_std_delta": -9.390789843213843e-05,
+      "worst_paired_delta": -7.47953456993189e-05
+    },
+    {
+      "baseline_validation_dice_mean": 0.8649744148999648,
+      "candidate_validation_dice_mean": 0.8649936785439256,
+      "fold": 4,
+      "low_foreground_image_count": 1,
+      "low_foreground_mean_delta": 0.00021707170958140676,
+      "mean_delta": 1.9263643960796906e-05,
+      "per_image": [
+        {
+          "baseline_dice": 0.826956384821288,
+          "candidate_dice": 0.8271734565308694,
+          "delta_dice": 0.00021707170958140676,
+          "filename": "mask_001.tif",
+          "foreground_fraction_true": 0.0060625
+        },
+        {
+          "baseline_dice": 0.9011768710154603,
+          "candidate_dice": 0.9011416302270169,
+          "delta_dice": -3.5240788443413607e-05,
+          "filename": "mask_008.tif",
+          "foreground_fraction_true": 0.05305138888888889
+        },
+        {
+          "baseline_dice": 0.7255777648671063,
+          "candidate_dice": 0.7255729794933655,
+          "delta_dice": -4.785373740823218e-06,
+          "filename": "mask_010.tif",
+          "foreground_fraction_true": 0.06884652777777778
+        },
+        {
+          "baseline_dice": 0.9114810898946537,
+          "candidate_dice": 0.911520432079894,
+          "delta_dice": 3.934218524026534e-05,
+          "filename": "mask_012.tif",
+          "foreground_fraction_true": 0.05429027777777778
+        },
+        {
+          "baseline_dice": 0.903764835658693,
+          "candidate_dice": 0.9036748784573273,
+          "delta_dice": -8.995720136573127e-05,
+          "filename": "mask_016.tif",
+          "foreground_fraction_true": 0.06844861111111111
+        },
+        {
+          "baseline_dice": 0.8890048154093098,
+          "candidate_dice": 0.8890194032736413,
+          "delta_dice": 1.4587864331505607e-05,
+          "filename": "mask_028.tif",
+          "foreground_fraction_true": 0.09938888888888889
+        },
+        {
+          "baseline_dice": 0.8968591426332428,
+          "candidate_dice": 0.8968529697453652,
+          "delta_dice": -6.172887877631261e-06,
+          "filename": "mask_032.tif",
+          "foreground_fraction_true": 0.11870694444444445
+        }
+      ],
+      "selected_candidate": false,
+      "threshold": 0.7000000000000002,
+      "validation_std_delta": -2.54827597353513e-05,
+      "worst_paired_delta": -8.995720136573127e-05
+    }
+  ],
+  "protocol": "mito_overlap256_validation_gate_v1",
+  "threshold_policy": "frozen baseline validation-selected threshold",
+  "variant": "overlap256"
+}

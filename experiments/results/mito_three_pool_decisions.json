@@ -1,0 +1,331 @@
+{
+  "decisions": [
+    {
+      "baseline_validation_dice_mean": 0.865344467719425,
+      "candidate_validation_dice_mean": 0.8630219950528479,
+      "fold": 0,
+      "low_foreground_image_count": 1,
+      "low_foreground_mean_delta": -0.018759603497362387,
+      "mean_delta": -0.0023224726665770673,
+      "per_image": [
+        {
+          "baseline_dice": 0.8459465063238648,
+          "candidate_dice": 0.8271869028265024,
+          "delta_dice": -0.018759603497362387,
+          "filename": "mask_002.tif",
+          "foreground_fraction_true": 0.0111125
+        },
+        {
+          "baseline_dice": 0.9162995070137417,
+          "candidate_dice": 0.9137491141034727,
+          "delta_dice": -0.0025503929102690392,
+          "filename": "mask_011.tif",
+          "foreground_fraction_true": 0.05531319444444444
+        },
+        {
+          "baseline_dice": 0.8148735317431721,
+          "candidate_dice": 0.8130534686184907,
+          "delta_dice": -0.0018200631246814147,
+          "filename": "mask_013.tif",
+          "foreground_fraction_true": 0.05151736111111111
+        },
+        {
+          "baseline_dice": 0.7880389014807009,
+          "candidate_dice": 0.7880640254943144,
+          "delta_dice": 2.5124013613542218e-05,
+          "filename": "mask_017.tif",
+          "foreground_fraction_true": 0.06680555555555556
+        },
+        {
+          "baseline_dice": 0.8620390777841064,
+          "candidate_dice": 0.8683963272468768,
+          "delta_dice": 0.006357249462770387,
+          "filename": "mask_029.tif",
+          "foreground_fraction_true": 0.07199305555555556
+        },
+        {
+          "baseline_dice": 0.9274512953069555,
+          "candidate_dice": 0.9275907682457614,
+          "delta_dice": 0.00013947293880589573,
+          "filename": "mask_031.tif",
+          "foreground_fraction_true": 0.11930347222222222
+        },
+        {
+          "baseline_dice": 0.9027624543834337,
+          "candidate_dice": 0.9031133588345173,
+          "delta_dice": 0.0003509044510835446,
+          "filename": "mask_036.tif",
+          "foreground_fraction_true": 0.09528958333333333
+        }
+      ],
+      "selected_candidate": false,
+      "validation_std_delta": 0.0015748488691671378,
+      "worst_paired_delta": -0.018759603497362387
+    },
+    {
+      "baseline_validation_dice_mean": 0.8588905845707457,
+      "candidate_validation_dice_mean": 0.8610690879415398,
+      "fold": 1,
+      "low_foreground_image_count": 1,
+      "low_foreground_mean_delta": 0.009637187284603055,
+      "mean_delta": 0.0021785033707940765,
+      "per_image": [
+        {
+          "baseline_dice": 0.7892094809900039,
+          "candidate_dice": 0.7988466682746069,
+          "delta_dice": 0.009637187284603055,
+          "filename": "mask_005.tif",
+          "foreground_fraction_true": 0.02928263888888889
+        },
+        {
+          "baseline_dice": 0.9234921161137932,
+          "candidate_dice": 0.9265651473308428,
+          "delta_dice": 0.0030730312170496044,
+          "filename": "mask_015.tif",
+          "foreground_fraction_true": 0.06549652777777777
+        },
+        {
+          "baseline_dice": 0.9252537707805791,
+          "candidate_dice": 0.9299747533717246,
+          "delta_dice": 0.004720982591145506,
+          "filename": "mask_018.tif",
+          "foreground_fraction_true": 0.0780861111111111
+        },
+        {
+          "baseline_dice": 0.7761559999337299,
+          "candidate_dice": 0.782267372165506,
+          "delta_dice": 0.006111372231776158,
+          "filename": "mask_020.tif",
+          "foreground_fraction_true": 0.05631944444444444
+        },
+        {
+          "baseline_dice": 0.7869401363548931,
+          "candidate_dice": 0.7710440098146283,
+          "delta_dice": -0.015896126540264843,
+          "filename": "mask_021.tif",
+          "foreground_fraction_true": 0.05024722222222222
+        },
+        {
+          "baseline_dice": 0.9130652211257658,
+          "candidate_dice": 0.9170306677255788,
+          "delta_dice": 0.003965446599813016,
+          "filename": "mask_025.tif",
+          "foreground_fraction_true": 0.09313263888888888
+        },
+        {
+          "baseline_dice": 0.8981173666964551,
+          "candidate_dice": 0.9017549969078912,
+          "delta_dice": 0.003637630211436038,
+          "filename": "mask_034.tif",
+          "foreground_fraction_true": 0.12017430555555556
+        }
+      ],
+      "selected_candidate": false,
+      "validation_std_delta": 0.0024155500811632175,
+      "worst_paired_delta": -0.015896126540264843
+    },
+    {
+      "baseline_validation_dice_mean": 0.831598344014495,
+      "candidate_validation_dice_mean": 0.8318205795539898,
+      "fold": 2,
+      "low_foreground_image_count": 2,
+      "low_foreground_mean_delta": -0.004168959148310725,
+      "mean_delta": 0.00022223553949485275,
+      "per_image": [
+        {
+          "baseline_dice": 0.8870621676644735,
+          "candidate_dice": 0.889154279235896,
+          "delta_dice": 0.002092111571422417,
+          "filename": "mask_003.tif",
+          "foreground_fraction_true": 0.06323819444444445
+        },
+        {
+          "baseline_dice": 0.7542056651875899,
+          "candidate_dice": 0.7481165330384296,
+          "delta_dice": -0.006089132149160292,
+          "filename": "mask_004.tif",
+          "foreground_fraction_true": 0.0336125
+        },
+        {
+          "baseline_dice": 0.8882789462490444,
+          "candidate_dice": 0.8876812543866547,
+          "delta_dice": -0.000597691862389671,
+          "filename": "mask_007.tif",
+          "foreground_fraction_true": 0.12184166666666667
+        },
+        {
+          "baseline_dice": 0.778853989760434,
+          "candidate_dice": 0.7766052036129728,
+          "delta_dice": -0.002248786147461157,
+          "filename": "mask_014.tif",
+          "foreground_fraction_true": 0.04971388888888889
+        },
+        {
+          "baseline_dice": 0.8039425032872926,
+          "candidate_dice": 0.8101721265963354,
+          "delta_dice": 0.006229623309042864,
+          "filename": "mask_019.tif",
+          "foreground_fraction_true": 0.05955347222222222
+        },
+        {
+          "baseline_dice": 0.8446052637636324,
+          "candidate_dice": 0.8491325826940906,
+          "delta_dice": 0.004527318930458213,
+          "filename": "mask_026.tif",
+          "foreground_fraction_true": 0.07935
+        },
+        {
+          "baseline_dice": 0.8642398721889978,
+          "candidate_dice": 0.8618820773135494,
+          "delta_dice": -0.0023577948754484046,
+          "filename": "mask_027.tif",
+          "foreground_fraction_true": 0.08981388888888889
+        }
+      ],
+      "selected_candidate": false,
+      "validation_std_delta": 0.001653916614666441,
+      "worst_paired_delta": -0.006089132149160292
+    },
+    {
+      "baseline_validation_dice_mean": 0.867025753290311,
+      "candidate_validation_dice_mean": 0.8708073695371711,
+      "fold": 3,
+      "low_foreground_image_count": 2,
+      "low_foreground_mean_delta": 0.010417592405429055,
+      "mean_delta": 0.0037816162468601727,
+      "per_image": [
+        {
+          "baseline_dice": 0.9032744326270832,
+          "candidate_dice": 0.9175901605169898,
+          "delta_dice": 0.014315727889906649,
+          "filename": "mask_006.tif",
+          "foreground_fraction_true": 0.042660416666666666
+        },
+        {
+          "baseline_dice": 0.7552056471407,
+          "candidate_dice": 0.7617251040616515,
+          "delta_dice": 0.006519456920951461,
+          "filename": "mask_009.tif",
+          "foreground_fraction_true": 0.048508333333333334
+        },
+        {
+          "baseline_dice": 0.8276197502527529,
+          "candidate_dice": 0.8254243996833495,
+          "delta_dice": -0.0021953505694034536,
+          "filename": "mask_022.tif",
+          "foreground_fraction_true": 0.06064513888888889
+        },
+        {
+          "baseline_dice": 0.8158671648730862,
+          "candidate_dice": 0.8199365981881973,
+          "delta_dice": 0.004069433315111115,
+          "filename": "mask_023.tif",
+          "foreground_fraction_true": 0.06182847222222222
+        },
+        {
+          "baseline_dice": 0.9349346420255746,
+          "candidate_dice": 0.9316935952191695,
+          "delta_dice": -0.0032410468064051345,
+          "filename": "mask_024.tif",
+          "foreground_fraction_true": 0.08178888888888888
+        },
+        {
+          "baseline_dice": 0.8852267637794697,
+          "candidate_dice": 0.8833567896959024,
+          "delta_dice": -0.0018699740835673717,
+          "filename": "mask_030.tif",
+          "foreground_fraction_true": 0.08705
+        },
+        {
+          "baseline_dice": 0.9090209336818826,
+          "candidate_dice": 0.9158527444901673,
+          "delta_dice": 0.006831810808284655,
+          "filename": "mask_033.tif",
+          "foreground_fraction_true": 0.12337430555555555
+        },
+        {
+          "baseline_dice": 0.9050566919419378,
+          "candidate_dice": 0.9108795644419413,
+          "delta_dice": 0.005822872500003462,
+          "filename": "mask_035.tif",
+          "foreground_fraction_true": 0.13404930555555555
+        }
+      ],
+      "selected_candidate": true,
+      "validation_std_delta": 0.00010969043355028157,
+      "worst_paired_delta": -0.0032410468064051345
+    },
+    {
+      "baseline_validation_dice_mean": 0.8649744148999648,
+      "candidate_validation_dice_mean": 0.8715709134342973,
+      "fold": 4,
+      "low_foreground_image_count": 1,
+      "low_foreground_mean_delta": -0.014295019541932352,
+      "mean_delta": 0.006596498534332418,
+      "per_image": [
+        {
+          "baseline_dice": 0.826956384821288,
+          "candidate_dice": 0.8126613652793556,
+          "delta_dice": -0.014295019541932352,
+          "filename": "mask_001.tif",
+          "foreground_fraction_true": 0.0060625
+        },
+        {
+          "baseline_dice": 0.9011768710154603,
+          "candidate_dice": 0.9161279489547477,
+          "delta_dice": 0.014951077939287405,
+          "filename": "mask_008.tif",
+          "foreground_fraction_true": 0.05305138888888889
+        },
+        {
+          "baseline_dice": 0.7255777648671063,
+          "candidate_dice": 0.7402140057592593,
+          "delta_dice": 0.014636240892152985,
+          "filename": "mask_010.tif",
+          "foreground_fraction_true": 0.06884652777777778
+        },
+        {
+          "baseline_dice": 0.9114810898946537,
+          "candidate_dice": 0.917910447761194,
+          "delta_dice": 0.006429357866540308,
+          "filename": "mask_012.tif",
+          "foreground_fraction_true": 0.05429027777777778
+        },
+        {
+          "baseline_dice": 0.903764835658693,
+          "candidate_dice": 0.9157578151107331,
+          "delta_dice": 0.011992979452040031,
+          "filename": "mask_016.tif",
+          "foreground_fraction_true": 0.06844861111111111
+        },
+        {
+          "baseline_dice": 0.8890048154093098,
+          "candidate_dice": 0.8965870716573185,
+          "delta_dice": 0.00758225624800879,
+          "filename": "mask_028.tif",
+          "foreground_fraction_true": 0.09938888888888889
+        },
+        {
+          "baseline_dice": 0.8968591426332428,
+          "candidate_dice": 0.9017377395174726,
+          "delta_dice": 0.004878596884229758,
+          "filename": "mask_032.tif",
+          "foreground_fraction_true": 0.11870694444444445
+        }
+      ],
+      "selected_candidate": false,
+      "validation_std_delta": 0.0010961534429132086,
+      "worst_paired_delta": -0.014295019541932352
+    }
+  ],
+  "protocol": "mito_three_pool_validation_gate_v1",
+  "selection_rule": {
+    "low_foreground_delta_at_least": -0.005,
+    "or_branch_requires_nonnegative_overall_mean": true,
+    "or_low_foreground_delta_at_least": 0.01,
+    "overall_mean_delta_at_least": 0.003,
+    "validation_std_increase_at_most": 0.015,
+    "worst_paired_delta_at_least": -0.02
+  },
+  "variant": "three_pool"
+}

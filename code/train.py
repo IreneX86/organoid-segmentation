@@ -23,7 +23,7 @@ from losses import (
     binary_crossentropy_tversky_06_loss,
     soft_dice_coefficient,
 )
-from model import build_unet_2d
+from model import build_unet_2d, build_unet_2d_three_pool
 from patch_dataset import RandomPatchSequence
 from pipeline_config import PipelineConfig, get_target_spec
 from tiff_io import pair_tiff_directories, validate_pairs
@@ -66,6 +66,12 @@ def parse_args() -> argparse.Namespace:
         choices=("bce_dice", "bce_tversky_06"),
         default="bce_dice",
         help="Mito-only loss ablation; baseline is bce_dice.",
+    )
+    parser.add_argument(
+        "--mito-architecture",
+        choices=("baseline", "three_pool"),
+        default="baseline",
+        help="Mito-only thin-structure ablation; the default remains frozen U-Net.",
     )
     parser.add_argument(
         "--expected-mito-fold-map",
@@ -115,6 +121,7 @@ def main() -> None:
     if args.target != "mito" and (
         args.mito_positive_patch_probability != 0.6
         or args.mito_loss != "bce_dice"
+        or args.mito_architecture != "baseline"
         or args.expected_mito_fold_map is not None
         or args.defer_mito_outer_test
     ):
@@ -123,6 +130,11 @@ def main() -> None:
         raise ValueError("Deferred Mito outer test requires a frozen fold map")
     if args.mito_loss != "bce_dice" and args.mito_positive_patch_probability != 0.6:
         raise ValueError("Do not combine the Mito loss and sampling ablations")
+    if args.mito_architecture != "baseline" and (
+        args.mito_loss != "bce_dice"
+        or args.mito_positive_patch_probability != 0.6
+    ):
+        raise ValueError("Do not combine the Mito architecture with prior ablations")
     config = PipelineConfig(
         patch_size=args.patch_size,
         overlap=args.overlap,
@@ -175,6 +187,7 @@ def main() -> None:
                     "seed": args.seed,
                     "positive_patch_probability": args.mito_positive_patch_probability,
                     "loss": args.mito_loss,
+                    "architecture": args.mito_architecture,
                     "patch_size": args.patch_size,
                     "overlap": args.overlap,
                     "batch_size": args.batch_size,
@@ -212,7 +225,11 @@ def main() -> None:
         augment=True,
     )
 
-    model = build_unet_2d()
+    model = (
+        build_unet_2d_three_pool()
+        if args.mito_architecture == "three_pool"
+        else build_unet_2d()
+    )
     selected_loss = (
         binary_crossentropy_tversky_06_loss
         if args.mito_loss == "bce_tversky_06"

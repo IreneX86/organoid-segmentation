@@ -211,3 +211,60 @@ this record; at deletion the Pod had run about 1.92 hours at US$0.49/hour,
 so this run is estimated at about US$0.96 including disk and the two-session
 cumulative cost about US$2.33, under the US$3.5 ceiling. No TIFF, mask,
 baseline checkpoint, Cetus job or future unseen data was changed.
+
+## 2026-10-02 — second-round thin-structure and inference-context ablations
+
+The frozen Mito five-fold baseline remained unchanged at OOF Dice **0.854309
+± 0.062776** (36 images). A read-only audit of the labelled development pool
+and frozen OOF predictions found seven images with ≤5% foreground: mean Dice
+0.791388 and mean precision about 0.727, compared with Dice about 0.870 and
+precision about 0.866 on the other 29. Recall was about 0.877 in both groups.
+The background false-positive rate was similar (~1.1%) across the two groups,
+indicating that the lower sparse-image precision is substantially a base-rate
+effect. Roughly 74% of false-positive pixels were connected to predictions
+that overlapped true foreground, weakening the case for isolated-component
+removal. These are descriptive analyses of previously seen internal OOF data,
+not a new independent test set.
+
+Two separate, preregistered, one-factor candidates were assessed on one
+Secure Cloud A40 Pod (`y8ifdpcq0r06oe`) with the original split and original
+train/validation/test isolation. The environment was Python 3.11.16,
+TensorFlow 2.21.0, NumPy 2.4.6 and tifffile 2026.3.3. Driver initialization,
+one visible TensorFlow GPU and a GPU matrix multiplication passed before
+experiment execution. Original TIFFs and manually labelled masks were read
+only. Checkpoints/logs were archived outside Git and SHA256-verified locally
+before the Pod was terminated; `list_pods` returned empty.
+
+**Three-pool U-Net.** To retain finer structures and reduce capacity, this
+candidate removed only the fourth pooling/deepest block and its decoder
+stage (roughly 7.85M → 1.95M parameters). All five candidate folds trained
+to completion with 98, 94, 54, 96 and 55 epochs. The prespecified
+validation-only gate selected fold 3 only. All decisions were saved before
+candidate outer-test evaluation. The other four folds reuse frozen baseline
+OOF rows, so their *raw candidate* test Dice remains deliberately unknown.
+The selected-policy OOF Dice was **0.854928 ± 0.062555**; paired mean change
+**+0.000619**, IoU 0.751588, precision 0.837998 and recall 0.879598.
+Low-foreground mean Dice increased only **+0.000522** to 0.791909, and the
+worst image stayed at 0.726555. Six selected-policy images improved, one
+worsened and 29 remained baseline by design. This is a one-fold effect, not
+a stable five-fold improvement; the three-pool option is **not promoted**.
+
+**Inference overlap 128 → 256.** This separate trial reused all five frozen
+baseline checkpoints and their validation-selected thresholds; no model was
+retrained. Validation mean Dice deltas by fold were approximately −0.000040,
++0.000041, −0.000037, +0.000068 and +0.000019. The same validation-only gate
+selected zero folds before any candidate outer-test scoring. Its
+selected-policy OOF report therefore equals the baseline by construction;
+this does **not** measure raw overlap-256 outer-test performance. The overlap
+change is discarded as negligible.
+
+The frozen baseline remains the current best-supported pipeline. Across the
+new explorations, no result justifies changing normalization, architecture,
+inference overlap or the production recipe. The small sample and repeated
+researcher inspection of internal OOF results make exploratory gains
+particularly vulnerable to selection bias; independent newly labelled data
+would be necessary for a stronger generalization claim. The next targeted
+experiment should be motivated by an annotation-blind precision error audit
+or a training-fold-only illumination/texture analysis, with its method and
+validation gate fixed before any new outer-test scoring. Do not scan many
+kernel sizes, sampling probabilities, Tversky weights or overlaps.

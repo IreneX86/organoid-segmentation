@@ -37,7 +37,10 @@ def _distribution(values: list[float]) -> dict[str, float]:
 def summarize_candidate(baseline_root: Path, candidate_root: Path) -> dict[str, object]:
     with (candidate_root / "candidate_decisions.json").open(encoding="utf-8") as handle:
         gate = json.load(handle)
-    if gate.get("protocol") != "mito_one_factor_validation_gate_v1":
+    if gate.get("protocol") not in {
+        "mito_one_factor_validation_gate_v1",
+        "mito_three_pool_validation_gate_v1",
+    }:
         raise ValueError("Candidate decisions are not from the locked validation gate")
     decisions = gate["decisions"]
     if len(decisions) != 5 or [item["fold"] for item in decisions] != list(range(5)):
