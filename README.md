@@ -30,6 +30,8 @@ not establish a reliable improvement, so the frozen baseline remains current.
 
 The completed optimization record is in
 [reports/mito_optimization_round2_20261002.md](reports/mito_optimization_round2_20261002.md).
+The subsequent read-only error analysis, derived figures and local biological
+panel index are in [reports/mito_error_analysis_20261002.md](reports/mito_error_analysis_20261002.md).
 
 Use [OPTIMIZATION_GOALS.md](OPTIMIZATION_GOALS.md) for the next experimental
 stage. The original fold-0 baseline commit, tag and artifacts remain unchanged;

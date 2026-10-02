@@ -272,3 +272,21 @@ experiment should be motivated by an annotation-blind precision error audit
 or a training-fold-only illumination/texture analysis, with its method and
 validation gate fixed before any new outer-test scoring. Do not scan many
 kernel sizes, sampling probabilities, Tversky weights or overlaps.
+
+## 2026-10-02 — frozen-OOF error analysis; one next candidate designed only
+
+See `reports/mito_error_analysis_20261002.md` for the 36-image read-only
+measurements, derived figures and eight representative case panels. Archived
+OOF masks reproduced the versioned per-image Dice; CPU probabilities differed
+from archived thresholded masks at only 2 of 51,840,000 pixels. Biological
+six-panel images remain in ignored local `outputs/`, not Git.
+
+Seven ≤5%-foreground images had approximately as many FP pixels per image as
+the other 29 (~14,968 vs ~14,801), but fewer TP (~39,268 vs ~102,284). Their
+mean FP fraction >10 px from GT was 27.3% versus 16.0%; 84.1% of their FP
+exceeded the same-image TN local-contrast p90 and 58.5% had model probability
+≥0.9. These observations motivate an **exploratory** bright-background
+hard-negative sampling test; they do not prove FP biological identity or
+annotation inconsistency. The fixed one-factor plan is
+`experiments/mito_hard_negative_protocol.md`. No sampler implementation,
+training, Pod, TIFF/mask edit or Cetus change occurred during this audit.
