@@ -1,5 +1,6 @@
 {
-  "billing_status": "pending_final_settlement",
+  "billing_checked_date": "2026-10-03",
+  "billing_status": "settled_for_complete_pod_runtime",
   "environment": {
     "numpy": "2.4.6",
     "python": "3.11.16",
@@ -85,6 +86,12 @@
     }
   ],
   "outer_candidate_test_scored": false,
+  "pod_billing_usd": {
+    "cpu": 0.0,
+    "disk": 0.006365742068737745,
+    "gpu": 0.9607604146003723,
+    "total": 0.9671261566691101
+  },
   "pod_deleted": true,
   "pod_id": "txecsmz46nxbtl",
   "protocol": "experiments/mito_hard_negative_protocol.md",

@@ -51,7 +51,7 @@
 
 ## 运行记录、限制与下一步
 
-使用**一台** Runpod Secure Cloud A40 Pod `txecsmz46nxbtl`，目录独立，标价 US$0.49/hour；Python 3.11.16、TensorFlow 2.21.0、NumPy 2.4.6、tifffile 2026.3.3、SciPy 1.16.2。一次技术性 preflight 失败源于 macOS 打包产生的 `._*.tif` 元数据文件使文件数误判为 72/72；未开始训练。保留失败日志，在同一 Pod 内建立过滤元数据的干净副本后，以**相同科学配置**重试。正式 GPU preflight 看到唯一 A40，TensorFlow GPU 矩阵运算成功，36 对原始 1200×1200 TIFF 校验通过。五折 checkpoint、history、split、阈值和日志分别打包并在 Mac 通过 SHA256 核对；原图、人工 mask、Cetus 作业均未修改。Pod 已删除，`list_pods` 为空，运行 GPU 支出速率为 US$0/hour。2026-10-02 12:01 UTC 查询到的暂列费用为 US$0.810319（GPU US$0.804821、disk US$0.005498）；账单尚未最终结算，不能把此数当成最终费用。
+使用**一台** Runpod Secure Cloud A40 Pod `txecsmz46nxbtl`，目录独立，标价 US$0.49/hour；Python 3.11.16、TensorFlow 2.21.0、NumPy 2.4.6、tifffile 2026.3.3、SciPy 1.16.2。一次技术性 preflight 失败源于 macOS 打包产生的 `._*.tif` 元数据文件使文件数误判为 72/72；未开始训练。保留失败日志，在同一 Pod 内建立过滤元数据的干净副本后，以**相同科学配置**重试。正式 GPU preflight 看到唯一 A40，TensorFlow GPU 矩阵运算成功，36 对原始 1200×1200 TIFF 校验通过。五折 checkpoint、history、split、阈值和日志分别打包并在 Mac 通过 SHA256 核对；2026-10-03 再次复核六份归档的 SHA256 均与实验清单相符。原图、人工 mask、Cetus 作业均未修改。Pod 已删除，`list_pods`、`list_endpoints` 与 `list_network_volumes` 均为空，运行资源支出速率为 US$0/hour。Runpod 对本次 Pod 完整运行时段的账单为 **US$0.9671261566691101**（GPU US$0.9607604146003723、disk US$0.006365742068737745），低于 US$2 上限。
 
 **Reject：**此固定亮背景 hard-negative 采样没有通过任何折的 validation gate，不替换冻结 baseline，也不继续扫描其比例或阈值。研究者在设计前已检查同一批 36 张图的 baseline OOF 错误，故本实验仍属探索性；初始分层 fold map 使用过所有 36 张 mask 的前景比例，且原 organoid 身份不可恢复，潜在图像相关性不能排除。未来外部未见图像未参与训练/调参。当前无法判定部分亮“负样本”究竟是其他结构、成像伪影还是漏标 Mito。
 
