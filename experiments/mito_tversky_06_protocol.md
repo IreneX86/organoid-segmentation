@@ -1,6 +1,7 @@
 # Mito loss experiment 02 — locked protocol
 
-Status: **pilot attempted, incomplete; no CV or outer-test result**. This is a
+Status: **full five-fold validation-only run complete; candidate rejected by
+the locked validation gate**. This is a
 separate one-factor candidate, never
 combined with the sampling experiment. Baseline reference is the frozen five-
 fold run at commit `b6f2e87`.
@@ -55,3 +56,16 @@ Dice was 0.863576 versus the frozen fold-0 baseline's 0.865050. This interim
 number is diagnostic only and must not be used as a completed comparison.
 No outer-test label was read and no Tversky model was selected. The incomplete
 archive and timeout log are retained outside Git in `runpod_results/`.
+
+The later full five-fold run used a fresh output directory and a 40-minute
+technical limit per fold. The first launch stopped before training because
+the GPU preflight script path was wrong; the path was corrected and the same
+scientific configuration was restarted in another fresh directory. All five
+folds then completed with exit 0 and GPU preflight PASS. The best candidate
+validation Dice changed relative to baseline by −0.001800, −0.004255,
++0.000316, +0.000272, and +0.003454 across folds 0–4. None reached the
+pre-registered +0.01 gate. Consequently, no candidate outer-test label was
+read and the selected OOF result remains the frozen baseline. The decisions,
+OOF comparison, and SHA256 manifest are in `experiments/results/`. Model
+archives and GPU logs remain in ignored `runpod_results/`; the Pod was
+terminated after local verification.

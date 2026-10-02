@@ -1,0 +1,50 @@
+{
+  "archive_checks": [
+    {
+      "archive_bytes": 86924943,
+      "archive_sha256": "88dc7100816d73b561bdd666d86a2309b70dfe08079009f3298f507f7784c985",
+      "epochs_recorded": 77,
+      "fold": 0
+    },
+    {
+      "archive_bytes": 86914773,
+      "archive_sha256": "0af614ba117a54f4ec2faa4061bb185667ebdcba65983094c4342cec06ed4ff1",
+      "epochs_recorded": 52,
+      "fold": 1
+    },
+    {
+      "archive_bytes": 86898389,
+      "archive_sha256": "82e105e6c9eb35f6649513416a20ffa54ccf681d31b9db10ee09eb2b4120b406",
+      "epochs_recorded": 55,
+      "fold": 2
+    },
+    {
+      "archive_bytes": 86790517,
+      "archive_sha256": "1da1c60b5f20302c49dbf7ab07dd50fdafb3445ce6b17f548ce1ff451d777715",
+      "epochs_recorded": 41,
+      "fold": 3
+    },
+    {
+      "archive_bytes": 86929848,
+      "archive_sha256": "5dd2f2247f0c1a4e3f8bddb2209e2fbbe038f4f082c99d73a49305560eb70dbe",
+      "epochs_recorded": 55,
+      "fold": 4
+    }
+  ],
+  "completion_marker_seen": true,
+  "environment": {
+    "numpy": "2.4.6",
+    "python": "3.11.16",
+    "tensorflow": "2.21.0",
+    "tifffile": "2026.3.3"
+  },
+  "experiment": "mito_bce_tversky_06_five_fold_validation_gated",
+  "final_archive_sha256": "32add2329112ac0431dd1a7cfa9cbeaf8ecc0a3dcd069843f1e009d971a78f60",
+  "gpu": "NVIDIA A40",
+  "outer_test_candidate_labels_read": false,
+  "pod_terminated": true,
+  "runner_exit_note": "Completion marker and COMPLETE file verified; explicit remote exit file was not copied before Pod deletion.",
+  "runner_exit_status": null,
+  "runpod_pod_id": "a83ubzuyu2ypi8",
+  "selected_candidate_folds": 0
+}

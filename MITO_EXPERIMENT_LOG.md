@@ -182,3 +182,32 @@ empty list. Final pod-specific billing for this session was **US$1.373148**
 changed. The result does not support replacing the frozen baseline with
 0.35 sampling; further optimization needs a separately budgeted, complete
 five-fold comparison, ideally one factor at a time.
+
+## 2026-10-02 — complete BCE+Tversky five-fold comparison
+
+After the incomplete pilot, the user approved a cumulative Runpod ceiling of
+US$3.5. A new Secure Cloud A40 Pod (`a83ubzuyu2ypi8`, US$0.49/hour) reused
+the successful Python 3.11 / TensorFlow 2.21.0 / NumPy 2.4.6 / tifffile
+2026.3.3 setup and the unchanged 36-pair frozen Mito split. A first runner
+launch stopped before training because its preflight path was wrong. Only
+that path was corrected; a fresh output directory was used for the retry.
+
+All five retry folds passed driver/TensorFlow GPU preflight and exited 0.
+Their recorded epoch counts were 77, 52, 55, 41 and 55; all validation Dice
+values were finite. The candidate's best validation Dice minus baseline's
+best was −0.001800, −0.004255, +0.000316, +0.000272 and +0.003454. The
+pre-registered +0.01 rule selected **zero of five** Tversky folds, before any
+candidate outer-test evaluation. The selected 36-image OOF report therefore
+reuses the frozen baseline: Dice **0.854309 ± 0.062776**, IoU 0.750677,
+precision 0.839055 and recall 0.877258. This is not a measured outer-test
+score for the raw Tversky candidate. It provides no evidence to replace the
+baseline loss.
+
+Each fold's checkpoint, split, history, threshold and GPU logs were downloaded
+as a separate archive and SHA256-checked on Mac; final decisions and result
+metadata were checked separately. The Pod was then terminated and `list_pods`
+returned empty. The final Runpod invoice was still catching up at the time of
+this record; at deletion the Pod had run about 1.92 hours at US$0.49/hour,
+so this run is estimated at about US$0.96 including disk and the two-session
+cumulative cost about US$2.33, under the US$3.5 ceiling. No TIFF, mask,
+baseline checkpoint, Cetus job or future unseen data was changed.

@@ -1,0 +1,37 @@
+{
+  "decisions": [
+    {
+      "baseline_best_validation_dice": 0.8650501523025304,
+      "candidate_best_validation_dice": 0.8632500612349053,
+      "fold": 0,
+      "selected_candidate": false
+    },
+    {
+      "baseline_best_validation_dice": 0.8585078395966751,
+      "candidate_best_validation_dice": 0.8542527375474663,
+      "fold": 1,
+      "selected_candidate": false
+    },
+    {
+      "baseline_best_validation_dice": 0.8310991643144732,
+      "candidate_best_validation_dice": 0.8314153777613166,
+      "fold": 2,
+      "selected_candidate": false
+    },
+    {
+      "baseline_best_validation_dice": 0.8667572289488721,
+      "candidate_best_validation_dice": 0.8670290906306688,
+      "fold": 3,
+      "selected_candidate": false
+    },
+    {
+      "baseline_best_validation_dice": 0.8625897904154117,
+      "candidate_best_validation_dice": 0.8660438895572551,
+      "fold": 4,
+      "selected_candidate": false
+    }
+  ],
+  "minimum_validation_dice_gain": 0.01,
+  "protocol": "mito_one_factor_validation_gate_v1",
+  "variant": "tversky_06"
+}
