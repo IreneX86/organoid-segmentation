@@ -41,6 +41,7 @@ def summarize_candidate(baseline_root: Path, candidate_root: Path) -> dict[str, 
         "mito_one_factor_validation_gate_v1",
         "mito_three_pool_validation_gate_v1",
         "mito_hard_negative_validation_gate_v1",
+        "mito_focal_dice_validation_gate_v1",
     }:
         raise ValueError("Candidate decisions are not from the locked validation gate")
     decisions = gate["decisions"]

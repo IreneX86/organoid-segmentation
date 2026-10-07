@@ -76,7 +76,7 @@ def main() -> None:
     parser.add_argument("--baseline-model-root", type=Path, required=True)
     parser.add_argument("--candidate-root", type=Path, required=True)
     parser.add_argument(
-        "--variant", choices=("three_pool", "hard_negative"),
+        "--variant", choices=("three_pool", "hard_negative", "focal_dice"),
         default="three_pool",
     )
     args = parser.parse_args()
@@ -104,9 +104,10 @@ def main() -> None:
         exp = json.loads((candidate / "experiment_config.json").read_text())
         expected_architecture = "three_pool" if args.variant == "three_pool" else "baseline"
         expected_hard_fraction = 0.2 if args.variant == "hard_negative" else 0.0
+        expected_loss = "focal_dice" if args.variant == "focal_dice" else "bce_dice"
         if (exp.get("target") != "mito" or exp.get("fold") != fold
                 or exp.get("architecture") != expected_architecture
-                or exp.get("loss") != "bce_dice"
+                or exp.get("loss") != expected_loss
                 or exp.get("positive_patch_probability") != 0.6
                 or exp.get("hard_negative_fraction", 0.0) != expected_hard_fraction
                 or exp.get("patch_size") != 512
@@ -145,6 +146,8 @@ def main() -> None:
     report = {
         "protocol": ("mito_hard_negative_validation_gate_v1"
                      if args.variant == "hard_negative"
+                     else "mito_focal_dice_validation_gate_v1"
+                     if args.variant == "focal_dice"
                      else "mito_three_pool_validation_gate_v1"),
         "variant": args.variant,
         "selection_rule": {

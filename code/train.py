@@ -20,6 +20,7 @@ from evaluation import (
 )
 from losses import (
     binary_crossentropy_dice_loss,
+    binary_focal_dice_loss,
     binary_crossentropy_tversky_06_loss,
     soft_dice_coefficient,
 )
@@ -70,7 +71,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--mito-loss",
-        choices=("bce_dice", "bce_tversky_06"),
+        choices=("bce_dice", "bce_tversky_06", "focal_dice"),
         default="bce_dice",
         help="Mito-only loss ablation; baseline is bce_dice.",
     )
@@ -138,6 +139,13 @@ def main() -> None:
         raise ValueError("Deferred Mito outer test requires a frozen fold map")
     if args.mito_loss != "bce_dice" and args.mito_positive_patch_probability != 0.6:
         raise ValueError("Do not combine the Mito loss and sampling ablations")
+    if args.mito_loss == "focal_dice" and (
+        args.mito_architecture != "baseline"
+        or args.mito_hard_negative_fraction != 0.0
+        or args.patch_size != 512
+        or args.overlap != 128
+    ):
+        raise ValueError("Focal-Dice must use isolated baseline architecture and sampling")
     if args.mito_hard_negative_fraction and (
         args.mito_positive_patch_probability != 0.6
         or args.mito_loss != "bce_dice"
@@ -264,11 +272,11 @@ def main() -> None:
         if args.mito_architecture == "three_pool"
         else build_unet_2d()
     )
-    selected_loss = (
-        binary_crossentropy_tversky_06_loss
-        if args.mito_loss == "bce_tversky_06"
-        else binary_crossentropy_dice_loss
-    )
+    selected_loss = {
+        "bce_dice": binary_crossentropy_dice_loss,
+        "bce_tversky_06": binary_crossentropy_tversky_06_loss,
+        "focal_dice": binary_focal_dice_loss,
+    }[args.mito_loss]
     model.compile(
         optimizer=tf.keras.optimizers.Adam(learning_rate=args.learning_rate),
         loss=selected_loss,

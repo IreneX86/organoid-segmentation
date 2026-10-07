@@ -53,6 +53,12 @@ def main() -> None:
                 and experiment.get("positive_patch_probability") == 0.6
                 and experiment.get("loss") == "bce_dice"
                 else
+                "focal_dice"
+                if experiment.get("hard_negative_fraction", 0.0) == 0.0
+                and experiment.get("architecture") == "baseline"
+                and experiment.get("positive_patch_probability") == 0.6
+                and experiment.get("loss") == "focal_dice"
+                else
                 "three_pool"
                 if experiment.get("architecture") == "three_pool"
                 and experiment.get("positive_patch_probability") == 0.6
@@ -69,6 +75,8 @@ def main() -> None:
             expected_protocol = (
                 "mito_hard_negative_validation_gate_v1"
                 if expected_variant == "hard_negative"
+                else "mito_focal_dice_validation_gate_v1"
+                if expected_variant == "focal_dice"
                 else "mito_three_pool_validation_gate_v1"
                 if expected_variant == "three_pool"
                 else "mito_one_factor_validation_gate_v1"
