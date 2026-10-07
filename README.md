@@ -32,6 +32,11 @@ The completed optimization record is in
 [reports/mito_optimization_round2_20261002.md](reports/mito_optimization_round2_20261002.md).
 The subsequent read-only error analysis, derived figures and local biological
 panel index are in [reports/mito_error_analysis_20261002.md](reports/mito_error_analysis_20261002.md).
+The updated 36-image error and annotation-semantics audit is in
+[reports/mito_error_and_annotation_audit_20261008.md](reports/mito_error_and_annotation_audit_20261008.md).
+Its blinded expert-review protocol is
+[experiments/mito_annotation_semantics_review_protocol.md](experiments/mito_annotation_semantics_review_protocol.md);
+expert ratings have not yet been collected.
 The fixed bright-background hard-negative sampling comparison completed five
 Mito folds but selected none by the validation-only rule; the frozen baseline
 remains current. See [reports/mito_hard_negative_5fold_20261002.md](reports/mito_hard_negative_5fold_20261002.md)
@@ -40,9 +45,9 @@ for the paired OOF and validation-only FP/recall analysis.
 Use [OPTIMIZATION_GOALS.md](OPTIMIZATION_GOALS.md) for the next experimental
 stage. The original fold-0 baseline commit, tag and artifacts remain unchanged;
 folds 1–4 were subsequently trained with the same baseline method.
-The read-only Mito data audit, first pre-registered comparison, and current
-five-fold evidence gap are recorded in [MITO_EXPERIMENT_LOG.md](MITO_EXPERIMENT_LOG.md).
-After all five unchanged baseline folds finish, validate their reports with
+The Mito data audit, baseline CV, and one-factor experiments are recorded in
+[MITO_EXPERIMENT_LOG.md](MITO_EXPERIMENT_LOG.md).
+For any future five-fold evaluation, validate reports with
 `python code/mito_cv_report.py /path/to/mito/fold_runs` before interpreting an
 out-of-fold score. The reporter fails if folds overlap or any test report is
 missing; it does not train or alter the data. For each Mito fold, run
