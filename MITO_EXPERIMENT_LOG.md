@@ -320,3 +320,44 @@ SHA256-verified model/results archives were downloaded locally before Pod
 deletion. `list_pods` was empty after cleanup. The detailed research record,
 validation and OOF FP tables, and billing are in
 `reports/mito_hard_negative_5fold_20261002.md` and `experiments/results/`.
+
+## 2026-10-08 — annotation semantics audit and focal-Dice five-fold ablation
+
+The 36 input/mask pairs were checked read-only against the local experiment
+copy: all 72 source/copied file SHA256 values matched, masks were binary
+`uint8 {0,255}` at the 1200×1200 input coordinates, and no exact duplicates
+or obviously aligned near duplicates were found. This does not establish
+biological label correctness or independence of related organoid sections.
+The frozen OOF errors were summarized in
+`reports/mito_error_and_annotation_audit_20261008.md`. A two-rater blinded
+review protocol and 63 anonymized crops plus eight whole images were prepared
+under ignored `outputs/`; expert judgments are still pending. Bright FP are
+measured *relative to the current manual mask*, not confirmed label omissions.
+
+Before GPU training, `experiments/mito_focal_dice_protocol.md` fixed one loss
+ablation: replace baseline BCE with symmetric gamma-2 focal BCE, retaining
+soft-Dice and every other baseline setting. Five folds trained on one Secure
+Cloud A40 Pod after CUDA, TensorFlow and focal-gradient preflight. Each fold
+accessed only its train/validation labels; validation-only selection was
+locked across all folds before candidate outer-test access. The fixed gate
+selected folds 3 and 4 only. Folds 0–2 reused frozen baseline OOF rows; their
+raw candidate test performance was not measured.
+
+The selected-policy 36-image OOF Dice was **0.855128 ± 0.063985** versus frozen
+**0.854309 ± 0.062776**, a paired gain of only **+0.000819**. Mean precision
+fell 0.002200 while recall rose 0.004867. In seven ≤5%-foreground images,
+Dice fell 0.001860, precision fell 0.004273, FP grew by 6,618 pixels and
+FP >10 px from GT grew by 2,768 pixels. Worst-case Dice stayed 0.726555.
+The hypothesis of improved sparse-image FP control was not supported;
+**reject focal-Dice and retain the frozen baseline**. Do not scan focal gamma
+or class-alpha based on these OOF results. The full paired data, chart,
+runtime/archive checks, and selection-bias caveats are in
+`reports/mito_focal_dice_5fold_20261008.md` and `experiments/results/`.
+
+All five nonempty model archives and two selected-fold prediction archives
+were downloaded with SHA256 verification before the only Pod was deleted.
+Runpod then listed no Pod, Endpoint or Network Volume, so visible active spend
+rate is US$0/hour. Hourly billing was still settling at report time; the
+final amount should replace the initial estimate in the report once listed.
+The next evidence-generating step is blinded expert annotation review, not
+another speculative GPU architecture or parameter search.

@@ -1,0 +1,63 @@
+{
+  "active_resources_after_deletion": {
+    "endpoints": 0,
+    "network_volumes": 0,
+    "pods": 0
+  },
+  "candidate_training_epochs": {
+    "focal_dice_fold0": 71,
+    "focal_dice_fold1": 86,
+    "focal_dice_fold2": 63,
+    "focal_dice_fold3": 69,
+    "focal_dice_fold4": 44
+  },
+  "experiment": "one-factor symmetric gamma-2 focal BCE plus unchanged soft-Dice",
+  "frozen_baseline_tag": "baseline-mito-fold0-20261001",
+  "gpu_preflight": "PASS",
+  "local_archives_verified": {
+    "focal_dice_final": {
+      "bytes": 9413,
+      "sha256": "0123f0f2bb5342b820718ea358bfb7fbdce893d3721d3d86a41274ada8cae873"
+    },
+    "focal_dice_fold0": {
+      "bytes": 86993040,
+      "sha256": "4b748d6f88cdd1ae7a8bc7408059669e1d7bbe31960d96c3318e52cb89f1a13c"
+    },
+    "focal_dice_fold1": {
+      "bytes": 87035999,
+      "sha256": "c23afb05c669921ca91796b1fd91cb43d86871f79e3c68104dfb78f770001a17"
+    },
+    "focal_dice_fold2": {
+      "bytes": 86975741,
+      "sha256": "d88e2af2388ae31751e67b75ae1ab6504e528236a363666fb1e5eaa10b6d225a"
+    },
+    "focal_dice_fold3": {
+      "bytes": 87013570,
+      "sha256": "e95e830564206aaa99f9309fbdee5232b00b8edff17bb1617c3d97c8a4f281d5"
+    },
+    "focal_dice_fold4": {
+      "bytes": 86756594,
+      "sha256": "e7072a3c0a74ce21d7b2381ba3bf903bd2ac626de0ab072e80d024cd46879eec"
+    },
+    "focal_dice_selected_fold3": {
+      "bytes": 409253,
+      "sha256": "054642d7a5c60fa5a741b71605e2ce383a466d3d14b2af679536baa69dc56e1b"
+    },
+    "focal_dice_selected_fold4": {
+      "bytes": 541129,
+      "sha256": "b6c5ea8ffd8b19e48a79f487e236d593e14fd3053203491179fcd6f0abe9775f"
+    }
+  },
+  "note": "Archives contain checkpoints/predictions/logs and remain Git-ignored; this manifest contains metadata only.",
+  "paired_input_masks": 36,
+  "pod_deleted": true,
+  "runpod_gpu": "NVIDIA A40 Secure Cloud",
+  "runpod_pod_id": "1u5f3be2vobzqn",
+  "runpod_unit_price_usd_per_hour": 0.49,
+  "schema": "mito_focal_dice_archive_manifest_v1",
+  "training_code_commit": "1b38b8f75e3e7174ac87261c75fb8ab130e5a279",
+  "validation_selected_folds": [
+    3,
+    4
+  ]
+}

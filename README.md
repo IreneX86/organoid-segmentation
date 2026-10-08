@@ -41,6 +41,12 @@ The fixed bright-background hard-negative sampling comparison completed five
 Mito folds but selected none by the validation-only rule; the frozen baseline
 remains current. See [reports/mito_hard_negative_5fold_20261002.md](reports/mito_hard_negative_5fold_20261002.md)
 for the paired OOF and validation-only FP/recall analysis.
+The subsequent one-factor focal BCE + soft-Dice experiment selected 2/5 folds
+using validation only, but its 36-image selected-policy OOF gain was just
++0.0008 Dice while low-foreground precision and distant FP worsened. It was
+rejected; the frozen baseline remains current. See
+[reports/mito_focal_dice_5fold_20261008.md](reports/mito_focal_dice_5fold_20261008.md)
+for the paired metrics, aggregate chart, and limits of the claim.
 
 Use [OPTIMIZATION_GOALS.md](OPTIMIZATION_GOALS.md) for the next experimental
 stage. The original fold-0 baseline commit, tag and artifacts remain unchanged;

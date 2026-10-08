@@ -37,11 +37,19 @@ def main() -> None:
     parser.add_argument("--baseline-prediction-root", type=Path, required=True)
     parser.add_argument("--candidate-root", type=Path, required=True)
     parser.add_argument("--output-dir", type=Path, required=True)
+    parser.add_argument(
+        "--variant", choices=("hard_negative", "focal_dice"),
+        default="hard_negative",
+        help="Locked Mito protocol to audit; the historical default is unchanged.",
+    )
     args = parser.parse_args()
     gate = json.loads((args.candidate_root / "candidate_decisions.json").read_text())
-    if gate.get("protocol") != "mito_hard_negative_validation_gate_v1":
-        raise ValueError("Expected locked hard-negative validation decisions")
+    if (gate.get("protocol") != f"mito_{args.variant}_validation_gate_v1"
+            or gate.get("variant") != args.variant):
+        raise ValueError(f"Expected locked {args.variant} validation decisions")
     oof = json.loads((args.candidate_root / "candidate_oof_summary.json").read_text())
+    if oof.get("variant") != args.variant:
+        raise ValueError("OOF variant does not match the locked decisions")
     expected = {row["filename"]: row for row in oof["per_image"]}
     if len(expected) != 36:
         raise ValueError("Expected exactly 36 OOF images")
@@ -109,7 +117,9 @@ def main() -> None:
         }
     args.output_dir.mkdir(parents=True, exist_ok=False)
     with (args.output_dir / "per_image_fp.csv").open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(output_rows[0]))
+        writer = csv.DictWriter(
+            handle, fieldnames=list(output_rows[0]), lineterminator="\n"
+        )
         writer.writeheader()
         writer.writerows(output_rows)
     with (args.output_dir / "fp_summary.json").open("w", encoding="utf-8") as handle:

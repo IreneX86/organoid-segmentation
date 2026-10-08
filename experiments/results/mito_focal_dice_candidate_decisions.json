@@ -1,0 +1,331 @@
+{
+  "decisions": [
+    {
+      "baseline_validation_dice_mean": 0.865344467719425,
+      "candidate_validation_dice_mean": 0.8651010064579332,
+      "fold": 0,
+      "low_foreground_image_count": 1,
+      "low_foreground_mean_delta": -0.007446664629134903,
+      "mean_delta": -0.00024346126149177305,
+      "per_image": [
+        {
+          "baseline_dice": 0.8459465063238648,
+          "candidate_dice": 0.8384998416947299,
+          "delta_dice": -0.007446664629134903,
+          "filename": "mask_002.tif",
+          "foreground_fraction_true": 0.0111125
+        },
+        {
+          "baseline_dice": 0.9162995070137417,
+          "candidate_dice": 0.9193694445106403,
+          "delta_dice": 0.003069937496898545,
+          "filename": "mask_011.tif",
+          "foreground_fraction_true": 0.05531319444444444
+        },
+        {
+          "baseline_dice": 0.8148735317431721,
+          "candidate_dice": 0.8141155576147179,
+          "delta_dice": -0.0007579741284542418,
+          "filename": "mask_013.tif",
+          "foreground_fraction_true": 0.05151736111111111
+        },
+        {
+          "baseline_dice": 0.7880389014807009,
+          "candidate_dice": 0.7862904771028932,
+          "delta_dice": -0.0017484243778076447,
+          "filename": "mask_017.tif",
+          "foreground_fraction_true": 0.06680555555555556
+        },
+        {
+          "baseline_dice": 0.8620390777841064,
+          "candidate_dice": 0.8659865361926574,
+          "delta_dice": 0.003947458408551041,
+          "filename": "mask_029.tif",
+          "foreground_fraction_true": 0.07199305555555556
+        },
+        {
+          "baseline_dice": 0.9274512953069555,
+          "candidate_dice": 0.9275391184947113,
+          "delta_dice": 8.782318775579778e-05,
+          "filename": "mask_031.tif",
+          "foreground_fraction_true": 0.11930347222222222
+        },
+        {
+          "baseline_dice": 0.9027624543834337,
+          "candidate_dice": 0.9039060695951827,
+          "delta_dice": 0.001143615211748994,
+          "filename": "mask_036.tif",
+          "foreground_fraction_true": 0.09528958333333333
+        }
+      ],
+      "selected_candidate": false,
+      "validation_std_delta": 0.0017127059435973688,
+      "worst_paired_delta": -0.007446664629134903
+    },
+    {
+      "baseline_validation_dice_mean": 0.8588905845707457,
+      "candidate_validation_dice_mean": 0.8608106274112806,
+      "fold": 1,
+      "low_foreground_image_count": 1,
+      "low_foreground_mean_delta": 0.0020246351131467666,
+      "mean_delta": 0.0019200428405348666,
+      "per_image": [
+        {
+          "baseline_dice": 0.7892094809900039,
+          "candidate_dice": 0.7912341161031506,
+          "delta_dice": 0.0020246351131467666,
+          "filename": "mask_005.tif",
+          "foreground_fraction_true": 0.02928263888888889
+        },
+        {
+          "baseline_dice": 0.9234921161137932,
+          "candidate_dice": 0.9284961880625345,
+          "delta_dice": 0.0050040719487413066,
+          "filename": "mask_015.tif",
+          "foreground_fraction_true": 0.06549652777777777
+        },
+        {
+          "baseline_dice": 0.9252537707805791,
+          "candidate_dice": 0.9294782378387922,
+          "delta_dice": 0.0042244670582131105,
+          "filename": "mask_018.tif",
+          "foreground_fraction_true": 0.0780861111111111
+        },
+        {
+          "baseline_dice": 0.7761559999337299,
+          "candidate_dice": 0.7784146932499958,
+          "delta_dice": 0.002258693316265936,
+          "filename": "mask_020.tif",
+          "foreground_fraction_true": 0.05631944444444444
+        },
+        {
+          "baseline_dice": 0.7869401363548931,
+          "candidate_dice": 0.7793862106629407,
+          "delta_dice": -0.007553925691952457,
+          "filename": "mask_021.tif",
+          "foreground_fraction_true": 0.05024722222222222
+        },
+        {
+          "baseline_dice": 0.9130652211257658,
+          "candidate_dice": 0.914855543489898,
+          "delta_dice": 0.0017903223641321242,
+          "filename": "mask_025.tif",
+          "foreground_fraction_true": 0.09313263888888888
+        },
+        {
+          "baseline_dice": 0.8981173666964551,
+          "candidate_dice": 0.9038094024716524,
+          "delta_dice": 0.0056920357751972794,
+          "filename": "mask_034.tif",
+          "foreground_fraction_true": 0.12017430555555556
+        }
+      ],
+      "selected_candidate": false,
+      "validation_std_delta": 0.0027747566242765365,
+      "worst_paired_delta": -0.007553925691952457
+    },
+    {
+      "baseline_validation_dice_mean": 0.831598344014495,
+      "candidate_validation_dice_mean": 0.8323504242003391,
+      "fold": 2,
+      "low_foreground_image_count": 2,
+      "low_foreground_mean_delta": 0.0029294222123696367,
+      "mean_delta": 0.0007520801858441617,
+      "per_image": [
+        {
+          "baseline_dice": 0.8870621676644735,
+          "candidate_dice": 0.8857762850849453,
+          "delta_dice": -0.0012858825795282192,
+          "filename": "mask_003.tif",
+          "foreground_fraction_true": 0.06323819444444445
+        },
+        {
+          "baseline_dice": 0.7542056651875899,
+          "candidate_dice": 0.7565136093422005,
+          "delta_dice": 0.002307944154610553,
+          "filename": "mask_004.tif",
+          "foreground_fraction_true": 0.0336125
+        },
+        {
+          "baseline_dice": 0.8882789462490444,
+          "candidate_dice": 0.8842378430400921,
+          "delta_dice": -0.004041103208952235,
+          "filename": "mask_007.tif",
+          "foreground_fraction_true": 0.12184166666666667
+        },
+        {
+          "baseline_dice": 0.778853989760434,
+          "candidate_dice": 0.7824048900305627,
+          "delta_dice": 0.0035509002701287207,
+          "filename": "mask_014.tif",
+          "foreground_fraction_true": 0.04971388888888889
+        },
+        {
+          "baseline_dice": 0.8039425032872926,
+          "candidate_dice": 0.8067356506782811,
+          "delta_dice": 0.0027931473909885707,
+          "filename": "mask_019.tif",
+          "foreground_fraction_true": 0.05955347222222222
+        },
+        {
+          "baseline_dice": 0.8446052637636324,
+          "candidate_dice": 0.8476457851664281,
+          "delta_dice": 0.0030405214027956484,
+          "filename": "mask_026.tif",
+          "foreground_fraction_true": 0.07935
+        },
+        {
+          "baseline_dice": 0.8642398721889978,
+          "candidate_dice": 0.8631389060598639,
+          "delta_dice": -0.0011009661291339068,
+          "filename": "mask_027.tif",
+          "foreground_fraction_true": 0.08981388888888889
+        }
+      ],
+      "selected_candidate": false,
+      "validation_std_delta": -0.0022830835495563084,
+      "worst_paired_delta": -0.004041103208952235
+    },
+    {
+      "baseline_validation_dice_mean": 0.867025753290311,
+      "candidate_validation_dice_mean": 0.8705144081138361,
+      "fold": 3,
+      "low_foreground_image_count": 2,
+      "low_foreground_mean_delta": -0.0029583344916343512,
+      "mean_delta": 0.0034886548235251585,
+      "per_image": [
+        {
+          "baseline_dice": 0.9032744326270832,
+          "candidate_dice": 0.9020916317486594,
+          "delta_dice": -0.0011828008784238175,
+          "filename": "mask_006.tif",
+          "foreground_fraction_true": 0.042660416666666666
+        },
+        {
+          "baseline_dice": 0.7552056471407,
+          "candidate_dice": 0.7504717790358552,
+          "delta_dice": -0.004733868104844885,
+          "filename": "mask_009.tif",
+          "foreground_fraction_true": 0.048508333333333334
+        },
+        {
+          "baseline_dice": 0.8276197502527529,
+          "candidate_dice": 0.827797126686983,
+          "delta_dice": 0.00017737643423010319,
+          "filename": "mask_022.tif",
+          "foreground_fraction_true": 0.06064513888888889
+        },
+        {
+          "baseline_dice": 0.8158671648730862,
+          "candidate_dice": 0.8281166814551908,
+          "delta_dice": 0.012249516582104603,
+          "filename": "mask_023.tif",
+          "foreground_fraction_true": 0.06182847222222222
+        },
+        {
+          "baseline_dice": 0.9349346420255746,
+          "candidate_dice": 0.9340932315335598,
+          "delta_dice": -0.0008414104920148047,
+          "filename": "mask_024.tif",
+          "foreground_fraction_true": 0.08178888888888888
+        },
+        {
+          "baseline_dice": 0.8852267637794697,
+          "candidate_dice": 0.8968261104117964,
+          "delta_dice": 0.011599346632326646,
+          "filename": "mask_030.tif",
+          "foreground_fraction_true": 0.08705
+        },
+        {
+          "baseline_dice": 0.9090209336818826,
+          "candidate_dice": 0.9132703101920236,
+          "delta_dice": 0.004249376510141012,
+          "filename": "mask_033.tif",
+          "foreground_fraction_true": 0.12337430555555555
+        },
+        {
+          "baseline_dice": 0.9050566919419378,
+          "candidate_dice": 0.9114483938466202,
+          "delta_dice": 0.006391701904682412,
+          "filename": "mask_035.tif",
+          "foreground_fraction_true": 0.13404930555555555
+        }
+      ],
+      "selected_candidate": true,
+      "validation_std_delta": 0.0013037961865394604,
+      "worst_paired_delta": -0.004733868104844885
+    },
+    {
+      "baseline_validation_dice_mean": 0.8649744148999648,
+      "candidate_validation_dice_mean": 0.8682399192032195,
+      "fold": 4,
+      "low_foreground_image_count": 1,
+      "low_foreground_mean_delta": -0.0031587065459977026,
+      "mean_delta": 0.003265504303254626,
+      "per_image": [
+        {
+          "baseline_dice": 0.826956384821288,
+          "candidate_dice": 0.8237976782752903,
+          "delta_dice": -0.0031587065459977026,
+          "filename": "mask_001.tif",
+          "foreground_fraction_true": 0.0060625
+        },
+        {
+          "baseline_dice": 0.9011768710154603,
+          "candidate_dice": 0.9123883928571429,
+          "delta_dice": 0.011211521841682615,
+          "filename": "mask_008.tif",
+          "foreground_fraction_true": 0.05305138888888889
+        },
+        {
+          "baseline_dice": 0.7255777648671063,
+          "candidate_dice": 0.7178573091888276,
+          "delta_dice": -0.007720455678278726,
+          "filename": "mask_010.tif",
+          "foreground_fraction_true": 0.06884652777777778
+        },
+        {
+          "baseline_dice": 0.9114810898946537,
+          "candidate_dice": 0.9221118987404852,
+          "delta_dice": 0.010630808845831452,
+          "filename": "mask_012.tif",
+          "foreground_fraction_true": 0.05429027777777778
+        },
+        {
+          "baseline_dice": 0.903764835658693,
+          "candidate_dice": 0.9093320261100648,
+          "delta_dice": 0.005567190451371773,
+          "filename": "mask_016.tif",
+          "foreground_fraction_true": 0.06844861111111111
+        },
+        {
+          "baseline_dice": 0.8890048154093098,
+          "candidate_dice": 0.8894829805043715,
+          "delta_dice": 0.0004781650950617111,
+          "filename": "mask_028.tif",
+          "foreground_fraction_true": 0.09938888888888889
+        },
+        {
+          "baseline_dice": 0.8968591426332428,
+          "candidate_dice": 0.9027091487463541,
+          "delta_dice": 0.005850006113111261,
+          "filename": "mask_032.tif",
+          "foreground_fraction_true": 0.11870694444444445
+        }
+      ],
+      "selected_candidate": true,
+      "validation_std_delta": 0.0062646637611134676,
+      "worst_paired_delta": -0.007720455678278726
+    }
+  ],
+  "protocol": "mito_focal_dice_validation_gate_v1",
+  "selection_rule": {
+    "low_foreground_delta_at_least": -0.005,
+    "or_branch_requires_nonnegative_overall_mean": true,
+    "or_low_foreground_delta_at_least": 0.01,
+    "overall_mean_delta_at_least": 0.003,
+    "validation_std_increase_at_most": 0.015,
+    "worst_paired_delta_at_least": -0.02
+  },
+  "variant": "focal_dice"
+}
