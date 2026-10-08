@@ -1,0 +1,80 @@
+{
+  "baseline": {
+    "dice": 0.7975932603244663,
+    "iou": 0.6704588283723978,
+    "precision": 0.7370335587646808,
+    "recall": 0.874122527816258,
+    "fp": 24933.75,
+    "fn": 9827.75,
+    "distant_fp": 5616.5,
+    "boundary_f1_2px": 0.8842909141635342,
+    "low_foreground_dice": 0.7690668637148024,
+    "low_foreground_precision": 0.6941820245652559,
+    "min_dice": 0.7265549601952899
+  },
+  "microsam_lm_baseline": {
+    "dice": 0.5695897852963691,
+    "iou": 0.40104180763779823,
+    "precision": 0.40971200876158076,
+    "recall": 0.9500328316707642,
+    "fp": 110496.5,
+    "fn": 3983.5,
+    "distant_fp": 14970.5,
+    "boundary_f1_2px": 0.31446616302863606,
+    "low_foreground_dice": 0.5432145863967053,
+    "low_foreground_precision": 0.37987965292079184,
+    "min_dice": 0.5151795098744261
+  },
+  "microsam_lm_otsu": {
+    "dice": 0.5170329758984429,
+    "iou": 0.34934633073280086,
+    "precision": 0.4024617592000009,
+    "recall": 0.7493487868359432,
+    "fp": 85444.5,
+    "fn": 22206.0,
+    "distant_fp": 16411.75,
+    "boundary_f1_2px": 0.3487514817971185,
+    "low_foreground_dice": 0.5417420283479939,
+    "low_foreground_precision": 0.3941972875937011,
+    "min_dice": 0.46067049518222175
+  },
+  "otsu_control": {
+    "dice": 0.5467571533105122,
+    "iou": 0.38808259760145675,
+    "precision": 0.4477397293205516,
+    "recall": 0.8182082417632788,
+    "fp": 147896.0,
+    "fn": 14097.5,
+    "distant_fp": 59428.75,
+    "boundary_f1_2px": 0.4448415730470147,
+    "low_foreground_dice": 0.6341257016853867,
+    "low_foreground_precision": 0.5289763502312368,
+    "min_dice": 0.30338293282094064
+  },
+  "sam2_tiny_baseline": {
+    "dice": 0.5883411566830216,
+    "iou": 0.4192522413799731,
+    "precision": 0.4271623953105261,
+    "recall": 0.9582041631334486,
+    "fp": 103821.75,
+    "fn": 3504.0,
+    "distant_fp": 13744.25,
+    "boundary_f1_2px": 0.3744971422941368,
+    "low_foreground_dice": 0.5705730660056412,
+    "low_foreground_precision": 0.4046580611425231,
+    "min_dice": 0.5282528943058616
+  },
+  "sam2_tiny_otsu": {
+    "dice": 0.4804381762734946,
+    "iou": 0.32247370121586083,
+    "precision": 0.3405270472575746,
+    "recall": 0.8941291263309522,
+    "fp": 189394.75,
+    "fn": 8442.75,
+    "distant_fp": 70124.5,
+    "boundary_f1_2px": 0.2680163965220864,
+    "low_foreground_dice": 0.5518672302627292,
+    "low_foreground_precision": 0.400230750539299,
+    "min_dice": 0.2940119796274599
+  }
+}

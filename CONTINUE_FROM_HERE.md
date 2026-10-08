@@ -1,3 +1,9 @@
+# 最新继续点：SAM 本地测试完成（2026-10-08）
+
+本轮无训练、无付费资源。四种自动SAM方案均退步，frozen baseline保持不变；不推进SAM五折微调。查看[报告](reports/mito_sam_feasibility_20261008.md)和`experiments/results/mito_sam_feasibility_20261008/`。本地预测、probability、提示、日志和原图对比在`outputs/sam_feasibility_20261008/`（本worktree内，Git忽略；不要删除）。下一步优先完成下述盲法标注语义复核；未来若有荧光专用公开权重和物理尺度标定，再考虑一次预注册本地探针。未改变Cetus或旧实验。
+
+---
+
 # Mito 当前继续点（2026-10-08）
 
 **当前结论：冻结 baseline 保持不变；没有运行中的 GPU 实验。** 最新的单因素 focal BCE+soft-Dice 五折验证策略在 36 张已标注开发图像上的 OOF Dice 为 0.855128，较 baseline 0.854309 仅 +0.000819；低前景 Dice/precision 降低，FP 和远距 FP 增加，因此**reject**。完整数值和安全图表见 [`reports/mito_focal_dice_5fold_20261008.md`](reports/mito_focal_dice_5fold_20261008.md)。frozen tag `baseline-mito-fold0-20261001` 未修改。

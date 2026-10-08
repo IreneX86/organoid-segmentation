@@ -1,0 +1,173 @@
+{
+  "protocol": "experiments/mito_sam_feasibility_protocol.md",
+  "device": "cpu",
+  "torch": "2.10.0",
+  "python": "3.13.1",
+  "machine": "arm64",
+  "ram_gib": 8.0,
+  "cases": [
+    {
+      "filename": "mask_004.tif",
+      "fold": 3,
+      "stratum": "low_foreground_low_baseline_dice",
+      "input_sha256": "ed8b10df86e77d317475be123bc933b1951ae1818cdd0b52d358d57009b5219f",
+      "baseline_prediction_sha256": "a43a64d55497802fd61e91b6848233b1b99f3476e2210185191207d1893f7021"
+    },
+    {
+      "filename": "mask_014.tif",
+      "fold": 3,
+      "stratum": "low_foreground_high_baseline_dice",
+      "input_sha256": "5ed5b9b39dc758db69c39927b7f99c6e63b659c1217852fc89ad833a72a4fb8c",
+      "baseline_prediction_sha256": "6eec4171b9428ed45a1533c5683b132dcf645e0ebc7ad4f7bd3164be4f7b38d2"
+    },
+    {
+      "filename": "mask_010.tif",
+      "fold": 0,
+      "stratum": "high_foreground_low_baseline_dice",
+      "input_sha256": "3dcf6b9634078329d73f216026ea03e3918ffd32648d01840c8877beea0ba628",
+      "baseline_prediction_sha256": "fe4871d0e36f3b880a7f080f3c1728e45e0004616bd80decf3dde0c3db4b2fe2"
+    },
+    {
+      "filename": "mask_016.tif",
+      "fold": 0,
+      "stratum": "high_foreground_high_baseline_dice",
+      "input_sha256": "916d5597a725fcd59645e2f9368cc91c4e652d395237920155ae782786671abc",
+      "baseline_prediction_sha256": "420fb213dabfb8fb2e26d9a990cf1021a9c1e3f9704f5891cf4e9e89ece00064"
+    }
+  ],
+  "prompt_source": "image_otsu OR frozen baseline OOF prediction; never GT",
+  "models": {
+    "sam2_tiny": {
+      "sha256": "7402e0d864fa82708a20fbd15bc84245c2f26dff0eb43a4b5b93452deb34be69",
+      "bytes": 156008466,
+      "load_seconds": 1.4563460409990512
+    },
+    "microsam_lm": {
+      "sha256": "ffe862fa5b58d78375506041faf0eb3927ced5b5391e8be383e6d7ac07aed924",
+      "bytes": 375023499,
+      "load_seconds": 1.278816584002925
+    }
+  },
+  "timing": [
+    {
+      "model": "sam2_tiny",
+      "filename": "mask_004.tif",
+      "encode_seconds": 7.67168512500939,
+      "decode_seconds": {
+        "otsu": 8.73314599902369,
+        "baseline": 12.35890270996606
+      },
+      "total_seconds": 28.89997112500714,
+      "prompt_counts": {
+        "otsu": 313,
+        "baseline": 455
+      },
+      "process_peak_rss_bytes": 1088307200
+    },
+    {
+      "model": "sam2_tiny",
+      "filename": "mask_014.tif",
+      "encode_seconds": 10.770969127042918,
+      "decode_seconds": {
+        "otsu": 13.15698104299372,
+        "baseline": 18.00988762502675
+      },
+      "total_seconds": 42.09737433301052,
+      "prompt_counts": {
+        "otsu": 446,
+        "baseline": 615
+      },
+      "process_peak_rss_bytes": 1088307200
+    },
+    {
+      "model": "sam2_tiny",
+      "filename": "mask_010.tif",
+      "encode_seconds": 8.751942624017829,
+      "decode_seconds": {
+        "otsu": 18.735687956999755,
+        "baseline": 25.654422415973386
+      },
+      "total_seconds": 53.309366165980464,
+      "prompt_counts": {
+        "otsu": 552,
+        "baseline": 832
+      },
+      "process_peak_rss_bytes": 1088307200
+    },
+    {
+      "model": "sam2_tiny",
+      "filename": "mask_016.tif",
+      "encode_seconds": 7.972495789988898,
+      "decode_seconds": {
+        "otsu": 3.8068721660529263,
+        "baseline": 25.996527164970757
+      },
+      "total_seconds": 37.93776041700039,
+      "prompt_counts": {
+        "otsu": 133,
+        "baseline": 916
+      },
+      "process_peak_rss_bytes": 1088307200
+    },
+    {
+      "model": "microsam_lm",
+      "filename": "mask_004.tif",
+      "encode_seconds": 54.07412858205498,
+      "decode_seconds": {
+        "otsu": 9.468730248976499,
+        "baseline": 13.65996337501565
+      },
+      "total_seconds": 77.43764687501243,
+      "prompt_counts": {
+        "otsu": 313,
+        "baseline": 455
+      },
+      "process_peak_rss_bytes": 2695905280
+    },
+    {
+      "model": "microsam_lm",
+      "filename": "mask_014.tif",
+      "encode_seconds": 52.32077166700037,
+      "decode_seconds": {
+        "otsu": 13.67692116802209,
+        "baseline": 18.79927104100352
+      },
+      "total_seconds": 85.01488304199302,
+      "prompt_counts": {
+        "otsu": 446,
+        "baseline": 615
+      },
+      "process_peak_rss_bytes": 2831122432
+    },
+    {
+      "model": "microsam_lm",
+      "filename": "mask_010.tif",
+      "encode_seconds": 52.862407041946426,
+      "decode_seconds": {
+        "otsu": 16.711578249931335,
+        "baseline": 24.99091383293853
+      },
+      "total_seconds": 94.7827511659998,
+      "prompt_counts": {
+        "otsu": 552,
+        "baseline": 832
+      },
+      "process_peak_rss_bytes": 2881421312
+    },
+    {
+      "model": "microsam_lm",
+      "filename": "mask_016.tif",
+      "encode_seconds": 91.68754170800094,
+      "decode_seconds": {
+        "otsu": 6.114002332964446,
+        "baseline": 30.82823066896526
+      },
+      "total_seconds": 129.0393996249768,
+      "prompt_counts": {
+        "otsu": 133,
+        "baseline": 916
+      },
+      "process_peak_rss_bytes": 2978906112
+    }
+  ]
+}

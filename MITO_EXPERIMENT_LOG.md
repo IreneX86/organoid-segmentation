@@ -361,3 +361,7 @@ rate is US$0/hour. Hourly billing was still settling at report time; the
 final amount should replace the initial estimate in the report once listed.
 The next evidence-generating step is blinded expert annotation review, not
 another speculative GPU architecture or parameter search.
+
+## 2026-10-08 — pretrained SAM CPU feasibility (complete)
+
+Two pretrained models × two automatic prompt paths were locked before GT evaluation on four fixed stratified images. Same-image baseline Dice 0.797593; micro-SAM/Otsu 0.517033, micro-SAM/U-Net 0.569590, SAM2 Tiny/Otsu 0.480438, SAM2 Tiny/U-Net 0.588341. All four candidate pipelines worsened every image; precision and boundary fidelity fell. Reject these configurations, retain frozen baseline. This is exploratory n=4, not five-fold CV or manual-prompt evaluation. No training/GPU/Runpod cost. [Report](reports/mito_sam_feasibility_20261008.md), [protocol](experiments/mito_sam_feasibility_protocol.md), [research](experiments/mito_sam_research_notes.md). Next: existing blinded annotation/SOP review; no evidence justifies SAM fine-tuning yet.

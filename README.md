@@ -150,3 +150,7 @@ input dimensions, and foreground fraction for every generated mask.
 This pipeline does not use organoid IDs, Z indices, adjacent slices, 2.5D
 inputs, 3D reconstruction, or 3D neural networks. StarDist, connected-component
 analysis, watershed, clDice, and skeleton metrics remain optional later phases.
+
+### SAM 本地可行性测试（2026-10-08）
+
+[评估报告与图表](reports/mito_sam_feasibility_20261008.md)：两种预训练模型、四种自动推理方案在固定四图测试中均未超过同图U-Net；保留baseline，未启动GPU训练。原始图像对比仅保存本地。
