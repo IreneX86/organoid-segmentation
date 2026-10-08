@@ -3,7 +3,7 @@
 **当前结论：冻结 baseline 保持不变；没有运行中的 GPU 实验。** 最新的单因素 focal BCE+soft-Dice 五折验证策略在 36 张已标注开发图像上的 OOF Dice 为 0.855128，较 baseline 0.854309 仅 +0.000819；低前景 Dice/precision 降低，FP 和远距 FP 增加，因此**reject**。完整数值和安全图表见 [`reports/mito_focal_dice_5fold_20261008.md`](reports/mito_focal_dice_5fold_20261008.md)。frozen tag `baseline-mito-fold0-20261001` 未修改。
 
 - 五折模型、历史、阈值、split、决策、metrics、入选 fold 3/4 的预测及日志已归档在 Git 忽略目录 `runpod_results/mito_focal_dice_20261008/`。五折、最终报告与两份入选预测共八份归档均经 SHA256 核对；五份 checkpoint 非空且 ZIP 可读，历史无 NaN/Inf。
-- 唯一 Runpod Secure Cloud A40 Pod `1u5f3be2vobzqn` 已在下载后 TERMINATE/DELETE；`list_pods=[]`、`list_endpoints=[]`、`list_network_volumes=[]`，可见资源当前支出速率 **US$0/hour**。账单末小时仍在入账：已列账 US$0.505487，预计本轮最终约 US$0.95–1.00，稍后以结算明细更新。
+- 唯一 Runpod Secure Cloud A40 Pod `1u5f3be2vobzqn` 已在下载后 TERMINATE/DELETE；`list_pods=[]`、`list_endpoints=[]`、`list_network_volumes=[]`，可见资源当前支出速率 **US$0/hour**。账单 API 截至 2026-10-08 01:05 UTC 已列账 US$0.671175，末小时仍在滞后入账；按 Pod 运行时间预计本轮最终约 US$0.95–1.00，稍后以结算明细更新。
 - 已完成只读系统误差与数据/标注编码审计，报告在 [`reports/mito_error_and_annotation_audit_20261008.md`](reports/mito_error_and_annotation_audit_20261008.md)。真正的生物学标注语义仍未由独立专家判定；Git 忽略的盲法复核包在 `outputs/mito_annotation_review_20261008/reviewer/`，含 63 个匿名裁剪和 8 张整图。
 - **下次从盲法专家复核继续**：两位熟悉 Mito 染色与标注 SOP 的人员先独立看原图，再按固定方案查看 GT。不要改原始 36 对 mask，不用已看过的 OOF 差图定向刷分。复核前不继续跑 ResUNet 或扫描 loss/sampling 参数。未来未见 organoid 数据尚未加入。
 

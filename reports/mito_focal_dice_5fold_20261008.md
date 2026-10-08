@@ -42,7 +42,7 @@
 
 五折进程退出码均为 0；归档 stderr 中未发现 traceback、OOM 或 CUDA 初始化失败。只读 manifest 见[小型归档元数据](../experiments/results/mito_focal_dice_manifest.json)；checkpoint、预测 TIFF 和原始运行日志仍只保留在 Git 忽略目录。
 
-Pod 在全部关键归档安全下载后已 **TERMINATE/DELETE**；Runpod 复核显示 `list_pods=[]`、`list_network_volumes=[]`、`list_endpoints=[]`，可见资源当前支出速率 **US$0/hour**。运行单价 US$0.49/hour，新增预算上限 US$5。**费用：**账单末小时仍在入账，已列账 US$0.505487；按 Pod 约 1.9 小时估算最终约 US$0.95–1.00，需以结算后明细为准。
+Pod 在全部关键归档安全下载后已 **TERMINATE/DELETE**；Runpod 复核显示 `list_pods=[]`、`list_network_volumes=[]`、`list_endpoints=[]`，可见资源当前支出速率 **US$0/hour**。运行单价 US$0.49/hour，新增预算上限 US$5。**费用：**Runpod 账单 API 在 2026-10-08 01:05 UTC 已列账 **US$0.671175**，但末小时仍在滞后入账。最后一次 `get_pod` 显示累计运行 6,894 秒，随后数秒内删除；按计时和单价估算最终 GPU 与 Pod disk 合计约 **US$0.95–1.00**，需以结算后明细为准。
 
 这一结果不证明 focal loss 一般无效。替换 BCE 为 focal 同时改变了 BCE 项相对 Dice 项的数值权重；本实验只能解释为**整个 loss 的单因素消融**。门控使用同一小验证集做候选选择，所见 validation 增益带有选择乐观性。36 张图的原 organoid/Z 来源无法恢复，跨折独立性未知；五折 map 原先依据全部 mask 的前景比例分层，且研究者已经查看过 baseline OOF 错误。因此即使将来出现小幅内部增益，也需要独立新标注图像才能支持外部泛化主张。
 

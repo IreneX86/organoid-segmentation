@@ -4,6 +4,9 @@
     "network_volumes": 0,
     "pods": 0
   },
+  "billing_observed_at_utc": "2026-10-08T01:05:00Z",
+  "billing_observed_usd": 0.6711754854768515,
+  "billing_status": "final hour not yet fully posted; estimate US$0.95-1.00 from 6894-second last observed uptime and US$0.49/hour GPU rate",
   "candidate_training_epochs": {
     "focal_dice_fold0": 71,
     "focal_dice_fold1": 86,
