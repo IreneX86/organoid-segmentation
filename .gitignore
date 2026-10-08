@@ -13,6 +13,8 @@ organoid_data/
 *.tar
 *.tar.gz
 *.zip
+# Explicitly requested private delivery of generated Mito masks only.
+!deliverables/mito_auto_labels/*/Mito_label.zip
 artifacts/
 outputs/
 predictions/
