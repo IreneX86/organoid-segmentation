@@ -18,8 +18,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from ld_final_policy import _validation_best_epoch, build_production_policy
 from ld_predict import _validate_model_manifest, predict_folder
-from ld_train import _code_sha256_manifest
-from ld_train_final import _load_and_validate_policy, _validate_keras_archive
+from ld_train import CODE_RELATIVE_PATHS, _code_sha256_manifest
+from ld_train_final import FINAL_SOURCE_FILES, _load_and_validate_policy, _validate_keras_archive
 
 
 def _write_json(path: Path, value: dict) -> None:
@@ -53,6 +53,12 @@ class LdProductionTests(unittest.TestCase):
                 {"epoch": 2, "val_full_dice": 0.7},
             ])
         self.assertEqual(_validation_best_epoch(path), (2, 0.7))
+
+    def test_final_snapshot_includes_locked_baseline_sources(self) -> None:
+        self.assertTrue(set(CODE_RELATIVE_PATHS).issubset(FINAL_SOURCE_FILES))
+        self.assertEqual(len(FINAL_SOURCE_FILES), len(set(FINAL_SOURCE_FILES)))
+        self.assertIn("code/ld_train_final.py", FINAL_SOURCE_FILES)
+        self.assertIn("code/ld_predict.py", FINAL_SOURCE_FILES)
 
     def _fake_cv(self) -> tuple[Path, Path, Path]:
         names = [f"ld_{index:03d}.tif" for index in range(36)]

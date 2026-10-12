@@ -20,17 +20,15 @@ import numpy as np
 import tifffile
 
 from ld_final_policy import BASELINE_CANDIDATE_ID
-from ld_train import _code_sha256_manifest, _read_frozen_map
+from ld_train import CODE_RELATIVE_PATHS, _code_sha256_manifest, _read_frozen_map
 from pipeline_config import PipelineConfig
 from tiff_io import pair_tiff_directories, validate_pairs
 
 
-FINAL_SOURCE_FILES = (
+FINAL_SOURCE_FILES = tuple(dict.fromkeys((
+    *CODE_RELATIVE_PATHS,
     "code/ld_final_policy.py", "code/ld_train_final.py", "code/ld_predict.py",
-    "code/model/__init__.py", "code/model/unet.py", "code/losses.py",
-    "code/patch_dataset.py", "code/pipeline_config.py", "code/tiff_io.py",
-    "code/sliding_window.py",
-)
+)))
 
 
 def _sha256(path: Path) -> str:
