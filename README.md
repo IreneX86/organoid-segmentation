@@ -24,7 +24,11 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
   [component-uniform five-fold report](reports/ld_component_5fold_20261012/README.md)
   records the paired exploratory comparison and error audit. Its
   [validation-only method lock](experiments/results/ld_method_policy.lock.json)
-  retains the frozen LD baseline for future production fitting.
+  retained the frozen LD baseline. The
+  [all-36 final fit and inference handoff](reports/ld_final_all36_20261012/README.md)
+  records the locally verified production checkpoint, locked 50-epoch/0.35
+  policy, and batch prediction procedure. This final model has no independent
+  external accuracy estimate yet.
 - [`deliverables/mito_auto_labels/`](deliverables/mito_auto_labels/README.md)
   contains ten checksum-verified ZIPs with **1,330 preliminary Mito masks**.
   These are model predictions, not manually verified labels.

@@ -31,15 +31,15 @@ for path in "$POLICY" "$GLOBAL_POLICY" "$FOLD_MAP" "$LABEL_MANIFEST" "$VERIFIER"
         exit 1
     fi
 done
-for fold in 0 1 2 3 4; do
-    for cv_root in "$BASELINE_CV_ROOT" "$CANDIDATE_CV_ROOT"; do
-        if [[ ! -f "$cv_root/ld/fold_$fold/selection.lock.json" ]]; then
-            echo "Missing locked CV fold $fold: $cv_root" >&2
-            exit 1
-        fi
-    done
-done
 if [[ "$METHOD" == candidate ]]; then
+    for fold in 0 1 2 3 4; do
+        for cv_root in "$BASELINE_CV_ROOT" "$CANDIDATE_CV_ROOT"; do
+            if [[ ! -f "$cv_root/ld/fold_$fold/selection.lock.json" ]]; then
+                echo "Missing locked CV fold $fold: $cv_root" >&2
+                exit 1
+            fi
+        done
+    done
     TRAINER="$STUDY_ROOT/code/ld_component_train_final.py"
 else
     TRAINER="$STUDY_ROOT/code/ld_train_final.py"
@@ -58,14 +58,23 @@ for lib_dir in /workspace/miniforge3/envs/organoid-runpod/lib/python3.11/site-pa
 done
 export LD_LIBRARY_PATH LD_STUDY_ROOT="$STUDY_ROOT" TF_FORCE_GPU_ALLOW_GROWTH=true
 
-# Rebuild the global choice from both sets of locked inner-validation evidence
-# before any final output is created. The builder does not open outer-test data.
-selection_result="$(python "$VERIFIER" check-selection --method "$METHOD" --policy "$POLICY" \
-    --global-policy "$GLOBAL_POLICY" \
-    --baseline-cv-root "$BASELINE_CV_ROOT" \
-    --candidate-cv-root "$CANDIDATE_CV_ROOT" \
-    --fold-map "$FOLD_MAP" --label-manifest "$LABEL_MANIFEST" \
-    --label-dir "$STUDY_ROOT/LD_output_binary" --study-root "$STUDY_ROOT")"
+# The baseline policies were recomputed from both complete CV trees locally,
+# then frozen by SHA256. Check those exact locks on the Pod without uploading
+# validation predictions or checkpoints. Candidate retains CV recomputation.
+if [[ "$METHOD" == baseline ]]; then
+    preflight_log=global_policy_preflight.log
+    preflight_result="$(python "$VERIFIER" check-locked-baseline \
+        --method baseline --policy "$POLICY" --global-policy "$GLOBAL_POLICY" \
+        --fold-map "$FOLD_MAP" --label-manifest "$LABEL_MANIFEST")"
+else
+    preflight_log=global_selection_preflight.log
+    preflight_result="$(python "$VERIFIER" check-selection --method candidate --policy "$POLICY" \
+        --global-policy "$GLOBAL_POLICY" \
+        --baseline-cv-root "$BASELINE_CV_ROOT" \
+        --candidate-cv-root "$CANDIDATE_CV_ROOT" \
+        --fold-map "$FOLD_MAP" --label-manifest "$LABEL_MANIFEST" \
+        --label-dir "$STUDY_ROOT/LD_output_binary" --study-root "$STUDY_ROOT")"
+fi
 
 mkdir -p "$LOGS" "$ARCHIVES"
 monitor_pid=
@@ -86,7 +95,7 @@ trap finish EXIT
 
 date -u +%FT%TZ > "$LOGS/start_utc.txt"
 hostname > "$LOGS/hostname.txt"
-printf '%s\n' "$selection_result" > "$LOGS/global_selection_preflight.log"
+printf '%s\n' "$preflight_result" > "$LOGS/$preflight_log"
 cp "${BASH_SOURCE[0]}" "$LOGS/runner.sh"
 cp "$VERIFIER" "$LOGS/artifact_verifier.py"
 cp "$GLOBAL_POLICY" "$LOGS/global_method_policy.json"

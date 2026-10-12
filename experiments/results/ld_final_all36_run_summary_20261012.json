@@ -1,0 +1,33 @@
+{
+  "archive_sha256": "e35eb206326abbac6a2ea8d8fb6f5ed57763a2b93e0e908722ce972b68645484",
+  "baseline_oof_dice_mean": 0.76369255,
+  "baseline_oof_dice_sample_std": 0.10697005,
+  "development_image_count": 36,
+  "epochs_completed": 50,
+  "external_accuracy_measured": false,
+  "final_training_loss": 0.2520524859428406,
+  "final_training_patch_soft_dice": 0.7587751150131226,
+  "gpu": "NVIDIA A40",
+  "gpu_utilization_mean_percent_during_runner": 82.45,
+  "gpu_memory_used_peak_mib": 43993,
+  "inference_geometry_smoke": {
+    "foreground_value": 255,
+    "image_count": 1,
+    "mask_dtype": "uint8",
+    "same_filename_and_1200x1200_grid": true,
+    "training_image_used": true
+  },
+  "method": "ld_baseline_locked",
+  "model_sha256": "0cbc8e4588748e0633549726dc4e04cdfbeb542f5533fb2c961a241b29977405",
+  "network_volumes_after_cleanup": 0,
+  "policy_sha256": "07b5664fa3a14c7c422d92039067aca1d7946a55bb0de8c82d9f4553420538f6",
+  "pods_after_cleanup": 0,
+  "runpod_gpu_price_usd_per_hour": 0.59,
+  "runpod_gpu_time_cost_estimate_usd": 0.26,
+  "runpod_itemized_billing_confirmed": false,
+  "runner_end_utc": "2026-10-12T10:53:46Z",
+  "runner_exit_status": 0,
+  "runner_start_utc": "2026-10-12T10:41:59Z",
+  "target": "ld",
+  "threshold": 0.3500000000000001
+}

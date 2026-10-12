@@ -1,7 +1,8 @@
 """Verify or download a completed all-36 LD final model, without changing a Pod.
 
-The RunPod runner uses ``check-policy`` and ``verify-tree`` before publishing an
-archive. The local ``verify`` and ``fetch`` modes recheck the full archive SHA,
+The baseline runner checks the exact locally audited policy locks; the candidate
+runner recomputes its validation selection. Both use ``verify-tree`` before
+publishing. The local ``verify`` and ``fetch`` modes recheck the full archive SHA,
 Keras ZIP CRC, locked policy, model manifest, and training record before a new
 destination directory is published. No outer-test metrics are opened here.
 """
@@ -39,6 +40,8 @@ CANDIDATE_GLOBAL_CHECKS = {
     "each_fold_mean_precision_delta_at_least_minus_0_03",
     "no_individual_dice_delta_below_minus_0_10",
 }
+LOCKED_BASELINE_FINAL_POLICY_SHA256 = "07b5664fa3a14c7c422d92039067aca1d7946a55bb0de8c82d9f4553420538f6"
+LOCKED_BASELINE_GLOBAL_POLICY_SHA256 = "7887edaa54a03ff84a550a8ce38b37362a5075ed0bbba1d45a5a5db43c3a9578"
 
 
 def sha256(path: Path) -> str:
@@ -150,6 +153,29 @@ def _global_contract(method: str, final_policy: dict, global_policy: dict,
         raise ValueError("Candidate final policy must be the exact global selection policy")
 
 
+def validate_locked_baseline(
+    final_policy_path: Path, global_policy_path: Path, fold_map: Path,
+    label_manifest: Path,
+) -> dict[str, object]:
+    """Check the exact baseline locks already recomputed from local CV evidence."""
+    require_hash(final_policy_path, LOCKED_BASELINE_FINAL_POLICY_SHA256,
+                 "Locked baseline final policy")
+    require_hash(global_policy_path, LOCKED_BASELINE_GLOBAL_POLICY_SHA256,
+                 "Locked global method policy")
+    final_policy = validate_policy("baseline", final_policy_path, fold_map,
+                                   label_manifest)
+    global_policy = read_json(global_policy_path)
+    _global_contract("baseline", final_policy, global_policy, fold_map,
+                     label_manifest)
+    return {
+        "method": "baseline",
+        "final_policy_sha256": LOCKED_BASELINE_FINAL_POLICY_SHA256,
+        "global_policy_sha256": LOCKED_BASELINE_GLOBAL_POLICY_SHA256,
+        "epochs": final_policy["final_epoch_count"],
+        "threshold": final_policy["deployment_threshold"],
+    }
+
+
 def validate_global_selection(
     method: str, final_policy_path: Path, global_policy_path: Path,
     baseline_cv_root: Path, candidate_cv_root: Path, fold_map: Path,
@@ -178,9 +204,14 @@ def validate_global_selection(
 
 def verify_tree(tree: Path, method: str, policy_path: Path, fold_map: Path,
                 label_manifest: Path, global_policy_path: Path) -> dict[str, object]:
-    policy = validate_policy(method, policy_path, fold_map, label_manifest)
-    global_policy = read_json(global_policy_path)
-    _global_contract(method, policy, global_policy, fold_map, label_manifest)
+    if method == "baseline":
+        validate_locked_baseline(policy_path, global_policy_path, fold_map,
+                                 label_manifest)
+        policy = read_json(policy_path)
+    else:
+        policy = validate_policy(method, policy_path, fold_map, label_manifest)
+        global_policy = read_json(global_policy_path)
+        _global_contract(method, policy, global_policy, fold_map, label_manifest)
     model = tree / "model"
     logs = tree / "logs"
     if not model.is_dir() or not logs.is_dir():
@@ -198,15 +229,22 @@ def verify_tree(tree: Path, method: str, policy_path: Path, fold_map: Path,
                  "Locked global method policy")
     if (logs / "runner_exit_status.txt").read_text(encoding="utf-8").strip() != "0":
         raise ValueError("Final trainer did not exit successfully")
+    preflight_log = ("global_policy_preflight.log" if method == "baseline"
+                     else "global_selection_preflight.log")
     for name in ("start_utc.txt", "end_utc.txt", "hostname.txt", "runner.sh",
                  "gpu_usage.csv", "gpu_preflight.log", "nvidia_smi_list.txt",
-                 "training.log", "global_selection_preflight.log"):
+                 "training.log", preflight_log):
         if not (logs / name).is_file() or (logs / name).stat().st_size == 0:
             raise ValueError(f"Missing or empty final-run log: {name}")
-    selection_marker = (f"LD_GLOBAL_METHOD_SELECTION_PASS method={method} "
-                        f"global_policy_sha256={global_digest}")
-    if selection_marker not in (logs / "global_selection_preflight.log").read_text(encoding="utf-8"):
-        raise ValueError("Global selection recomputation marker is missing")
+    if method == "baseline":
+        preflight_marker = (f"LD_GLOBAL_METHOD_LOCK_PASS method=baseline "
+                            f"final_policy_sha256={policy_digest} "
+                            f"global_policy_sha256={global_digest}")
+    else:
+        preflight_marker = (f"LD_GLOBAL_METHOD_SELECTION_PASS method=candidate "
+                            f"global_policy_sha256={global_digest}")
+    if preflight_marker not in (logs / preflight_log).read_text(encoding="utf-8"):
+        raise ValueError("Global method preflight marker is missing")
     if "LD_GPU_PREFLIGHT_PASS" not in (logs / "gpu_preflight.log").read_text(encoding="utf-8"):
         raise ValueError("GPU preflight success marker is missing")
     gpu_lines = (logs / "nvidia_smi_list.txt").read_text(encoding="utf-8").splitlines()
@@ -394,7 +432,8 @@ def fetch_archive(host: str, port: int, identity: Path, destination: Path,
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
-    for name in ("check-policy", "check-selection", "verify-tree", "verify", "fetch"):
+    for name in ("check-policy", "check-locked-baseline", "check-selection",
+                 "verify-tree", "verify", "fetch"):
         command = commands.add_parser(name)
         command.add_argument("--method", choices=tuple(MODEL_NAMES), required=True)
         command.add_argument("--policy", type=Path, required=True)
@@ -422,6 +461,15 @@ def main() -> None:
     if args.command == "check-policy":
         result = validate_policy(args.method, args.policy, args.fold_map, args.label_manifest)
         print(f"LD_FINAL_POLICY_PASS method={args.method} epochs={result['final_epoch_count']}")
+    elif args.command == "check-locked-baseline":
+        if args.method != "baseline":
+            raise ValueError("The locked-policy preflight supports baseline only")
+        result = validate_locked_baseline(
+            args.policy, args.global_policy, args.fold_map, args.label_manifest,
+        )
+        print(f"LD_GLOBAL_METHOD_LOCK_PASS method=baseline "
+              f"final_policy_sha256={result['final_policy_sha256']} "
+              f"global_policy_sha256={result['global_policy_sha256']}")
     elif args.command == "check-selection":
         result = validate_global_selection(
             args.method, args.policy, args.global_policy,

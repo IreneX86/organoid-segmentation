@@ -53,15 +53,29 @@ scientific protocol and fold map remain in `experiments/`.
   continuation began was below US$1, within its US$5 cap. See the report for
   the precise billing limitation. Cetus was not changed.
 
-## Next phase, only when requested
+## Final all-36 model and next phase
 
-The paused five-fold experiment is complete. A final LD production model
-trained from scratch on all 36 derived labels has **not** been fitted in this
-phase. If requested, start from the locked baseline method, derive its
-50-epoch/0.35-threshold final policy from the five inner-validation records,
-verify all 36 source and label hashes, and use a fresh output directory and
-GPU budget. Evaluate its generalization on future, independently annotated
-organoid images; do not use the current 36-image OOF to retune it. The former
-transfer watcher ended with an SSH timeout; the verified final archives and
-metrics supersede that stale watcher status. Never repeat completed folds or
-modify the original TIFFs.
+- The locked baseline production method was recomputed from five-fold
+  **inner-validation-only** evidence before training. Its final policy is
+  `experiments/results/ld_final_all36_policy.lock.json`: 50 epochs and a 0.35
+  inference threshold. The small attestation is
+  `experiments/results/ld_final_selection_preflight_20261012.json`.
+- The model was fitted from scratch on all 36 original inputs and their
+  versioned derived binary labels. The RunPod runner completed 50 epochs with
+  exit 0. The archive, checkpoint, source snapshot, logs, and hashes passed
+  the local verifier. They are saved outside Git in
+  `runpod_results/ld_final_20261012/downloaded/`; see its `verification.json`.
+  Checkpoint SHA256:
+  `0cbc8e4588748e0633549726dc4e04cdfbeb542f5533fb2c961a241b29977405`.
+- A one-image prediction check confirmed same-name 1200×1200 `uint8` 0/255
+  output; it was a training image and provides no independent Dice estimate.
+  The RunPod Pod `ochexmpzgnriwh` was deleted after local verification.
+  RunPod listed zero Pods, network volumes, and endpoints. Its itemized bill
+  had not yet posted at the first check; estimated GPU time was about US$0.26,
+  excluding disk or billing adjustments.
+- The [final-fit report](reports/ld_final_all36_20261012/README.md) includes
+  the exact batch inference and review handoff. Next, run that locked model
+  on **future unseen LD TIFFs** in a fresh output directory and have an LD
+  expert review predictions. Evaluate generalization only when independent
+  manual labels are available. Do not retune the method or threshold on these
+  36 development images, repeat completed folds, or modify the original TIFFs.

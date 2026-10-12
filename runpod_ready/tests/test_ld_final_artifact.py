@@ -11,11 +11,14 @@ import tempfile
 import unittest
 import zipfile
 from pathlib import Path
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
+import ld_final_artifact as artifact
 from ld_final_artifact import (ARCHIVE_NAME, SHA_NAME, sha256,
-                               validate_global_selection, validate_policy,
+                               validate_global_selection, validate_locked_baseline,
+                               validate_policy,
                                verify_archive)
 
 
@@ -44,6 +47,13 @@ class FinalArtifactTests(unittest.TestCase):
         self.sha_file = self.root / SHA_NAME
         self.destination = self.root / "verified"
         self.make_artifact("baseline")
+        for name, value in (
+            ("LOCKED_BASELINE_FINAL_POLICY_SHA256", sha256(self.policy_path)),
+            ("LOCKED_BASELINE_GLOBAL_POLICY_SHA256", sha256(self.global_policy_path)),
+        ):
+            lock_patch = patch.object(artifact, name, value)
+            lock_patch.start()
+            self.addCleanup(lock_patch.stop)
 
     def make_artifact(self, method: str) -> None:
         settings = {"patch_size": 512, "overlap": 128,
@@ -149,14 +159,25 @@ class FinalArtifactTests(unittest.TestCase):
             "label_manifest_sha256": sha256(self.label_manifest),
         })
         write_json(self.logs / "global_method_policy.json", global_policy)
+        if method == "baseline":
+            preflight_name = "global_policy_preflight.log"
+            preflight_text = (
+                f"LD_GLOBAL_METHOD_LOCK_PASS method=baseline "
+                f"final_policy_sha256={policy_digest} "
+                f"global_policy_sha256={sha256(self.global_policy_path)}\n")
+        else:
+            preflight_name = "global_selection_preflight.log"
+            preflight_text = (
+                f"LD_GLOBAL_METHOD_SELECTION_PASS method=candidate "
+                f"global_policy_sha256={sha256(self.global_policy_path)}\n")
+        for name in ("global_policy_preflight.log", "global_selection_preflight.log"):
+            (self.logs / name).unlink(missing_ok=True)
         for name, text in {
             "runner_exit_status.txt": "0\n", "start_utc.txt": "start\n",
             "end_utc.txt": "end\n", "hostname.txt": "pod\n",
             "runner.sh": "#!/bin/bash\n", "gpu_usage.csv": "time,util\n",
             "gpu_preflight.log": "LD_GPU_PREFLIGHT_PASS\n",
-            "global_selection_preflight.log": (
-                f"LD_GLOBAL_METHOD_SELECTION_PASS method={method} "
-                f"global_policy_sha256={sha256(self.global_policy_path)}\n"),
+            preflight_name: preflight_text,
             "nvidia_smi_list.txt": "GPU 0: NVIDIA A40\n",
             "training.log": complete + "\n",
         }.items():
@@ -194,6 +215,34 @@ class FinalArtifactTests(unittest.TestCase):
                                 "candidate", self.policy_path, self.fold_map,
                                 self.label_manifest, self.global_policy_path)
         self.assertEqual(result["method"], "candidate")
+
+    def test_baseline_locked_preflight_needs_no_cv_trees(self) -> None:
+        result = validate_locked_baseline(
+            self.policy_path, self.global_policy_path,
+            self.fold_map, self.label_manifest,
+        )
+        self.assertEqual(result["method"], "baseline")
+        self.assertEqual(result["global_policy_sha256"], sha256(self.global_policy_path))
+
+    def test_baseline_locked_preflight_rejects_forged_same_contract(self) -> None:
+        selected = json.loads(self.global_policy_path.read_text())
+        selected["gate_wins"] = 5
+        write_json(self.global_policy_path, selected)
+        with self.assertRaisesRegex(ValueError, "SHA256 mismatch"):
+            validate_locked_baseline(
+                self.policy_path, self.global_policy_path,
+                self.fold_map, self.label_manifest,
+            )
+
+    def test_baseline_archive_rejects_recomputation_marker(self) -> None:
+        (self.logs / "global_policy_preflight.log").write_text(
+            f"LD_GLOBAL_METHOD_SELECTION_PASS method=baseline "
+            f"global_policy_sha256={sha256(self.global_policy_path)}\n",
+            encoding="utf-8",
+        )
+        self.repack()
+        with self.assertRaisesRegex(ValueError, "Global method preflight marker"):
+            self.verify()
 
     def test_wrong_branch_rejected_after_recomputing_global_choice(self) -> None:
         selected = json.loads(self.global_policy_path.read_text())
@@ -257,7 +306,7 @@ class FinalArtifactTests(unittest.TestCase):
         policy = json.loads(self.policy_path.read_text())
         policy["deployment_threshold"] = 0.6
         write_json(self.policy_path, policy)
-        with self.assertRaisesRegex(ValueError, "validation medians|policy record|Locked policy"):
+        with self.assertRaisesRegex(ValueError, "validation medians|policy record|Locked policy|Locked baseline final policy"):
             self.verify()
         self.assertFalse(self.destination.exists())
 

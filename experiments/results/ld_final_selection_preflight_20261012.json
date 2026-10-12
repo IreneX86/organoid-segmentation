@@ -1,0 +1,15 @@
+{
+  "check_selection_marker": "LD_GLOBAL_METHOD_SELECTION_PASS method=baseline global_policy_sha256=7887edaa54a03ff84a550a8ce38b37362a5075ed0bbba1d45a5a5db43c3a9578",
+  "checked_at_utc": "2026-10-12T10:40:16.271352+00:00",
+  "final_policy_sha256": "07b5664fa3a14c7c422d92039067aca1d7946a55bb0de8c82d9f4553420538f6",
+  "fold_map_sha256": "696fd11435a292d877406b7437c8bd9760ef720530358f5cdc5b77c976e3abd6",
+  "global_policy_sha256": "7887edaa54a03ff84a550a8ce38b37362a5075ed0bbba1d45a5a5db43c3a9578",
+  "label_manifest_sha256": "2c026147620ae6ebfe016287f6607b1ae3b9674cd77dc71160682b9acbec9879",
+  "outer_test_used_for_selection": false,
+  "selected_method": "baseline",
+  "selection_evidence_bundle_sha256": "00e038c73f745e799942bdb400b26b400df0f5cdf16c28f6fe53fce032435f06",
+  "selection_evidence_files": 491,
+  "selection_evidence_outer_test_files": 0,
+  "selection_scope": "five_fold_inner_validation_only",
+  "version": 1
+}

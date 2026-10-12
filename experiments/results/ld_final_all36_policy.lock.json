@@ -1,0 +1,93 @@
+{
+  "candidate_id": "ld_baseline_locked",
+  "created_at_utc": "2026-10-12T03:15:06.456024+00:00",
+  "deployment_threshold": 0.3500000000000001,
+  "epoch_rule": "median of five earliest best val_full_dice epoch counts",
+  "final_epoch_count": 50,
+  "fold_map_sha256": "696fd11435a292d877406b7437c8bd9760ef720530358f5cdc5b77c976e3abd6",
+  "fold_validation_records": [
+    {
+      "fold": 0,
+      "selection_lock_sha256": "f8399e8cd8fa2525079631211b4d1fb80a5fb65283f34d6a4c5ae734d43e4a7d",
+      "training_history_sha256": "dea09f6585a9548346aeccb07c673d4f42407b538e2f7db9618c056277cf7672",
+      "validation_best_dice_at_0_5": 0.7356557285469284,
+      "validation_best_epoch_count": 31,
+      "validation_selected_threshold": 0.9000000000000002
+    },
+    {
+      "fold": 1,
+      "selection_lock_sha256": "9e28cbaf8694f8ffe1e095d018fc8f1874cd8b3dc5fb662425523fd37bd42496",
+      "training_history_sha256": "5050b80b59eafbb826a37708705c2f4a391489b6517500fe11703d29af9fc776",
+      "validation_best_dice_at_0_5": 0.7484287866256667,
+      "validation_best_epoch_count": 58,
+      "validation_selected_threshold": 0.25000000000000006
+    },
+    {
+      "fold": 2,
+      "selection_lock_sha256": "60d67f9da9f9640be7cc4a2d3524fb35a159ebbf0b22da534b0f3fde594ee20b",
+      "training_history_sha256": "98ef75783a08ab1f8e1a22a78d3e25c451a9585934d1f99c19fc5d3d19e04629",
+      "validation_best_dice_at_0_5": 0.7675735094799789,
+      "validation_best_epoch_count": 45,
+      "validation_selected_threshold": 0.5000000000000001
+    },
+    {
+      "fold": 3,
+      "selection_lock_sha256": "453deca7b2ee6fc301b73e3432fb82fa8523e2d02eeaabe384903ff7d40bb955",
+      "training_history_sha256": "83256d40eed238a90c2d8eea77469e54d4682165eb92df60b04f837790997a9c",
+      "validation_best_dice_at_0_5": 0.8132610737550874,
+      "validation_best_epoch_count": 58,
+      "validation_selected_threshold": 0.30000000000000004
+    },
+    {
+      "fold": 4,
+      "selection_lock_sha256": "549b7fa17f7719c5f53f364953cec5c92dbeece8175f0fc0008b7b6b1868e828",
+      "training_history_sha256": "ab8067ebb618777eb368d6a30116a20d1782ec9fd170d5ebad8a5282b10189da",
+      "validation_best_dice_at_0_5": 0.8046577241624753,
+      "validation_best_epoch_count": 50,
+      "validation_selected_threshold": 0.3500000000000001
+    }
+  ],
+  "image_count": 36,
+  "label_manifest_sha256": "2c026147620ae6ebfe016287f6607b1ae3b9674cd77dc71160682b9acbec9879",
+  "outer_test_used_for_selection": false,
+  "policy_version": "ld_validation_median_v1",
+  "scientific_settings": {
+    "architecture": "unet_2d_baseline",
+    "batch_size": 4,
+    "checkpoint_selection": "validation_full_image_dice_at_0.5",
+    "code_sha256": {
+      "code/data_split.py": "6f57faa81cf66e48af8cd335a197475b1acf906377af08d131b69b22e9558b09",
+      "code/evaluation.py": "6b655cc369e5b2c3c6eb051f88166d32dcbbd557ea32871ad02072272b24c482",
+      "code/ld_cv_report.py": "1de013b0f251c38dcc80749bd1dd0877c5f0071a1726c48ad705c1b77c7b6493",
+      "code/ld_evaluate.py": "1edd5bd19745e2c0471a4ecca2c1ad2d77c60b8672b99cdec9af0fc906de2f8c",
+      "code/ld_make_fold_map.py": "91c2e61f330068eb1af63293effa72a8542d8935f12f58442b0a0e95856ee9d4",
+      "code/ld_prepare_labels.py": "de0c1cb794b048cc110b3a4d27cd1f38b2441893ad1d15e9f22c88de60349fbd",
+      "code/ld_train.py": "c03cb1002af34bd5b21ce783a57076369b7704609c5ce5ad1129a098f6b56f71",
+      "code/losses.py": "f51308f3f2d0849ecdd68affd346229386ebd5c33ca7aaad5d5cdd1337acee2c",
+      "code/model/__init__.py": "fcee5301f137da1f539398fd0e97fd9d0479949f11f4443e3e96a680bb64da3b",
+      "code/model/unet.py": "44a73ec2cfed0ad626bbd026765a1d89dcd1cb05eaaf0c262840373b483d3b22",
+      "code/patch_dataset.py": "9726c2a766cacae78e179cf30af10c0cdd9bbc0fdd3785919a49bca18d698bdc",
+      "code/pipeline_config.py": "74aca388f92310c3b3b852c4f3a4532d43bb52a4073fd825e0cfbbd4b96478fa",
+      "code/segmentation_metrics.py": "99331349681c6f2c7f07f6334f9f2c3ca1b7065a29eed0f0cc7c10d718df4ada",
+      "code/sliding_window.py": "822cf759d93d8e4890f9c8169e626a3a67b2350d545c2d6b1f5d0f7dd6e9e087",
+      "code/tiff_io.py": "9c1ba413ba43a1497a606f9b355cf2cad4b260a98597beb1d394ae3ed106aad0"
+    },
+    "epochs": 100,
+    "fold_map_sha256": "696fd11435a292d877406b7437c8bd9760ef720530358f5cdc5b77c976e3abd6",
+    "label_manifest_sha256": "2c026147620ae6ebfe016287f6607b1ae3b9674cd77dc71160682b9acbec9879",
+    "learning_rate": 0.0001,
+    "loss": "bce_dice",
+    "lower_percentile": 1.0,
+    "overlap": 128,
+    "patch_size": 512,
+    "positive_patch_probability": 0.6,
+    "prediction_batch_size": 4,
+    "seed_base": 42,
+    "steps_per_epoch": 100,
+    "threshold_selection": "validation_mean_per_image_dice",
+    "upper_percentile": 99.8
+  },
+  "selection_basis": "five_fold_inner_validation_only",
+  "target": "ld",
+  "threshold_rule": "median of five validation-selected thresholds"
+}
