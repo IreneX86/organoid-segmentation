@@ -19,6 +19,17 @@ distances below are in native image pixels; the source is the local, ignored
   93 (62.0%); 51 received no predicted pixel. Connected regions in a semantic
   mask are **proxies**, not verified individual droplets.
 
+A separate validation-only intensity check found 6,764 distant FP pixels
+(>10 pixels from labelled foreground) across 33 images. Of those pixels,
+81.5% exceeded their own image's true-negative intensity 90th percentile
+after per-image p1–p99.8 scaling, versus 10.0% of true-negative pixels by
+construction. The distant FP count was recomputed from saved probabilities and
+matched the diagnostic CSV for every image. This is evidence of enrichment in
+bright regions **relative to the current labels**, not evidence that those
+regions are biologically negative: selected local crops contain both isolated
+puncta and irregular saturated bright regions whose identity cannot be
+resolved from this channel alone. The crop montage remains outside Git.
+
 At the fixed cutoff of at most 0.10% labelled foreground, the same eight images
 had mean Dice 0.7306 in the [out-of-fold report](README.md) and 0.7982 in this
 validation diagnostic. The other 28 images had means of 0.7731 out of fold and
