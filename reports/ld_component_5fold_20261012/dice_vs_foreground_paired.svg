@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 940 555">
+<title id="title">LD OOF Dice versus labelled foreground</title>
+<desc id="description">Paired Dice by foreground percentage for 36 held-out images.</desc>
+<rect width="940" height="555" fill="#FFFFFF"/>
+<text x="44.0" y="38.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="bold" fill="#20252B">LD OOF Dice versus labelled foreground</text>
+<text x="44.0" y="61.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#59656E">Gray: frozen baseline; colored: fold-gated selected output</text>
+<line x1="102.0" y1="432.0" x2="752.0" y2="432.0" stroke="#E5E9EC" stroke-width="1"/>
+<text x="92.0" y="436.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">0.0</text>
+<line x1="102.0" y1="364.0" x2="752.0" y2="364.0" stroke="#E5E9EC" stroke-width="1"/>
+<text x="92.0" y="368.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">0.2</text>
+<line x1="102.0" y1="296.0" x2="752.0" y2="296.0" stroke="#E5E9EC" stroke-width="1"/>
+<text x="92.0" y="300.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">0.4</text>
+<line x1="102.0" y1="228.0" x2="752.0" y2="228.0" stroke="#E5E9EC" stroke-width="1"/>
+<text x="92.0" y="232.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">0.6</text>
+<line x1="102.0" y1="160.0" x2="752.0" y2="160.0" stroke="#E5E9EC" stroke-width="1"/>
+<text x="92.0" y="164.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">0.8</text>
+<line x1="102.0" y1="92.0" x2="752.0" y2="92.0" stroke="#E5E9EC" stroke-width="1"/>
+<text x="92.0" y="96.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">1.0</text>
+<line x1="102.0" y1="92.0" x2="102.0" y2="432.0" stroke="#40515C" stroke-width="1.5"/>
+<line x1="102.0" y1="432.0" x2="752.0" y2="432.0" stroke="#40515C" stroke-width="1.5"/>
+<text x="25.0" y="262.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="normal" fill="#20252B" transform="rotate(-90 25.0 262.0)">Dice</text>
+<line x1="102.0" y1="432.0" x2="102.0" y2="438.0" stroke="#40515C" stroke-width="1"/>
+<text x="102.0" y="455.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">0.001%</text>
+<line x1="318.7" y1="432.0" x2="318.7" y2="438.0" stroke="#40515C" stroke-width="1"/>
+<text x="318.7" y="455.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">0.01%</text>
+<line x1="535.3" y1="432.0" x2="535.3" y2="438.0" stroke="#40515C" stroke-width="1"/>
+<text x="535.3" y="455.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">0.1%</text>
+<line x1="752.0" y1="432.0" x2="752.0" y2="438.0" stroke="#40515C" stroke-width="1"/>
+<text x="752.0" y="455.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">1%</text>
+<line x1="586.1" y1="130.8" x2="586.1" y2="130.8" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="586.1" cy="130.8" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_001.tif: foreground 0.1715%, baseline 0.8858, selected 0.8858</title></circle>
+<circle cx="586.1" cy="130.8" r="5" fill="#E69F00" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_001.tif: foreground 0.1715%, baseline 0.8858, selected 0.8858</title></circle>
+<line x1="667.2" y1="205.3" x2="667.2" y2="205.3" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="667.2" cy="205.3" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_002.tif: foreground 0.4061%, baseline 0.6667, selected 0.6667</title></circle>
+<circle cx="667.2" cy="205.3" r="5" fill="#009E73" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_002.tif: foreground 0.4061%, baseline 0.6667, selected 0.6667</title></circle>
+<line x1="555.8" y1="136.0" x2="555.8" y2="136.0" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="555.8" cy="136.0" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_003.tif: foreground 0.1243%, baseline 0.8706, selected 0.8706</title></circle>
+<circle cx="555.8" cy="136.0" r="5" fill="#E69F00" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_003.tif: foreground 0.1243%, baseline 0.8706, selected 0.8706</title></circle>
+<line x1="666.1" y1="155.5" x2="666.1" y2="155.5" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="666.1" cy="155.5" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_004.tif: foreground 0.4013%, baseline 0.8132, selected 0.8132</title></circle>
+<circle cx="666.1" cy="155.5" r="5" fill="#CC79A7" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_004.tif: foreground 0.4013%, baseline 0.8132, selected 0.8132</title></circle>
+<line x1="506.3" y1="156.8" x2="506.3" y2="156.8" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="506.3" cy="156.8" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_005.tif: foreground 0.0735%, baseline 0.8095, selected 0.8095</title></circle>
+<circle cx="506.3" cy="156.8" r="5" fill="#E69F00" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_005.tif: foreground 0.0735%, baseline 0.8095, selected 0.8095</title></circle>
+<line x1="288.9" y1="308.4" x2="288.9" y2="308.4" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="288.9" cy="308.4" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_006.tif: foreground 0.0073%, baseline 0.3636, selected 0.3636</title></circle>
+<circle cx="288.9" cy="308.4" r="5" fill="#CC79A7" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_006.tif: foreground 0.0073%, baseline 0.3636, selected 0.3636</title></circle>
+<line x1="447.3" y1="184.4" x2="447.3" y2="184.4" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="447.3" cy="184.4" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_007.tif: foreground 0.0392%, baseline 0.7281, selected 0.7281</title></circle>
+<circle cx="447.3" cy="184.4" r="5" fill="#CC79A7" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_007.tif: foreground 0.0392%, baseline 0.7281, selected 0.7281</title></circle>
+<line x1="592.0" y1="132.3" x2="592.0" y2="132.3" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="592.0" cy="132.3" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_008.tif: foreground 0.1827%, baseline 0.8813, selected 0.8813</title></circle>
+<circle cx="592.0" cy="132.3" r="5" fill="#E69F00" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_008.tif: foreground 0.1827%, baseline 0.8813, selected 0.8813</title></circle>
+<line x1="648.2" y1="194.0" x2="648.2" y2="194.0" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="648.2" cy="194.0" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_009.tif: foreground 0.3319%, baseline 0.7001, selected 0.7001</title></circle>
+<circle cx="648.2" cy="194.0" r="5" fill="#0072B2" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_009.tif: foreground 0.3319%, baseline 0.7001, selected 0.7001</title></circle>
+<line x1="683.0" y1="200.0" x2="683.0" y2="200.0" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="683.0" cy="200.0" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_010.tif: foreground 0.4804%, baseline 0.6823, selected 0.6823</title></circle>
+<circle cx="683.0" cy="200.0" r="5" fill="#009E73" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_010.tif: foreground 0.4804%, baseline 0.6823, selected 0.6823</title></circle>
+<line x1="532.1" y1="154.4" x2="532.1" y2="154.4" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="532.1" cy="154.4" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_011.tif: foreground 0.0966%, baseline 0.8166, selected 0.8166</title></circle>
+<circle cx="532.1" cy="154.4" r="5" fill="#0072B2" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_011.tif: foreground 0.0966%, baseline 0.8166, selected 0.8166</title></circle>
+<line x1="545.1" y1="156.7" x2="545.1" y2="156.7" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="545.1" cy="156.7" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_012.tif: foreground 0.1109%, baseline 0.8098, selected 0.8098</title></circle>
+<circle cx="545.1" cy="156.7" r="5" fill="#CC79A7" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_012.tif: foreground 0.1109%, baseline 0.8098, selected 0.8098</title></circle>
+<line x1="665.6" y1="200.9" x2="665.6" y2="200.9" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="665.6" cy="200.9" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_013.tif: foreground 0.3994%, baseline 0.6797, selected 0.6797</title></circle>
+<circle cx="665.6" cy="200.9" r="5" fill="#009E73" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_013.tif: foreground 0.3994%, baseline 0.6797, selected 0.6797</title></circle>
+<line x1="661.8" y1="222.0" x2="661.8" y2="222.0" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="661.8" cy="222.0" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_014.tif: foreground 0.3835%, baseline 0.6177, selected 0.6177</title></circle>
+<circle cx="661.8" cy="222.0" r="5" fill="#009E73" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_014.tif: foreground 0.3835%, baseline 0.6177, selected 0.6177</title></circle>
+<line x1="607.1" y1="145.0" x2="607.1" y2="145.0" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="607.1" cy="145.0" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_015.tif: foreground 0.2145%, baseline 0.8440, selected 0.8440</title></circle>
+<circle cx="607.1" cy="145.0" r="5" fill="#0072B2" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_015.tif: foreground 0.2145%, baseline 0.8440, selected 0.8440</title></circle>
+<line x1="571.9" y1="150.6" x2="571.9" y2="154.2" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="571.9" cy="150.6" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_016.tif: foreground 0.1474%, baseline 0.8275, selected 0.8172</title></circle>
+<circle cx="571.9" cy="154.2" r="5" fill="#D55E00" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_016.tif: foreground 0.1474%, baseline 0.8275, selected 0.8172</title></circle>
+<line x1="683.8" y1="197.0" x2="683.8" y2="197.0" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="683.8" cy="197.0" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_017.tif: foreground 0.4846%, baseline 0.6913, selected 0.6913</title></circle>
+<circle cx="683.8" cy="197.0" r="5" fill="#CC79A7" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_017.tif: foreground 0.4846%, baseline 0.6913, selected 0.6913</title></circle>
+<line x1="604.7" y1="145.5" x2="604.7" y2="145.5" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="604.7" cy="145.5" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_018.tif: foreground 0.2090%, baseline 0.8428, selected 0.8428</title></circle>
+<circle cx="604.7" cy="145.5" r="5" fill="#E69F00" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_018.tif: foreground 0.2090%, baseline 0.8428, selected 0.8428</title></circle>
+<line x1="588.2" y1="141.8" x2="588.2" y2="141.8" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="588.2" cy="141.8" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_019.tif: foreground 0.1753%, baseline 0.8535, selected 0.8535</title></circle>
+<circle cx="588.2" cy="141.8" r="5" fill="#009E73" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_019.tif: foreground 0.1753%, baseline 0.8535, selected 0.8535</title></circle>
+<line x1="600.8" y1="232.0" x2="600.8" y2="232.0" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="600.8" cy="232.0" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_020.tif: foreground 0.2006%, baseline 0.5884, selected 0.5884</title></circle>
+<circle cx="600.8" cy="232.0" r="5" fill="#E69F00" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_020.tif: foreground 0.2006%, baseline 0.5884, selected 0.5884</title></circle>
+<line x1="557.5" y1="145.9" x2="557.5" y2="145.9" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="557.5" cy="145.9" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_021.tif: foreground 0.1265%, baseline 0.8415, selected 0.8415</title></circle>
+<circle cx="557.5" cy="145.9" r="5" fill="#E69F00" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_021.tif: foreground 0.1265%, baseline 0.8415, selected 0.8415</title></circle>
+<line x1="566.4" y1="222.0" x2="566.4" y2="236.3" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="566.4" cy="222.0" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_022.tif: foreground 0.1392%, baseline 0.6177, selected 0.5754</title></circle>
+<circle cx="566.4" cy="236.3" r="5" fill="#D55E00" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_022.tif: foreground 0.1392%, baseline 0.6177, selected 0.5754</title></circle>
+<line x1="661.8" y1="204.7" x2="661.8" y2="204.7" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="661.8" cy="204.7" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_023.tif: foreground 0.3836%, baseline 0.6687, selected 0.6687</title></circle>
+<circle cx="661.8" cy="204.7" r="5" fill="#0072B2" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_023.tif: foreground 0.3836%, baseline 0.6687, selected 0.6687</title></circle>
+<line x1="568.6" y1="160.2" x2="568.6" y2="160.2" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="568.6" cy="160.2" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_024.tif: foreground 0.1424%, baseline 0.7993, selected 0.7993</title></circle>
+<circle cx="568.6" cy="160.2" r="5" fill="#009E73" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_024.tif: foreground 0.1424%, baseline 0.7993, selected 0.7993</title></circle>
+<line x1="550.6" y1="202.3" x2="550.6" y2="192.9" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="550.6" cy="202.3" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_025.tif: foreground 0.1176%, baseline 0.6757, selected 0.7033</title></circle>
+<circle cx="550.6" cy="192.9" r="5" fill="#D55E00" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_025.tif: foreground 0.1176%, baseline 0.6757, selected 0.7033</title></circle>
+<line x1="568.6" y1="160.8" x2="568.6" y2="160.8" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="568.6" cy="160.8" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_026.tif: foreground 0.1424%, baseline 0.7976, selected 0.7976</title></circle>
+<circle cx="568.6" cy="160.8" r="5" fill="#009E73" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_026.tif: foreground 0.1424%, baseline 0.7976, selected 0.7976</title></circle>
+<line x1="613.0" y1="140.9" x2="613.0" y2="140.9" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="613.0" cy="140.9" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_027.tif: foreground 0.2283%, baseline 0.8561, selected 0.8561</title></circle>
+<circle cx="613.0" cy="140.9" r="5" fill="#0072B2" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_027.tif: foreground 0.2283%, baseline 0.8561, selected 0.8561</title></circle>
+<line x1="519.7" y1="164.6" x2="519.7" y2="161.3" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="519.7" cy="164.6" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_028.tif: foreground 0.0847%, baseline 0.7863, selected 0.7961</title></circle>
+<circle cx="519.7" cy="161.3" r="5" fill="#D55E00" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_028.tif: foreground 0.0847%, baseline 0.7863, selected 0.7961</title></circle>
+<line x1="503.3" y1="170.1" x2="503.3" y2="170.1" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="503.3" cy="170.1" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_029.tif: foreground 0.0712%, baseline 0.7702, selected 0.7702</title></circle>
+<circle cx="503.3" cy="170.1" r="5" fill="#009E73" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_029.tif: foreground 0.0712%, baseline 0.7702, selected 0.7702</title></circle>
+<line x1="594.9" y1="148.8" x2="594.9" y2="148.8" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="594.9" cy="148.8" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_030.tif: foreground 0.1883%, baseline 0.8329, selected 0.8329</title></circle>
+<circle cx="594.9" cy="148.8" r="5" fill="#0072B2" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_030.tif: foreground 0.1883%, baseline 0.8329, selected 0.8329</title></circle>
+<line x1="603.0" y1="140.5" x2="603.0" y2="142.8" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="603.0" cy="140.5" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_031.tif: foreground 0.2053%, baseline 0.8575, selected 0.8504</title></circle>
+<circle cx="603.0" cy="142.8" r="5" fill="#D55E00" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_031.tif: foreground 0.2053%, baseline 0.8575, selected 0.8504</title></circle>
+<line x1="604.7" y1="144.1" x2="604.7" y2="144.1" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="604.7" cy="144.1" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_032.tif: foreground 0.2091%, baseline 0.8467, selected 0.8467</title></circle>
+<circle cx="604.7" cy="144.1" r="5" fill="#0072B2" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_032.tif: foreground 0.2091%, baseline 0.8467, selected 0.8467</title></circle>
+<line x1="581.5" y1="165.6" x2="581.5" y2="167.4" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="581.5" cy="165.6" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_033.tif: foreground 0.1633%, baseline 0.7834, selected 0.7782</title></circle>
+<circle cx="581.5" cy="167.4" r="5" fill="#D55E00" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_033.tif: foreground 0.1633%, baseline 0.7834, selected 0.7782</title></circle>
+<line x1="541.9" y1="154.5" x2="541.9" y2="154.5" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="541.9" cy="154.5" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_034.tif: foreground 0.1072%, baseline 0.8160, selected 0.8160</title></circle>
+<circle cx="541.9" cy="154.5" r="5" fill="#CC79A7" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_034.tif: foreground 0.1072%, baseline 0.8160, selected 0.8160</title></circle>
+<line x1="516.7" y1="162.9" x2="516.7" y2="162.9" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="516.7" cy="162.9" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_035.tif: foreground 0.0820%, baseline 0.7916, selected 0.7916</title></circle>
+<circle cx="516.7" cy="162.9" r="5" fill="#CC79A7" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_035.tif: foreground 0.0820%, baseline 0.7916, selected 0.7916</title></circle>
+<line x1="529.5" y1="167.1" x2="529.5" y2="159.2" stroke="#A4ADB3" stroke-width="1.2"/>
+<circle cx="529.5" cy="167.1" r="3.6" fill="#75818A" fill-opacity="0.6"><title>ld_036.tif: foreground 0.0940%, baseline 0.7792, selected 0.8023</title></circle>
+<circle cx="529.5" cy="159.2" r="5" fill="#D55E00" fill-opacity="0.75" stroke="#FFFFFF" stroke-width=".8"><title>ld_036.tif: foreground 0.0940%, baseline 0.7792, selected 0.8023</title></circle>
+<text x="427.0" y="505.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="normal" fill="#20252B">Labelled foreground percentage (log scale)</text>
+<text x="790.0" y="113.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="bold" fill="#20252B">Outer fold</text>
+<circle cx="800" cy="137" r="5" fill="#0072B2"/>
+<text x="815.0" y="141.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 0</text>
+<circle cx="800" cy="161" r="5" fill="#D55E00"/>
+<text x="815.0" y="165.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 1</text>
+<circle cx="800" cy="185" r="5" fill="#009E73"/>
+<text x="815.0" y="189.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 2</text>
+<circle cx="800" cy="209" r="5" fill="#CC79A7"/>
+<text x="815.0" y="213.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 3</text>
+<circle cx="800" cy="233" r="5" fill="#E69F00"/>
+<text x="815.0" y="237.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 4</text>
+<text x="44.0" y="538.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#59656E">One paired point per labelled TIFF; log-scale x-axis.</text>
+</svg>

@@ -20,7 +20,11 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
   [validation error notes](reports/ld_baseline_5fold_20261012/validation_error_notes.md)
   describe FP/FN locations and small-component recall. The
   [literature context](reports/ld_literature_context_20261012.md) separates
-  tested evidence from possible future hypotheses.
+  tested evidence from possible future hypotheses. The
+  [component-uniform five-fold report](reports/ld_component_5fold_20261012/README.md)
+  records the paired exploratory comparison and error audit. Its
+  [validation-only method lock](experiments/results/ld_method_policy.lock.json)
+  retains the frozen LD baseline for future production fitting.
 - [`deliverables/mito_auto_labels/`](deliverables/mito_auto_labels/README.md)
   contains ten checksum-verified ZIPs with **1,330 preliminary Mito masks**.
   These are model predictions, not manually verified labels.

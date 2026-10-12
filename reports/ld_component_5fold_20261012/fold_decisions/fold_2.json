@@ -1,0 +1,110 @@
+{
+  "baseline_selection_lock_sha256": "60d67f9da9f9640be7cc4a2d3524fb35a159ebbf0b22da534b0f3fde594ee20b",
+  "baseline_validation_manifest_sha256": "5f21b5b6536542c20991e9e635a316a3deae00c52bce934390cb8f9de90cfca0",
+  "candidate": "component_uniform_positive_center_v1",
+  "candidate_selection_lock_sha256": "d30240e9b622bc8a1cd6bce61bd5a2d57eae0739a27abd0759c02f0fc21d00f0",
+  "candidate_validation_manifest_sha256": "2a444dbda3b96b171388f1c6333b07da4eb5ba83661bd570e6e251facd4336e9",
+  "fold": 2,
+  "fold_map_sha256": "696fd11435a292d877406b7437c8bd9760ef720530358f5cdc5b77c976e3abd6",
+  "gate_checks": {
+    "mean_dice_delta_at_least_0_01": true,
+    "mean_precision_drop_no_more_than_0_03": false,
+    "no_single_dice_drop_more_than_0_10": true,
+    "strict_majority_dice_improved": true
+  },
+  "label_manifest_sha256": "2c026147620ae6ebfe016287f6607b1ae3b9674cd77dc71160682b9acbec9879",
+  "mean_paired_dice_delta_050": 0.019725047110534355,
+  "mean_paired_precision_delta_050": -0.030211047215024545,
+  "outer_test_labels_opened": false,
+  "paired_validation_rows": [
+    {
+      "baseline_dice_050": 0.7827884254039834,
+      "baseline_precision_050": 0.8563206577595067,
+      "baseline_recall_050": 0.7208859664301782,
+      "candidate_dice_050": 0.8087171342862185,
+      "candidate_precision_050": 0.825022502250225,
+      "candidate_recall_050": 0.7930437792005537,
+      "filename": "ld_004.tif",
+      "paired_dice_delta_050": 0.025928708882235085,
+      "paired_precision_delta_050": -0.03129815550928172
+    },
+    {
+      "baseline_dice_050": 0.7362637362637363,
+      "baseline_precision_050": 0.8701298701298701,
+      "baseline_recall_050": 0.638095238095238,
+      "candidate_dice_050": 0.7979274611398963,
+      "candidate_precision_050": 0.875,
+      "candidate_recall_050": 0.7333333333333333,
+      "filename": "ld_006.tif",
+      "paired_dice_delta_050": 0.06166372487616001,
+      "paired_precision_delta_050": 0.004870129870129913
+    },
+    {
+      "baseline_dice_050": 0.7677543186180422,
+      "baseline_precision_050": 0.8385744234800838,
+      "baseline_recall_050": 0.7079646017699115,
+      "candidate_dice_050": 0.7583834909716252,
+      "candidate_precision_050": 0.7374581939799331,
+      "candidate_recall_050": 0.7805309734513274,
+      "filename": "ld_007.tif",
+      "paired_dice_delta_050": -0.009370827646417057,
+      "paired_precision_delta_050": -0.10111622950015076
+    },
+    {
+      "baseline_dice_050": 0.7961551209811071,
+      "baseline_precision_050": 0.8457746478873239,
+      "baseline_recall_050": 0.752035065748278,
+      "candidate_dice_050": 0.8303393213572854,
+      "candidate_precision_050": 0.8857345635202271,
+      "candidate_recall_050": 0.7814652473387602,
+      "filename": "ld_012.tif",
+      "paired_dice_delta_050": 0.03418420037617831,
+      "paired_precision_delta_050": 0.03995991563290313
+    },
+    {
+      "baseline_dice_050": 0.6110040301384265,
+      "baseline_precision_050": 0.7860685302073941,
+      "baseline_recall_050": 0.499713384924047,
+      "candidate_dice_050": 0.6758104738154613,
+      "candidate_precision_050": 0.7406901264092928,
+      "candidate_recall_050": 0.6213814846660934,
+      "filename": "ld_017.tif",
+      "paired_dice_delta_050": 0.06480644367703481,
+      "paired_precision_delta_050": -0.04537840379810132
+    },
+    {
+      "baseline_dice_050": 0.8142509135200975,
+      "baseline_precision_050": 0.7683908045977011,
+      "baseline_recall_050": 0.8659326424870466,
+      "candidate_dice_050": 0.8258495145631068,
+      "candidate_precision_050": 0.7768264840182648,
+      "candidate_recall_050": 0.8814766839378239,
+      "filename": "ld_034.tif",
+      "paired_dice_delta_050": 0.01159860104300936,
+      "paired_precision_delta_050": 0.008435679420563669
+    },
+    {
+      "baseline_dice_050": 0.86479802143446,
+      "baseline_precision_050": 0.8425702811244979,
+      "baseline_recall_050": 0.8882303132938189,
+      "candidate_dice_050": 0.8140625,
+      "candidate_precision_050": 0.7556200145032632,
+      "candidate_recall_050": 0.882303132938188,
+      "filename": "ld_035.tif",
+      "paired_dice_delta_050": -0.05073552143446003,
+      "paired_precision_delta_050": -0.08695026662123473
+    }
+  ],
+  "protocol_sha256": "9cd2d4e5946c3d581bdb02240c169598645a403ac851b01bf31f86e8e03e4d06",
+  "selected": "baseline",
+  "target": "ld",
+  "validation_filenames": [
+    "ld_004.tif",
+    "ld_006.tif",
+    "ld_007.tif",
+    "ld_012.tif",
+    "ld_017.tif",
+    "ld_034.tif",
+    "ld_035.tif"
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "baseline_oof": {
+    "dice": {
+      "max": 0.8858117599839455,
+      "mean": 0.7636925498022525,
+      "median": 0.7984593375086255,
+      "min": 0.36363636363636365,
+      "std": 0.10697005417788302
+    },
+    "foreground_fraction_predicted": {
+      "max": 0.00468125,
+      "mean": 0.0018944444444444443,
+      "median": 0.0017854166666666667,
+      "min": 6.458333333333334e-05,
+      "std": 0.0009932799862943174
+    },
+    "foreground_fraction_true": {
+      "max": 0.004845833333333333,
+      "mean": 0.0019792631172839505,
+      "median": 0.0016739583333333333,
+      "min": 7.291666666666667e-05,
+      "std": 0.001269088479849351
+    },
+    "iou": {
+      "max": 0.795028818443804,
+      "mean": 0.6282733557650045,
+      "median": 0.66453044770643,
+      "min": 0.2222222222222222,
+      "std": 0.12639038932254695
+    },
+    "precision": {
+      "max": 0.9121594143960959,
+      "mean": 0.7618937610163354,
+      "median": 0.7692932848311234,
+      "min": 0.3870967741935484,
+      "std": 0.09490755444614751
+    },
+    "recall": {
+      "max": 0.9491285916156382,
+      "mean": 0.7828596260543098,
+      "median": 0.8482149975433619,
+      "min": 0.34285714285714286,
+      "std": 0.1594132907593747
+    }
+  },
+  "candidate_fold_count": 1,
+  "fold_count": 5,
+  "fold_decisions": [
+    {
+      "decision_lock_sha256": "0b0b967ff98caa75843636fccb20cb331b45f307cb80fd42a242c5e1775224ce",
+      "fold": 0,
+      "mean_paired_validation_dice_delta_050": -0.0014034134596185854,
+      "selected": "baseline"
+    },
+    {
+      "decision_lock_sha256": "bac75a47d7c673cca7e3794eac9766ada59be4a231da3c6192f4a8de8de609f9",
+      "fold": 1,
+      "mean_paired_validation_dice_delta_050": 0.011502559122203174,
+      "selected": "candidate"
+    },
+    {
+      "decision_lock_sha256": "7d29c7a3b15b1eabbb11afa53fdc66d0f15ff1d577634b80e6f94d9271955ccf",
+      "fold": 2,
+      "mean_paired_validation_dice_delta_050": 0.019725047110534355,
+      "selected": "baseline"
+    },
+    {
+      "decision_lock_sha256": "8c5e91387bc96c89346e73892250cf3538388261a73d65d7c197a476fde8e7ed",
+      "fold": 3,
+      "mean_paired_validation_dice_delta_050": -0.003614760606503437,
+      "selected": "baseline"
+    },
+    {
+      "decision_lock_sha256": "ec8fa1d4876d8b881603e5c2f720c2cb9c01a4d10e12ec20214487c6756b08df",
+      "fold": 4,
+      "mean_paired_validation_dice_delta_050": -0.0035063634812607975,
+      "selected": "baseline"
+    }
+  ],
+  "image_count": 36,
+  "interpretation": "exploratory internal OOF; not independent external confirmation",
+  "paired_delta": {
+    "dice": {
+      "max": 0.02754641188676943,
+      "mean": -0.00012260867978529223,
+      "median": 0.0,
+      "min": -0.04227822648540036,
+      "std": 0.00979150369408735
+    },
+    "iou": {
+      "max": 0.03208229942100915,
+      "mean": 4.2439847351566054e-05,
+      "median": 0.0,
+      "min": -0.042941156660183666,
+      "std": 0.011252121118801521
+    },
+    "precision": {
+      "max": 0.016920290509112923,
+      "mean": -0.0009823899437133637,
+      "median": 0.0,
+      "min": -0.0476125691373247,
+      "std": 0.009243749679946778
+    },
+    "recall": {
+      "max": 0.0478158205430933,
+      "mean": 0.0002186960127613349,
+      "median": 0.0,
+      "min": -0.03592814371257491,
+      "std": 0.012533141690360367
+    }
+  },
+  "procedure": "predeclared_fold_local_validation_gated_component_sampling",
+  "selected_oof": {
+    "dice": {
+      "max": 0.8858117599839455,
+      "mean": 0.7635699411224671,
+      "median": 0.8008041783963096,
+      "min": 0.36363636363636365,
+      "std": 0.1081883723901701
+    },
+    "iou": {
+      "max": 0.795028818443804,
+      "mean": 0.6283157956123562,
+      "median": 0.6677868982303976,
+      "min": 0.2222222222222222,
+      "std": 0.1273430911320079
+    },
+    "precision": {
+      "max": 0.9121594143960959,
+      "mean": 0.7609113710726221,
+      "median": 0.7692932848311234,
+      "min": 0.3870967741935484,
+      "std": 0.0971039126260984
+    },
+    "recall": {
+      "max": 0.9442622950819672,
+      "mean": 0.7830783220670712,
+      "median": 0.8482149975433619,
+      "min": 0.34285714285714286,
+      "std": 0.1587982363287226
+    }
+  },
+  "target": "ld"
+}

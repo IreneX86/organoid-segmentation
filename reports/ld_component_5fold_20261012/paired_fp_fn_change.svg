@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 940 555">
+<title id="title">LD paired FP versus FN change</title>
+<desc id="description">Selected-minus-baseline FP and FN pixel counts.</desc>
+<rect width="940" height="555" fill="#FFFFFF"/>
+<text x="44.0" y="38.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="bold" fill="#20252B">LD paired FP versus FN change</text>
+<text x="44.0" y="61.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#59656E">Selected minus baseline pixel counts; each point is one OOF image</text>
+<line x1="102.0" y1="432.0" x2="752.0" y2="432.0" stroke="#E5E9EC" stroke-width="1"/>
+<text x="92.0" y="436.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">-200</text>
+<line x1="102.0" y1="262.0" x2="752.0" y2="262.0" stroke="#E5E9EC" stroke-width="1"/>
+<text x="92.0" y="266.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">+0</text>
+<line x1="102.0" y1="92.0" x2="752.0" y2="92.0" stroke="#E5E9EC" stroke-width="1"/>
+<text x="92.0" y="96.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">+200</text>
+<line x1="102.0" y1="92.0" x2="102.0" y2="432.0" stroke="#40515C" stroke-width="1.5"/>
+<line x1="102.0" y1="432.0" x2="752.0" y2="432.0" stroke="#40515C" stroke-width="1.5"/>
+<text x="25.0" y="262.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="normal" fill="#20252B" transform="rotate(-90 25.0 262.0)">FN pixel change</text>
+<line x1="427.0" y1="92.0" x2="427.0" y2="432.0" stroke="#40515C" stroke-width="1.4"/>
+<line x1="102.0" y1="262.0" x2="752.0" y2="262.0" stroke="#40515C" stroke-width="1.4"/>
+<text x="102.0" y="453.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">-200</text>
+<text x="427.0" y="453.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">+0</text>
+<text x="752.0" y="453.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">+200</text>
+<circle cx="427.0" cy="262.0" r="5" fill="#E69F00" fill-opacity="0.75"><title>ld_001.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#009E73" fill-opacity="0.75"><title>ld_002.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#E69F00" fill-opacity="0.75"><title>ld_003.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#CC79A7" fill-opacity="0.75"><title>ld_004.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#E69F00" fill-opacity="0.75"><title>ld_005.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#CC79A7" fill-opacity="0.75"><title>ld_006.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#CC79A7" fill-opacity="0.75"><title>ld_007.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#E69F00" fill-opacity="0.75"><title>ld_008.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#0072B2" fill-opacity="0.75"><title>ld_009.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#009E73" fill-opacity="0.75"><title>ld_010.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#0072B2" fill-opacity="0.75"><title>ld_011.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#CC79A7" fill-opacity="0.75"><title>ld_012.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#009E73" fill-opacity="0.75"><title>ld_013.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#009E73" fill-opacity="0.75"><title>ld_014.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#0072B2" fill-opacity="0.75"><title>ld_015.tif: FP +0, FN +0</title></circle>
+<circle cx="440.0" cy="230.5" r="5" fill="#D55E00" fill-opacity="0.75"><title>ld_016.tif: FP +8, FN +37</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#CC79A7" fill-opacity="0.75"><title>ld_017.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#E69F00" fill-opacity="0.75"><title>ld_018.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#009E73" fill-opacity="0.75"><title>ld_019.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#E69F00" fill-opacity="0.75"><title>ld_020.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#E69F00" fill-opacity="0.75"><title>ld_021.tif: FP +0, FN +0</title></circle>
+<circle cx="631.8" cy="200.8" r="5" fill="#D55E00" fill-opacity="0.75"><title>ld_022.tif: FP +126, FN +72</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#0072B2" fill-opacity="0.75"><title>ld_023.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#009E73" fill-opacity="0.75"><title>ld_024.tif: FP +0, FN +0</title></circle>
+<circle cx="482.2" cy="330.9" r="5" fill="#D55E00" fill-opacity="0.75"><title>ld_025.tif: FP +34, FN -81</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#009E73" fill-opacity="0.75"><title>ld_026.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#0072B2" fill-opacity="0.75"><title>ld_027.tif: FP +0, FN +0</title></circle>
+<circle cx="368.5" cy="262.0" r="5" fill="#D55E00" fill-opacity="0.75"><title>ld_028.tif: FP -36, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#009E73" fill-opacity="0.75"><title>ld_029.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#0072B2" fill-opacity="0.75"><title>ld_030.tif: FP +0, FN +0</title></circle>
+<circle cx="360.4" cy="203.4" r="5" fill="#D55E00" fill-opacity="0.75"><title>ld_031.tif: FP -41, FN +69</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#0072B2" fill-opacity="0.75"><title>ld_032.tif: FP +0, FN +0</title></circle>
+<circle cx="508.2" cy="270.5" r="5" fill="#D55E00" fill-opacity="0.75"><title>ld_033.tif: FP +50, FN -10</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#CC79A7" fill-opacity="0.75"><title>ld_034.tif: FP +0, FN +0</title></circle>
+<circle cx="427.0" cy="262.0" r="5" fill="#CC79A7" fill-opacity="0.75"><title>ld_035.tif: FP +0, FN +0</title></circle>
+<circle cx="388.0" cy="299.4" r="5" fill="#D55E00" fill-opacity="0.75"><title>ld_036.tif: FP -24, FN -44</title></circle>
+<text x="427.0" y="503.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="normal" fill="#20252B">FP pixel change</text>
+<text x="790.0" y="113.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="bold" fill="#20252B">Outer fold</text>
+<circle cx="800" cy="137" r="5" fill="#0072B2"/>
+<text x="815.0" y="141.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 0</text>
+<circle cx="800" cy="161" r="5" fill="#D55E00"/>
+<text x="815.0" y="165.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 1</text>
+<circle cx="800" cy="185" r="5" fill="#009E73"/>
+<text x="815.0" y="189.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 2</text>
+<circle cx="800" cy="209" r="5" fill="#CC79A7"/>
+<text x="815.0" y="213.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 3</text>
+<circle cx="800" cy="233" r="5" fill="#E69F00"/>
+<text x="815.0" y="237.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 4</text>
+<text x="44.0" y="538.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#59656E">Counts are pixel-level and descriptive; no threshold is changed here.</text>
+</svg>

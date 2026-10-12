@@ -1,0 +1,21 @@
+{
+  "fold_map_sha256": "696fd11435a292d877406b7437c8bd9760ef720530358f5cdc5b77c976e3abd6",
+  "gated_report_provenance": {
+    "archive_sha256": "f8becc981d4132fb2203df688fb11c70622adf44f97d8bca0ad0bee9a7ed786c",
+    "candidate_fold_archive_sha256": {
+      "0": "890adc01c198f4ffc4b3d21086dc8490ca5b4f4eb28adab8019054beb4b07bb2",
+      "1": "ed518e07dcaa178ffa9b36f20ad32f0011b9f430b868be73cf9001d27b1cd190",
+      "2": "4535611be01f72626f4bdc1c90ac364236e2339cbedfcb9d2ebdeb6a97e8f543",
+      "3": "b3fc6bd8db4946644a12a77fbd81d73ebefdb29bc0fb5946ba6a83b0baaf1bf1",
+      "4": "68d767051d2aee35a890c0927f855981015654b2db005b6b53269b7090720b43"
+    },
+    "gated_oof_summary_sha256": "a6a674cd779dea8a75e27969f6baa91774fba3b47a41188ba2e30ed4f94d5729",
+    "paired_oof_per_image_sha256": "0eb0320e2e002072b29aba9180684674a1ecf0c10aa4fb13a79c93c18f9294e1"
+  },
+  "image_count": 36,
+  "label_manifest_sha256": "2c026147620ae6ebfe016287f6607b1ae3b9674cd77dc71160682b9acbec9879",
+  "method_policy_sha256": "7887edaa54a03ff84a550a8ce38b37362a5075ed0bbba1d45a5a5db43c3a9578",
+  "policy_protocol_sha256": "22574c27fe956c98abb36cf31ea1e65db6d10c94b2e92e251cbf9ef8bfefbb41",
+  "scope": "exploratory internal five-fold OOF error description",
+  "target": "ld"
+}
