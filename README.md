@@ -12,6 +12,9 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
   five-fold reference, including splits and small metric files.
 - [`experiments/`](experiments/) contains experiment protocols and selection
   decisions; [`reports/`](reports/) contains the corresponding analyses and figures.
+- The new LD study starts with the
+  [`antialiased-label rule`](experiments/ld_antialias_label_protocol.md) and
+  [`frozen five-fold baseline protocol`](experiments/ld_five_fold_baseline_protocol.md).
 - [`deliverables/mito_auto_labels/`](deliverables/mito_auto_labels/README.md)
   contains ten checksum-verified ZIPs with **1,330 preliminary Mito masks**.
   These are model predictions, not manually verified labels.
@@ -121,15 +124,30 @@ label_ref/
 
 The loader compares complete filenames. Missing inputs or labels stop the run
 with an error instead of being silently skipped.
+The original LD masks contain Photoshop antialiasing gray levels and cannot
+be passed directly to `code/train.py`. Prepare separate binary labels with
+[`code/ld_prepare_labels.py`](code/ld_prepare_labels.py); never edit the manual
+TIFFs. The LD baseline uses its own frozen fold map and training entry point.
 
 ## Train the baseline
 
 Run one target and one cross-validation fold at a time:
 
 ```bash
-python code/train.py --target ld --fold 0 --num-folds 5
 python code/train.py --target mito --fold 0 --num-folds 5
 python code/train.py --target nuc --fold 0 --num-folds 5
+```
+
+For LD, use the versioned derived labels and
+`code/ld_train.py` instead, with the frozen map and a fresh output root:
+
+```bash
+python code/ld_train.py \
+  --input-dir /path/to/LD_input \
+  --label-dir /path/to/derived/LD_output \
+  --label-manifest /path/to/derived/LD_output/manifest.json \
+  --fold-map experiments/results/ld_five_fold_map_v1.json \
+  --output-root /path/to/new_ld_run --fold 0
 ```
 
 Useful options include `--patch-size`, `--overlap`, `--batch-size`, `--epochs`,

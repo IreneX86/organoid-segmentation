@@ -1,0 +1,158 @@
+{
+  "fold_ids": {
+    "ld_001.tif": 4,
+    "ld_002.tif": 2,
+    "ld_003.tif": 4,
+    "ld_004.tif": 3,
+    "ld_005.tif": 4,
+    "ld_006.tif": 3,
+    "ld_007.tif": 3,
+    "ld_008.tif": 4,
+    "ld_009.tif": 0,
+    "ld_010.tif": 2,
+    "ld_011.tif": 0,
+    "ld_012.tif": 3,
+    "ld_013.tif": 2,
+    "ld_014.tif": 2,
+    "ld_015.tif": 0,
+    "ld_016.tif": 1,
+    "ld_017.tif": 3,
+    "ld_018.tif": 4,
+    "ld_019.tif": 2,
+    "ld_020.tif": 4,
+    "ld_021.tif": 4,
+    "ld_022.tif": 1,
+    "ld_023.tif": 0,
+    "ld_024.tif": 2,
+    "ld_025.tif": 1,
+    "ld_026.tif": 2,
+    "ld_027.tif": 0,
+    "ld_028.tif": 1,
+    "ld_029.tif": 2,
+    "ld_030.tif": 0,
+    "ld_031.tif": 1,
+    "ld_032.tif": 0,
+    "ld_033.tif": 1,
+    "ld_034.tif": 3,
+    "ld_035.tif": 3,
+    "ld_036.tif": 1
+  },
+  "fold_sizes": [
+    7,
+    7,
+    8,
+    7,
+    7
+  ],
+  "grouping_basis": "pre-training raw-input similarity; no organoid/Z identity inferred",
+  "input_sha256": {
+    "ld_001.tif": "ed42611c295b54abb6cbcad5144821055a4954104ee87e97286d2f688db38c5d",
+    "ld_002.tif": "24b5d21fbefb228e6c4ba9fc940c6002ac40af490afbaa6927965ea28909d516",
+    "ld_003.tif": "9e889f0cde873a16c48f2b575bb54f51de6e01898ce892f3f376598af297b1ac",
+    "ld_004.tif": "b0caad96b09d0109755b3a50f362d93525266d8b640f33457b61da0f405f2456",
+    "ld_005.tif": "e15641642ce79b582e173c9f2ea731e6950d5eb2a4f14da721646abc1a1af384",
+    "ld_006.tif": "a708f263e3de54d65ff4bcfb6c63608002a3800f5b69881d80f15f372231390c",
+    "ld_007.tif": "8c69e057f7cd6d8fb25f54c1a260675c20e29158ad31dc00c9d9a11b4ed0f57a",
+    "ld_008.tif": "1ce35d3e1ff3f67221573f3c419f2315879f8fd42438e5532645d7bb45955737",
+    "ld_009.tif": "83eba3d5fbac43426df7b9678f9e721b6480afa2d564832db192e1908d7c1954",
+    "ld_010.tif": "fc9f32104867082154d09754e378dc9f113101cdade283dd0ae657366634f07e",
+    "ld_011.tif": "3cbd0124184479307f3151a3f026ebb37c6d0715ce51787274cac04eb3949769",
+    "ld_012.tif": "84df9a0f94e6b228aaced5446a525a34b0dc3432318be8241f91466364783e52",
+    "ld_013.tif": "076cae3da4859b87fdf294408c1f0447a81d6e456f25950ffb5ae641acf7e615",
+    "ld_014.tif": "3b0fb3ca13157ad22b0d1c1a50aca70e5ca3602275fd5d008fb589a95e61de83",
+    "ld_015.tif": "1f294523e388146905f3f69e1f0bd6b1ac9447c5eceeb2228d0af4be66c959b3",
+    "ld_016.tif": "8e7e32ab4912dbe31063431057687f0e3492651674ba26a5e6ecc5a2b1b54131",
+    "ld_017.tif": "b983f1c400ff53b864a3530354b32dae86dd947c8b481e32daf0540965e2ae96",
+    "ld_018.tif": "958f1611d6799ebcd05d2f740d11c134b3410715f9a68701f5882ced01874089",
+    "ld_019.tif": "7d534cd051a4b627dba53373dad42d9e44bbbcc1faab1ea0c6b88da5002cb987",
+    "ld_020.tif": "4e1d9ccd033aae8e6833c5d0561b49014cc0dacb28a505002eaa151b35e6d6ef",
+    "ld_021.tif": "b786093bbe61434aa0f72b67f341e0137f088fed114effbfc7344a1a212a6e13",
+    "ld_022.tif": "2e40c3a8d88355aab1bd31330a0f66eb5a18f56aace799e6c40de7645ffbd0e3",
+    "ld_023.tif": "ec1a5e7600440d3eac63e41bd46191fecf08d878baf582f469fed74f37bad82e",
+    "ld_024.tif": "046183a6733f401b3ffe8196b771763a968da6c8df1daa7c9b074f95995eb2a3",
+    "ld_025.tif": "f5ca1a5470393a151ea025d4b238ab455ab45d0c9d256f7698815e81a9f198c5",
+    "ld_026.tif": "59e70412d0f2999f11e7cadec2dd6ad374d33b18e5c5d09acdbef5674b6e823c",
+    "ld_027.tif": "e289812189c4c59dfc2c37ff8c86ec3228ba0628d1c45e6694a6641880337519",
+    "ld_028.tif": "15a5006e546c79ee7a654af01d8612181efc9e130d85dfe036a1d65d38a360df",
+    "ld_029.tif": "c3fce7b2b72ff64e82a85027ad55b7825c1444e80180e5823d14614e8d813470",
+    "ld_030.tif": "96fac286827aa617ae199b925e540326a285bbe347ff5f890e43c41b455725a7",
+    "ld_031.tif": "055d4274732fbc3d397343600747a805960b9e946edfdb6a021b19ff4c817ec8",
+    "ld_032.tif": "02a39f51e622f59fcd73cf398a51c30eb663d77da60d8fea9bb817369e3a0c91",
+    "ld_033.tif": "364a969168e735777c1e3c2b5c46d995133d0361f34c2ddfdbb695d71021e66a",
+    "ld_034.tif": "b84dd533a19d0fbd06b719f61e0ee06637bb84099bafaf4316e73e8c72653a3c",
+    "ld_035.tif": "daae908ddcf5bbd9b77ac92df4f3dc720b3d6e93d0de739b3b97565f75a87d22",
+    "ld_036.tif": "ec1aad824dde88883b4919df04d763a6612662758b5faf3198006a6ff616280c"
+  },
+  "num_folds": 5,
+  "seed": 42,
+  "similarity_edges": [
+    {
+      "high_pass_correlation": 0.20512662827968597,
+      "left": "ld_001.tif",
+      "raw_correlation": 0.9460713863372803,
+      "right": "ld_003.tif"
+    },
+    {
+      "high_pass_correlation": 0.040447529405355453,
+      "left": "ld_006.tif",
+      "raw_correlation": 0.9451729655265808,
+      "right": "ld_007.tif"
+    },
+    {
+      "high_pass_correlation": 0.0305149145424366,
+      "left": "ld_006.tif",
+      "raw_correlation": 0.9205602407455444,
+      "right": "ld_035.tif"
+    },
+    {
+      "high_pass_correlation": 0.15477609634399414,
+      "left": "ld_030.tif",
+      "raw_correlation": 0.9461585283279419,
+      "right": "ld_032.tif"
+    },
+    {
+      "high_pass_correlation": 0.08704887330532074,
+      "left": "ld_033.tif",
+      "raw_correlation": 0.9153781533241272,
+      "right": "ld_036.tif"
+    },
+    {
+      "high_pass_correlation": 0.040289636701345444,
+      "left": "ld_034.tif",
+      "raw_correlation": 0.9234830737113953,
+      "right": "ld_035.tif"
+    }
+  ],
+  "similarity_method": {
+    "correlation": "mean-centered unit-L2 vector dot product, no shift",
+    "high_pass_cutoff": 0.08,
+    "high_pass_gaussian_sigma": 5,
+    "normalization_percentiles": [
+      1.0,
+      99.8
+    ],
+    "raw_cutoff": 0.92,
+    "thumbnail": "300x300 exact 4x4 block mean"
+  },
+  "suspect_groups": [
+    [
+      "ld_001.tif",
+      "ld_003.tif"
+    ],
+    [
+      "ld_006.tif",
+      "ld_007.tif",
+      "ld_034.tif",
+      "ld_035.tif"
+    ],
+    [
+      "ld_030.tif",
+      "ld_032.tif"
+    ],
+    [
+      "ld_033.tif",
+      "ld_036.tif"
+    ]
+  ],
+  "target": "ld"
+}
