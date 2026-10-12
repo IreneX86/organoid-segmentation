@@ -28,6 +28,7 @@ from tiff_io import pair_tiff_directories, validate_pairs
 FINAL_SOURCE_FILES = tuple(dict.fromkeys((
     *CODE_RELATIVE_PATHS,
     "code/ld_final_policy.py", "code/ld_train_final.py", "code/ld_predict.py",
+    "code/ld_review_queue.py",
 )))
 
 

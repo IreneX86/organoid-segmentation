@@ -33,7 +33,8 @@ PROTOCOL_PATH = "experiments/ld_production_selection_policy.md"
 FINAL_SOURCE_FILES = tuple(dict.fromkeys((
     *CODE_RELATIVE_PATHS,
     "code/ld_component_train_final.py", "code/ld_method_policy.py",
-    "code/ld_predict.py", "experiments/ld_production_selection_policy.md",
+    "code/ld_predict.py", "code/ld_review_queue.py",
+    "experiments/ld_production_selection_policy.md",
 )))
 REQUIRED_GLOBAL_CHECKS = (
     "candidate_gate_wins_at_least_4_of_5",
