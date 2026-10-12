@@ -15,6 +15,12 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
 - The new LD study starts with the
   [`antialiased-label rule`](experiments/ld_antialias_label_protocol.md) and
   [`frozen five-fold baseline protocol`](experiments/ld_five_fold_baseline_protocol.md).
+  Its [five-fold baseline report](reports/ld_baseline_5fold_20261012/README.md)
+  records the 36-image out-of-fold metrics and limitations; the
+  [validation error notes](reports/ld_baseline_5fold_20261012/validation_error_notes.md)
+  describe FP/FN locations and small-component recall. The
+  [literature context](reports/ld_literature_context_20261012.md) separates
+  tested evidence from possible future hypotheses.
 - [`deliverables/mito_auto_labels/`](deliverables/mito_auto_labels/README.md)
   contains ten checksum-verified ZIPs with **1,330 preliminary Mito masks**.
   These are model predictions, not manually verified labels.

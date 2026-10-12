@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title description" viewBox="0 0 940 555">
+<title id="title">Paired Dice difference: selected threshold minus 0.50</title>
+<desc id="description">Differences across 36 held-out images; threshold 0.50 compared with an inner-validation-selected threshold.</desc>
+<rect width="940" height="555" fill="#FFFFFF"/>
+<text x="45.0" y="38.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="bold" fill="#20252B">Paired Dice difference: selected threshold minus 0.50</text>
+<text x="45.0" y="62.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#5D666E">Same checkpoint and image; selected threshold was chosen on inner validation</text>
+<line x1="95.0" y1="440.0" x2="765.0" y2="440.0" stroke="#E7E9EB" stroke-width="1"/>
+<text x="84.0" y="445.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">-0.05</text>
+<line x1="95.0" y1="352.5" x2="765.0" y2="352.5" stroke="#E7E9EB" stroke-width="1"/>
+<text x="84.0" y="357.5" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">-0.03</text>
+<line x1="95.0" y1="265.0" x2="765.0" y2="265.0" stroke="#E7E9EB" stroke-width="1"/>
+<text x="84.0" y="270.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">+0.00</text>
+<line x1="95.0" y1="177.5" x2="765.0" y2="177.5" stroke="#E7E9EB" stroke-width="1"/>
+<text x="84.0" y="182.5" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">+0.03</text>
+<line x1="95.0" y1="90.0" x2="765.0" y2="90.0" stroke="#E7E9EB" stroke-width="1"/>
+<text x="84.0" y="95.0" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">+0.05</text>
+<line x1="95.0" y1="90.0" x2="95.0" y2="440.0" stroke="#48515A" stroke-width="1.5"/>
+<line x1="95.0" y1="440.0" x2="765.0" y2="440.0" stroke="#48515A" stroke-width="1.5"/>
+<text x="24.0" y="265.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="normal" fill="#20252B" transform="rotate(-90 24.0 265.0)">Difference in Dice score</text>
+<line x1="95.0" y1="265.0" x2="765.0" y2="265.0" stroke="#33424B" stroke-width="1.7"/>
+<line x1="104.3" y1="265.0" x2="104.3" y2="266.8" stroke="#E69F00" stroke-width="1.5"/>
+<circle cx="104.3" cy="266.8" r="3.4" fill="#E69F00"><title>ld_001.tif: -0.0005 Dice</title></circle>
+<text x="104.3" y="462.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">1</text>
+<line x1="122.9" y1="265.0" x2="122.9" y2="265.0" stroke="#009E73" stroke-width="1.5"/>
+<circle cx="122.9" cy="265.0" r="3.4" fill="#009E73"><title>ld_002.tif: +0.0000 Dice</title></circle>
+<line x1="141.5" y1="265.0" x2="141.5" y2="258.6" stroke="#E69F00" stroke-width="1.5"/>
+<circle cx="141.5" cy="258.6" r="3.4" fill="#E69F00"><title>ld_003.tif: +0.0018 Dice</title></circle>
+<line x1="160.1" y1="265.0" x2="160.1" y2="263.9" stroke="#CC79A7" stroke-width="1.5"/>
+<circle cx="160.1" cy="263.9" r="3.4" fill="#CC79A7"><title>ld_004.tif: +0.0003 Dice</title></circle>
+<line x1="178.8" y1="265.0" x2="178.8" y2="263.3" stroke="#E69F00" stroke-width="1.5"/>
+<circle cx="178.8" cy="263.3" r="3.4" fill="#E69F00"><title>ld_005.tif: +0.0005 Dice</title></circle>
+<text x="178.8" y="462.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">5</text>
+<line x1="197.4" y1="265.0" x2="197.4" y2="311.6" stroke="#CC79A7" stroke-width="1.5"/>
+<circle cx="197.4" cy="311.6" r="3.4" fill="#CC79A7"><title>ld_006.tif: -0.0133 Dice</title></circle>
+<line x1="216.0" y1="265.0" x2="216.0" y2="294.9" stroke="#CC79A7" stroke-width="1.5"/>
+<circle cx="216.0" cy="294.9" r="3.4" fill="#CC79A7"><title>ld_007.tif: -0.0085 Dice</title></circle>
+<line x1="234.6" y1="265.0" x2="234.6" y2="256.3" stroke="#E69F00" stroke-width="1.5"/>
+<circle cx="234.6" cy="256.3" r="3.4" fill="#E69F00"><title>ld_008.tif: +0.0025 Dice</title></circle>
+<line x1="253.2" y1="265.0" x2="253.2" y2="338.9" stroke="#0072B2" stroke-width="1.5"/>
+<circle cx="253.2" cy="338.9" r="3.4" fill="#0072B2"><title>ld_009.tif: -0.0211 Dice</title></circle>
+<line x1="271.8" y1="265.0" x2="271.8" y2="265.0" stroke="#009E73" stroke-width="1.5"/>
+<circle cx="271.8" cy="265.0" r="3.4" fill="#009E73"><title>ld_010.tif: +0.0000 Dice</title></circle>
+<text x="271.8" y="462.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">10</text>
+<line x1="290.4" y1="265.0" x2="290.4" y2="158.0" stroke="#0072B2" stroke-width="1.5"/>
+<circle cx="290.4" cy="158.0" r="3.4" fill="#0072B2"><title>ld_011.tif: +0.0306 Dice</title></circle>
+<line x1="309.0" y1="265.0" x2="309.0" y2="249.7" stroke="#CC79A7" stroke-width="1.5"/>
+<circle cx="309.0" cy="249.7" r="3.4" fill="#CC79A7"><title>ld_012.tif: +0.0044 Dice</title></circle>
+<line x1="327.6" y1="265.0" x2="327.6" y2="265.0" stroke="#009E73" stroke-width="1.5"/>
+<circle cx="327.6" cy="265.0" r="3.4" fill="#009E73"><title>ld_013.tif: +0.0000 Dice</title></circle>
+<line x1="346.2" y1="265.0" x2="346.2" y2="265.0" stroke="#009E73" stroke-width="1.5"/>
+<circle cx="346.2" cy="265.0" r="3.4" fill="#009E73"><title>ld_014.tif: +0.0000 Dice</title></circle>
+<line x1="364.9" y1="265.0" x2="364.9" y2="228.8" stroke="#0072B2" stroke-width="1.5"/>
+<circle cx="364.9" cy="228.8" r="3.4" fill="#0072B2"><title>ld_015.tif: +0.0104 Dice</title></circle>
+<text x="364.9" y="462.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">15</text>
+<line x1="383.5" y1="265.0" x2="383.5" y2="283.4" stroke="#D55E00" stroke-width="1.5"/>
+<circle cx="383.5" cy="283.4" r="3.4" fill="#D55E00"><title>ld_016.tif: -0.0053 Dice</title></circle>
+<line x1="402.1" y1="265.0" x2="402.1" y2="252.6" stroke="#CC79A7" stroke-width="1.5"/>
+<circle cx="402.1" cy="252.6" r="3.4" fill="#CC79A7"><title>ld_017.tif: +0.0036 Dice</title></circle>
+<line x1="420.7" y1="265.0" x2="420.7" y2="267.4" stroke="#E69F00" stroke-width="1.5"/>
+<circle cx="420.7" cy="267.4" r="3.4" fill="#E69F00"><title>ld_018.tif: -0.0007 Dice</title></circle>
+<line x1="439.3" y1="265.0" x2="439.3" y2="265.0" stroke="#009E73" stroke-width="1.5"/>
+<circle cx="439.3" cy="265.0" r="3.4" fill="#009E73"><title>ld_019.tif: +0.0000 Dice</title></circle>
+<line x1="457.9" y1="265.0" x2="457.9" y2="247.7" stroke="#E69F00" stroke-width="1.5"/>
+<circle cx="457.9" cy="247.7" r="3.4" fill="#E69F00"><title>ld_020.tif: +0.0049 Dice</title></circle>
+<text x="457.9" y="462.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">20</text>
+<line x1="476.5" y1="265.0" x2="476.5" y2="282.7" stroke="#E69F00" stroke-width="1.5"/>
+<circle cx="476.5" cy="282.7" r="3.4" fill="#E69F00"><title>ld_021.tif: -0.0051 Dice</title></circle>
+<line x1="495.1" y1="265.0" x2="495.1" y2="255.7" stroke="#D55E00" stroke-width="1.5"/>
+<circle cx="495.1" cy="255.7" r="3.4" fill="#D55E00"><title>ld_022.tif: +0.0026 Dice</title></circle>
+<line x1="513.8" y1="265.0" x2="513.8" y2="389.8" stroke="#0072B2" stroke-width="1.5"/>
+<circle cx="513.8" cy="389.8" r="3.4" fill="#0072B2"><title>ld_023.tif: -0.0357 Dice</title></circle>
+<line x1="532.4" y1="265.0" x2="532.4" y2="265.0" stroke="#009E73" stroke-width="1.5"/>
+<circle cx="532.4" cy="265.0" r="3.4" fill="#009E73"><title>ld_024.tif: +0.0000 Dice</title></circle>
+<line x1="551.0" y1="265.0" x2="551.0" y2="257.6" stroke="#D55E00" stroke-width="1.5"/>
+<circle cx="551.0" cy="257.6" r="3.4" fill="#D55E00"><title>ld_025.tif: +0.0021 Dice</title></circle>
+<text x="551.0" y="462.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">25</text>
+<line x1="569.6" y1="265.0" x2="569.6" y2="265.0" stroke="#009E73" stroke-width="1.5"/>
+<circle cx="569.6" cy="265.0" r="3.4" fill="#009E73"><title>ld_026.tif: +0.0000 Dice</title></circle>
+<line x1="588.2" y1="265.0" x2="588.2" y2="206.1" stroke="#0072B2" stroke-width="1.5"/>
+<circle cx="588.2" cy="206.1" r="3.4" fill="#0072B2"><title>ld_027.tif: +0.0168 Dice</title></circle>
+<line x1="606.8" y1="265.0" x2="606.8" y2="300.6" stroke="#D55E00" stroke-width="1.5"/>
+<circle cx="606.8" cy="300.6" r="3.4" fill="#D55E00"><title>ld_028.tif: -0.0102 Dice</title></circle>
+<line x1="625.4" y1="265.0" x2="625.4" y2="265.0" stroke="#009E73" stroke-width="1.5"/>
+<circle cx="625.4" cy="265.0" r="3.4" fill="#009E73"><title>ld_029.tif: +0.0000 Dice</title></circle>
+<line x1="644.0" y1="265.0" x2="644.0" y2="131.5" stroke="#0072B2" stroke-width="1.5"/>
+<circle cx="644.0" cy="131.5" r="3.4" fill="#0072B2"><title>ld_030.tif: +0.0382 Dice</title></circle>
+<text x="644.0" y="462.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">30</text>
+<line x1="662.6" y1="265.0" x2="662.6" y2="273.0" stroke="#D55E00" stroke-width="1.5"/>
+<circle cx="662.6" cy="273.0" r="3.4" fill="#D55E00"><title>ld_031.tif: -0.0023 Dice</title></circle>
+<line x1="681.2" y1="265.0" x2="681.2" y2="137.5" stroke="#0072B2" stroke-width="1.5"/>
+<circle cx="681.2" cy="137.5" r="3.4" fill="#0072B2"><title>ld_032.tif: +0.0364 Dice</title></circle>
+<line x1="699.9" y1="265.0" x2="699.9" y2="285.9" stroke="#D55E00" stroke-width="1.5"/>
+<circle cx="699.9" cy="285.9" r="3.4" fill="#D55E00"><title>ld_033.tif: -0.0060 Dice</title></circle>
+<line x1="718.5" y1="265.0" x2="718.5" y2="277.7" stroke="#CC79A7" stroke-width="1.5"/>
+<circle cx="718.5" cy="277.7" r="3.4" fill="#CC79A7"><title>ld_034.tif: -0.0036 Dice</title></circle>
+<line x1="737.1" y1="265.0" x2="737.1" y2="279.6" stroke="#CC79A7" stroke-width="1.5"/>
+<circle cx="737.1" cy="279.6" r="3.4" fill="#CC79A7"><title>ld_035.tif: -0.0042 Dice</title></circle>
+<text x="737.1" y="462.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">35</text>
+<line x1="755.7" y1="265.0" x2="755.7" y2="290.2" stroke="#D55E00" stroke-width="1.5"/>
+<circle cx="755.7" cy="290.2" r="3.4" fill="#D55E00"><title>ld_036.tif: -0.0072 Dice</title></circle>
+<text x="755.7" y="462.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#20252B">36</text>
+<text x="430.0" y="500.0" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="normal" fill="#20252B">Image index in filename order</text>
+<text x="795.0" y="113.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="bold" fill="#20252B">Outer fold</text>
+<circle cx="804" cy="135" r="6" fill="#0072B2"/>
+<text x="821.0" y="139.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 0</text>
+<circle cx="804" cy="160" r="6" fill="#D55E00"/>
+<text x="821.0" y="164.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 1</text>
+<circle cx="804" cy="185" r="6" fill="#009E73"/>
+<text x="821.0" y="189.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 2</text>
+<circle cx="804" cy="210" r="6" fill="#CC79A7"/>
+<text x="821.0" y="214.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 3</text>
+<circle cx="804" cy="235" r="6" fill="#E69F00"/>
+<text x="821.0" y="239.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="normal" fill="#20252B">Fold 4</text>
+<text x="45.0" y="537.0" text-anchor="start" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="normal" fill="#5D666E">Source: same locked checkpoints; OOF differences are descriptive only.</text>
+</svg>
