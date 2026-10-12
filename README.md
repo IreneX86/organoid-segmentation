@@ -4,13 +4,37 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
 2D semantic-segmentation pipelines for mitochondria (`mito`), lipid droplets
 (`ld`), and nuclei (`nuc`). Each TIFF is treated as an independent 2D image.
 
+## Repository guide and current stage
+
+- [`code/`](code/) contains the reusable training and folder-prediction pipeline,
+  tests, and the scripts used to reproduce individual Mito experiments.
+- [`baseline/`](baseline/) preserves the original fold-0 run and the frozen
+  five-fold reference, including splits and small metric files.
+- [`experiments/`](experiments/) contains experiment protocols and selection
+  decisions; [`reports/`](reports/) contains the corresponding analyses and figures.
+- [`deliverables/mito_auto_labels/`](deliverables/mito_auto_labels/README.md)
+  contains ten checksum-verified ZIPs with **1,330 preliminary Mito masks**.
+  These are model predictions, not manually verified labels.
+- [`runpod_ready/`](runpod_ready/) records the GPU setup and smoke-test scripts.
+  [`MITO_EXPERIMENT_LOG.md`](MITO_EXPERIMENT_LOG.md) and
+  [`OPTIMIZATION_GOALS.md`](OPTIMIZATION_GOALS.md) index the research history
+  and evaluation rules.
+
+The first batch-prediction stage is complete. Its input TIFFs remain in the
+local `organoid_data/` directory and are not tracked by Git. The delivered
+masks were generated with the frozen **fold-0** checkpoint, not a final model
+trained on all 36 labelled images. Without independent manual labels for those
+organoid images, their external Dice is unknown. Raw TIFFs, checkpoints,
+runtime outputs, and credentials are excluded from this repository.
+
 ## Experimental data and current baseline
 
 All 36 paired Mito input TIFFs and manually labelled masks in `label_ref/` are
 the **labelled development pool**. The fold-0 split of 22 training, 7 validation,
 and 7 test images is an *internal* model-development split. Its test images are
-not the unseen organoid images that the final model will predict; those external
-images have not been added to this project.
+not the separate organoid images used for the first batch of automatic
+predictions. The latter have no manual masks and were not used to select the
+model or report internal test scores.
 
 The frozen Mito fold-0 2D U-Net baseline completed on 2026-10-01. It trained
 for 98 epochs (EarlyStopping; best epoch 78) and achieved best validation Dice

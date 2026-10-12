@@ -32,6 +32,10 @@ __pycache__/
 .venv/
 venv/
 .DS_Store
+._*
+__MACOSX/
+.pytest_cache/
+.ruff_cache/
 
 # Credentials and private configuration.
 .env

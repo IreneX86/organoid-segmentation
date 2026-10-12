@@ -5,8 +5,12 @@
 Use the 36 manually labelled Mito input/mask TIFF pairs as one labelled
 development pool. Choose a reliable **independent 2D semantic segmentation**
 pipeline, then train a production model on all 36 pairs. The external unseen
-organoid images are not in this repository yet. Their eventual prediction masks
-must preserve each input TIFF's filename, width, height, and pixel coordinates.
+organoid input TIFFs are kept locally outside Git. An initial batch of 1,330
+automatic masks has been delivered from the frozen fold-0 model, but these
+images have no independent manual labels and cannot provide an external Dice.
+A future production model still needs to be trained on all 36 labelled pairs.
+Every prediction mask must preserve its input TIFF's filename, width, height,
+and pixel coordinates.
 
 The frozen fold-0 baseline is documented in `baseline/mito_fold0_20261001/`.
 The unchanged five-fold baseline was subsequently completed and is documented
@@ -88,7 +92,8 @@ Runpod optimization job as part of this planning step.
 Fix the architecture, preprocessing, loss, threshold policy, and epoch policy
 from inner-CV/OOF evidence **before** training the final model on all 36 labelled
 pairs. Since all 36 are used for that fit, do not claim it has a new internal
-test score. Save a versioned model and inference configuration; later run
-batch prediction on the genuinely unseen organoid TIFF folder, producing one
+test score. Save a versioned model and inference configuration. The existing
+batch masks are preliminary fold-0 predictions, not output of this future
+production model. For subsequent unlabelled organoid TIFFs, produce one
 same-name, same-size semantic mask per input. Assess external performance only
 if independently labelled external data becomes available.
