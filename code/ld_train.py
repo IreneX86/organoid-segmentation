@@ -188,6 +188,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--epochs", type=int, default=100)
     parser.add_argument("--learning-rate", type=float, default=1e-4)
     parser.add_argument("--positive-patch-probability", type=float, default=0.6)
+    # The frozen baseline remains p99.8. A separately registered normalization
+    # experiment may override only this upper clipping percentile.
+    parser.add_argument("--upper-percentile", type=float, default=99.8)
     parser.add_argument("--seed", type=int, default=42)
     return parser.parse_args()
 
@@ -214,8 +217,12 @@ def main() -> None:
     if args.steps_per_epoch < 1 or args.epochs < 1 or args.learning_rate <= 0:
         raise ValueError("steps, epochs and learning rate must be positive")
 
-    config = PipelineConfig(patch_size=args.patch_size, overlap=args.overlap,
-                            random_seed=args.seed)
+    config = PipelineConfig(
+        patch_size=args.patch_size,
+        overlap=args.overlap,
+        upper_percentile=args.upper_percentile,
+        random_seed=args.seed,
+    )
     config.validate()
     input_dir = args.input_dir.resolve()
     label_dir = args.label_dir.resolve()
@@ -294,6 +301,16 @@ def main() -> None:
         "threshold_selection": "validation_mean_per_image_dice",
         "outer_test_deferred": True,
     }
+    if config.upper_percentile == 99.95:
+        # Bind this single-factor candidate to the protocol fixed before
+        # training. Baseline runs retain their original configuration fields.
+        protocol_path = (
+            project_root / "experiments" / "ld_highlight_normalization_protocol.md"
+        )
+        if not protocol_path.is_file():
+            raise FileNotFoundError(f"Missing preregistered protocol: {protocol_path}")
+        experiment_config["candidate"] = "highlight_upper_p99_95_v1"
+        experiment_config["protocol_sha256"] = _sha256(protocol_path)
     _write_json(run_dir / "experiment_config.json", experiment_config)
     _write_json(run_dir / "split.json", {
         "target": "ld", "fold": args.fold, "num_folds": args.num_folds,
