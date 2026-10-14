@@ -114,3 +114,25 @@ scientific protocol and fold map remain in `experiments/`.
   train an all-36 p99.95 candidate, switch the production model, rescan nearby
   percentiles, or interpret the six center points as a Dice test without a
   fresh scientific decision supported by new evidence.
+
+## Provisional correction of six known LD misses (2026-10-14)
+
+- The user confirmed that six previously missed center points are LD but did
+  not supply pixel contours. A deterministic local-intensity procedure proposed
+  **algorithmic, object-only** 1200×1200 masks for those six centers. Their
+  boundaries are not manual ground truth. The first, fourth and fifth centers
+  have notable boundary ambiguity; the fifth is an elongated bright band.
+- A separate review-only 100-image prediction set was built under the local,
+  Git-ignored `outputs/ld_external_review_20261014/provisional_fluo_label_100/`.
+  Ninety-four masks are byte-for-byte copies of the existing `fluo_label`; the
+  six known misses receive the proposed objects by pixelwise union, adding 275
+  foreground pixels in total. Independent reread confirmed all 100 TIFF names,
+  1200×1200 uint8 0/255 geometry, per-file SHA256, and that no other pixels
+  changed. Its manifest, contour QC, reproducible scripts and six-row local
+  visualization are in `outputs/ld_external_review_20261014/`.
+- The original inputs, existing `fluo_label`, 36 labelled training pairs and
+  frozen model were unchanged. No new GPU work or training was started. These
+  targeted revisions are a practical review copy, **not** evidence of a better
+  general model. Do not use the object-only masks as training targets or full-
+  image truth, and do not compute an unbiased Dice from these six selected
+  errors. The frozen LD baseline remains the scientific production model.
