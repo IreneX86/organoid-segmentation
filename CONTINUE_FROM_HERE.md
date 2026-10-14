@@ -136,3 +136,39 @@ scientific protocol and fold map remain in `experiments/`.
   general model. Do not use the object-only masks as training targets or full-
   image truth, and do not compute an unbiased Dice from these six selected
   errors. The frozen LD baseline remains the scientific production model.
+
+## Latest: symmetric focal BCE + soft-Dice LD ablation (2026-10-14)
+
+- The [preregistered single-factor protocol](experiments/ld_focal_dice_protocol.md)
+  replaced only the BCE term with symmetric, unweighted focal BCE (gamma 2).
+  The five grouped folds, labels, sampling, architecture, normalization,
+  thresholds and all other training settings remained frozen. Implementation
+  commit `63c5ed7` preceded candidate fitting and outer-test scoring.
+- All five candidate folds finished. The five validation-only decision locks
+  chose **baseline in every fold** before any candidate outer-test labels were
+  read. Do not relax the fold-1 small-component gate (+0.09677 versus the
+  preregistered +0.10). No fold needs retraining or another threshold search.
+- Sixteen local archives passed SHA256 checks and the full local verifier
+  returned `PASS`. Checkpoints, training histories, logs, 36 full-size OOF
+  predictions and metrics are under Git-ignored
+  `runpod_results/ld_focal_20261014/downloaded/`; the verification record is
+  `local_verification.json` there. Small decisions and metrics are in
+  `experiments/results/` and the [paired report](reports/ld_focal_gamma2_20261014/README.md).
+- Raw candidate OOF Dice was **0.762659 ± 0.094865**, versus frozen baseline
+  **0.763693 ± 0.106970**; paired mean change **−0.001033**. Small semantic
+  component detections rose only 97/150→100/150, while total FP increased
+  21,917→23,516 and distant FP increased 6,636→8,105. This is exploratory
+  internal evidence, not an independent external confirmation. **Reject focal
+  for production; retain the frozen baseline and existing `fluo_label`.**
+- The sole A40 Pod `8p4tkdl8ffda12` was deleted after local verification.
+  Live Pod, Endpoint, Network Volume and Cluster lists were empty. The
+  observed rate was US$0.59/hour. Estimated lifetime cost was about US$1.10;
+  the itemized bill was delayed (US$0.579292 posted at the latest read), so
+  reconcile the final charge after all hourly buckets post. No new GPU work
+  is running.
+- Next scientific step: obtain independent images with **complete manual LD
+  contours**, including small confirmed droplets and comparable bright
+  background. Predefine size-stratified detection, distant-FP and full-image
+  Dice/Precision evaluation. The eight previously confirmed discovery points
+  and six provisional object-only corrections are not complete independent
+  ground truth and must not select a new model or threshold.

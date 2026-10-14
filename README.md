@@ -32,6 +32,11 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
   [small-LD miss / p99.95 normalization study](reports/ld_highlight_p9995_20261014/README.md)
   completed five folds. Its raw candidate did not improve mean OOF Dice or
   low-foreground performance, so the frozen p99.8 LD production model and
+  existing predictions remain unchanged. The subsequent
+  [symmetric focal BCE + soft-Dice study](reports/ld_focal_gamma2_20261014/README.md)
+  also completed five folds; all five preregistered validation gates retained
+  the baseline. Its candidate mean OOF Dice was 0.762659 versus 0.763693 for
+  the baseline, with more distant false positives. The production model and
   existing predictions remain unchanged.
 - [`deliverables/mito_auto_labels/`](deliverables/mito_auto_labels/README.md)
   contains ten checksum-verified ZIPs with **1,330 preliminary Mito masks**.
