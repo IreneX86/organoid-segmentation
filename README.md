@@ -37,7 +37,14 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
   also completed five folds; all five preregistered validation gates retained
   the baseline. Its candidate mean OOF Dice was 0.762659 versus 0.763693 for
   the baseline, with more distant false positives. The production model and
-  existing predictions remain unchanged.
+  existing predictions remain unchanged. Following a separate human visual
+  review, a [focal five-fold voting prediction set](reports/ld_focal_human_preferred_inference_20261015/README.md)
+  was generated and verified for only the 100 TIFFs in
+  `cell_22375_NZ_100/fluo`, under a separate `fluo_label_2` directory.
+  This is an operational review preference, not a reversal of the validation
+  decision or an independent estimate of generalization. The first 76 images
+  were already viewed during review and cannot serve as untouched external
+  test images. The 100-mask handoff has a complete per-image SHA256 manifest.
 - [`deliverables/mito_auto_labels/`](deliverables/mito_auto_labels/README.md)
   contains ten checksum-verified ZIPs with **1,330 preliminary Mito masks**.
   These are model predictions, not manually verified labels.

@@ -1,6 +1,6 @@
 # LD experiment continuation
 
-Updated: 2026-10-14 UTC. This file records operational state; the frozen
+Updated: 2026-10-15 (Australia/Sydney). This file records operational state; the frozen
 scientific protocol and fold map remain in `experiments/`.
 
 ## Completed and verified
@@ -172,3 +172,37 @@ scientific protocol and fold map remain in `experiments/`.
   Dice/Precision evaluation. The eight previously confirmed discovery points
   and six provisional object-only corrections are not complete independent
   ground truth and must not select a new model or threshold.
+
+## Completed: human-preferred focal voting review set (2026-10-15)
+
+- After visual review, the user preferred a separate five-fold focal-vote
+  prediction set for **only** `cell_22375_NZ_100/fluo` (100 TIFFs). This is an
+  operational choice for review, not scientific promotion of focal loss. All
+  five preregistered validation gates rejected focal; its raw candidate OOF
+  Dice was **0.762659** versus **0.763693** for the frozen baseline. The
+  baseline model, original `fluo_label`, experiment decision locks and focal
+  scientific report remain unchanged.
+- Inference uses the five saved focal fold checkpoints, each image's p1–p99.8
+  normalization, 512×512 sliding tiles with 128-pixel overlap, and the folds'
+  locked validation thresholds **[0.65, 0.80, 0.60, 0.35, 0.50]**. Each fold
+  casts a binary vote; at least 3/5 foreground votes produce a `uint8` 0/255
+  mask with the input TIFF's name and dimensions. The voting ensemble itself
+  has no independent validation result.
+- Workspace review and audit files are under Git-ignored
+  `outputs/ld_focal_review_cell22375_20261015/`; the verified local handoff
+  is `~/Desktop/Organoid/organoid_data/cell_22375_NZ_100/fluo_label_2/`.
+  All **100/100** same-name masks passed dimensions, `uint8` 0/255 encoding,
+  input/mask SHA256 and Desktop-copy checks. The first 76 existing Desktop
+  masks retained their hashes; only the missing 24 were copied in. The full
+  per-image hash manifest is
+  `outputs/ld_focal_review_cell22375_20261015/review_prediction_manifest.json`,
+  copied to Desktop as `fluo_label_2/prediction_manifest.json`; both copies
+  have SHA256
+  `4ac869d957f9fdb1bda97598652f2b7071542315b6950ec3d59481a7dbbea9f5`.
+  The prior 76-image partial manifest is historical only.
+- The first 76 images were already viewed by the user during this review;
+  these images are no longer untouched external test cases. Visual preference
+  does not provide complete independent manual contours or an unbiased Dice
+  comparison. See the [separate handoff record](reports/ld_focal_human_preferred_inference_20261015/README.md)
+  for scope, provenance, the reusable inference command and verification
+  record. The archived `--runs-root` is a local, Git-ignored model path.
