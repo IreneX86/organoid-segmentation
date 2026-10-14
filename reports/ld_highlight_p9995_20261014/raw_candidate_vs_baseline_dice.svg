@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="745" viewBox="0 0 1000 745" role="img" aria-label="LD raw p99.95 candidate versus frozen baseline: per-image OOF Dice">
+<title>LD raw p99.95 candidate versus frozen baseline: per-image OOF Dice</title>
+<desc>36 paired outer-fold development images; descriptive only.</desc>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#26313d}.headline{font-size:21px;font-weight:bold}.subtitle{font-size:13px}.axis{font-size:13px}.tick{font-size:11px;fill:#526272}.note{font-size:11px;fill:#596879}.legend{font-size:12px}</style>
+<text class="headline" x="62" y="35">Raw candidate vs frozen baseline</text>
+<text class="subtitle" x="62" y="57">LD five-fold outer OOF · 36 development images · Dice at fold-local validation threshold</text>
+<rect x="102.0" y="105.0" width="555.0" height="555.0" fill="#fbfcfd" stroke="#98a6b5"/>
+<line x1="102.0" y1="105.0" x2="102.0" y2="660.0" stroke="#e7ebef"/>
+<line x1="102.0" y1="660.0" x2="657.0" y2="660.0" stroke="#e7ebef"/>
+<text class="tick" x="102.0" y="680.0" text-anchor="middle">0.2</text>
+<text class="tick" x="89.0" y="664.0" text-anchor="end">0.2</text>
+<line x1="171.4" y1="105.0" x2="171.4" y2="660.0" stroke="#e7ebef"/>
+<line x1="102.0" y1="590.6" x2="657.0" y2="590.6" stroke="#e7ebef"/>
+<text class="tick" x="171.4" y="680.0" text-anchor="middle">0.3</text>
+<text class="tick" x="89.0" y="594.6" text-anchor="end">0.3</text>
+<line x1="240.8" y1="105.0" x2="240.8" y2="660.0" stroke="#e7ebef"/>
+<line x1="102.0" y1="521.2" x2="657.0" y2="521.2" stroke="#e7ebef"/>
+<text class="tick" x="240.8" y="680.0" text-anchor="middle">0.4</text>
+<text class="tick" x="89.0" y="525.2" text-anchor="end">0.4</text>
+<line x1="310.1" y1="105.0" x2="310.1" y2="660.0" stroke="#e7ebef"/>
+<line x1="102.0" y1="451.9" x2="657.0" y2="451.9" stroke="#e7ebef"/>
+<text class="tick" x="310.1" y="680.0" text-anchor="middle">0.5</text>
+<text class="tick" x="89.0" y="455.9" text-anchor="end">0.5</text>
+<line x1="379.5" y1="105.0" x2="379.5" y2="660.0" stroke="#e7ebef"/>
+<line x1="102.0" y1="382.5" x2="657.0" y2="382.5" stroke="#e7ebef"/>
+<text class="tick" x="379.5" y="680.0" text-anchor="middle">0.6</text>
+<text class="tick" x="89.0" y="386.5" text-anchor="end">0.6</text>
+<line x1="448.9" y1="105.0" x2="448.9" y2="660.0" stroke="#e7ebef"/>
+<line x1="102.0" y1="313.1" x2="657.0" y2="313.1" stroke="#e7ebef"/>
+<text class="tick" x="448.9" y="680.0" text-anchor="middle">0.7</text>
+<text class="tick" x="89.0" y="317.1" text-anchor="end">0.7</text>
+<line x1="518.2" y1="105.0" x2="518.2" y2="660.0" stroke="#e7ebef"/>
+<line x1="102.0" y1="243.7" x2="657.0" y2="243.7" stroke="#e7ebef"/>
+<text class="tick" x="518.2" y="680.0" text-anchor="middle">0.8</text>
+<text class="tick" x="89.0" y="247.7" text-anchor="end">0.8</text>
+<line x1="587.6" y1="105.0" x2="587.6" y2="660.0" stroke="#e7ebef"/>
+<line x1="102.0" y1="174.4" x2="657.0" y2="174.4" stroke="#e7ebef"/>
+<text class="tick" x="587.6" y="680.0" text-anchor="middle">0.9</text>
+<text class="tick" x="89.0" y="178.4" text-anchor="end">0.9</text>
+<line x1="657.0" y1="105.0" x2="657.0" y2="660.0" stroke="#e7ebef"/>
+<line x1="102.0" y1="105.0" x2="657.0" y2="105.0" stroke="#e7ebef"/>
+<text class="tick" x="657.0" y="680.0" text-anchor="middle">1.0</text>
+<text class="tick" x="89.0" y="109.0" text-anchor="end">1.0</text>
+<line x1="102.0" y1="660.0" x2="657.0" y2="105.0" stroke="#6f7d8a" stroke-width="1.5" stroke-dasharray="6,5"/>
+<circle cx="577.8" cy="183.7" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_001.tif · fold 4 · baseline 0.8858 · candidate 0.8866 · change +0.001 · GT foreground 0.171%</title></circle>
+<circle cx="425.8" cy="312.8" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_002.tif · fold 2 · baseline 0.6667 · candidate 0.7005 · change +0.034 · GT foreground 0.406%</title></circle>
+<circle cx="567.3" cy="224.1" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_003.tif · fold 4 · baseline 0.8706 · candidate 0.8284 · change -0.042 · GT foreground 0.124%</title></circle>
+<circle cx="527.4" cy="225.2" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_004.tif · fold 3 · baseline 0.8132 · candidate 0.8268 · change +0.014 · GT foreground 0.401%</title></circle>
+<circle cx="574.7" cy="191.6" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_008.tif · fold 4 · baseline 0.8813 · candidate 0.8752 · change -0.006 · GT foreground 0.183%</title></circle>
+<circle cx="448.9" cy="301.1" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_009.tif · fold 0 · baseline 0.7001 · candidate 0.7173 · change +0.017 · GT foreground 0.332%</title></circle>
+<circle cx="436.6" cy="352.1" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_010.tif · fold 2 · baseline 0.6823 · candidate 0.6439 · change -0.038 · GT foreground 0.480%</title></circle>
+<circle cx="525.0" cy="234.7" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_012.tif · fold 3 · baseline 0.8098 · candidate 0.8131 · change +0.003 · GT foreground 0.111%</title></circle>
+<circle cx="434.8" cy="315.6" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_013.tif · fold 2 · baseline 0.6797 · candidate 0.6964 · change +0.017 · GT foreground 0.399%</title></circle>
+<circle cx="391.8" cy="410.1" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_014.tif · fold 2 · baseline 0.6177 · candidate 0.5602 · change -0.058 · GT foreground 0.384%</title></circle>
+<circle cx="548.8" cy="224.4" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_015.tif · fold 0 · baseline 0.8440 · candidate 0.8278 · change -0.016 · GT foreground 0.215%</title></circle>
+<circle cx="537.3" cy="230.4" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_016.tif · fold 1 · baseline 0.8275 · candidate 0.8192 · change -0.008 · GT foreground 0.147%</title></circle>
+<circle cx="442.8" cy="328.3" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_017.tif · fold 3 · baseline 0.6913 · candidate 0.6781 · change -0.013 · GT foreground 0.485%</title></circle>
+<circle cx="547.9" cy="220.2" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_018.tif · fold 4 · baseline 0.8428 · candidate 0.8340 · change -0.009 · GT foreground 0.209%</title></circle>
+<circle cx="555.4" cy="217.5" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_019.tif · fold 2 · baseline 0.8535 · candidate 0.8379 · change -0.016 · GT foreground 0.175%</title></circle>
+<circle cx="371.4" cy="337.3" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_020.tif · fold 4 · baseline 0.5884 · candidate 0.6652 · change +0.077 · GT foreground 0.201%</title></circle>
+<circle cx="547.0" cy="244.7" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_021.tif · fold 4 · baseline 0.8415 · candidate 0.7986 · change -0.043 · GT foreground 0.127%</title></circle>
+<circle cx="391.8" cy="338.2" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_022.tif · fold 1 · baseline 0.6177 · candidate 0.6639 · change +0.046 · GT foreground 0.139%</title></circle>
+<circle cx="427.1" cy="341.7" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_023.tif · fold 0 · baseline 0.6687 · candidate 0.6588 · change -0.010 · GT foreground 0.384%</title></circle>
+<circle cx="517.8" cy="254.1" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_024.tif · fold 2 · baseline 0.7993 · candidate 0.7851 · change -0.014 · GT foreground 0.142%</title></circle>
+<circle cx="432.0" cy="303.0" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_025.tif · fold 1 · baseline 0.6757 · candidate 0.7147 · change +0.039 · GT foreground 0.118%</title></circle>
+<circle cx="516.6" cy="279.1" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_026.tif · fold 2 · baseline 0.7976 · candidate 0.7491 · change -0.049 · GT foreground 0.142%</title></circle>
+<circle cx="557.2" cy="190.2" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_027.tif · fold 0 · baseline 0.8561 · candidate 0.8772 · change +0.021 · GT foreground 0.228%</title></circle>
+<circle cx="541.1" cy="219.8" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_030.tif · fold 0 · baseline 0.8329 · candidate 0.8345 · change +0.002 · GT foreground 0.188%</title></circle>
+<circle cx="558.1" cy="185.4" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_031.tif · fold 1 · baseline 0.8575 · candidate 0.8841 · change +0.027 · GT foreground 0.205%</title></circle>
+<circle cx="550.6" cy="211.8" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_032.tif · fold 0 · baseline 0.8467 · candidate 0.8460 · change -0.001 · GT foreground 0.209%</title></circle>
+<circle cx="506.7" cy="241.2" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_033.tif · fold 1 · baseline 0.7834 · candidate 0.8037 · change +0.020 · GT foreground 0.163%</title></circle>
+<circle cx="529.4" cy="214.9" r="5.5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_034.tif · fold 3 · baseline 0.8160 · candidate 0.8416 · change +0.026 · GT foreground 0.107%</title></circle>
+<polygon points="524.8,237.5 531.8,244.5 524.8,251.5 517.8,244.5" fill="#e99a25" stroke="#87590f" stroke-width="1"><title>ld_005.tif · fold 4 · baseline 0.8095 · candidate 0.7989 · change -0.011 · GT foreground 0.073%</title></polygon>
+<polygon points="215.5,563.7 222.5,570.7 215.5,577.7 208.5,570.7" fill="#e99a25" stroke="#87590f" stroke-width="1"><title>ld_006.tif · fold 3 · baseline 0.3636 · candidate 0.3288 · change -0.035 · GT foreground 0.007%</title></polygon>
+<polygon points="468.4,299.7 475.4,306.7 468.4,313.7 461.4,306.7" fill="#e99a25" stroke="#87590f" stroke-width="1"><title>ld_007.tif · fold 3 · baseline 0.7281 · candidate 0.7093 · change -0.019 · GT foreground 0.039%</title></polygon>
+<polygon points="529.8,217.7 536.8,224.7 529.8,231.7 522.8,224.7" fill="#e99a25" stroke="#87590f" stroke-width="1"><title>ld_011.tif · fold 0 · baseline 0.8166 · candidate 0.8274 · change +0.011 · GT foreground 0.097%</title></polygon>
+<polygon points="508.8,270.4 515.8,277.4 508.8,284.4 501.8,277.4" fill="#e99a25" stroke="#87590f" stroke-width="1"><title>ld_028.tif · fold 1 · baseline 0.7863 · candidate 0.7515 · change -0.035 · GT foreground 0.085%</title></polygon>
+<polygon points="497.6,264.2 504.6,271.2 497.6,278.2 490.6,271.2" fill="#e99a25" stroke="#87590f" stroke-width="1"><title>ld_029.tif · fold 2 · baseline 0.7702 · candidate 0.7605 · change -0.010 · GT foreground 0.071%</title></polygon>
+<polygon points="512.4,202.8 519.4,209.8 512.4,216.8 505.4,209.8" fill="#e99a25" stroke="#87590f" stroke-width="1"><title>ld_035.tif · fold 3 · baseline 0.7916 · candidate 0.8489 · change +0.057 · GT foreground 0.082%</title></polygon>
+<polygon points="503.8,241.4 510.8,248.4 503.8,255.4 496.8,248.4" fill="#e99a25" stroke="#87590f" stroke-width="1"><title>ld_036.tif · fold 1 · baseline 0.7792 · candidate 0.7933 · change +0.014 · GT foreground 0.094%</title></polygon>
+<text class="axis" x="379" y="706" text-anchor="middle">Frozen baseline Dice</text>
+<text class="axis" transform="translate(29,382) rotate(-90)" text-anchor="middle">Raw candidate Dice</text>
+<circle cx="697" cy="121" r="5.5" fill="#3278b5"/>
+<text class="legend" x="713" y="125">Other images</text>
+<polygon points="697,143 704,150 697,157 690,150" fill="#e99a25" stroke="#87590f"/>
+<text class="legend" x="713" y="154">Low foreground (≤0.10%; n=8)</text>
+<text class="legend" x="690" y="204">Baseline mean: 0.7637</text>
+<text class="legend" x="690" y="226">Candidate mean: 0.7635</text>
+<text class="legend" x="690" y="248">Paired mean Δ: -0.000</text>
+<text class="legend" x="690" y="296">Largest absolute paired shifts</text>
+<text x="690" y="320" font-size="12" fill="#286c52">ld_020.tif · fold 4 · +0.077</text>
+<text x="690" y="343" font-size="12" fill="#8d3f38">ld_014.tif · fold 2 · -0.058</text>
+<text x="690" y="366" font-size="12" fill="#286c52">ld_035.tif · fold 3 · +0.057</text>
+<text x="690" y="389" font-size="12" fill="#8d3f38">ld_026.tif · fold 2 · -0.049</text>
+<text x="690" y="412" font-size="12" fill="#286c52">ld_022.tif · fold 1 · +0.046</text>
+<text x="690" y="435" font-size="12" fill="#8d3f38">ld_021.tif · fold 4 · -0.043</text>
+<text class="note" x="62" y="728">Dashed line: equal Dice. Outer OOF is descriptive; it does not revise the pre-locked validation gates.</text>
+</svg>

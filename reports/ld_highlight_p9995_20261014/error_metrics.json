@@ -1,0 +1,2003 @@
+{
+  "definitions": {
+    "distant_fp": "predicted foreground outside GT with Euclidean center-to-nearest-GT-pixel distance strictly greater than 10 pixels",
+    "low_foreground": "derived GT foreground fraction <=0.001 (0.10%)",
+    "near_fp": "predicted foreground outside GT within 10 pixels of GT",
+    "policies": "validation_selected uses each fold's locked validation threshold; fixed_050 is a common threshold reference",
+    "small_gt_component": "8-connected derived GT semantic region of at most 25 pixels; any prediction overlap counts as a hit, not individual-droplet detection"
+  },
+  "external_confirmed_centers": {
+    "candidate_all_36_inference": "unavailable; fivefold OOF predictions are on ld_001..ld_036, not these external fluo images",
+    "count": 6,
+    "previous_mismatched_inference_only_diagnostic": "old p99.8-trained final model with p99.95 inference gave positive response at 4/6 centers, but worse mean inner-validation Dice and recall; not a trained-candidate result or independent performance estimate",
+    "type": "expert-confirmed LD center points only; full masks unavailable"
+  },
+  "groups": {
+    "all": {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 6907,
+          "fn_pixels": 25119,
+          "fp_pixels": 24030,
+          "near_fp_pixels_within_10": 17123,
+          "small_gt_component_any_overlap_fraction": 0.6533333333333333,
+          "small_gt_component_any_overlap_hits": 98,
+          "small_gt_component_count_le_25": 150,
+          "tp_pixels": 77486
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 6636,
+          "fn_pixels": 26314,
+          "fp_pixels": 21917,
+          "near_fp_pixels_within_10": 15281,
+          "small_gt_component_any_overlap_fraction": 0.6466666666666666,
+          "small_gt_component_any_overlap_hits": 97,
+          "small_gt_component_count_le_25": 150,
+          "tp_pixels": 76291
+        }
+      },
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 6585,
+          "fn_pixels": 25021,
+          "fp_pixels": 24885,
+          "near_fp_pixels_within_10": 18300,
+          "small_gt_component_any_overlap_fraction": 0.6533333333333333,
+          "small_gt_component_any_overlap_hits": 98,
+          "small_gt_component_count_le_25": 150,
+          "tp_pixels": 77584
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 6127,
+          "fn_pixels": 26178,
+          "fp_pixels": 22730,
+          "near_fp_pixels_within_10": 16603,
+          "small_gt_component_any_overlap_fraction": 0.64,
+          "small_gt_component_any_overlap_hits": 96,
+          "small_gt_component_count_le_25": 150,
+          "tp_pixels": 76427
+        }
+      },
+      "n": 36
+    },
+    "higher_foreground": {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 5722,
+          "fn_pixels": 24146,
+          "fp_pixels": 21137,
+          "near_fp_pixels_within_10": 15415,
+          "small_gt_component_any_overlap_fraction": 0.6462585034013606,
+          "small_gt_component_any_overlap_hits": 95,
+          "small_gt_component_count_le_25": 147,
+          "tp_pixels": 70560
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 5487,
+          "fn_pixels": 25299,
+          "fp_pixels": 19106,
+          "near_fp_pixels_within_10": 13619,
+          "small_gt_component_any_overlap_fraction": 0.6394557823129252,
+          "small_gt_component_any_overlap_hits": 94,
+          "small_gt_component_count_le_25": 147,
+          "tp_pixels": 69407
+        }
+      },
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 5459,
+          "fn_pixels": 24232,
+          "fp_pixels": 21611,
+          "near_fp_pixels_within_10": 16152,
+          "small_gt_component_any_overlap_fraction": 0.6462585034013606,
+          "small_gt_component_any_overlap_hits": 95,
+          "small_gt_component_count_le_25": 147,
+          "tp_pixels": 70474
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 5110,
+          "fn_pixels": 25274,
+          "fp_pixels": 19801,
+          "near_fp_pixels_within_10": 14691,
+          "small_gt_component_any_overlap_fraction": 0.6326530612244898,
+          "small_gt_component_any_overlap_hits": 93,
+          "small_gt_component_count_le_25": 147,
+          "tp_pixels": 69432
+        }
+      },
+      "n": 28
+    },
+    "low_foreground_le_0p10pct": {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 1185,
+          "fn_pixels": 973,
+          "fp_pixels": 2893,
+          "near_fp_pixels_within_10": 1708,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 3,
+          "tp_pixels": 6926
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 1149,
+          "fn_pixels": 1015,
+          "fp_pixels": 2811,
+          "near_fp_pixels_within_10": 1662,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 3,
+          "tp_pixels": 6884
+        }
+      },
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 1126,
+          "fn_pixels": 789,
+          "fp_pixels": 3274,
+          "near_fp_pixels_within_10": 2148,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 3,
+          "tp_pixels": 7110
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 1017,
+          "fn_pixels": 904,
+          "fp_pixels": 2929,
+          "near_fp_pixels_within_10": 1912,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 3,
+          "tp_pixels": 6995
+        }
+      },
+      "n": 8
+    }
+  },
+  "per_image": [
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 0,
+          "fn_pixels": 274,
+          "fp_pixels": 289,
+          "near_fp_pixels_within_10": 289,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 2195
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 0,
+          "fn_pixels": 262,
+          "fp_pixels": 307,
+          "near_fp_pixels_within_10": 307,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 2207
+        }
+      },
+      "baseline_oof_dice": 0.8858117599839455,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 0,
+          "fn_pixels": 401,
+          "fp_pixels": 128,
+          "near_fp_pixels_within_10": 128,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 2068
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 0,
+          "fn_pixels": 401,
+          "fp_pixels": 128,
+          "near_fp_pixels_within_10": 128,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 2068
+        }
+      },
+      "candidate_oof_dice": 0.8866023579849946,
+      "filename": "ld_001.tif",
+      "fold": 4,
+      "foreground_fraction_true": 0.0017145833333333334
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 341,
+          "fn_pixels": 2533,
+          "fp_pixels": 781,
+          "near_fp_pixels_within_10": 440,
+          "small_gt_component_any_overlap_fraction": 0.625,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 8,
+          "tp_pixels": 3315
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 341,
+          "fn_pixels": 2533,
+          "fp_pixels": 781,
+          "near_fp_pixels_within_10": 440,
+          "small_gt_component_any_overlap_fraction": 0.625,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 8,
+          "tp_pixels": 3315
+        }
+      },
+      "baseline_oof_dice": 0.666733708769107,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 394,
+          "fn_pixels": 2153,
+          "fp_pixels": 1007,
+          "near_fp_pixels_within_10": 613,
+          "small_gt_component_any_overlap_fraction": 0.375,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 8,
+          "tp_pixels": 3695
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 394,
+          "fn_pixels": 2153,
+          "fp_pixels": 1007,
+          "near_fp_pixels_within_10": 613,
+          "small_gt_component_any_overlap_fraction": 0.375,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 8,
+          "tp_pixels": 3695
+        }
+      },
+      "candidate_oof_dice": 0.7004739336492891,
+      "filename": "ld_002.tif",
+      "fold": 2,
+      "foreground_fraction_true": 0.004061111111111111
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 15,
+          "fn_pixels": 303,
+          "fp_pixels": 146,
+          "near_fp_pixels_within_10": 131,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1487
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 18,
+          "fn_pixels": 289,
+          "fp_pixels": 157,
+          "near_fp_pixels_within_10": 139,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1501
+        }
+      },
+      "baseline_oof_dice": 0.8706496519721578,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 30,
+          "fn_pixels": 412,
+          "fp_pixels": 159,
+          "near_fp_pixels_within_10": 129,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1378
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 30,
+          "fn_pixels": 412,
+          "fp_pixels": 159,
+          "near_fp_pixels_within_10": 129,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1378
+        }
+      },
+      "candidate_oof_dice": 0.8283739104298167,
+      "filename": "ld_003.tif",
+      "fold": 4,
+      "foreground_fraction_true": 0.0012430555555555556
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 282,
+          "fn_pixels": 1051,
+          "fp_pixels": 1126,
+          "near_fp_pixels_within_10": 844,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 5,
+          "tp_pixels": 4728
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 292,
+          "fn_pixels": 993,
+          "fp_pixels": 1206,
+          "near_fp_pixels_within_10": 914,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 5,
+          "tp_pixels": 4786
+        }
+      },
+      "baseline_oof_dice": 0.8131849460538612,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 204,
+          "fn_pixels": 1024,
+          "fp_pixels": 985,
+          "near_fp_pixels_within_10": 781,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 5,
+          "tp_pixels": 4755
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 215,
+          "fn_pixels": 970,
+          "fp_pixels": 1045,
+          "near_fp_pixels_within_10": 830,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 5,
+          "tp_pixels": 4809
+        }
+      },
+      "candidate_oof_dice": 0.826785867789908,
+      "filename": "ld_004.tif",
+      "fold": 3,
+      "foreground_fraction_true": 0.004013194444444444
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 33,
+          "fn_pixels": 247,
+          "fp_pixels": 136,
+          "near_fp_pixels_within_10": 103,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 811
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 35,
+          "fn_pixels": 238,
+          "fp_pixels": 148,
+          "near_fp_pixels_within_10": 113,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 820
+        }
+      },
+      "baseline_oof_dice": 0.8094768015794669,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 74,
+          "fn_pixels": 222,
+          "fp_pixels": 199,
+          "near_fp_pixels_within_10": 125,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 836
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 74,
+          "fn_pixels": 222,
+          "fp_pixels": 199,
+          "near_fp_pixels_within_10": 125,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 836
+        }
+      },
+      "candidate_oof_dice": 0.7988533205924511,
+      "filename": "ld_005.tif",
+      "fold": 4,
+      "foreground_fraction_true": 0.0007347222222222222
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 43,
+          "fn_pixels": 69,
+          "fp_pixels": 50,
+          "near_fp_pixels_within_10": 7,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 36
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 49,
+          "fn_pixels": 69,
+          "fp_pixels": 57,
+          "near_fp_pixels_within_10": 8,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 36
+        }
+      },
+      "baseline_oof_dice": 0.36363636363636365,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 60,
+          "fn_pixels": 69,
+          "fp_pixels": 74,
+          "near_fp_pixels_within_10": 14,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 36
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 64,
+          "fn_pixels": 69,
+          "fp_pixels": 78,
+          "near_fp_pixels_within_10": 14,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 36
+        }
+      },
+      "candidate_oof_dice": 0.3287671232876712,
+      "filename": "ld_006.tif",
+      "fold": 3,
+      "foreground_fraction_true": 7.291666666666667e-05
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 148,
+          "fn_pixels": 102,
+          "fp_pixels": 229,
+          "near_fp_pixels_within_10": 81,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 463
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 159,
+          "fn_pixels": 99,
+          "fp_pixels": 249,
+          "near_fp_pixels_within_10": 90,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 466
+        }
+      },
+      "baseline_oof_dice": 0.728125,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 102,
+          "fn_pixels": 162,
+          "fp_pixels": 164,
+          "near_fp_pixels_within_10": 62,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 403
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 106,
+          "fn_pixels": 160,
+          "fp_pixels": 172,
+          "near_fp_pixels_within_10": 66,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 405
+        }
+      },
+      "candidate_oof_dice": 0.7092819614711033,
+      "filename": "ld_007.tif",
+      "fold": 3,
+      "foreground_fraction_true": 0.0003923611111111111
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 32,
+          "fn_pixels": 411,
+          "fp_pixels": 201,
+          "near_fp_pixels_within_10": 169,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2220
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 33,
+          "fn_pixels": 388,
+          "fp_pixels": 216,
+          "near_fp_pixels_within_10": 183,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2243
+        }
+      },
+      "baseline_oof_dice": 0.881335952848723,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 2,
+          "fn_pixels": 485,
+          "fp_pixels": 127,
+          "near_fp_pixels_within_10": 125,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2146
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 2,
+          "fn_pixels": 485,
+          "fp_pixels": 127,
+          "near_fp_pixels_within_10": 125,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2146
+        }
+      },
+      "candidate_oof_dice": 0.8752039151712887,
+      "filename": "ld_008.tif",
+      "fold": 4,
+      "foreground_fraction_true": 0.0018270833333333333
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 310,
+          "fn_pixels": 1179,
+          "fp_pixels": 1604,
+          "near_fp_pixels_within_10": 1294,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 9,
+          "small_gt_component_count_le_25": 9,
+          "tp_pixels": 3600
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 187,
+          "fn_pixels": 1694,
+          "fp_pixels": 949,
+          "near_fp_pixels_within_10": 762,
+          "small_gt_component_any_overlap_fraction": 0.8888888888888888,
+          "small_gt_component_any_overlap_hits": 8,
+          "small_gt_component_count_le_25": 9,
+          "tp_pixels": 3085
+        }
+      },
+      "baseline_oof_dice": 0.7001021218654261,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 210,
+          "fn_pixels": 1283,
+          "fp_pixels": 1452,
+          "near_fp_pixels_within_10": 1242,
+          "small_gt_component_any_overlap_fraction": 0.7777777777777778,
+          "small_gt_component_any_overlap_hits": 7,
+          "small_gt_component_count_le_25": 9,
+          "tp_pixels": 3496
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 159,
+          "fn_pixels": 1495,
+          "fp_pixels": 1094,
+          "near_fp_pixels_within_10": 935,
+          "small_gt_component_any_overlap_fraction": 0.5555555555555556,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 9,
+          "tp_pixels": 3284
+        }
+      },
+      "candidate_oof_dice": 0.7172654799606858,
+      "filename": "ld_009.tif",
+      "fold": 0,
+      "foreground_fraction_true": 0.00331875
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 324,
+          "fn_pixels": 2835,
+          "fp_pixels": 968,
+          "near_fp_pixels_within_10": 644,
+          "small_gt_component_any_overlap_fraction": 0.42857142857142855,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 7,
+          "tp_pixels": 4083
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 324,
+          "fn_pixels": 2835,
+          "fp_pixels": 968,
+          "near_fp_pixels_within_10": 644,
+          "small_gt_component_any_overlap_fraction": 0.42857142857142855,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 7,
+          "tp_pixels": 4083
+        }
+      },
+      "baseline_oof_dice": 0.6822625114880106,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 465,
+          "fn_pixels": 2953,
+          "fp_pixels": 1433,
+          "near_fp_pixels_within_10": 968,
+          "small_gt_component_any_overlap_fraction": 0.42857142857142855,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 7,
+          "tp_pixels": 3965
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 465,
+          "fn_pixels": 2953,
+          "fp_pixels": 1433,
+          "near_fp_pixels_within_10": 968,
+          "small_gt_component_any_overlap_fraction": 0.42857142857142855,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 7,
+          "tp_pixels": 3965
+        }
+      },
+      "candidate_oof_dice": 0.6438778824293602,
+      "filename": "ld_010.tif",
+      "fold": 2,
+      "foreground_fraction_true": 0.004804166666666667
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 277,
+          "fn_pixels": 85,
+          "fp_pixels": 626,
+          "near_fp_pixels_within_10": 349,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 2,
+          "tp_pixels": 1306
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 178,
+          "fn_pixels": 162,
+          "fp_pixels": 390,
+          "near_fp_pixels_within_10": 212,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 2,
+          "tp_pixels": 1229
+        }
+      },
+      "baseline_oof_dice": 0.8166112956810632,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 225,
+          "fn_pixels": 100,
+          "fp_pixels": 496,
+          "near_fp_pixels_within_10": 271,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 2,
+          "tp_pixels": 1291
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 168,
+          "fn_pixels": 149,
+          "fp_pixels": 369,
+          "near_fp_pixels_within_10": 201,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 2,
+          "tp_pixels": 1242
+        }
+      },
+      "candidate_oof_dice": 0.8274483677548301,
+      "filename": "ld_011.tif",
+      "fold": 0,
+      "foreground_fraction_true": 0.0009659722222222222
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 126,
+          "fn_pixels": 343,
+          "fp_pixels": 263,
+          "near_fp_pixels_within_10": 137,
+          "small_gt_component_any_overlap_fraction": 0.0,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 1254
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 131,
+          "fn_pixels": 320,
+          "fp_pixels": 280,
+          "near_fp_pixels_within_10": 149,
+          "small_gt_component_any_overlap_fraction": 0.0,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 1277
+        }
+      },
+      "baseline_oof_dice": 0.8097653772986684,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 91,
+          "fn_pixels": 341,
+          "fp_pixels": 236,
+          "near_fp_pixels_within_10": 145,
+          "small_gt_component_any_overlap_fraction": 0.0,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 1256
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 95,
+          "fn_pixels": 331,
+          "fp_pixels": 251,
+          "near_fp_pixels_within_10": 156,
+          "small_gt_component_any_overlap_fraction": 0.0,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 1266
+        }
+      },
+      "candidate_oof_dice": 0.8131021194605009,
+      "filename": "ld_012.tif",
+      "fold": 3,
+      "foreground_fraction_true": 0.0011090277777777778
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 412,
+          "fn_pixels": 2161,
+          "fp_pixels": 1223,
+          "near_fp_pixels_within_10": 811,
+          "small_gt_component_any_overlap_fraction": 0.6296296296296297,
+          "small_gt_component_any_overlap_hits": 17,
+          "small_gt_component_count_le_25": 27,
+          "tp_pixels": 3590
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 412,
+          "fn_pixels": 2161,
+          "fp_pixels": 1223,
+          "near_fp_pixels_within_10": 811,
+          "small_gt_component_any_overlap_fraction": 0.6296296296296297,
+          "small_gt_component_any_overlap_hits": 17,
+          "small_gt_component_count_le_25": 27,
+          "tp_pixels": 3590
+        }
+      },
+      "baseline_oof_dice": 0.6796667928814842,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 361,
+          "fn_pixels": 1893,
+          "fp_pixels": 1471,
+          "near_fp_pixels_within_10": 1110,
+          "small_gt_component_any_overlap_fraction": 0.7037037037037037,
+          "small_gt_component_any_overlap_hits": 19,
+          "small_gt_component_count_le_25": 27,
+          "tp_pixels": 3858
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 361,
+          "fn_pixels": 1893,
+          "fp_pixels": 1471,
+          "near_fp_pixels_within_10": 1110,
+          "small_gt_component_any_overlap_fraction": 0.7037037037037037,
+          "small_gt_component_any_overlap_hits": 19,
+          "small_gt_component_count_le_25": 27,
+          "tp_pixels": 3858
+        }
+      },
+      "candidate_oof_dice": 0.6963898916967509,
+      "filename": "ld_013.tif",
+      "fold": 2,
+      "foreground_fraction_true": 0.00399375
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 175,
+          "fn_pixels": 2776,
+          "fp_pixels": 624,
+          "near_fp_pixels_within_10": 449,
+          "small_gt_component_any_overlap_fraction": 0.3333333333333333,
+          "small_gt_component_any_overlap_hits": 4,
+          "small_gt_component_count_le_25": 12,
+          "tp_pixels": 2747
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 175,
+          "fn_pixels": 2776,
+          "fp_pixels": 624,
+          "near_fp_pixels_within_10": 449,
+          "small_gt_component_any_overlap_fraction": 0.3333333333333333,
+          "small_gt_component_any_overlap_hits": 4,
+          "small_gt_component_count_le_25": 12,
+          "tp_pixels": 2747
+        }
+      },
+      "baseline_oof_dice": 0.6177198111086125,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 219,
+          "fn_pixels": 2981,
+          "fp_pixels": 1011,
+          "near_fp_pixels_within_10": 792,
+          "small_gt_component_any_overlap_fraction": 0.25,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 12,
+          "tp_pixels": 2542
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 219,
+          "fn_pixels": 2981,
+          "fp_pixels": 1011,
+          "near_fp_pixels_within_10": 792,
+          "small_gt_component_any_overlap_fraction": 0.25,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 12,
+          "tp_pixels": 2542
+        }
+      },
+      "candidate_oof_dice": 0.5601586602027325,
+      "filename": "ld_014.tif",
+      "fold": 2,
+      "foreground_fraction_true": 0.0038354166666666667
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 106,
+          "fn_pixels": 358,
+          "fp_pixels": 732,
+          "near_fp_pixels_within_10": 626,
+          "small_gt_component_any_overlap_fraction": 0.0,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2731
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 55,
+          "fn_pixels": 503,
+          "fp_pixels": 453,
+          "near_fp_pixels_within_10": 398,
+          "small_gt_component_any_overlap_fraction": 0.0,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2586
+        }
+      },
+      "baseline_oof_dice": 0.8439947780678851,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 0,
+          "fn_pixels": 643,
+          "fp_pixels": 341,
+          "near_fp_pixels_within_10": 341,
+          "small_gt_component_any_overlap_fraction": 0.0,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2446
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 0,
+          "fn_pixels": 728,
+          "fp_pixels": 254,
+          "near_fp_pixels_within_10": 254,
+          "small_gt_component_any_overlap_fraction": 0.0,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2361
+        }
+      },
+      "candidate_oof_dice": 0.8278401122019635,
+      "filename": "ld_015.tif",
+      "fold": 0,
+      "foreground_fraction_true": 0.0021451388888888887
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 230,
+          "fn_pixels": 141,
+          "fp_pixels": 655,
+          "near_fp_pixels_within_10": 425,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 1982
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 245,
+          "fn_pixels": 108,
+          "fp_pixels": 732,
+          "near_fp_pixels_within_10": 487,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2015
+        }
+      },
+      "baseline_oof_dice": 0.8275154004106776,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 324,
+          "fn_pixels": 102,
+          "fp_pixels": 939,
+          "near_fp_pixels_within_10": 615,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2021
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 285,
+          "fn_pixels": 127,
+          "fp_pixels": 754,
+          "near_fp_pixels_within_10": 469,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 1996
+        }
+      },
+      "candidate_oof_dice": 0.8192078801559615,
+      "filename": "ld_016.tif",
+      "fold": 1,
+      "foreground_fraction_true": 0.0014743055555555555
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 399,
+          "fn_pixels": 2357,
+          "fp_pixels": 1839,
+          "near_fp_pixels_within_10": 1440,
+          "small_gt_component_any_overlap_fraction": 0.5517241379310345,
+          "small_gt_component_any_overlap_hits": 16,
+          "small_gt_component_count_le_25": 29,
+          "tp_pixels": 4621
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 434,
+          "fn_pixels": 2236,
+          "fp_pixels": 1999,
+          "near_fp_pixels_within_10": 1565,
+          "small_gt_component_any_overlap_fraction": 0.5517241379310345,
+          "small_gt_component_any_overlap_hits": 16,
+          "small_gt_component_count_le_25": 29,
+          "tp_pixels": 4742
+        }
+      },
+      "baseline_oof_dice": 0.6913040309060428,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 121,
+          "fn_pixels": 2731,
+          "fp_pixels": 1381,
+          "near_fp_pixels_within_10": 1260,
+          "small_gt_component_any_overlap_fraction": 0.6206896551724138,
+          "small_gt_component_any_overlap_hits": 18,
+          "small_gt_component_count_le_25": 29,
+          "tp_pixels": 4247
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 130,
+          "fn_pixels": 2656,
+          "fp_pixels": 1448,
+          "near_fp_pixels_within_10": 1318,
+          "small_gt_component_any_overlap_fraction": 0.6206896551724138,
+          "small_gt_component_any_overlap_hits": 18,
+          "small_gt_component_count_le_25": 29,
+          "tp_pixels": 4322
+        }
+      },
+      "candidate_oof_dice": 0.6780671477878883,
+      "filename": "ld_017.tif",
+      "fold": 3,
+      "foreground_fraction_true": 0.004845833333333333
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 302,
+          "fn_pixels": 383,
+          "fp_pixels": 592,
+          "near_fp_pixels_within_10": 290,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 2627
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 317,
+          "fn_pixels": 367,
+          "fp_pixels": 619,
+          "near_fp_pixels_within_10": 302,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 2643
+        }
+      },
+      "baseline_oof_dice": 0.8427933673469388,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 332,
+          "fn_pixels": 456,
+          "fp_pixels": 561,
+          "near_fp_pixels_within_10": 229,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 2554
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 332,
+          "fn_pixels": 456,
+          "fp_pixels": 561,
+          "near_fp_pixels_within_10": 229,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 2554
+        }
+      },
+      "candidate_oof_dice": 0.8339591836734694,
+      "filename": "ld_018.tif",
+      "fold": 4,
+      "foreground_fraction_true": 0.0020902777777777777
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 165,
+          "fn_pixels": 294,
+          "fp_pixels": 472,
+          "near_fp_pixels_within_10": 307,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2231
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 165,
+          "fn_pixels": 294,
+          "fp_pixels": 472,
+          "near_fp_pixels_within_10": 307,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2231
+        }
+      },
+      "baseline_oof_dice": 0.8534812547819434,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 62,
+          "fn_pixels": 246,
+          "fp_pixels": 636,
+          "near_fp_pixels_within_10": 574,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2279
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 62,
+          "fn_pixels": 246,
+          "fp_pixels": 636,
+          "near_fp_pixels_within_10": 574,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2279
+        }
+      },
+      "candidate_oof_dice": 0.8378676470588236,
+      "filename": "ld_019.tif",
+      "fold": 2,
+      "foreground_fraction_true": 0.0017534722222222222
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 0,
+          "fn_pixels": 1533,
+          "fp_pixels": 402,
+          "near_fp_pixels_within_10": 402,
+          "small_gt_component_any_overlap_fraction": 0.4,
+          "small_gt_component_any_overlap_hits": 4,
+          "small_gt_component_count_le_25": 10,
+          "tp_pixels": 1355
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 0,
+          "fn_pixels": 1503,
+          "fp_pixels": 435,
+          "near_fp_pixels_within_10": 435,
+          "small_gt_component_any_overlap_fraction": 0.4,
+          "small_gt_component_any_overlap_hits": 4,
+          "small_gt_component_count_le_25": 10,
+          "tp_pixels": 1385
+        }
+      },
+      "baseline_oof_dice": 0.5883602378929482,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 12,
+          "fn_pixels": 1197,
+          "fp_pixels": 505,
+          "near_fp_pixels_within_10": 493,
+          "small_gt_component_any_overlap_fraction": 0.6,
+          "small_gt_component_any_overlap_hits": 6,
+          "small_gt_component_count_le_25": 10,
+          "tp_pixels": 1691
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 12,
+          "fn_pixels": 1197,
+          "fp_pixels": 505,
+          "near_fp_pixels_within_10": 493,
+          "small_gt_component_any_overlap_fraction": 0.6,
+          "small_gt_component_any_overlap_hits": 6,
+          "small_gt_component_count_le_25": 10,
+          "tp_pixels": 1691
+        }
+      },
+      "candidate_oof_dice": 0.6652242328874902,
+      "filename": "ld_020.tif",
+      "fold": 4,
+      "foreground_fraction_true": 0.0020055555555555556
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 179,
+          "fn_pixels": 148,
+          "fp_pixels": 459,
+          "near_fp_pixels_within_10": 280,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1674
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 193,
+          "fn_pixels": 142,
+          "fp_pixels": 491,
+          "near_fp_pixels_within_10": 298,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1680
+        }
+      },
+      "baseline_oof_dice": 0.8414725770097671,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 331,
+          "fn_pixels": 244,
+          "fp_pixels": 552,
+          "near_fp_pixels_within_10": 221,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1578
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 331,
+          "fn_pixels": 244,
+          "fp_pixels": 552,
+          "near_fp_pixels_within_10": 221,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1578
+        }
+      },
+      "candidate_oof_dice": 0.798582995951417,
+      "filename": "ld_021.tif",
+      "fold": 4,
+      "foreground_fraction_true": 0.0012652777777777777
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 513,
+          "fn_pixels": 764,
+          "fp_pixels": 788,
+          "near_fp_pixels_within_10": 275,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 2,
+          "tp_pixels": 1240
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 547,
+          "fn_pixels": 725,
+          "fp_pixels": 858,
+          "near_fp_pixels_within_10": 311,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 2,
+          "tp_pixels": 1279
+        }
+      },
+      "baseline_oof_dice": 0.6177251871528616,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 638,
+          "fn_pixels": 446,
+          "fp_pixels": 1203,
+          "near_fp_pixels_within_10": 565,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 2,
+          "tp_pixels": 1558
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 546,
+          "fn_pixels": 506,
+          "fp_pixels": 1011,
+          "near_fp_pixels_within_10": 465,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 2,
+          "tp_pixels": 1498
+        }
+      },
+      "candidate_oof_dice": 0.6638599601152226,
+      "filename": "ld_022.tif",
+      "fold": 1,
+      "foreground_fraction_true": 0.0013916666666666667
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 67,
+          "fn_pixels": 1838,
+          "fp_pixels": 1257,
+          "near_fp_pixels_within_10": 1190,
+          "small_gt_component_any_overlap_fraction": 0.2857142857142857,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 7,
+          "tp_pixels": 3686
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 31,
+          "fn_pixels": 2391,
+          "fp_pixels": 714,
+          "near_fp_pixels_within_10": 683,
+          "small_gt_component_any_overlap_fraction": 0.2857142857142857,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 7,
+          "tp_pixels": 3133
+        }
+      },
+      "baseline_oof_dice": 0.6686586276811439,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 0,
+          "fn_pixels": 2216,
+          "fp_pixels": 902,
+          "near_fp_pixels_within_10": 902,
+          "small_gt_component_any_overlap_fraction": 0.2857142857142857,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 7,
+          "tp_pixels": 3308
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 0,
+          "fn_pixels": 2466,
+          "fp_pixels": 701,
+          "near_fp_pixels_within_10": 701,
+          "small_gt_component_any_overlap_fraction": 0.2857142857142857,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 7,
+          "tp_pixels": 3058
+        }
+      },
+      "candidate_oof_dice": 0.6588387374771086,
+      "filename": "ld_023.tif",
+      "fold": 0,
+      "foreground_fraction_true": 0.0038361111111111113
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 291,
+          "fn_pixels": 181,
+          "fp_pixels": 758,
+          "near_fp_pixels_within_10": 467,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 5,
+          "tp_pixels": 1870
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 291,
+          "fn_pixels": 181,
+          "fp_pixels": 758,
+          "near_fp_pixels_within_10": 467,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 5,
+          "tp_pixels": 1870
+        }
+      },
+      "baseline_oof_dice": 0.7993160931823039,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 274,
+          "fn_pixels": 51,
+          "fp_pixels": 1044,
+          "near_fp_pixels_within_10": 770,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 5,
+          "tp_pixels": 2000
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 274,
+          "fn_pixels": 51,
+          "fp_pixels": 1044,
+          "near_fp_pixels_within_10": 770,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 5,
+          "tp_pixels": 2000
+        }
+      },
+      "candidate_oof_dice": 0.7850834151128557,
+      "filename": "ld_024.tif",
+      "fold": 2,
+      "foreground_fraction_true": 0.0014243055555555556
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 196,
+          "fn_pixels": 722,
+          "fp_pixels": 220,
+          "near_fp_pixels_within_10": 24,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 972
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 227,
+          "fn_pixels": 699,
+          "fp_pixels": 256,
+          "near_fp_pixels_within_10": 29,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 995
+        }
+      },
+      "baseline_oof_dice": 0.6757215619694398,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 253,
+          "fn_pixels": 515,
+          "fp_pixels": 374,
+          "near_fp_pixels_within_10": 121,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1179
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 215,
+          "fn_pixels": 587,
+          "fp_pixels": 297,
+          "near_fp_pixels_within_10": 82,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1107
+        }
+      },
+      "candidate_oof_dice": 0.7146546158812137,
+      "filename": "ld_025.tif",
+      "fold": 1,
+      "foreground_fraction_true": 0.001176388888888889
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 166,
+          "fn_pixels": 320,
+          "fp_pixels": 558,
+          "near_fp_pixels_within_10": 392,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 2,
+          "tp_pixels": 1730
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 166,
+          "fn_pixels": 320,
+          "fp_pixels": 558,
+          "near_fp_pixels_within_10": 392,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 2,
+          "tp_pixels": 1730
+        }
+      },
+      "baseline_oof_dice": 0.797602581834947,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 327,
+          "fn_pixels": 99,
+          "fp_pixels": 1208,
+          "near_fp_pixels_within_10": 881,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 2,
+          "tp_pixels": 1951
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 327,
+          "fn_pixels": 99,
+          "fp_pixels": 1208,
+          "near_fp_pixels_within_10": 881,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 2,
+          "small_gt_component_count_le_25": 2,
+          "tp_pixels": 1951
+        }
+      },
+      "candidate_oof_dice": 0.7490881167210597,
+      "filename": "ld_026.tif",
+      "fold": 2,
+      "foreground_fraction_true": 0.0014236111111111112
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 108,
+          "fn_pixels": 244,
+          "fp_pixels": 922,
+          "near_fp_pixels_within_10": 814,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 3044
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 65,
+          "fn_pixels": 412,
+          "fp_pixels": 555,
+          "near_fp_pixels_within_10": 490,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2876
+        }
+      },
+      "baseline_oof_dice": 0.8560797737758595,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 62,
+          "fn_pixels": 301,
+          "fp_pixels": 517,
+          "near_fp_pixels_within_10": 455,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2987
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 46,
+          "fn_pixels": 438,
+          "fp_pixels": 360,
+          "near_fp_pixels_within_10": 314,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 2850
+        }
+      },
+      "candidate_oof_dice": 0.8771929824561403,
+      "filename": "ld_027.tif",
+      "fold": 0,
+      "foreground_fraction_true": 0.0022833333333333334
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 149,
+          "fn_pixels": 73,
+          "fp_pixels": 513,
+          "near_fp_pixels_within_10": 364,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 1147
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 169,
+          "fn_pixels": 68,
+          "fp_pixels": 558,
+          "near_fp_pixels_within_10": 389,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 1152
+        }
+      },
+      "baseline_oof_dice": 0.7863481228668942,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 257,
+          "fn_pixels": 66,
+          "fp_pixels": 732,
+          "near_fp_pixels_within_10": 475,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 1154
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 211,
+          "fn_pixels": 127,
+          "fp_pixels": 596,
+          "near_fp_pixels_within_10": 385,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 1,
+          "small_gt_component_count_le_25": 1,
+          "tp_pixels": 1093
+        }
+      },
+      "candidate_oof_dice": 0.7514609831557236,
+      "filename": "ld_028.tif",
+      "fold": 1,
+      "foreground_fraction_true": 0.0008472222222222222
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 339,
+          "fn_pixels": 110,
+          "fp_pixels": 436,
+          "near_fp_pixels_within_10": 97,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 915
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 339,
+          "fn_pixels": 110,
+          "fp_pixels": 436,
+          "near_fp_pixels_within_10": 97,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 915
+        }
+      },
+      "baseline_oof_dice": 0.7702020202020202,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 306,
+          "fn_pixels": 20,
+          "fp_pixels": 613,
+          "near_fp_pixels_within_10": 307,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1005
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 306,
+          "fn_pixels": 20,
+          "fp_pixels": 613,
+          "near_fp_pixels_within_10": 307,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1005
+        }
+      },
+      "candidate_oof_dice": 0.7604994324631101,
+      "filename": "ld_029.tif",
+      "fold": 2,
+      "foreground_fraction_true": 0.0007118055555555556
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 215,
+          "fn_pixels": 118,
+          "fp_pixels": 1221,
+          "near_fp_pixels_within_10": 1006,
+          "small_gt_component_any_overlap_fraction": 0.8333333333333334,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 6,
+          "tp_pixels": 2593
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 131,
+          "fn_pixels": 228,
+          "fp_pixels": 768,
+          "near_fp_pixels_within_10": 637,
+          "small_gt_component_any_overlap_fraction": 0.8333333333333334,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 6,
+          "tp_pixels": 2483
+        }
+      },
+      "baseline_oof_dice": 0.8329419657832942,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 243,
+          "fn_pixels": 240,
+          "fp_pixels": 826,
+          "near_fp_pixels_within_10": 583,
+          "small_gt_component_any_overlap_fraction": 0.8333333333333334,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 6,
+          "tp_pixels": 2471
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 213,
+          "fn_pixels": 313,
+          "fp_pixels": 638,
+          "near_fp_pixels_within_10": 425,
+          "small_gt_component_any_overlap_fraction": 0.8333333333333334,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 6,
+          "tp_pixels": 2398
+        }
+      },
+      "candidate_oof_dice": 0.8345223594919088,
+      "filename": "ld_030.tif",
+      "fold": 0,
+      "foreground_fraction_true": 0.001882638888888889
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 205,
+          "fn_pixels": 272,
+          "fp_pixels": 604,
+          "near_fp_pixels_within_10": 399,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 2685
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 216,
+          "fn_pixels": 238,
+          "fp_pixels": 666,
+          "near_fp_pixels_within_10": 450,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 2719
+        }
+      },
+      "baseline_oof_dice": 0.8574582150741091,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 62,
+          "fn_pixels": 171,
+          "fp_pixels": 582,
+          "near_fp_pixels_within_10": 520,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 2786
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 45,
+          "fn_pixels": 267,
+          "fp_pixels": 438,
+          "near_fp_pixels_within_10": 393,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 2690
+        }
+      },
+      "candidate_oof_dice": 0.8841413311421529,
+      "filename": "ld_031.tif",
+      "fold": 1,
+      "foreground_fraction_true": 0.002053472222222222
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 171,
+          "fn_pixels": 142,
+          "fp_pixels": 1202,
+          "near_fp_pixels_within_10": 1031,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 5,
+          "tp_pixels": 2869
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 69,
+          "fn_pixels": 278,
+          "fp_pixels": 712,
+          "near_fp_pixels_within_10": 643,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 5,
+          "tp_pixels": 2733
+        }
+      },
+      "baseline_oof_dice": 0.8466542750929368,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 150,
+          "fn_pixels": 270,
+          "fp_pixels": 770,
+          "near_fp_pixels_within_10": 620,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 5,
+          "tp_pixels": 2741
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 129,
+          "fn_pixels": 385,
+          "fp_pixels": 571,
+          "near_fp_pixels_within_10": 442,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 5,
+          "small_gt_component_count_le_25": 5,
+          "tp_pixels": 2626
+        }
+      },
+      "candidate_oof_dice": 0.8460051546391752,
+      "filename": "ld_032.tif",
+      "fold": 0,
+      "foreground_fraction_true": 0.0020909722222222224
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 263,
+          "fn_pixels": 362,
+          "fp_pixels": 700,
+          "near_fp_pixels_within_10": 437,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 3,
+          "tp_pixels": 1990
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 289,
+          "fn_pixels": 334,
+          "fp_pixels": 782,
+          "near_fp_pixels_within_10": 493,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 3,
+          "tp_pixels": 2018
+        }
+      },
+      "baseline_oof_dice": 0.7833850931677019,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 249,
+          "fn_pixels": 251,
+          "fp_pixels": 870,
+          "near_fp_pixels_within_10": 621,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 3,
+          "tp_pixels": 2101
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 179,
+          "fn_pixels": 317,
+          "fp_pixels": 677,
+          "near_fp_pixels_within_10": 498,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 3,
+          "tp_pixels": 2035
+        }
+      },
+      "candidate_oof_dice": 0.8037124802527646,
+      "filename": "ld_033.tif",
+      "fold": 1,
+      "foreground_fraction_true": 0.0016333333333333334
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 129,
+          "fn_pixels": 103,
+          "fp_pixels": 531,
+          "near_fp_pixels_within_10": 402,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 4,
+          "small_gt_component_count_le_25": 4,
+          "tp_pixels": 1441
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 133,
+          "fn_pixels": 89,
+          "fp_pixels": 567,
+          "near_fp_pixels_within_10": 434,
+          "small_gt_component_any_overlap_fraction": 1.0,
+          "small_gt_component_any_overlap_hits": 4,
+          "small_gt_component_count_le_25": 4,
+          "tp_pixels": 1455
+        }
+      },
+      "baseline_oof_dice": 0.8160403813796971,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 43,
+          "fn_pixels": 127,
+          "fp_pixels": 391,
+          "near_fp_pixels_within_10": 348,
+          "small_gt_component_any_overlap_fraction": 0.75,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 4,
+          "tp_pixels": 1417
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 44,
+          "fn_pixels": 117,
+          "fp_pixels": 420,
+          "near_fp_pixels_within_10": 376,
+          "small_gt_component_any_overlap_fraction": 0.75,
+          "small_gt_component_any_overlap_hits": 3,
+          "small_gt_component_count_le_25": 4,
+          "tp_pixels": 1427
+        }
+      },
+      "candidate_oof_dice": 0.8416396343261575,
+      "filename": "ld_034.tif",
+      "fold": 3,
+      "foreground_fraction_true": 0.0010722222222222222
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 150,
+          "fn_pixels": 139,
+          "fp_pixels": 396,
+          "near_fp_pixels_within_10": 246,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1042
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 164,
+          "fn_pixels": 131,
+          "fp_pixels": 422,
+          "near_fp_pixels_within_10": 258,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1050
+        }
+      },
+      "baseline_oof_dice": 0.7915567282321899,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 31,
+          "fn_pixels": 97,
+          "fp_pixels": 279,
+          "near_fp_pixels_within_10": 248,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1084
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 38,
+          "fn_pixels": 91,
+          "fp_pixels": 297,
+          "near_fp_pixels_within_10": 259,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1090
+        }
+      },
+      "candidate_oof_dice": 0.8489096573208723,
+      "filename": "ld_035.tif",
+      "fold": 3,
+      "foreground_fraction_true": 0.0008201388888888889
+    },
+    {
+      "baseline": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 46,
+          "fn_pixels": 148,
+          "fp_pixels": 507,
+          "near_fp_pixels_within_10": 461,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1206
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 56,
+          "fn_pixels": 138,
+          "fp_pixels": 551,
+          "near_fp_pixels_within_10": 495,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1216
+        }
+      },
+      "baseline_oof_dice": 0.7792374239025953,
+      "candidate": {
+        "fixed_050": {
+          "distant_fp_pixels_gt_distance_gt_10": 71,
+          "fn_pixels": 53,
+          "fp_pixels": 717,
+          "near_fp_pixels_within_10": 646,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1301
+        },
+        "validation_selected": {
+          "distant_fp_pixels_gt_distance_gt_10": 50,
+          "fn_pixels": 66,
+          "fp_pixels": 605,
+          "near_fp_pixels_within_10": 555,
+          "small_gt_component_any_overlap_fraction": null,
+          "small_gt_component_any_overlap_hits": 0,
+          "small_gt_component_count_le_25": 0,
+          "tp_pixels": 1288
+        }
+      },
+      "candidate_oof_dice": 0.7933477055743764,
+      "filename": "ld_036.tif",
+      "fold": 1,
+      "foreground_fraction_true": 0.0009402777777777777
+    }
+  ],
+  "provenance": {
+    "baseline_oof_csv_sha256": "454783be9f740c425b7c8a54dea6f9933b1486d6f5f150ad9744a1ffd73fc730",
+    "candidate_oof_csv_sha256": "4aa096f5860899db85ea8849f1366263801180350219923d0b7ae512df5e58e0",
+    "derived_label_manifest_sha256": "2c026147620ae6ebfe016287f6607b1ae3b9674cd77dc71160682b9acbec9879",
+    "local_verification_sha256": "b05dc0fe8fc6a2fb926954ffbc451865f1f71b7b8d4303597ddfb34158b5a785"
+  },
+  "purpose": "post-lock descriptive paired OOF error audit; no model or threshold selection"
+}

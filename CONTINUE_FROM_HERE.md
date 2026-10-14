@@ -1,6 +1,6 @@
 # LD experiment continuation
 
-Updated: 2026-10-12 UTC. This file records operational state; the frozen
+Updated: 2026-10-14 UTC. This file records operational state; the frozen
 scientific protocol and fold map remain in `experiments/`.
 
 ## Completed and verified
@@ -79,3 +79,38 @@ scientific protocol and fold map remain in `experiments/`.
   expert review predictions. Evaluate generalization only when independent
   manual labels are available. Do not retune the method or threshold on these
   36 development images, repeat completed folds, or modify the original TIFFs.
+
+## Latest: small-LD miss / p99.95 single-factor follow-up
+
+- Six user-confirmed bright LD misses in existing organoid predictions have
+  center coordinates only, not full masks. They motivated a fixed p99.8→p99.95
+  normalization hypothesis; they were not used to choose folds, checkpoints,
+  thresholds or the method. The [preregistered protocol](experiments/ld_highlight_normalization_protocol.md)
+  changed this one factor in both training and inference.
+- All five new folds completed on one Secure Cloud A40 Pod. All 16 archives
+  downloaded with SHA256 verification; local verification status is `PASS` at
+  `runpod_results/ld_highlight_20261014/downloaded/local_verification.json`
+  (Git-ignored). Five checkpoints, histories, masks/probabilities and decision
+  locks remain there. All five fold-local validation gates were locked before
+  any candidate outer-test evaluation; gates chose candidate for folds 0, 3,
+  4 and baseline for 1, 2.
+- Raw p99.95 five-fold OOF Dice is 0.763508 ± 0.109167 versus frozen baseline
+  0.763693 ± 0.106970. Low-foreground eight-image Dice is 0.727321 versus
+  0.730649; outer OOF small-component any-overlap is 96/150 versus 97/150.
+  The exploratory fold-gated combination has Dice 0.764357 but a worse
+  worst-case Dice and lower recall. There is **no reliable improvement**;
+  baseline and existing `fluo_label` remain untouched. Detailed paired results,
+  FP/FN audit, figures and limitations are in
+  [the report](reports/ld_highlight_p9995_20261014/README.md).
+- RunPod Pod `gyptsee63uws8v` was terminated after local verification; live
+  Pod, Endpoint and Network Volume lists were empty. The cost-guard automation
+  is paused. The observed GPU rate was US$0.59/hour; approximately US$1.10
+  including temporary disk is the Pod-lifetime estimate, while US$0.586682
+  had posted in an incomplete billing read. Check the final itemized bill once
+  its remaining time bucket has posted.
+- Next step: obtain complete independent manual LD masks on unseen organoid
+  images, including small confirmed droplets and similar bright background.
+  Predefine the size-stratified evaluation before opening those labels. Do not
+  train an all-36 p99.95 candidate, switch the production model, rescan nearby
+  percentiles, or interpret the six center points as a Dice test without a
+  fresh scientific decision supported by new evidence.

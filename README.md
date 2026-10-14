@@ -28,7 +28,11 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
   [all-36 final fit and inference handoff](reports/ld_final_all36_20261012/README.md)
   records the locally verified production checkpoint, locked 50-epoch/0.35
   policy, and batch prediction procedure. This final model has no independent
-  external accuracy estimate yet.
+  external accuracy estimate yet. A subsequent
+  [small-LD miss / p99.95 normalization study](reports/ld_highlight_p9995_20261014/README.md)
+  completed five folds. Its raw candidate did not improve mean OOF Dice or
+  low-foreground performance, so the frozen p99.8 LD production model and
+  existing predictions remain unchanged.
 - [`deliverables/mito_auto_labels/`](deliverables/mito_auto_labels/README.md)
   contains ten checksum-verified ZIPs with **1,330 preliminary Mito masks**.
   These are model predictions, not manually verified labels.

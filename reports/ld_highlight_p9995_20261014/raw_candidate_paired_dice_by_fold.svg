@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="730" viewBox="0 0 1000 730" role="img" aria-label="LD raw p99.95 candidate: paired OOF Dice change by frozen fold">
+<title>LD raw p99.95 candidate: paired OOF Dice change by frozen fold</title>
+<desc>Candidate minus frozen baseline Dice for all 36 development images.</desc>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<style>text{font-family:Arial,Helvetica,sans-serif;fill:#26313d}.headline{font-size:21px;font-weight:bold}.subtitle{font-size:13px}.axis{font-size:13px}.tick{font-size:11px;fill:#526272}.note{font-size:11px;fill:#596879}.legend{font-size:12px}</style>
+<text class="headline" x="62" y="36">Paired Dice change by fold</text>
+<text class="subtitle" x="62" y="59">Raw p99.95 candidate − frozen baseline · all 36 outer OOF images</text>
+<rect x="118.0" y="124.0" width="734.0" height="473.0" fill="#fbfcfd" stroke="#98a6b5"/>
+<line x1="118.0" y1="597.0" x2="852.0" y2="597.0" stroke="#e2e8ee" stroke-width="1"/>
+<text class="tick" x="106.0" y="601.0" text-anchor="end">-0.15</text>
+<line x1="118.0" y1="478.8" x2="852.0" y2="478.8" stroke="#e2e8ee" stroke-width="1"/>
+<text class="tick" x="106.0" y="482.8" text-anchor="end">-0.08</text>
+<line x1="118.0" y1="360.5" x2="852.0" y2="360.5" stroke="#6a7887" stroke-width="1.6"/>
+<text class="tick" x="106.0" y="364.5" text-anchor="end">+0.00</text>
+<line x1="118.0" y1="242.2" x2="852.0" y2="242.2" stroke="#e2e8ee" stroke-width="1"/>
+<text class="tick" x="106.0" y="246.2" text-anchor="end">+0.08</text>
+<line x1="118.0" y1="124.0" x2="852.0" y2="124.0" stroke="#e2e8ee" stroke-width="1"/>
+<text class="tick" x="106.0" y="128.0" text-anchor="end">+0.15</text>
+<circle cx="158.4" cy="333.4" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_009.tif · fold 0 · paired Dice change +0.017 · GT foreground 0.332%</title></circle>
+<polygon points="169.4,337.4 175.4,343.4 169.4,349.4 163.4,343.4" fill="#e99a25" stroke="#87590f"><title>ld_011.tif · fold 0 · paired Dice change +0.011 · GT foreground 0.097%</title></polygon>
+<circle cx="180.4" cy="386.0" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_015.tif · fold 0 · paired Dice change -0.016 · GT foreground 0.215%</title></circle>
+<circle cx="191.4" cy="376.0" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_023.tif · fold 0 · paired Dice change -0.010 · GT foreground 0.384%</title></circle>
+<circle cx="202.4" cy="327.2" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_027.tif · fold 0 · paired Dice change +0.021 · GT foreground 0.228%</title></circle>
+<circle cx="213.4" cy="358.0" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_030.tif · fold 0 · paired Dice change +0.002 · GT foreground 0.188%</title></circle>
+<circle cx="224.4" cy="361.5" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_032.tif · fold 0 · paired Dice change -0.001 · GT foreground 0.209%</title></circle>
+<line x1="148.4" y1="355.1" x2="234.4" y2="355.1" stroke="#202b38" stroke-width="3"/>
+<text class="axis" x="191.4" y="627.0" text-anchor="middle">Fold 0 (n=7)</text>
+<text class="tick" x="191.4" y="649.0" text-anchor="middle">mean +0.003</text>
+<circle cx="305.2" cy="373.6" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_016.tif · fold 1 · paired Dice change -0.008 · GT foreground 0.147%</title></circle>
+<circle cx="316.2" cy="287.8" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_022.tif · fold 1 · paired Dice change +0.046 · GT foreground 0.139%</title></circle>
+<circle cx="327.2" cy="299.1" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_025.tif · fold 1 · paired Dice change +0.039 · GT foreground 0.118%</title></circle>
+<polygon points="338.2,409.5 344.2,415.5 338.2,421.5 332.2,415.5" fill="#e99a25" stroke="#87590f"><title>ld_028.tif · fold 1 · paired Dice change -0.035 · GT foreground 0.085%</title></polygon>
+<circle cx="349.2" cy="318.4" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_031.tif · fold 1 · paired Dice change +0.027 · GT foreground 0.205%</title></circle>
+<circle cx="360.2" cy="328.5" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_033.tif · fold 1 · paired Dice change +0.020 · GT foreground 0.163%</title></circle>
+<polygon points="371.2,332.3 377.2,338.3 371.2,344.3 365.2,338.3" fill="#e99a25" stroke="#87590f"><title>ld_036.tif · fold 1 · paired Dice change +0.014 · GT foreground 0.094%</title></polygon>
+<line x1="295.2" y1="337.3" x2="381.2" y2="337.3" stroke="#202b38" stroke-width="3"/>
+<text class="axis" x="338.2" y="627.0" text-anchor="middle">Fold 1 (n=7)</text>
+<text class="tick" x="338.2" y="649.0" text-anchor="middle">mean +0.015</text>
+<circle cx="446.5" cy="307.3" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_002.tif · fold 2 · paired Dice change +0.034 · GT foreground 0.406%</title></circle>
+<circle cx="457.5" cy="421.0" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_010.tif · fold 2 · paired Dice change -0.038 · GT foreground 0.480%</title></circle>
+<circle cx="468.5" cy="334.1" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_013.tif · fold 2 · paired Dice change +0.017 · GT foreground 0.399%</title></circle>
+<circle cx="479.5" cy="451.3" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_014.tif · fold 2 · paired Dice change -0.058 · GT foreground 0.384%</title></circle>
+<circle cx="490.5" cy="385.1" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_019.tif · fold 2 · paired Dice change -0.016 · GT foreground 0.175%</title></circle>
+<circle cx="501.5" cy="382.9" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_024.tif · fold 2 · paired Dice change -0.014 · GT foreground 0.142%</title></circle>
+<circle cx="512.5" cy="437.0" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_026.tif · fold 2 · paired Dice change -0.049 · GT foreground 0.142%</title></circle>
+<polygon points="523.5,369.8 529.5,375.8 523.5,381.8 517.5,375.8" fill="#e99a25" stroke="#87590f"><title>ld_029.tif · fold 2 · paired Dice change -0.010 · GT foreground 0.071%</title></polygon>
+<line x1="442.0" y1="386.8" x2="528.0" y2="386.8" stroke="#202b38" stroke-width="3"/>
+<text class="axis" x="485.0" y="627.0" text-anchor="middle">Fold 2 (n=8)</text>
+<text class="tick" x="485.0" y="649.0" text-anchor="middle">mean -0.017</text>
+<circle cx="598.8" cy="339.1" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_004.tif · fold 3 · paired Dice change +0.014 · GT foreground 0.401%</title></circle>
+<polygon points="609.8,409.5 615.8,415.5 609.8,421.5 603.8,415.5" fill="#e99a25" stroke="#87590f"><title>ld_006.tif · fold 3 · paired Dice change -0.035 · GT foreground 0.007%</title></polygon>
+<polygon points="620.8,384.2 626.8,390.2 620.8,396.2 614.8,390.2" fill="#e99a25" stroke="#87590f"><title>ld_007.tif · fold 3 · paired Dice change -0.019 · GT foreground 0.039%</title></polygon>
+<circle cx="631.8" cy="355.2" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_012.tif · fold 3 · paired Dice change +0.003 · GT foreground 0.111%</title></circle>
+<circle cx="642.8" cy="381.4" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_017.tif · fold 3 · paired Dice change -0.013 · GT foreground 0.485%</title></circle>
+<circle cx="653.8" cy="320.1" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_034.tif · fold 3 · paired Dice change +0.026 · GT foreground 0.107%</title></circle>
+<polygon points="664.8,264.1 670.8,270.1 664.8,276.1 658.8,270.1" fill="#e99a25" stroke="#87590f"><title>ld_035.tif · fold 3 · paired Dice change +0.057 · GT foreground 0.082%</title></polygon>
+<line x1="588.8" y1="353.1" x2="674.8" y2="353.1" stroke="#202b38" stroke-width="3"/>
+<text class="axis" x="631.8" y="627.0" text-anchor="middle">Fold 3 (n=7)</text>
+<text class="tick" x="631.8" y="649.0" text-anchor="middle">mean +0.005</text>
+<circle cx="745.6" cy="359.3" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_001.tif · fold 4 · paired Dice change +0.001 · GT foreground 0.171%</title></circle>
+<circle cx="756.6" cy="427.2" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_003.tif · fold 4 · paired Dice change -0.042 · GT foreground 0.124%</title></circle>
+<polygon points="767.6,371.2 773.6,377.2 767.6,383.2 761.6,377.2" fill="#e99a25" stroke="#87590f"><title>ld_005.tif · fold 4 · paired Dice change -0.011 · GT foreground 0.073%</title></polygon>
+<circle cx="778.6" cy="370.2" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_008.tif · fold 4 · paired Dice change -0.006 · GT foreground 0.183%</title></circle>
+<circle cx="789.6" cy="374.4" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_018.tif · fold 4 · paired Dice change -0.009 · GT foreground 0.209%</title></circle>
+<circle cx="800.6" cy="239.3" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_020.tif · fold 4 · paired Dice change +0.077 · GT foreground 0.201%</title></circle>
+<circle cx="811.6" cy="428.1" r="5" fill="#3278b5" fill-opacity="0.83" stroke="#1f547f" stroke-width="0.8"><title>ld_021.tif · fold 4 · paired Dice change -0.043 · GT foreground 0.127%</title></circle>
+<line x1="735.6" y1="368.0" x2="821.6" y2="368.0" stroke="#202b38" stroke-width="3"/>
+<text class="axis" x="778.6" y="627.0" text-anchor="middle">Fold 4 (n=7)</text>
+<text class="tick" x="778.6" y="649.0" text-anchor="middle">mean -0.005</text>
+<text class="axis" transform="translate(28,361) rotate(-90)" text-anchor="middle">Paired Dice change (candidate − baseline)</text>
+<text class="legend" x="118" y="696">Overall mean Δ: -0.000; orange diamonds: low foreground ≤0.10% (n=8); black segments: fold means.</text>
+<text class="note" x="118" y="715">Descriptive OOF only; outer-test scores cannot revise the locked validation decisions.</text>
+</svg>
