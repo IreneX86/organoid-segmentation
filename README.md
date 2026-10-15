@@ -190,8 +190,26 @@ python code/train.py --target mito --fold 0 --num-folds 5
 ```
 
 The Nuc target is configured in the shared code, but its standalone training
-and evaluation protocol must be locked first as described in the data audit;
-do not use the generic command above to report an independent Nuc test score.
+and evaluation protocol is separate from the generic per-image folds. The
+[Nuc internal prototype protocol](experiments/nuc_internal_prototype_protocol.md)
+freezes a same-batch development split in
+[`nuc_internal_split_v1.json`](experiments/results/nuc_internal_split_v1.json).
+Use [`code/nuc_train_internal.py`](code/nuc_train_internal.py) only for that
+internal diagnostic; it does not produce an independent test score. The source
+TIFFs must remain in the project root supplied with `--project-root`, and
+`--output-dir` must name a fresh location outside the labelled data folders.
+For example, from this repository's root:
+
+```bash
+python code/nuc_train_internal.py \
+  --project-root "$HOME/Desktop/Organoid" \
+  --split-manifest experiments/results/nuc_internal_split_v1.json \
+  --output-dir outputs/nuc_internal_v1
+```
+
+This command starts a full internal prototype run. It has not been run on the
+real Nuc TIFFs yet; the current same-batch split must not be interpreted as
+cross-source generalization.
 
 For LD, use the versioned derived labels and
 `code/ld_train.py` instead, with the frozen map and a fresh output root:
