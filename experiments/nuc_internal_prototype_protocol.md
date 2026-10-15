@@ -1,8 +1,10 @@
 # Nuc 2D internal prototype protocol
 
-**Status:** protocol frozen before Nuc training; no Nuc model has been trained
-yet. The planned run is an internal diagnostic, with no outer test set or
-independent cross-validation estimate. The
+**Status:** protocol frozen before Nuc training; the full internal run completed
+on 2026-10-15 and is documented in the
+[Nuc internal prototype report](../reports/nuc_internal_prototype_v1.md). It is
+an internal diagnostic, with no outer test set or independent cross-validation
+estimate. The
 [data audit](nuc_data_audit_20261015.md) found no mapping from
 `nuc_###` to acquisition field, specimen, or batch. Input similarity links
 148/167 images in one large near-duplicate group; those links are a dependence

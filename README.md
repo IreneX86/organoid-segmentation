@@ -175,7 +175,8 @@ The [Nuc data audit](experiments/nuc_data_audit_20261015.md) records 167 binary
 semantic-mask pairs and the project owner's confirmation that four all-black
 masks are true negatives. Highly similar images make the generic per-image
 split unsuitable for a claimed independent Nuc generalization estimate;
-freeze an acquisition-aware or similarity-audited split before training.
+freeze an acquisition-aware or similarity-audited evaluation split before
+making that claim.
 The original LD masks contain Photoshop antialiasing gray levels and cannot
 be passed directly to `code/train.py`. Prepare separate binary labels with
 [`code/ld_prepare_labels.py`](code/ld_prepare_labels.py); never edit the manual
@@ -207,9 +208,13 @@ python code/nuc_train_internal.py \
   --output-dir outputs/nuc_internal_v1
 ```
 
-This command starts a full internal prototype run. It has not been run on the
-real Nuc TIFFs yet; the current same-batch split must not be interpreted as
-cross-source generalization.
+The full internal prototype run on the real Nuc TIFFs completed on 2026-10-15.
+Its downloaded artifacts passed local verification. The
+[Nuc internal prototype report](reports/nuc_internal_prototype_v1.md) records
+the 33 nonempty validation images' mean Dice of **0.9564518556724969** at the
+fixed 0.50 threshold and **0.9565138074004935** at the selected 0.45
+threshold, with the validation true negative reported separately. These are
+same-batch internal diagnostics, not cross-source generalization estimates.
 
 For LD, use the versioned derived labels and
 `code/ld_train.py` instead, with the frozen map and a fresh output root:
