@@ -45,6 +45,11 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
   The same locked voting method subsequently processed the other nine cell
   folders. All **1,330** current LD masks are available as ten small,
   checksum-verified [LD delivery ZIPs](deliverables/ld_auto_labels/README.md).
+  Those ZIPs contain the earlier 3/5 masks.
+  After reviewing small-LD detections, the user requested an additional
+  [1/5 voting mask set](reports/ld_vote1_auto_labels_20261015/README.md)
+  in separate `fluo_label_vote1/` folders for all ten cells. This is an
+  exploratory local review output; the previous `fluo_label/` folders are retained.
   This is an operational review preference, not a reversal of the validation
   decision or an independent estimate of generalization. The first 76 images
   were already viewed during review and cannot serve as untouched external
