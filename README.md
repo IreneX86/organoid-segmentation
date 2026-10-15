@@ -171,6 +171,11 @@ label_ref/
 
 The loader compares complete filenames. Missing inputs or labels stop the run
 with an error instead of being silently skipped.
+The [Nuc data audit](experiments/nuc_data_audit_20261015.md) records 167 binary
+semantic-mask pairs and the project owner's confirmation that four all-black
+masks are true negatives. Highly similar images make the generic per-image
+split unsuitable for a claimed independent Nuc generalization estimate;
+freeze an acquisition-aware or similarity-audited split before training.
 The original LD masks contain Photoshop antialiasing gray levels and cannot
 be passed directly to `code/train.py`. Prepare separate binary labels with
 [`code/ld_prepare_labels.py`](code/ld_prepare_labels.py); never edit the manual
@@ -182,8 +187,11 @@ Run one target and one cross-validation fold at a time:
 
 ```bash
 python code/train.py --target mito --fold 0 --num-folds 5
-python code/train.py --target nuc --fold 0 --num-folds 5
 ```
+
+The Nuc target is configured in the shared code, but its standalone training
+and evaluation protocol must be locked first as described in the data audit;
+do not use the generic command above to report an independent Nuc test score.
 
 For LD, use the versioned derived labels and
 `code/ld_train.py` instead, with the frozen map and a fresh output root:
