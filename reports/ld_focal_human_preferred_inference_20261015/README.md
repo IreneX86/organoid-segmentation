@@ -1,5 +1,12 @@
 # Human-preferred LD focal voting predictions for one 100-image folder
 
+> **Later operational update (2026-10-15):** After this first-folder handoff,
+> the focal-voting results were placed in that cell's current `fluo_label/`
+> directory and its older predictions were preserved as
+> `fluo_label_previous/`. The original `fluo_label_2/` path below records the
+> earlier review handoff. Nine additional cells were processed separately;
+> see the [ten-cell delivery index](../../deliverables/ld_auto_labels/README.md).
+
 **Status (2026-10-15, Australia/Sydney): 100/100 masks generated and verified.** This record documents a separate operational review output for `cell_22375_NZ_100/fluo` only. It is not a new model-selection result or a claim of improved external accuracy.
 
 ## Decision and scientific boundary

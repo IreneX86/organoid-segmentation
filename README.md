@@ -39,15 +39,22 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
   the baseline, with more distant false positives. The production model and
   existing predictions remain unchanged. Following a separate human visual
   review, a [focal five-fold voting prediction set](reports/ld_focal_human_preferred_inference_20261015/README.md)
-  was generated and verified for only the 100 TIFFs in
-  `cell_22375_NZ_100/fluo`, under a separate `fluo_label_2` directory.
+  was first generated and verified for the 100 TIFFs in
+  `cell_22375_NZ_100/fluo`. That first set now resides in `fluo_label`;
+  its earlier prediction set was moved to `fluo_label_previous` locally.
+  The same locked voting method subsequently processed the other nine cell
+  folders. All **1,330** current LD masks are available as ten small,
+  checksum-verified [LD delivery ZIPs](deliverables/ld_auto_labels/README.md).
   This is an operational review preference, not a reversal of the validation
   decision or an independent estimate of generalization. The first 76 images
   were already viewed during review and cannot serve as untouched external
-  test images. The 100-mask handoff has a complete per-image SHA256 manifest.
+  test images. The handoff has per-image SHA256 records.
 - [`deliverables/mito_auto_labels/`](deliverables/mito_auto_labels/README.md)
   contains ten checksum-verified ZIPs with **1,330 preliminary Mito masks**.
   These are model predictions, not manually verified labels.
+- [`deliverables/ld_auto_labels/`](deliverables/ld_auto_labels/README.md)
+  contains ten checksum-verified ZIPs with **1,330 preliminary LD masks** from
+  the user-preferred focal voting review method. They are not manual labels.
 - [`runpod_ready/`](runpod_ready/) records the GPU setup and smoke-test scripts.
   [`MITO_EXPERIMENT_LOG.md`](MITO_EXPERIMENT_LOG.md) and
   [`OPTIMIZATION_GOALS.md`](OPTIMIZATION_GOALS.md) index the research history

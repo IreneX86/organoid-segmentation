@@ -206,3 +206,27 @@ scientific protocol and fold map remain in `experiments/`.
   comparison. See the [separate handoff record](reports/ld_focal_human_preferred_inference_20261015/README.md)
   for scope, provenance, the reusable inference command and verification
   record. The archived `--runs-root` is a local, Git-ignored model path.
+
+## Current LD prediction delivery (2026-10-15)
+
+- The first focal-voting 100-mask review set now occupies
+  `cell_22375_NZ_100/fluo_label`; the prior baseline output is preserved
+  locally as `fluo_label_previous`. The other nine `fluo_label` folders were
+  predicted with the same five locked focal folds on one Secure Cloud A40 Pod.
+  Their **1,230** masks passed source/output SHA256, name, shape and `uint8`
+  0/255 checks. Across all ten current folders there are **1,330** masks.
+- The generated masks are archived by cell in
+  [`deliverables/ld_auto_labels/`](deliverables/ld_auto_labels/README.md).
+  The ZIPs contain only mask TIFFs and portable, path-sanitized metadata;
+  the original fluorescence TIFFs, older first-cell output, checkpoints and
+  RunPod logs are not in Git. The full local-only audit is under Git-ignored
+  `runpod_results/ld_focal_bulk_20261015/`.
+- The A40 Pod `bmyathrhq8j7hx` finished with exit 0 and was deleted after
+  all nine remote result archives and the combined archive had passed local
+  SHA256/full-output verification. RunPod listed zero active Pods, Endpoints,
+  Network Volumes and Clusters. No further GPU work is running.
+- These outputs remain **automatic predictions for expert review**. Focal
+  did not pass the earlier validation-only model-selection gates, and the
+  3/5 vote has no independent external accuracy estimate. Do not train on
+  these predictions as if they were manual labels or report their Dice as
+  measured external performance.

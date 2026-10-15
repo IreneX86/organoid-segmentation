@@ -13,8 +13,10 @@ organoid_data/
 *.tar
 *.tar.gz
 *.zip
-# Explicitly requested private delivery of generated Mito masks only.
+# Narrow exceptions for explicitly requested generated-mask deliveries.
 !deliverables/mito_auto_labels/*/Mito_label.zip
+# Explicitly requested LD mask delivery; keep the global ZIP/data ignore intact.
+!deliverables/ld_auto_labels/*/fluo_label.zip
 artifacts/
 outputs/
 predictions/
