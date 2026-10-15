@@ -31,6 +31,6 @@ The single Secure Cloud A40 run passed a one-GPU TensorFlow matrix multiplicatio
 
 The Git-ignored local record is `runpod_results/ld_vote1_bulk_20261015/` and includes the locked input/model plan, result archives, per-image manifests, transfer checks, and publication verification. This report contains no TIFFs, model weights, or Runpod logs.
 
-The GitHub delivery ZIPs prepared before this run contain the earlier **3/5** masks. The new **1/5** masks reside in the local `fluo_label_vote1/` folders and have not been added to Git.
+Two separate sets of checksum-verified ZIPs are available in the private repository: the [earlier 3/5 delivery](../../deliverables/ld_auto_labels/README.md) and the [new 1/5 delivery](../../deliverables/ld_vote1_auto_labels/README.md). The 1/5 ZIPs were packaged from the verified local `fluo_label_vote1/` folders; they contain only generated masks and portable metadata, not raw input TIFFs or checkpoints. The two voting cutoffs must not be mixed during downstream review.
 
 These masks are **automated predictions for review, not manual labels**. No unbiased full-mask test of the 1/5 voting rule has been performed, so no improvement in Dice or precision is claimed.

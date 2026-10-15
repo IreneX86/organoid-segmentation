@@ -17,6 +17,8 @@ organoid_data/
 !deliverables/mito_auto_labels/*/Mito_label.zip
 # Explicitly requested LD mask delivery; keep the global ZIP/data ignore intact.
 !deliverables/ld_auto_labels/*/fluo_label.zip
+# Separate 1/5 vote masks; no exception for other ZIPs or source data.
+!deliverables/ld_vote1_auto_labels/*/fluo_label_vote1.zip
 artifacts/
 outputs/
 predictions/

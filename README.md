@@ -48,8 +48,9 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
   Those ZIPs contain the earlier 3/5 masks.
   After reviewing small-LD detections, the user requested an additional
   [1/5 voting mask set](reports/ld_vote1_auto_labels_20261015/README.md)
-  in separate `fluo_label_vote1/` folders for all ten cells. This is an
-  exploratory local review output; the previous `fluo_label/` folders are retained.
+  in separate `fluo_label_vote1/` folders for all ten cells. Its 1,330 masks
+  are also available as [separate checksum-verified 1/5 delivery ZIPs](deliverables/ld_vote1_auto_labels/README.md).
+  The previous 3/5 `fluo_label/` folders and delivery ZIPs are retained.
   This is an operational review preference, not a reversal of the validation
   decision or an independent estimate of generalization. The first 76 images
   were already viewed during review and cannot serve as untouched external
@@ -58,8 +59,12 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
   contains ten checksum-verified ZIPs with **1,330 preliminary Mito masks**.
   These are model predictions, not manually verified labels.
 - [`deliverables/ld_auto_labels/`](deliverables/ld_auto_labels/README.md)
-  contains ten checksum-verified ZIPs with **1,330 preliminary LD masks** from
-  the user-preferred focal voting review method. They are not manual labels.
+  contains ten checksum-verified ZIPs with **1,330 preliminary LD masks** at
+  the earlier **3/5** voting cutoff. They are not manual labels.
+- [`deliverables/ld_vote1_auto_labels/`](deliverables/ld_vote1_auto_labels/README.md)
+  contains the separately packaged **1/5** voting masks for the same ten cells.
+  These are the human-preferred review outputs, not manual labels or an
+  independently validated accuracy improvement.
 - [`runpod_ready/`](runpod_ready/) records the GPU setup and smoke-test scripts.
   [`MITO_EXPERIMENT_LOG.md`](MITO_EXPERIMENT_LOG.md) and
   [`OPTIMIZATION_GOALS.md`](OPTIMIZATION_GOALS.md) index the research history

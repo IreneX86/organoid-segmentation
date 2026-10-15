@@ -1,0 +1,132 @@
+{
+  "cell_count": 10,
+  "folds": [
+    {
+      "checkpoint_sha256": "7c73c1e9ae890e07d6a4af41a299611066b573a69e5ad7813ee7d63633a2fc1e",
+      "config_sha256": "879887cb418b37b7dadbab0205e1b9ca7e2103155e90b1cc7b93befbb6e47226",
+      "fold": 0,
+      "selection_lock_sha256": "34b770045820c362d257b822f6c5d4f12716f7ba61e86e2cd86dd2761ddf2ef7",
+      "threshold": 0.65,
+      "threshold_sha256": "3637e4e21ec776f0e13f577ab3fe3ba90781dfceea5e49dc42e2d6e3e3258045"
+    },
+    {
+      "checkpoint_sha256": "1c6ea7ece88ab2ab807d3171e67e025a9a6a94c2976e20961333d8775d44d614",
+      "config_sha256": "3b8071b09a748a5aad2c9d07093a1ac68b6e1f1f588b8080c22fb0e71cd9948b",
+      "fold": 1,
+      "selection_lock_sha256": "20f82d593f48c17f4e4a1277b1c38f825a55436a6beddfe46a3afbec690fd6cc",
+      "threshold": 0.8,
+      "threshold_sha256": "af278de6ee9317225ce3772bae2eba5b9d172f95f3219c064df8334b4de85902"
+    },
+    {
+      "checkpoint_sha256": "c4c7dbde1bb37647e546ee8690aa5f7f8b0695a3d285fb4bf91270f30140f2df",
+      "config_sha256": "a5a9e7e00af5b471aa6dd121e4de7ad23c6f7c836c924adc82d3007ddde3ad2d",
+      "fold": 2,
+      "selection_lock_sha256": "d59afe83d40a25c9c3acf7d529783dc126b3633845538f40ecb2b1fcf1785b35",
+      "threshold": 0.6,
+      "threshold_sha256": "c5ca87cb3f97f4402249be8adb6a63a27c5a697835480b811f09a9c649262c2e"
+    },
+    {
+      "checkpoint_sha256": "8b3674bf4d670ed4e32c8e907180b7201c16879bc6035093c02f22a4f09fa55e",
+      "config_sha256": "6dd780e192f2d8b47babc9c86b012ded08af4c0b642f0215b8d61d82936082cb",
+      "fold": 3,
+      "selection_lock_sha256": "2f3b781991d4416e2658818d3166883f2cdcc5336fc7f837a13bc86fb20bd087",
+      "threshold": 0.35,
+      "threshold_sha256": "afeec0d81e7dfd15881ae2f2ae2af6d9f0ce021b08daaaba88561c2bc7efd319"
+    },
+    {
+      "checkpoint_sha256": "a31d517c83ba710cc67c256455dcde09dfc46ae3cccfc474f663b191e56d413f",
+      "config_sha256": "8151ae44ce3593de64cc22d05205de2b83bab45f1b7a9e90441ade765de29a9e",
+      "fold": 4,
+      "selection_lock_sha256": "acb8a2371a66a67e332b70c8aab3f477319a1eb80633bd8d63d3b942308a6770",
+      "threshold": 0.5,
+      "threshold_sha256": "fbd7f4fd0c48c75439a2e892e5ee7639948ff29067d2ed1b4c3f4f5469e5dbe6"
+    }
+  ],
+  "mask_count": 1330,
+  "method": "five_fold_binary_vote_at_locked_validation_thresholds_one_of_five",
+  "packages": [
+    {
+      "archive": "cell_22375_NZ_100/fluo_label_vote1.zip",
+      "archive_bytes": 365577,
+      "archive_sha256": "89e017418d9370f5c75b354a2a0a7d049d080ec17174409547a2f32cb5b01ab9",
+      "cell": "cell_22375_NZ_100",
+      "mask_count": 100,
+      "source_prediction_manifest_sha256": "fb1eab04d56a961936a7a42c415e0e6a4b3e7b2668281a01d3862ac502f5e82f"
+    },
+    {
+      "archive": "cell_22376_NZ_100/fluo_label_vote1.zip",
+      "archive_bytes": 324996,
+      "archive_sha256": "a5316c717d84f56767c6a5bfd6a0e58ca5b029112e911135ddd26fa62b22d8f3",
+      "cell": "cell_22376_NZ_100",
+      "mask_count": 100,
+      "source_prediction_manifest_sha256": "ad24ece62f45cd3eff7b320614789db2e628a9ad70ea0e71683e6c4bd3f7ff52"
+    },
+    {
+      "archive": "cell_22377_NZ_120/fluo_label_vote1.zip",
+      "archive_bytes": 428127,
+      "archive_sha256": "c5076422bde5526a71047eef473f585cd5fbe0cd85aecd0c283b3e70d3ce10d6",
+      "cell": "cell_22377_NZ_120",
+      "mask_count": 120,
+      "source_prediction_manifest_sha256": "97972ce83ff6b3f4dff092f387157e9af39df0acd784feee985054536c60d3ff"
+    },
+    {
+      "archive": "cell_22378_NZ_150/fluo_label_vote1.zip",
+      "archive_bytes": 491903,
+      "archive_sha256": "16686f63be4f27e490c5cadf7557ac99e5bc6a169a33c8db955462f7233944b1",
+      "cell": "cell_22378_NZ_150",
+      "mask_count": 150,
+      "source_prediction_manifest_sha256": "f12c35088b1c7cee887d9524b4ad0d76c66dc3744721a1f661eff31efa586741"
+    },
+    {
+      "archive": "cell_22379_NZ_150/fluo_label_vote1.zip",
+      "archive_bytes": 586397,
+      "archive_sha256": "07abae27e2421a1487e902e832ca80b2dd1faf16150d12ca47dea56d53cc716c",
+      "cell": "cell_22379_NZ_150",
+      "mask_count": 150,
+      "source_prediction_manifest_sha256": "c7c74bd15cfe1f043756f0b923f5facdb2eb255b59f9bc9736ac7815fc159840"
+    },
+    {
+      "archive": "cell_22380_150/fluo_label_vote1.zip",
+      "archive_bytes": 471328,
+      "archive_sha256": "13600bb235e5d14ccb1f2f4ce9574326c82bf2219676091689364d181d402b1a",
+      "cell": "cell_22380_150",
+      "mask_count": 150,
+      "source_prediction_manifest_sha256": "f32e5047ceadc4864c4fc85c2dec07c865b73c05791dd85ef69480b2538120c8"
+    },
+    {
+      "archive": "cell_22381_140/fluo_label_vote1.zip",
+      "archive_bytes": 480611,
+      "archive_sha256": "4324e46b5c142fd8545a088bfafdd483382b87541cf2541098b76812f13df7a3",
+      "cell": "cell_22381_140",
+      "mask_count": 140,
+      "source_prediction_manifest_sha256": "c43954cc7e38f3dac2ff154e01e9a58866669d3c7301a4b4ad5557a43f41e28a"
+    },
+    {
+      "archive": "cell_22382_140/fluo_label_vote1.zip",
+      "archive_bytes": 452975,
+      "archive_sha256": "89e47dc2f13c4ee0c8914747e4ade1fe33c8f0af2721f78af462c06f8d9fe924",
+      "cell": "cell_22382_140",
+      "mask_count": 140,
+      "source_prediction_manifest_sha256": "7bd3bce2a37f52dd7929843f7831f3513e4fc7dd332f310c16ff96895b06c2fb"
+    },
+    {
+      "archive": "cell_22383_140/fluo_label_vote1.zip",
+      "archive_bytes": 374016,
+      "archive_sha256": "73deddda4009fe85ee909bcdd6e0bda06c0aabaae9c27e9b4bd7773aaefe3756",
+      "cell": "cell_22383_140",
+      "mask_count": 140,
+      "source_prediction_manifest_sha256": "16ba3e32f80d06a849ad7f10febff9b9c8075b33c13337897342a8a665ec4112"
+    },
+    {
+      "archive": "cell_22385_140/fluo_label_vote1.zip",
+      "archive_bytes": 491792,
+      "archive_sha256": "5ececdf18a639eecc7e9c73789a4eb539cda66fa674ae0abfcfe143a85e03f9d",
+      "cell": "cell_22385_140",
+      "mask_count": 140,
+      "source_prediction_manifest_sha256": "2ee471baa32165254df8b4fed5e4e88fcef0dc485e56e5885c28f937b0b5916a"
+    }
+  ],
+  "schema_version": 1,
+  "scientific_status": "exploratory_human_review_preferred_not_independently_validated",
+  "votes_required": 1
+}
