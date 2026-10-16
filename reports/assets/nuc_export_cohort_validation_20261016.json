@@ -1,0 +1,130 @@
+{
+  "purpose": "Descriptive audit of frozen Nuc internal validation by input TIFF filesystem modification month; not an acquisition or independent test split.",
+  "sources": {
+    "frozen_split": "experiments/results/nuc_internal_split_v1.json",
+    "frozen_split_sha256": "eb1e1be161865e3e92cf93e30dcac7a8287462a670a4068aa97f17a525c8bc54",
+    "archived_per_image_metrics": "runpod_results/nuc_internal_20261015/full_results/model/validation_per_image.csv",
+    "archived_per_image_metrics_sha256": "82175517150fd21de6502df847fefc0e3e9eb55bc37d27108040b9d3daa7286b",
+    "archived_verification": "runpod_results/nuc_internal_20261015/local_verification.json",
+    "input_tiff_directory": "label_ref/Nuc/Nuc_input",
+    "input_hash_check": "All 167 current input SHA256 values match the frozen split manifest."
+  },
+  "method": "Group all 167 split filenames by UTC month of input TIFF filesystem mtime; arithmetic mean of saved full-image per-image metrics over nonempty validation masks only.",
+  "thresholds": {
+    "fixed_050": 0.5,
+    "selected": 0.45
+  },
+  "cohorts": [
+    {
+      "input_mtime_month_utc": "2025-10",
+      "mtime_range_utc": [
+        "2025-10-09T04:40:17+00:00",
+        "2025-10-09T04:40:17+00:00"
+      ],
+      "total_images": 10,
+      "train_images": 9,
+      "validation_images": 1,
+      "nonempty_validation_images": 1,
+      "all_black_controls_train": [],
+      "all_black_controls_validation": [],
+      "validation_nonempty_singleton": "nuc_038.tif",
+      "validation_nonempty_mean_per_image": {
+        "fixed_050": {
+          "dice": 0.9487501228771171,
+          "precision": 0.931291470606599,
+          "recall": 0.9668758655234391
+        },
+        "selected": {
+          "dice": 0.9477643125783536,
+          "precision": 0.9274634779175362,
+          "recall": 0.9689737470167065
+        }
+      }
+    },
+    {
+      "input_mtime_month_utc": "2025-11",
+      "mtime_range_utc": [
+        "2025-11-05T07:02:00+00:00",
+        "2025-11-07T05:12:29+00:00"
+      ],
+      "total_images": 148,
+      "train_images": 116,
+      "validation_images": 32,
+      "nonempty_validation_images": 31,
+      "all_black_controls_train": [
+        "nuc_002.tif",
+        "nuc_003.tif",
+        "nuc_004.tif"
+      ],
+      "all_black_controls_validation": [
+        "nuc_005.tif"
+      ],
+      "validation_nonempty_singleton": null,
+      "validation_nonempty_mean_per_image": {
+        "fixed_050": {
+          "dice": 0.9583773444561067,
+          "precision": 0.9650163015189208,
+          "recall": 0.9519597452942216
+        },
+        "selected": {
+          "dice": 0.9584302104760352,
+          "precision": 0.9616471835660834,
+          "recall": 0.9553429683193329
+        }
+      }
+    },
+    {
+      "input_mtime_month_utc": "2026-05",
+      "mtime_range_utc": [
+        "2026-05-13T00:56:41+00:00",
+        "2026-05-13T00:57:14+00:00"
+      ],
+      "total_images": 9,
+      "train_images": 8,
+      "validation_images": 1,
+      "nonempty_validation_images": 1,
+      "all_black_controls_train": [],
+      "all_black_controls_validation": [],
+      "validation_nonempty_singleton": "nuc_163.tif",
+      "validation_nonempty_mean_per_image": {
+        "fixed_050": {
+          "dice": 0.9044634361759774,
+          "precision": 0.9165592922802861,
+          "recall": 0.8926826803220699
+        },
+        "selected": {
+          "dice": 0.9058548068808416,
+          "precision": 0.9099678319954786,
+          "recall": 0.9017787959438062
+        }
+      }
+    }
+  ],
+  "all_black_controls": {
+    "filenames": [
+      "nuc_002.tif",
+      "nuc_003.tif",
+      "nuc_004.tif",
+      "nuc_005.tif"
+    ],
+    "train": [
+      "nuc_002.tif",
+      "nuc_003.tif",
+      "nuc_004.tif"
+    ],
+    "validation": [
+      "nuc_005.tif"
+    ],
+    "cohort": "2025-11",
+    "validation_false_positive_pixels": {
+      "fixed_050": 2744,
+      "selected": 3093
+    }
+  },
+  "limitations": [
+    "Filesystem mtime can reflect export/copy and does not establish acquisition date, organoid identity, or Z order.",
+    "Every mtime cohort appears in both train and validation; November has highly similar views across the split.",
+    "October and May each have only one nonempty validation image.",
+    "Checkpoint and selected threshold were chosen using this validation set; these metrics are descriptive and are not an independent generalization estimate."
+  ]
+}

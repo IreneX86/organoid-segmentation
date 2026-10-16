@@ -335,3 +335,23 @@ scientific protocols and fold maps remain in `experiments/`.
   Only then compare source-grouped 2D and 3-channel 2.5D models under the
   existing conditional protocol. Without this provenance or new independent
   complete target labels, do not claim a reliably improved Nuc model.
+
+### Nuc source-search and export-cohort check on 2026-10-16
+
+- A read-only search of relevant Desktop, Downloads, Documents files and Git
+  history found no original microscopy stack or per-image Nuc source/Z
+  mapping. Cetus, external drives, cloud, and unrelatedly named archives were
+  not covered; the provenance gate remains open, not proven impossible.
+- [Frozen-validation export-cohort audit](reports/nuc_export_cohort_validation_20261016.md)
+  reuses the archived scores with all 167 current input hashes matching the
+  split. October 2025, November 2025, and May 2026 mtimes have 1, 32, and 1
+  validation images; fixed-0.50 nonempty Dice averages are 0.9488, 0.9584,
+  and 0.9045. File mtimes are export/copy clues, not organoid identities. Each
+  cohort appears in both train and validation, so these are descriptive, not
+  independent source tests. The true-negative `nuc_005` has 2,744 FP pixels
+  at 0.50.
+- Next useful input, if available, is the original acquisition/export manifest
+  or microscopy stack that maps each labelled center TIFF to a verified
+  organoid, field, and Z plane. Do not infer that mapping from `nuc_###`
+  numbering or these cohort metrics. Keep the 2D model and all masks frozen;
+  no new training or target-mask overwrite occurred in this follow-up.
