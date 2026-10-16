@@ -141,6 +141,59 @@ def _augment_spatial_illumination(
     return np.ascontiguousarray(np.clip(image + illumination, 0.0, 1.0), dtype=np.float32)
 
 
+@lru_cache(maxsize=8)
+def _gaussian_reflect_transfer(
+    height: int, width: int, sigma: float,
+) -> np.ndarray:
+    """Frequency response for a Gaussian on a half-sample-reflected grid."""
+
+    frequency_y = np.fft.fftfreq(2 * height)[:, None]
+    frequency_x = np.fft.rfftfreq(2 * width)[None, :]
+    transfer = np.exp(
+        -2.0 * (np.pi * sigma) ** 2 * (frequency_y**2 + frequency_x**2)
+    )
+    transfer.flags.writeable = False
+    return transfer
+
+
+def gaussian_blur_reflect(image: np.ndarray, sigma: float = 64.0) -> np.ndarray:
+    """Blur a 2D patch with reflect boundaries using only NumPy FFT.
+
+    A symmetric 2x2 tiling gives the same half-sample reflect boundary as
+    ``scipy.ndimage.gaussian_filter(mode="reflect")``. The Fourier Gaussian
+    avoids a costly 513-tap spatial kernel at sigma 64. This path needs no
+    optional package beyond the existing NumPy dependency.
+    """
+
+    if image.ndim != 2 or not np.isfinite(sigma) or sigma <= 0:
+        raise ValueError("Gaussian blur needs a 2D image and positive finite sigma")
+    height, width = image.shape
+    mirrored = np.pad(
+        np.asarray(image, dtype=np.float32),
+        ((0, height), (0, width)), mode="symmetric",
+    )
+    spectrum = np.fft.rfftn(mirrored, axes=(0, 1))
+    spectrum *= _gaussian_reflect_transfer(height, width, float(sigma))
+    blurred = np.fft.irfftn(spectrum, s=mirrored.shape, axes=(0, 1))
+    return np.ascontiguousarray(blurred[:height, :width], dtype=np.float32)
+
+
+def _augment_low_local_contrast(
+    image: np.ndarray,
+    rng: np.random.Generator,
+    sigma: float,
+    alpha_min: float,
+) -> np.ndarray:
+    """Dampen detail while preserving the patch's Gaussian low-frequency part."""
+
+    blurred = gaussian_blur_reflect(image, sigma)
+    alpha = float(rng.uniform(alpha_min, 1.0))
+    return np.ascontiguousarray(
+        np.clip(blurred + alpha * (image - blurred), 0.0, 1.0),
+        dtype=np.float32,
+    )
+
+
 class RandomPatchSequence(tf.keras.utils.Sequence):
     """Generate fresh random training patches for every epoch."""
 
@@ -158,6 +211,9 @@ class RandomPatchSequence(tf.keras.utils.Sequence):
         augment: bool = True,
         spatial_illumination_probability: float = 0.0,
         spatial_illumination_max_offset: float = 0.0,
+        low_contrast_probability: float = 0.0,
+        low_contrast_sigma: float = 64.0,
+        low_contrast_alpha_min: float = 0.5,
         **kwargs: object,
     ) -> None:
         super().__init__(**kwargs)
@@ -175,6 +231,12 @@ class RandomPatchSequence(tf.keras.utils.Sequence):
             raise ValueError("spatial illumination offset must be between 0 and 1")
         if spatial_illumination_probability and not spatial_illumination_max_offset:
             raise ValueError("spatial illumination needs a positive maximum offset")
+        if not 0 <= low_contrast_probability <= 1:
+            raise ValueError("low contrast probability must be between 0 and 1")
+        if not np.isfinite(low_contrast_sigma) or low_contrast_sigma <= 0:
+            raise ValueError("low contrast sigma must be positive and finite")
+        if not np.isfinite(low_contrast_alpha_min) or not 0 <= low_contrast_alpha_min <= 1:
+            raise ValueError("low contrast alpha minimum must be between 0 and 1")
 
         self.pairs = pairs
         self.batch_size = batch_size
@@ -192,6 +254,9 @@ class RandomPatchSequence(tf.keras.utils.Sequence):
         self.augment = augment
         self.spatial_illumination_probability = spatial_illumination_probability
         self.spatial_illumination_max_offset = spatial_illumination_max_offset
+        self.low_contrast_probability = low_contrast_probability
+        self.low_contrast_sigma = low_contrast_sigma
+        self.low_contrast_alpha_min = low_contrast_alpha_min
         self.epoch_index = 0
 
     def __len__(self) -> int:
@@ -243,6 +308,18 @@ class RandomPatchSequence(tf.keras.utils.Sequence):
                         image_patch = _augment_spatial_illumination(
                             image_patch, illumination_rng,
                             self.spatial_illumination_max_offset,
+                        )
+                if self.low_contrast_probability:
+                    # This stream cannot perturb the frozen crop or earlier
+                    # augmentation draws used by the baseline and other targets.
+                    contrast_rng = np.random.default_rng(np.random.SeedSequence([
+                        self.random_seed, self.epoch_index, batch_index,
+                        item_index, 0x4E55434C,
+                    ]))
+                    if contrast_rng.random() < self.low_contrast_probability:
+                        image_patch = _augment_low_local_contrast(
+                            image_patch, contrast_rng, self.low_contrast_sigma,
+                            self.low_contrast_alpha_min,
                         )
             images[item_index, ..., 0] = image_patch
             masks[item_index, ..., 0] = mask_patch

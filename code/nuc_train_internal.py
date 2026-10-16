@@ -42,6 +42,7 @@ SOURCE_FILES = (
     "code/tiff_io.py",
 )
 PURPOSE = "same_batch_internal_diagnostic"
+LOW_CONTRAST_LOCKED_SETTINGS = (0.5, 64.0, 0.5)
 
 
 def _sha256(path: Path) -> str:
@@ -149,6 +150,19 @@ def choose_nuc_threshold(
     return chosen["threshold"], candidates
 
 
+def validate_low_contrast_settings(
+    probability: float, sigma: float, alpha_min: float,
+) -> None:
+    """Allow the default-off path or the predeclared Nuc candidate only."""
+
+    if (not np.isfinite(probability) or not 0 <= probability <= 1
+            or not np.isfinite(sigma) or sigma <= 0
+            or not np.isfinite(alpha_min) or not 0 <= alpha_min <= 1):
+        raise ValueError("Nuc low contrast settings are outside their allowed ranges")
+    if probability and (probability, sigma, alpha_min) != LOW_CONTRAST_LOCKED_SETTINGS:
+        raise ValueError("Nuc low contrast candidate must use locked 0.5/64/0.5 settings")
+
+
 def _save_validation_results(
     predictions: list[tuple[ImageLabelPair, np.ndarray, np.ndarray]],
     threshold: float,
@@ -244,6 +258,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--positive-patch-probability", type=float, default=0.6)
     parser.add_argument("--spatial-illumination-probability", type=float, default=0.0)
     parser.add_argument("--spatial-illumination-max-offset", type=float, default=0.0)
+    parser.add_argument("--low-contrast-probability", type=float, default=0.0)
+    parser.add_argument("--low-contrast-sigma", type=float, default=64.0)
+    parser.add_argument("--low-contrast-alpha-min", type=float, default=0.5)
     parser.add_argument("--seed", type=int, default=42)
     return parser.parse_args()
 
@@ -259,6 +276,12 @@ def main() -> None:
             or (args.spatial_illumination_probability > 0
                 and args.spatial_illumination_max_offset == 0)):
         raise ValueError("Nuc training parameters are outside their allowed ranges")
+    validate_low_contrast_settings(
+        args.low_contrast_probability, args.low_contrast_sigma,
+        args.low_contrast_alpha_min,
+    )
+    if args.low_contrast_probability and args.spatial_illumination_probability:
+        raise ValueError("Nuc low contrast and spatial illumination candidates cannot be combined")
     config = PipelineConfig(
         patch_size=args.patch_size, overlap=args.overlap, random_seed=args.seed
     )
@@ -338,6 +361,11 @@ def main() -> None:
         "positive_patch_probability": args.positive_patch_probability,
         "spatial_illumination_probability": args.spatial_illumination_probability,
         "spatial_illumination_max_offset": args.spatial_illumination_max_offset,
+        "low_contrast_probability": args.low_contrast_probability,
+        "low_contrast_sigma": args.low_contrast_sigma,
+        "low_contrast_alpha_min": args.low_contrast_alpha_min,
+        "low_contrast_alpha_max": 1.0,
+        "low_contrast_boundary": "reflect",
         "lower_percentile": config.lower_percentile,
         "upper_percentile": config.upper_percentile,
         "checkpoint_selection": "nonempty_validation_full_image_dice_at_0.5",
@@ -353,6 +381,9 @@ def main() -> None:
         positive_patch_probability=args.positive_patch_probability,
         spatial_illumination_probability=args.spatial_illumination_probability,
         spatial_illumination_max_offset=args.spatial_illumination_max_offset,
+        low_contrast_probability=args.low_contrast_probability,
+        low_contrast_sigma=args.low_contrast_sigma,
+        low_contrast_alpha_min=args.low_contrast_alpha_min,
         random_seed=args.seed, augment=True,
     )
     model = build_unet_2d()  # Fresh Nuc initialization; no Mito or LD weights.
