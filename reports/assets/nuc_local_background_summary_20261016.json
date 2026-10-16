@@ -1,0 +1,84 @@
+{
+  "status": "one_fixed_input_only_exploratory_diagnostic_not_model_selection",
+  "method": "Per-image p1-p99.8 normalize; 101x101 reflect-box local mean/std; training-only 10th percentile local-std floor; J=clip(0.5+(I-mean)/(4*max(std,floor)),0,1); 5x5-box high-pass q90 on pixels in [0.15,0.85].",
+  "background_window_px": 101,
+  "local_std_floor_training_only": 0.011720817536115646,
+  "training_raw_detail_q90": {
+    "n": 133,
+    "p10": 0.013482099771499634,
+    "median": 0.01799127459526062,
+    "p90": 0.019685935974121094
+  },
+  "training_corrected_detail_q90": {
+    "n": 133,
+    "p10": 0.0416511595249176,
+    "median": 0.04613647237420082,
+    "p90": 0.0570970356464386
+  },
+  "target_raw_detail_q90": {
+    "n": 10,
+    "p10": 0.009473326802253722,
+    "median": 0.009635823778808117,
+    "p90": 0.010286928713321685
+  },
+  "target_corrected_detail_q90": {
+    "n": 10,
+    "p10": 0.04675284698605538,
+    "median": 0.04770517721772194,
+    "p90": 0.0548783391714096
+  },
+  "negative_train_raw_detail_q90": {
+    "n": 3,
+    "p10": 0.010583937168121338,
+    "median": 0.010687172412872314,
+    "p90": 0.011212074756622314
+  },
+  "negative_train_corrected_detail_q90": {
+    "n": 3,
+    "p10": 0.06298530697822571,
+    "median": 0.06384581327438354,
+    "p90": 0.06731322407722473
+  },
+  "training_label_core_ring_raw": {
+    "n": 5142,
+    "p10": -0.16689635217189788,
+    "median": -0.10845601558685303,
+    "p90": -0.06409254074096679
+  },
+  "training_label_core_ring_corrected": {
+    "n": 5142,
+    "p10": -0.3647498279809952,
+    "median": -0.277116596698761,
+    "p90": -0.18394676148891448
+  },
+  "target_hint_core_ring_raw": {
+    "n": 26,
+    "p10": -0.1416020691394806,
+    "median": -0.0648908019065857,
+    "p90": -0.03494781255722046
+  },
+  "target_hint_core_ring_corrected": {
+    "n": 26,
+    "p10": -0.3943687826395035,
+    "median": -0.32541483640670776,
+    "p90": -0.20661644637584686
+  },
+  "matched_negative_oval_proxy_raw": {
+    "n": 45,
+    "p10": -0.05833872556686401,
+    "median": 0.01582413911819458,
+    "p90": 0.07245535850524905
+  },
+  "matched_negative_oval_proxy_corrected": {
+    "n": 45,
+    "p10": -0.1845407485961914,
+    "median": -0.013818442821502686,
+    "p90": 0.15842887163162234
+  },
+  "limitations": [
+    "No model was run on corrected inputs, so no segmentation benefit is established.",
+    "The rough red target strokes are not pixel-accurate labels.",
+    "Confirmed negative images can contain dark oval visual structures without being annotated as nuclei.",
+    "The 5x5-box detail metric is distinct from the prior sigma-2 Gaussian metric; compare only within this diagnostic."
+  ]
+}

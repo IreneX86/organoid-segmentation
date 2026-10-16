@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="580" viewBox="0 0 1040 580">
+<rect width="1040" height="580" fill="#f7fafb"/>
+<text x="48" y="56" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#1d3540">Nuc: archived validation object audit</text>
+<text x="48" y="83" font-family="Arial, sans-serif" font-size="14" fill="#516770">Frozen baseline · 34 validation images · threshold 0.45 · GT components ≥100 px</text>
+<rect x="42" y="108" width="950" height="382" rx="14" fill="white" stroke="#dde8eb"/>
+<text x="66" y="150" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1d3540">GT object coverage</text>
+<text x="545" y="150" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#1d3540">Core − bright-ring contrast</text>
+<text x="66" y="177" font-family="Arial, sans-serif" font-size="13" fill="#516770">Fraction of labelled object pixels predicted positive</text>
+<text x="545" y="177" font-family="Arial, sans-serif" font-size="13" fill="#516770">P10—median—P90, more negative = darker core</text>
+<rect x="66.00" y="205" width="8.05" height="38" fill="#b94b4e"/>
+<rect x="74.05" y="205" width="15.00" height="38" fill="#d8973a"/>
+<rect x="89.06" y="205" width="406.94" height="38" fill="#2b8293"/>
+<circle cx="77" cy="277" r="8" fill="#b94b4e"/>
+<text x="97" y="283" font-family="Arial, sans-serif" font-size="16" fill="#223a44">Missed (&lt;10%)</text>
+<text x="446" y="283" text-anchor="end" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#223a44">22 (1.9%)</text>
+<circle cx="77" cy="340" r="8" fill="#d8973a"/>
+<text x="97" y="346" font-family="Arial, sans-serif" font-size="16" fill="#223a44">Partial (10–80%)</text>
+<text x="446" y="346" text-anchor="end" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#223a44">41 (3.5%)</text>
+<circle cx="77" cy="403" r="8" fill="#2b8293"/>
+<text x="97" y="409" font-family="Arial, sans-serif" font-size="16" fill="#223a44">Well-covered (≥80%)</text>
+<text x="446" y="409" text-anchor="end" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#223a44">1112 (94.6%)</text>
+<line x1="555.0" y1="205" x2="555.0" y2="415" stroke="#e2eaed"/>
+<text x="555.0" y="444" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#516770">-0.20</text>
+<line x1="649.3" y1="205" x2="649.3" y2="415" stroke="#e2eaed"/>
+<text x="649.3" y="444" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#516770">-0.15</text>
+<line x1="743.6" y1="205" x2="743.6" y2="415" stroke="#e2eaed"/>
+<text x="743.6" y="444" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#516770">-0.10</text>
+<line x1="838.0" y1="205" x2="838.0" y2="415" stroke="#e2eaed"/>
+<text x="838.0" y="444" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#516770">-0.05</text>
+<line x1="932.3" y1="205" x2="932.3" y2="415" stroke="#e2eaed"/>
+<text x="932.3" y="444" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#516770">0.00</text>
+<text x="755" y="469" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#516770">Normalized intensity difference (unitless)</text>
+<text x="555" y="233" font-family="Arial, sans-serif" font-size="14" fill="#223a44">Missed GT (n=22)</text>
+<line x1="632.3" y1="254" x2="840.4" y2="254" stroke="#b94b4e" stroke-width="5" stroke-linecap="round"/>
+<line x1="632.3" y1="246" x2="632.3" y2="262" stroke="#b94b4e" stroke-width="2"/>
+<line x1="840.4" y1="246" x2="840.4" y2="262" stroke="#b94b4e" stroke-width="2"/>
+<circle cx="747.6" cy="254" r="8" fill="#b94b4e" stroke="white" stroke-width="2"/>
+<text x="975" y="259" text-anchor="end" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#223a44">-0.098</text>
+<text x="555" y="297" font-family="Arial, sans-serif" font-size="14" fill="#223a44">Well-covered GT (n=1112)</text>
+<line x1="609.6" y1="318" x2="802.4" y2="318" stroke="#2b8293" stroke-width="5" stroke-linecap="round"/>
+<line x1="609.6" y1="310" x2="609.6" y2="326" stroke="#2b8293" stroke-width="2"/>
+<line x1="802.4" y1="310" x2="802.4" y2="326" stroke="#2b8293" stroke-width="2"/>
+<circle cx="716.8" cy="318" r="8" fill="#2b8293" stroke="white" stroke-width="2"/>
+<text x="975" y="323" text-anchor="end" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#223a44">-0.114</text>
+<text x="555" y="361" font-family="Arial, sans-serif" font-size="14" fill="#223a44">Isolated FP (n=33)</text>
+<line x1="739.0" y1="382" x2="911.0" y2="382" stroke="#775aaa" stroke-width="5" stroke-linecap="round"/>
+<line x1="739.0" y1="374" x2="739.0" y2="390" stroke="#775aaa" stroke-width="2"/>
+<line x1="911.0" y1="374" x2="911.0" y2="390" stroke="#775aaa" stroke-width="2"/>
+<circle cx="844.2" cy="382" r="8" fill="#775aaa" stroke="white" stroke-width="2"/>
+<text x="975" y="387" text-anchor="end" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#223a44">-0.047</text>
+<text x="48" y="518" font-family="Arial, sans-serif" font-size="14" fill="#4c5f69">Object-level coverage is descriptive only; it is not independent generalization performance.</text>
+<text x="48" y="543" font-family="Arial, sans-serif" font-size="14" fill="#8b4454">Many validation images are near-duplicates of training inputs. FP means predicted component with no GT overlap.</text>
+</svg>

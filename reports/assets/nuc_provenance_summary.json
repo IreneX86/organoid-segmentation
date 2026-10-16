@@ -1,0 +1,388 @@
+{
+  "method": "1200x1200 input TIFF -> exact 12x12 area mean to 100x100 -> thumbnail p1-p99.5 clipping -> centered unit vectors; local detail removes independent 10x10 tile means; Pearson dot products",
+  "caveat": "Image similarity does not establish organoid identity, acquisition sequence, or Z interval. Filename gap is descriptive only.",
+  "input_files": 167,
+  "split": {
+    "train": 133,
+    "validation": 34
+  },
+  "nuc_input_tiff_metadata": {
+    "page_counts": {
+      "1": 167
+    },
+    "image_descriptions": {
+      "{\"shape\": [1200, 1200]}": 167
+    },
+    "software": {
+      "tifffile.py": 167
+    },
+    "tag_names": [
+      "BitsPerSample",
+      "Compression",
+      "ImageDescription",
+      "ImageLength",
+      "ImageWidth",
+      "PhotometricInterpretation",
+      "ResolutionUnit",
+      "RowsPerStrip",
+      "SamplesPerPixel",
+      "Software",
+      "StripByteCounts",
+      "StripOffsets",
+      "XResolution",
+      "YResolution"
+    ]
+  },
+  "index_gap_correlation": {
+    "1": {
+      "global": {
+        "min": 0.07751233875751495,
+        "median": 0.9984285235404968,
+        "max": 0.9996870160102844
+      },
+      "local_detail": {
+        "min": -0.03513231500983238,
+        "median": 0.9875540137290955,
+        "max": 0.995349109172821
+      }
+    },
+    "2": {
+      "global": {
+        "min": 0.25568777322769165,
+        "median": 0.9940491914749146,
+        "max": 0.9991301894187927
+      },
+      "local_detail": {
+        "min": 0.05537376552820206,
+        "median": 0.9541842937469482,
+        "max": 0.9863148927688599
+      }
+    },
+    "3": {
+      "global": {
+        "min": 0.09471561759710312,
+        "median": 0.987964928150177,
+        "max": 0.9973135590553284
+      },
+      "local_detail": {
+        "min": -0.033584192395210266,
+        "median": 0.9057867527008057,
+        "max": 0.9612577557563782
+      }
+    },
+    "5": {
+      "global": {
+        "min": 0.14376705884933472,
+        "median": 0.9734199643135071,
+        "max": 0.9932004809379578
+      },
+      "local_detail": {
+        "min": 0.06879863142967224,
+        "median": 0.8004693984985352,
+        "max": 0.8947773575782776
+      }
+    },
+    "10": {
+      "global": {
+        "min": 0.23639409244060516,
+        "median": 0.945054292678833,
+        "max": 0.9822465181350708
+      },
+      "local_detail": {
+        "min": 0.06240051984786987,
+        "median": 0.5926278233528137,
+        "max": 0.7350486516952515
+      }
+    },
+    "20": {
+      "global": {
+        "min": 0.23053854703903198,
+        "median": 0.9186599850654602,
+        "max": 0.9654943943023682
+      },
+      "local_detail": {
+        "min": 0.040099967271089554,
+        "median": 0.4221533238887787,
+        "max": 0.6273794174194336
+      }
+    },
+    "40": {
+      "global": {
+        "min": 0.22347912192344666,
+        "median": 0.8943689465522766,
+        "max": 0.9490927457809448
+      },
+      "local_detail": {
+        "min": 0.02019122987985611,
+        "median": 0.341664582490921,
+        "max": 0.5597384572029114
+      }
+    },
+    "80": {
+      "global": {
+        "min": 0.19632449746131897,
+        "median": 0.8524786233901978,
+        "max": 0.9018470048904419
+      },
+      "local_detail": {
+        "min": 0.012116547673940659,
+        "median": 0.3027644753456116,
+        "max": 0.4286172091960907
+      }
+    }
+  },
+  "mask_index_gap_iou": {
+    "method": "Binarize existing GT masks at >0; for each filename-index gap, calculate intersection/union only if both masks are nonempty; report aggregate IoU. This describes label continuity but does not establish Z order or acquisition provenance.",
+    "gaps": {
+      "1": {
+        "pairs": 161,
+        "min": 0.01821619473201318,
+        "median": 0.871516470758961,
+        "max": 0.9277505915478623
+      },
+      "2": {
+        "pairs": 160,
+        "min": 0.027217885468057205,
+        "median": 0.7746773548117832,
+        "max": 0.8531822816358899
+      },
+      "3": {
+        "pairs": 159,
+        "min": 0.01478821466945654,
+        "median": 0.686810142066095,
+        "max": 0.7946868986263798
+      },
+      "5": {
+        "pairs": 158,
+        "min": 0.0579782236223954,
+        "median": 0.5380926477439125,
+        "max": 0.678532023878944
+      },
+      "10": {
+        "pairs": 153,
+        "min": 0.04262711470653526,
+        "median": 0.3148749613203291,
+        "max": 0.4162496577093546
+      },
+      "20": {
+        "pairs": 143,
+        "min": 0.03058877746808407,
+        "median": 0.17537571983707104,
+        "max": 0.24934825915511433
+      },
+      "40": {
+        "pairs": 123,
+        "min": 0.036309012050970466,
+        "median": 0.1409080127964087,
+        "max": 0.24413190135275498
+      }
+    }
+  },
+  "nearest_neighbor_global": {
+    "adjacent_index_count": 149,
+    "index_distance": {
+      "min": 1.0,
+      "median": 1.0,
+      "max": 153.0
+    },
+    "similarity": {
+      "min": 0.6652711033821106,
+      "median": 0.9984825849533081,
+      "max": 0.9996870160102844
+    }
+  },
+  "nearest_neighbor_local_detail": {
+    "adjacent_index_count": 149,
+    "index_distance": {
+      "min": 1.0,
+      "median": 1.0,
+      "max": 157.0
+    },
+    "similarity": {
+      "min": 0.1043972373008728,
+      "median": 0.9880263805389404,
+      "max": 0.995349109172821
+    }
+  },
+  "similarity_graph": {
+    "0.99": {
+      "global_pairs": 330,
+      "largest_global": 148,
+      "global_groups": 20,
+      "global_group_sizes_top10": [
+        148,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "local_pairs": 19,
+      "largest_local": 9,
+      "local_groups": 148
+    },
+    "0.995": {
+      "global_pairs": 187,
+      "largest_global": 60,
+      "global_groups": 23,
+      "global_group_sizes_top10": [
+        60,
+        33,
+        29,
+        26,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "local_pairs": 1,
+      "largest_local": 2,
+      "local_groups": 166
+    },
+    "0.999": {
+      "global_pairs": 22,
+      "largest_global": 11,
+      "global_groups": 145,
+      "global_group_sizes_top10": [
+        11,
+        7,
+        6,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "local_pairs": 0,
+      "largest_local": 1,
+      "local_groups": 167
+    }
+  },
+  "validation_nearest_training": {
+    "global": {
+      "min": 0.7019254565238953,
+      "median": 0.9984716176986694,
+      "max": 0.9996098279953003
+    },
+    "local_detail": {
+      "min": 0.3013429045677185,
+      "median": 0.9877338409423828,
+      "max": 0.99357008934021
+    },
+    "global_at_least_0.99": 32,
+    "global_at_least_0.995": 30,
+    "local_at_least_0.99": 5,
+    "global_nearest_index_gap_median": 1.0
+  },
+  "source_crossmatch": {
+    "fluo_files": 1330,
+    "best_global": {
+      "min": 0.48618438839912415,
+      "median": 0.814152181148529,
+      "max": 0.926164448261261
+    },
+    "best_local_detail": {
+      "min": 0.12861596047878265,
+      "median": 0.43737494945526123,
+      "max": 0.6215528249740601
+    },
+    "at_least_0.99": 0,
+    "at_least_0.995": 0,
+    "at_least_0.999": 0,
+    "exact_sha_matches": 0,
+    "exact_match_pairs": []
+  },
+  "ld_input_tiff_metadata": {
+    "page_counts": {
+      "1": 36
+    },
+    "image_descriptions": {
+      "{\"shape\": [1200, 1200]}": 36
+    },
+    "software": {
+      "tifffile.py": 36
+    },
+    "tag_names": [
+      "BitsPerSample",
+      "Compression",
+      "ImageDescription",
+      "ImageLength",
+      "ImageWidth",
+      "PhotometricInterpretation",
+      "ResolutionUnit",
+      "RowsPerStrip",
+      "SamplesPerPixel",
+      "Software",
+      "StripByteCounts",
+      "StripOffsets",
+      "XResolution",
+      "YResolution"
+    ]
+  },
+  "ld_reference_crossmatch": {
+    "ld_input_files": 36,
+    "best_global": {
+      "min": 0.44630375504493713,
+      "median": 0.8947021961212158,
+      "max": 1.0
+    },
+    "at_least_0.99": 2,
+    "exact_sha_matches": 2,
+    "exact_match_pairs": [
+      [
+        "nuc_001.tif",
+        "ld_001.tif"
+      ],
+      [
+        "nuc_159.tif",
+        "ld_036.tif"
+      ]
+    ]
+  },
+  "mito_input_tiff_metadata": {
+    "page_counts": {
+      "1": 36
+    },
+    "image_descriptions": {
+      "{\"shape\": [1200, 1200]}": 36
+    },
+    "software": {
+      "tifffile.py": 36
+    },
+    "tag_names": [
+      "BitsPerSample",
+      "Compression",
+      "ImageDescription",
+      "ImageLength",
+      "ImageWidth",
+      "PhotometricInterpretation",
+      "ResolutionUnit",
+      "RowsPerStrip",
+      "SamplesPerPixel",
+      "Software",
+      "StripByteCounts",
+      "StripOffsets",
+      "XResolution",
+      "YResolution"
+    ]
+  },
+  "mito_reference_crossmatch": {
+    "mito_input_files": 36,
+    "best_global": {
+      "min": 0.35337430238723755,
+      "median": 0.8890038728713989,
+      "max": 0.989983856678009
+    },
+    "at_least_0.99": 0,
+    "exact_sha_matches": 0,
+    "exact_match_pairs": []
+  }
+}

@@ -236,6 +236,15 @@ reviewer-circled structures. The original Nuc prototype and existing Desktop
 figure and explains why neither internal nor synthetic-stress scores establish
 target-domain accuracy.
 
+The subsequent [Nuc source and error audit](reports/nuc_provenance_and_error_audit_20261016.md)
+documents the 167-image near-duplicate structure, validation overlap, partial
+Nuc/LD source crosslinks, object-level misses and false positives, and one
+input-only local-background diagnostic. It found no reliable mapping from the
+labelled `nuc_###` files to organoid/Z coordinates. A [conditional 2.5D
+protocol](experiments/nuc_25d_feasibility_protocol.md) is prepared, but no
+multi-slice model or new background-corrected model was trained; the original
+2D Nuc prototype remains the working model.
+
 For LD, use the versioned derived labels and
 `code/ld_train.py` instead, with the frozen map and a fresh output root:
 

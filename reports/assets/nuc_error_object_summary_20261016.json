@@ -1,0 +1,105 @@
+{
+  "validation_images": 34,
+  "frozen_threshold": 0.45,
+  "object_definitions": "GT 8-connected components >=100 px; missed has <10% GT-pixel coverage; well-covered has >=80%; descriptive on source-near-duplicate validation only",
+  "gt_components_ge_100": 1175,
+  "missed_lt_10pct": 22,
+  "partial_10_to_80pct": 41,
+  "well_covered_ge_80pct": 1112,
+  "missed_area_px": {
+    "n": 22,
+    "p10": 1399.9,
+    "median": 2042.0,
+    "p90": 3505.200000000001
+  },
+  "well_area_px": {
+    "n": 1112,
+    "p10": 2957.0,
+    "median": 5799.5,
+    "p90": 9388.0
+  },
+  "missed_core_minus_ring": {
+    "n": 22,
+    "p10": -0.15901188552379608,
+    "median": -0.09788218140602112,
+    "p90": -0.048702205717563604
+  },
+  "well_core_minus_ring": {
+    "n": 1112,
+    "p10": -0.1710728406906128,
+    "median": -0.11420829594135284,
+    "p90": -0.06887291222810746
+  },
+  "missed_prob_median": {
+    "n": 22,
+    "p10": 0.011932385247200727,
+    "median": 0.054813770577311516,
+    "p90": 0.1853689000010491
+  },
+  "well_prob_median": {
+    "n": 1112,
+    "p10": 0.9944982826709747,
+    "median": 1.0,
+    "p90": 1.0
+  },
+  "isolated_fp_components_ge_100": 33,
+  "isolated_fp_area_px": {
+    "n": 33,
+    "p10": 155.4,
+    "median": 1085.0,
+    "p90": 2591.0000000000005
+  },
+  "isolated_fp_core_minus_ring": {
+    "n": 33,
+    "p10": -0.10247483849525452,
+    "median": -0.04670912027359009,
+    "p90": -0.011268806457519528
+  },
+  "true_negative_nuc005_fp_px": 3093,
+  "target_rough_hint_summary": {
+    "rough_hints": 26,
+    "rough_core_lt_5pct_coverage": 11,
+    "rough_core_ge_50pct_coverage": 14,
+    "missed_core_prob_median": {
+      "n": 11,
+      "p10": 0.001617904519662261,
+      "median": 0.0118413669988513,
+      "p90": 0.05895562469959259
+    },
+    "covered_core_prob_median": {
+      "n": 14,
+      "p10": 0.9498297274112701,
+      "median": 0.9984655678272247,
+      "p90": 0.9999972283840179
+    },
+    "missed_core_prob_p90": {
+      "n": 11,
+      "p10": 0.003993179649114609,
+      "median": 0.020604833960533142,
+      "p90": 0.2051123082637787
+    },
+    "covered_core_prob_p90": {
+      "n": 14,
+      "p10": 0.9704867482185364,
+      "median": 0.9995786845684052,
+      "p90": 1.0
+    },
+    "missed_core_minus_ring": {
+      "n": 11,
+      "p10": -0.08552286028862,
+      "median": -0.0453968346118927,
+      "p90": -0.033831000328063965
+    },
+    "covered_core_minus_ring": {
+      "n": 14,
+      "p10": -0.1560067355632782,
+      "median": -0.0767979621887207,
+      "p90": -0.04907334148883819
+    }
+  },
+  "limitations": [
+    "Internal validation is heavily near-duplicate with training; object rows are not independent samples.",
+    "Target rough red strokes are imprecise hints, not full ground truth; target figures are descriptive only.",
+    "Isolated FP components exclude FP pixels connected to a GT-overlapping predicted component."
+  ]
+}

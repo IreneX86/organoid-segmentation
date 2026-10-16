@@ -269,3 +269,34 @@ scientific protocols and fold maps remain in `experiments/`.
   Do not change original masks or claim target Dice without complete target
   contours. Do not rescan local-contrast alpha/probability after this weak
   real-target result.
+
+### Source and failure-mode audit completed later on 2026-10-16
+
+- [Full read-only report](reports/nuc_provenance_and_error_audit_20261016.md),
+  [source-dependence chart](reports/assets/nuc_provenance_summary.svg), and
+  [object-error chart](reports/assets/nuc_error_object_audit_20261016.svg)
+  are in Git. Original TIFFs, masks, prior checkpoints, and Desktop
+  `Nuc_label` were not modified; no GPU Pod or new training was started.
+- 149/167 Nuc inputs have a nearest-image neighbor whose filename index is
+  adjacent, and mask overlap decreases with index gap. This is consistent
+  with a sequence but does **not** prove Z order or identify organoid/field
+  boundaries. TIFF metadata contain no acquisition/Z mapping. Two Nuc inputs
+  exactly match LD inputs; none exactly match the 1,330 current
+  `organoid_data/*/fluo` images. Only a verified source manifest can unblock
+  2.5D; the [feasibility protocol](experiments/nuc_25d_feasibility_protocol.md)
+  gives the required checks and same-group 2D comparator.
+- Under a new thumbnail method, 32/34 validation images have a training input
+  with global correlation >=0.99. This is descriptive dependence evidence,
+  not a verified biological grouping. Do not interpret current internal Dice
+  as cross-organoid accuracy or claim fivefold grouped CV from these files.
+- At the frozen 0.45 threshold, 22 of 1,175 nontrivial labelled validation
+  components have <10% pixel coverage, and the weakly detected objects tend
+  to be smaller and have less dark-core/bright-ring contrast. Target red
+  circles are only rough hints; no target Dice was computed. A single fixed
+  input-only local-background correction narrowed one train/target detail
+  statistic but amplified texture on confirmed negative training images;
+  its segmentation effect has **not** been tested.
+- Next work is source recovery: find acquisition metadata or export mapping
+  from each labelled TIFF/mask to original organoid, field, and Z plane.
+  Until it is verified, keep the original 2D Nuc model. Do not concatenate
+  files by filename, tune against the target red circles, or train 2.5D.
