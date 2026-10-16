@@ -254,6 +254,12 @@ neighboring Z planes or independent source groups. The report includes four
 aggregate figures and a prioritized, source-grouped comparison plan; no new
 Nuc model was trained and the working 2D checkpoint is unchanged.
 
+When acquisition/Z mapping is unavailable, the [CPU-only cross-slice review
+pilot](reports/nuc_cross_slice_review_20261016.md) uses the archived first ten
+target Nuc predictions and adjacent original images to make a local human
+review pack. Its image-derived markers are browsing aids, not nuclei labels or
+an accuracy estimate; it does not change the working prediction folders.
+
 For LD, use the versioned derived labels and
 `code/ld_train.py` instead, with the frozen map and a fresh output root:
 

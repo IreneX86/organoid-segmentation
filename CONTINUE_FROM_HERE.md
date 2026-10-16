@@ -355,3 +355,22 @@ scientific protocols and fold maps remain in `experiments/`.
   organoid, field, and Z plane. Do not infer that mapping from `nuc_###`
   numbering or these cohort metrics. Keep the 2D model and all masks frozen;
   no new training or target-mask overwrite occurred in this follow-up.
+
+### Nuc cross-slice review pilot on 2026-10-16
+
+- With labelled-source/Z records unavailable, a [read-only review tool](code/nuc_cross_slice_review.py)
+  and [research note](reports/nuc_cross_slice_review_20261016.md) were added.
+  The local-only pack is `runpod_results/nuc_cross_slice_review_20261016_v2/index.md`.
+  It covers `cell_22375_NZ_100/fluo_001…010` using the archived frozen 2D
+  masks, not the possibly edited Desktop `Nuc_label` masks.
+- Ten input manifest hashes and the archived mask hashes passed. The pack has
+  native-grid previous/center/next grayscale, full overlay, and mask-outside
+  marker overlay for each center. Its 400 image-only browsing points include
+  213 whose center coordinate falls outside the frozen mask. These are **not**
+  confirmed missed nuclei or new labels.
+- A neighbor-mask-only gap rule produced zero sizable interior single-slice
+  omissions under its fixed definition; it cannot detect structures missed
+  across several layers. There is still no complete target ground truth, so
+  no target accuracy or Dice claim. Original TIFFs, frozen predictions,
+  current `Nuc_label`, model, and scientific split remain unchanged. No GPU
+  training or billable resource was started.
