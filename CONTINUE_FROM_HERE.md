@@ -374,3 +374,23 @@ scientific protocols and fold maps remain in `experiments/`.
   no target accuracy or Dice claim. Original TIFFs, frozen predictions,
   current `Nuc_label`, model, and scientific split remain unchanged. No GPU
   training or billable resource was started.
+
+### Nuc marker retrospective audit on 2026-10-17
+
+- The fixed dark-core review rule was checked, without parameter changes or
+  neighboring `nuc_###` assumptions, on all 34 archived labelled validation
+  images. See [report](reports/nuc_dark_core_validation_audit_20261017.md),
+  [small metrics](reports/nuc_dark_core_validation_audit_20261017.json), and
+  [reproducible script](code/nuc_review_internal_audit.py).
+- Among 1175 GT components of at least 100 px, 22 had <10% coverage by the
+  frozen prediction. Original top-10/20/40 ranks pointed into 6/8/14 of these
+  22 components; top-40 left 285 outside-mask review points across 34 images.
+  The confirmed no-nucleus `nuc_005` alone produced 39 outside-mask points.
+- Decision: keep these markers only as optional human browsing aids. Do not
+  merge them into `Nuc_label`, call them new labels, tune this rule on the
+  viewed target images, or claim target recall from this near-duplicate,
+  same-batch diagnostic. No new training or GPU resource was used.
+- Next scientifically valid model comparison requires an independently
+  sourced target annotation set or verifiable labelled-stack/source mapping.
+  Until then retain the frozen 2D Nuc model and treat the target review pack
+  as qualitative only.

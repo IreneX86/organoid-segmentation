@@ -260,6 +260,13 @@ target Nuc predictions and adjacent original images to make a local human
 review pack. Its image-derived markers are browsing aids, not nuclei labels or
 an accuracy estimate; it does not change the working prediction folders.
 
+The [retrospective Nuc marker audit](reports/nuc_dark_core_validation_audit_20261017.md)
+checks that fixed review rule on the 34 archived labelled validation images.
+At 40 candidates per image it points to 14 of 22 nuclei with <10% frozen-model
+coverage, but produces 285 outside-mask review points; the confirmed no-nucleus
+`nuc_005` alone has 39 such points. This same-batch check supports manual review
+only, not automatic label filling or a target-data accuracy claim.
+
 For LD, use the versioned derived labels and
 `code/ld_train.py` instead, with the frozen map and a fresh output root:
 

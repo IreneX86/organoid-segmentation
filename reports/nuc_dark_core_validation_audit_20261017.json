@@ -1,0 +1,738 @@
+{
+  "purpose": "retrospective same-batch development diagnostic; no independent source validation",
+  "source": {
+    "split": "experiments/results/nuc_internal_split_v1.json",
+    "heuristic": "code/nuc_cross_slice_review.py",
+    "prediction": "archived selected threshold 0.45",
+    "source_input_label_sha256": "all 34 match frozen split",
+    "split_threshold_sha256": "match archived run_manifest.json",
+    "selected_prediction_vs_probability": "all 34 exact at >=0.45"
+  },
+  "settings": {
+    "image_only_center_response": true,
+    "adjacent_nuc_indices_used": false,
+    "small_blur_px": 10.0,
+    "large_blur_px": 32.0,
+    "peak_separation_px": 60,
+    "edge_margin_px": 48,
+    "max_markers_per_image": 40,
+    "gt_connectivity": 8,
+    "minimum_gt_area_px": 100,
+    "missed_baseline_coverage_lt": 0.1,
+    "sensitivity_distance_px": 10,
+    "queue_policy": "filter frozen-mask-inside markers after original ranking, no refill"
+  },
+  "denominators": {
+    "validation_images": 34,
+    "nonempty_gt_images": 33,
+    "gt_components_ge_100px": 1175,
+    "missed_gt_components_lt_10pct": 22,
+    "images_with_missed_gt": 14,
+    "images_with_exact_top40_missed_hit": 11,
+    "missed_touching_48px_margin": 0,
+    "missed_without_gt_pixel_in_allowed_center_area": 0
+  },
+  "top_original_rank": {
+    "10": {
+      "markers": 340,
+      "outside_prediction_queue": 38,
+      "centers_inside_gt": 306,
+      "queue_centers_inside_gt": 7,
+      "exact_gt_hits": 292,
+      "exact_missed_hits": 6,
+      "within_10px_gt_hits": 292,
+      "within_10px_missed_hits": 6,
+      "queue_exact_gt_hits": 7,
+      "queue_exact_missed_hits": 6,
+      "queue_within_10px_gt_hits": 7,
+      "queue_within_10px_missed_hits": 6,
+      "centers_outside_gt": 34,
+      "queue_centers_outside_gt": 31
+    },
+    "20": {
+      "markers": 680,
+      "outside_prediction_queue": 93,
+      "centers_inside_gt": 594,
+      "queue_centers_inside_gt": 11,
+      "exact_gt_hits": 534,
+      "exact_missed_hits": 8,
+      "within_10px_gt_hits": 534,
+      "within_10px_missed_hits": 8,
+      "queue_exact_gt_hits": 11,
+      "queue_exact_missed_hits": 8,
+      "queue_within_10px_gt_hits": 12,
+      "queue_within_10px_missed_hits": 8,
+      "centers_outside_gt": 86,
+      "queue_centers_outside_gt": 82
+    },
+    "40": {
+      "markers": 1360,
+      "outside_prediction_queue": 285,
+      "centers_inside_gt": 1084,
+      "queue_centers_inside_gt": 19,
+      "exact_gt_hits": 914,
+      "exact_missed_hits": 14,
+      "within_10px_gt_hits": 914,
+      "within_10px_missed_hits": 14,
+      "queue_exact_gt_hits": 19,
+      "queue_exact_missed_hits": 14,
+      "queue_within_10px_gt_hits": 20,
+      "queue_within_10px_missed_hits": 14,
+      "centers_outside_gt": 276,
+      "queue_centers_outside_gt": 266
+    }
+  },
+  "true_negative_nuc_005": {
+    "image": "nuc_005.tif",
+    "gt_components_ge_100px": 0,
+    "missed_gt_components": 0,
+    "markers_top40": 40,
+    "outside_prediction_queue_top40": 39,
+    "centers_inside_gt_top40": 0,
+    "baseline_predicted_positive_pixels": 3093,
+    "markers_outside_gt_top40": 40,
+    "queue_markers_outside_gt_top40": 39
+  },
+  "per_image": [
+    {
+      "image": "nuc_005.tif",
+      "gt_components_ge_100px": 0,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 39,
+      "centers_inside_gt_top40": 0,
+      "baseline_predicted_positive_pixels": 3093,
+      "markers_outside_gt_top40": 40,
+      "queue_markers_outside_gt_top40": 39
+    },
+    {
+      "image": "nuc_006.tif",
+      "gt_components_ge_100px": 3,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 37,
+      "centers_inside_gt_top40": 3,
+      "baseline_predicted_positive_pixels": 12250
+    },
+    {
+      "image": "nuc_007.tif",
+      "gt_components_ge_100px": 5,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 34,
+      "centers_inside_gt_top40": 6,
+      "baseline_predicted_positive_pixels": 19917
+    },
+    {
+      "image": "nuc_016.tif",
+      "gt_components_ge_100px": 11,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 24,
+      "centers_inside_gt_top40": 16,
+      "baseline_predicted_positive_pixels": 83454
+    },
+    {
+      "image": "nuc_028.tif",
+      "gt_components_ge_100px": 25,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 7,
+      "centers_inside_gt_top40": 33,
+      "baseline_predicted_positive_pixels": 145698
+    },
+    {
+      "image": "nuc_029.tif",
+      "gt_components_ge_100px": 27,
+      "missed_gt_components": 3,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 10,
+      "centers_inside_gt_top40": 33,
+      "baseline_predicted_positive_pixels": 142128
+    },
+    {
+      "image": "nuc_034.tif",
+      "gt_components_ge_100px": 25,
+      "missed_gt_components": 1,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 5,
+      "centers_inside_gt_top40": 36,
+      "baseline_predicted_positive_pixels": 150509
+    },
+    {
+      "image": "nuc_038.tif",
+      "gt_components_ge_100px": 25,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 3,
+      "centers_inside_gt_top40": 36,
+      "baseline_predicted_positive_pixels": 177290
+    },
+    {
+      "image": "nuc_042.tif",
+      "gt_components_ge_100px": 26,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 10,
+      "centers_inside_gt_top40": 29,
+      "baseline_predicted_positive_pixels": 155543
+    },
+    {
+      "image": "nuc_043.tif",
+      "gt_components_ge_100px": 27,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 8,
+      "centers_inside_gt_top40": 32,
+      "baseline_predicted_positive_pixels": 158755
+    },
+    {
+      "image": "nuc_044.tif",
+      "gt_components_ge_100px": 29,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 7,
+      "centers_inside_gt_top40": 33,
+      "baseline_predicted_positive_pixels": 164754
+    },
+    {
+      "image": "nuc_051.tif",
+      "gt_components_ge_100px": 38,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 2,
+      "centers_inside_gt_top40": 38,
+      "baseline_predicted_positive_pixels": 200834
+    },
+    {
+      "image": "nuc_052.tif",
+      "gt_components_ge_100px": 36,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 3,
+      "centers_inside_gt_top40": 36,
+      "baseline_predicted_positive_pixels": 205178
+    },
+    {
+      "image": "nuc_054.tif",
+      "gt_components_ge_100px": 36,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 2,
+      "centers_inside_gt_top40": 38,
+      "baseline_predicted_positive_pixels": 207087
+    },
+    {
+      "image": "nuc_061.tif",
+      "gt_components_ge_100px": 32,
+      "missed_gt_components": 1,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 5,
+      "centers_inside_gt_top40": 35,
+      "baseline_predicted_positive_pixels": 186854
+    },
+    {
+      "image": "nuc_063.tif",
+      "gt_components_ge_100px": 28,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 9,
+      "centers_inside_gt_top40": 30,
+      "baseline_predicted_positive_pixels": 176406
+    },
+    {
+      "image": "nuc_067.tif",
+      "gt_components_ge_100px": 31,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 7,
+      "centers_inside_gt_top40": 33,
+      "baseline_predicted_positive_pixels": 186290
+    },
+    {
+      "image": "nuc_068.tif",
+      "gt_components_ge_100px": 30,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 9,
+      "centers_inside_gt_top40": 31,
+      "baseline_predicted_positive_pixels": 181219
+    },
+    {
+      "image": "nuc_069.tif",
+      "gt_components_ge_100px": 32,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 9,
+      "centers_inside_gt_top40": 31,
+      "baseline_predicted_positive_pixels": 184684
+    },
+    {
+      "image": "nuc_073.tif",
+      "gt_components_ge_100px": 37,
+      "missed_gt_components": 2,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 5,
+      "centers_inside_gt_top40": 37,
+      "baseline_predicted_positive_pixels": 201059
+    },
+    {
+      "image": "nuc_087.tif",
+      "gt_components_ge_100px": 39,
+      "missed_gt_components": 1,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 1,
+      "centers_inside_gt_top40": 38,
+      "baseline_predicted_positive_pixels": 228864
+    },
+    {
+      "image": "nuc_099.tif",
+      "gt_components_ge_100px": 45,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 1,
+      "centers_inside_gt_top40": 39,
+      "baseline_predicted_positive_pixels": 299020
+    },
+    {
+      "image": "nuc_104.tif",
+      "gt_components_ge_100px": 45,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 4,
+      "centers_inside_gt_top40": 35,
+      "baseline_predicted_positive_pixels": 287261
+    },
+    {
+      "image": "nuc_110.tif",
+      "gt_components_ge_100px": 41,
+      "missed_gt_components": 1,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 3,
+      "centers_inside_gt_top40": 38,
+      "baseline_predicted_positive_pixels": 256101
+    },
+    {
+      "image": "nuc_113.tif",
+      "gt_components_ge_100px": 46,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 3,
+      "centers_inside_gt_top40": 38,
+      "baseline_predicted_positive_pixels": 260284
+    },
+    {
+      "image": "nuc_114.tif",
+      "gt_components_ge_100px": 49,
+      "missed_gt_components": 1,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 1,
+      "centers_inside_gt_top40": 40,
+      "baseline_predicted_positive_pixels": 273653
+    },
+    {
+      "image": "nuc_116.tif",
+      "gt_components_ge_100px": 52,
+      "missed_gt_components": 3,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 2,
+      "centers_inside_gt_top40": 39,
+      "baseline_predicted_positive_pixels": 278822
+    },
+    {
+      "image": "nuc_120.tif",
+      "gt_components_ge_100px": 47,
+      "missed_gt_components": 1,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 2,
+      "centers_inside_gt_top40": 39,
+      "baseline_predicted_positive_pixels": 287323
+    },
+    {
+      "image": "nuc_121.tif",
+      "gt_components_ge_100px": 46,
+      "missed_gt_components": 0,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 1,
+      "centers_inside_gt_top40": 39,
+      "baseline_predicted_positive_pixels": 287750
+    },
+    {
+      "image": "nuc_140.tif",
+      "gt_components_ge_100px": 53,
+      "missed_gt_components": 2,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 3,
+      "centers_inside_gt_top40": 39,
+      "baseline_predicted_positive_pixels": 310815
+    },
+    {
+      "image": "nuc_141.tif",
+      "gt_components_ge_100px": 50,
+      "missed_gt_components": 1,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 4,
+      "centers_inside_gt_top40": 37,
+      "baseline_predicted_positive_pixels": 314248
+    },
+    {
+      "image": "nuc_146.tif",
+      "gt_components_ge_100px": 53,
+      "missed_gt_components": 2,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 3,
+      "centers_inside_gt_top40": 38,
+      "baseline_predicted_positive_pixels": 314019
+    },
+    {
+      "image": "nuc_149.tif",
+      "gt_components_ge_100px": 49,
+      "missed_gt_components": 2,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 7,
+      "centers_inside_gt_top40": 34,
+      "baseline_predicted_positive_pixels": 284094
+    },
+    {
+      "image": "nuc_163.tif",
+      "gt_components_ge_100px": 57,
+      "missed_gt_components": 1,
+      "markers_top40": 40,
+      "outside_prediction_queue_top40": 15,
+      "centers_inside_gt_top40": 25,
+      "baseline_predicted_positive_pixels": 235327
+    }
+  ],
+  "missed_object_details": [
+    {
+      "image": "nuc_029.tif",
+      "area_px": 2698,
+      "bbox_xyxy": [
+        742,
+        446,
+        789,
+        520
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": 5,
+      "first_within_10px_rank": 5
+    },
+    {
+      "image": "nuc_029.tif",
+      "area_px": 2038,
+      "bbox_xyxy": [
+        277,
+        634,
+        335,
+        683
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": 26,
+      "first_within_10px_rank": 26
+    },
+    {
+      "image": "nuc_029.tif",
+      "area_px": 1250,
+      "bbox_xyxy": [
+        752,
+        680,
+        798,
+        716
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": 17,
+      "first_within_10px_rank": 17
+    },
+    {
+      "image": "nuc_034.tif",
+      "area_px": 2940,
+      "bbox_xyxy": [
+        594,
+        922,
+        685,
+        968
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": 40,
+      "first_within_10px_rank": 40
+    },
+    {
+      "image": "nuc_061.tif",
+      "area_px": 1472,
+      "bbox_xyxy": [
+        606,
+        1005,
+        656,
+        1042
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": null,
+      "first_within_10px_rank": null
+    },
+    {
+      "image": "nuc_073.tif",
+      "area_px": 2372,
+      "bbox_xyxy": [
+        653,
+        665,
+        706,
+        738
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": 21,
+      "first_within_10px_rank": 21
+    },
+    {
+      "image": "nuc_073.tif",
+      "area_px": 1890,
+      "bbox_xyxy": [
+        811,
+        817,
+        865,
+        871
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": 10,
+      "first_within_10px_rank": 10
+    },
+    {
+      "image": "nuc_087.tif",
+      "area_px": 5097,
+      "bbox_xyxy": [
+        162,
+        544,
+        234,
+        631
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": null,
+      "first_within_10px_rank": null
+    },
+    {
+      "image": "nuc_110.tif",
+      "area_px": 2668,
+      "bbox_xyxy": [
+        523,
+        373,
+        581,
+        441
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": 37,
+      "first_within_10px_rank": 37
+    },
+    {
+      "image": "nuc_114.tif",
+      "area_px": 1398,
+      "bbox_xyxy": [
+        953,
+        841,
+        998,
+        883
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": 30,
+      "first_within_10px_rank": 30
+    },
+    {
+      "image": "nuc_116.tif",
+      "area_px": 2046,
+      "bbox_xyxy": [
+        120,
+        560,
+        173,
+        609
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": null,
+      "first_within_10px_rank": null
+    },
+    {
+      "image": "nuc_116.tif",
+      "area_px": 1759,
+      "bbox_xyxy": [
+        642,
+        750,
+        696,
+        802
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": 8,
+      "first_within_10px_rank": 8
+    },
+    {
+      "image": "nuc_116.tif",
+      "area_px": 916,
+      "bbox_xyxy": [
+        1036,
+        790,
+        1069,
+        827
+      ],
+      "baseline_coverage": 0.033843,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": null,
+      "first_within_10px_rank": null
+    },
+    {
+      "image": "nuc_120.tif",
+      "area_px": 3568,
+      "bbox_xyxy": [
+        561,
+        638,
+        661,
+        692
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": 37,
+      "first_within_10px_rank": 37
+    },
+    {
+      "image": "nuc_140.tif",
+      "area_px": 2048,
+      "bbox_xyxy": [
+        766,
+        633,
+        825,
+        682
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": 8,
+      "first_within_10px_rank": 8
+    },
+    {
+      "image": "nuc_140.tif",
+      "area_px": 2568,
+      "bbox_xyxy": [
+        473,
+        666,
+        546,
+        717
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": null,
+      "first_within_10px_rank": null
+    },
+    {
+      "image": "nuc_141.tif",
+      "area_px": 2160,
+      "bbox_xyxy": [
+        945,
+        652,
+        1010,
+        709
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": 2,
+      "first_within_10px_rank": 2
+    },
+    {
+      "image": "nuc_146.tif",
+      "area_px": 1673,
+      "bbox_xyxy": [
+        673,
+        57,
+        736,
+        91
+      ],
+      "baseline_coverage": 0.068739,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": null,
+      "first_within_10px_rank": null
+    },
+    {
+      "image": "nuc_146.tif",
+      "area_px": 1417,
+      "bbox_xyxy": [
+        699,
+        246,
+        742,
+        292
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": 18,
+      "first_within_10px_rank": 18
+    },
+    {
+      "image": "nuc_149.tif",
+      "area_px": 1683,
+      "bbox_xyxy": [
+        628,
+        187,
+        687,
+        223
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": null,
+      "first_within_10px_rank": null
+    },
+    {
+      "image": "nuc_149.tif",
+      "area_px": 1986,
+      "bbox_xyxy": [
+        959,
+        565,
+        1010,
+        612
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": 6,
+      "first_within_10px_rank": 6
+    },
+    {
+      "image": "nuc_163.tif",
+      "area_px": 4292,
+      "bbox_xyxy": [
+        241,
+        888,
+        309,
+        970
+      ],
+      "baseline_coverage": 0.0,
+      "touches_48px_margin": false,
+      "has_gt_pixel_in_allowed_center_area": true,
+      "first_exact_rank": null,
+      "first_within_10px_rank": null
+    }
+  ]
+}
