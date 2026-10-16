@@ -225,6 +225,17 @@ reliable fix for missed nuclei. The original Nuc prototype remains the working
 baseline. All candidate checkpoints and TIFF previews stay in ignored local
 storage, outside Git.
 
+The separately [preregistered low-local-contrast ablation](experiments/nuc_low_contrast_protocol_20261016.md)
+and [paired result report](reports/nuc_low_local_contrast_20261016.md) test a
+measured input-domain contrast difference without changing Nuc masks or the
+original 2D U-Net. The candidate's fixed-0.50 internal Dice changed from
+0.956452 to 0.957296, but its one true-negative validation image had more
+false-positive pixels, and the first-ten target previews still missed many
+reviewer-circled structures. The original Nuc prototype and existing Desktop
+`Nuc_label` remain unchanged. The report includes an input-only distribution
+figure and explains why neither internal nor synthetic-stress scores establish
+target-domain accuracy.
+
 For LD, use the versioned derived labels and
 `code/ld_train.py` instead, with the frozen map and a fresh output root:
 

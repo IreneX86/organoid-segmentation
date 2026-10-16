@@ -1,7 +1,7 @@
-# LD experiment continuation
+# Organoid experiment continuation
 
-Updated: 2026-10-15 (Australia/Sydney). This file records operational state; the frozen
-scientific protocol and fold map remain in `experiments/`.
+Updated: 2026-10-16 (Australia/Sydney). This file records operational state; the frozen
+scientific protocols and fold maps remain in `experiments/`.
 
 ## Completed and verified
 
@@ -230,3 +230,42 @@ scientific protocol and fold map remain in `experiments/`.
   3/5 vote has no independent external accuracy estimate. Do not train on
   these predictions as if they were manual labels or report their Dice as
   measured external performance.
+
+## Current Nuc investigation (2026-10-16)
+
+- The working Nuc model remains the original 167-pair internal prototype in
+  Git-ignored `runpod_results/nuc_internal_20261015/full_results/model/`.
+  Its frozen 133/34 split has many highly similar train/validation images;
+  internal Dice is not an independent target-domain accuracy estimate.
+- The [low-local-contrast protocol](experiments/nuc_low_contrast_protocol_20261016.md)
+  and code were pushed as commit `682248b` before candidate results were read.
+  A single Secure Cloud A40 run finished 80 epochs, best checkpoint epoch 60,
+  and completed the fixed synthetic-stress test. Full archive, checkpoint,
+  334 source hashes, validation TIFFs and result provenance passed the local
+  verifier in Git-ignored `runpod_results/nuc_low_contrast_20261016/`.
+- On the same 33 nonempty internal validation images at fixed threshold 0.50,
+  Dice changed **0.956452→0.957296** (paired +0.000844, 17 wins/16 losses);
+  the only true-negative validation image's FP pixels changed **2,744→5,821**.
+  The candidate is much more robust to the *synthetic contrast transform it
+  was trained on*, but the first-ten real `fluo` previews did not visibly
+  recover many user-circled nuclei. See the [paired report](reports/nuc_low_local_contrast_20261016.md).
+- Keep the original Nuc prototype and existing Desktop `Nuc_label` untouched.
+  Candidate previews, masks, checkpoint, logs and raw TIFF copies are all
+  local-only. The one Runpod Pod `21spiybvyusvqx` was deleted after SHA256
+  verification; Pod, Endpoint, Network Volume and Cluster lists are empty.
+  Estimated GPU charge is about US$0.66 plus small disk cost; Runpod billing
+  buckets were incomplete at the last read.
+- A read-only semantic audit is complete. The rough target-circle sizes overlap
+  labelled-nucleus sizes, but many hints remain missed. The train-only nearest
+  comparison of true-negative `nuc_002`–`004` with positive `nuc_008` found
+  whole-image correlation 0.985–0.988 yet much weaker local dark-core contrast
+  in the negatives. The user's `nuc_006` decision used adjacent `nuc_007`,
+  which suggests some labels may rely on context unavailable to an independent
+  2D model. This does not establish label error or target accuracy; details
+  are in the paired report and ignored `semantic_audit/` directory.
+- Next work: assess a near-duplicate-grouped validation design using existing
+  labelled images before claiming improved generalization. Determine whether
+  single-image 2D input can support the intended human Nuc decision rule.
+  Do not change original masks or claim target Dice without complete target
+  contours. Do not rescan local-contrast alpha/probability after this weak
+  real-target result.
