@@ -120,6 +120,27 @@ def _augment_patch(
     )
 
 
+def _augment_spatial_illumination(
+    image: np.ndarray,
+    rng: np.random.Generator,
+    max_offset: float,
+) -> np.ndarray:
+    """Add a bounded, zero-centred illumination plane to a normalized image.
+
+    Only image intensity changes; the mask and all pixel coordinates stay fixed.
+    The two slopes each contribute at most half of ``max_offset``, so the
+    combined change at any corner cannot exceed ``max_offset``.
+    """
+
+    slope_x, slope_y = rng.uniform(
+        -max_offset / 2, max_offset / 2, size=2
+    ).astype(np.float32)
+    x = np.linspace(-1.0, 1.0, image.shape[1], dtype=np.float32)
+    y = np.linspace(-1.0, 1.0, image.shape[0], dtype=np.float32)
+    illumination = slope_x * x[None, :] + slope_y * y[:, None]
+    return np.ascontiguousarray(np.clip(image + illumination, 0.0, 1.0), dtype=np.float32)
+
+
 class RandomPatchSequence(tf.keras.utils.Sequence):
     """Generate fresh random training patches for every epoch."""
 
@@ -135,6 +156,8 @@ class RandomPatchSequence(tf.keras.utils.Sequence):
         hard_negative_fraction: float = 0.0,
         random_seed: int = 42,
         augment: bool = True,
+        spatial_illumination_probability: float = 0.0,
+        spatial_illumination_max_offset: float = 0.0,
         **kwargs: object,
     ) -> None:
         super().__init__(**kwargs)
@@ -146,6 +169,12 @@ class RandomPatchSequence(tf.keras.utils.Sequence):
             raise ValueError("positive_patch_probability must be between 0 and 1")
         if not 0 <= hard_negative_fraction <= 1 - positive_patch_probability:
             raise ValueError("hard-negative fraction must fit the non-positive branch")
+        if not 0 <= spatial_illumination_probability <= 1:
+            raise ValueError("spatial illumination probability must be between 0 and 1")
+        if not 0 <= spatial_illumination_max_offset <= 1:
+            raise ValueError("spatial illumination offset must be between 0 and 1")
+        if spatial_illumination_probability and not spatial_illumination_max_offset:
+            raise ValueError("spatial illumination needs a positive maximum offset")
 
         self.pairs = pairs
         self.batch_size = batch_size
@@ -161,6 +190,8 @@ class RandomPatchSequence(tf.keras.utils.Sequence):
             self._hard_negative_centers = hard_negative_centers
         self.random_seed = random_seed
         self.augment = augment
+        self.spatial_illumination_probability = spatial_illumination_probability
+        self.spatial_illumination_max_offset = spatial_illumination_max_offset
         self.epoch_index = 0
 
     def __len__(self) -> int:
@@ -201,6 +232,18 @@ class RandomPatchSequence(tf.keras.utils.Sequence):
             )
             if self.augment:
                 image_patch, mask_patch = _augment_patch(image_patch, mask_patch, rng)
+                if self.spatial_illumination_probability:
+                    # A separate stream leaves every baseline crop, geometric transform,
+                    # and intensity draw unchanged for a paired comparison.
+                    illumination_rng = np.random.default_rng(np.random.SeedSequence([
+                        self.random_seed, self.epoch_index, batch_index,
+                        item_index, 0x4E5543,
+                    ]))
+                    if illumination_rng.random() < self.spatial_illumination_probability:
+                        image_patch = _augment_spatial_illumination(
+                            image_patch, illumination_rng,
+                            self.spatial_illumination_max_offset,
+                        )
             images[item_index, ..., 0] = image_patch
             masks[item_index, ..., 0] = mask_patch
         return images, masks

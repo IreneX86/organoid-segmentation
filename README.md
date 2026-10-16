@@ -216,6 +216,15 @@ fixed 0.50 threshold and **0.9565138074004935** at the selected 0.45
 threshold, with the validation true negative reported separately. These are
 same-batch internal diagnostics, not cross-source generalization estimates.
 
+The one-factor [spatial-illumination protocol](experiments/nuc_spatial_illumination_protocol.md)
+and [paired evaluation](reports/nuc_spatial_illumination_20261016.md) record a
+research candidate trained on the same frozen Nuc split. Its fixed-0.50
+validation Dice improved by only 0.00143, while worst-case Dice and mean
+precision declined; the first-ten target-image previews did not establish a
+reliable fix for missed nuclei. The original Nuc prototype remains the working
+baseline. All candidate checkpoints and TIFF previews stay in ignored local
+storage, outside Git.
+
 For LD, use the versioned derived labels and
 `code/ld_train.py` instead, with the frozen map and a fresh output root:
 

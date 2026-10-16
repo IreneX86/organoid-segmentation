@@ -242,6 +242,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--epochs", type=int, default=100)
     parser.add_argument("--learning-rate", type=float, default=1e-4)
     parser.add_argument("--positive-patch-probability", type=float, default=0.6)
+    parser.add_argument("--spatial-illumination-probability", type=float, default=0.0)
+    parser.add_argument("--spatial-illumination-max-offset", type=float, default=0.0)
     parser.add_argument("--seed", type=int, default=42)
     return parser.parse_args()
 
@@ -251,7 +253,11 @@ def main() -> None:
     if (args.batch_size < 1 or args.prediction_batch_size < 1
             or args.steps_per_epoch < 1 or args.epochs < 1
             or args.learning_rate <= 0
-            or not 0 <= args.positive_patch_probability <= 1):
+            or not 0 <= args.positive_patch_probability <= 1
+            or not 0 <= args.spatial_illumination_probability <= 1
+            or not 0 <= args.spatial_illumination_max_offset <= 1
+            or (args.spatial_illumination_probability > 0
+                and args.spatial_illumination_max_offset == 0)):
         raise ValueError("Nuc training parameters are outside their allowed ranges")
     config = PipelineConfig(
         patch_size=args.patch_size, overlap=args.overlap, random_seed=args.seed
@@ -330,6 +336,8 @@ def main() -> None:
         "steps_per_epoch": args.steps_per_epoch, "epochs": args.epochs,
         "learning_rate": args.learning_rate,
         "positive_patch_probability": args.positive_patch_probability,
+        "spatial_illumination_probability": args.spatial_illumination_probability,
+        "spatial_illumination_max_offset": args.spatial_illumination_max_offset,
         "lower_percentile": config.lower_percentile,
         "upper_percentile": config.upper_percentile,
         "checkpoint_selection": "nonempty_validation_full_image_dice_at_0.5",
@@ -343,6 +351,8 @@ def main() -> None:
         lower_percentile=config.lower_percentile,
         upper_percentile=config.upper_percentile,
         positive_patch_probability=args.positive_patch_probability,
+        spatial_illumination_probability=args.spatial_illumination_probability,
+        spatial_illumination_max_offset=args.spatial_illumination_max_offset,
         random_seed=args.seed, augment=True,
     )
     model = build_unet_2d()  # Fresh Nuc initialization; no Mito or LD weights.
