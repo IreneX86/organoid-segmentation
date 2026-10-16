@@ -1,0 +1,136 @@
+{
+  "method": "Input-only 100x100 area-mean p1-p99.5 Pearson r for sequence; 60x60 area-mean p1-p99.5 D4 orientation and up-to-6-pixel translation for target candidate search.",
+  "warning": "Neither export batches, image similarity, exact cross-pool anchors, nor numeric filenames establish organoid identity, Z index, Z interval, or acquisition order.",
+  "nuc_count": 167,
+  "target_count": 1330,
+  "cohort_counts": {
+    "2025-10": 10,
+    "2025-11": 148,
+    "2026-05": 9
+  },
+  "non_nov_files": [
+    "nuc_001.tif",
+    "nuc_010.tif",
+    "nuc_017.tif",
+    "nuc_025.tif",
+    "nuc_038.tif",
+    "nuc_066.tif",
+    "nuc_074.tif",
+    "nuc_101.tif",
+    "nuc_128.tif",
+    "nuc_158.tif",
+    "nuc_159.tif",
+    "nuc_160.tif",
+    "nuc_161.tif",
+    "nuc_162.tif",
+    "nuc_163.tif",
+    "nuc_164.tif",
+    "nuc_165.tif",
+    "nuc_166.tif",
+    "nuc_167.tif"
+  ],
+  "r_ge_099_largest_component": 148,
+  "largest_component_exactly_equals_nov_2025_cohort": true,
+  "internal_sequence_interruptions": [
+    {
+      "image": "nuc_010.tif",
+      "prev_current_r": 0.3961605727672577,
+      "current_next_r": 0.3957006335258484,
+      "prev_next_r": 0.9991301894187927
+    },
+    {
+      "image": "nuc_017.tif",
+      "prev_current_r": 0.8883334994316101,
+      "current_next_r": 0.8890769481658936,
+      "prev_next_r": 0.9963222742080688
+    },
+    {
+      "image": "nuc_025.tif",
+      "prev_current_r": 0.8805114030838013,
+      "current_next_r": 0.8800315260887146,
+      "prev_next_r": 0.9961678385734558
+    },
+    {
+      "image": "nuc_038.tif",
+      "prev_current_r": 0.8740149140357971,
+      "current_next_r": 0.8774273991584778,
+      "prev_next_r": 0.995778501033783
+    },
+    {
+      "image": "nuc_066.tif",
+      "prev_current_r": 0.8739203214645386,
+      "current_next_r": 0.8764531016349792,
+      "prev_next_r": 0.9946286678314209
+    },
+    {
+      "image": "nuc_074.tif",
+      "prev_current_r": 0.8666466474533081,
+      "current_next_r": 0.8656792640686035,
+      "prev_next_r": 0.9955229759216309
+    },
+    {
+      "image": "nuc_101.tif",
+      "prev_current_r": 0.8538296222686768,
+      "current_next_r": 0.8537957072257996,
+      "prev_next_r": 0.9937354922294617
+    },
+    {
+      "image": "nuc_128.tif",
+      "prev_current_r": 0.8570970892906189,
+      "current_next_r": 0.8568056225776672,
+      "prev_next_r": 0.9936832189559937
+    }
+  ],
+  "tail_examples": [
+    {
+      "image": "nuc_158.tif",
+      "prev_current_r": 0.8479627966880798,
+      "current_next_r": 0.8253340125083923,
+      "prev_next_r": 0.7255690097808838
+    },
+    {
+      "image": "nuc_159.tif",
+      "prev_current_r": 0.8253340125083923,
+      "current_next_r": 0.07751233875751495,
+      "prev_next_r": 0.31369835138320923
+    },
+    {
+      "image": "nuc_160.tif",
+      "prev_current_r": 0.07751233875751495,
+      "current_next_r": 0.2514146864414215,
+      "prev_next_r": 0.4179750382900238
+    },
+    {
+      "image": "nuc_161.tif",
+      "prev_current_r": 0.2514146864414215,
+      "current_next_r": 0.29725784063339233,
+      "prev_next_r": 0.8368049263954163
+    },
+    {
+      "image": "nuc_165.tif",
+      "prev_current_r": 0.08521883934736252,
+      "current_next_r": 0.49628573656082153,
+      "prev_next_r": 0.3451589345932007
+    },
+    {
+      "image": "nuc_166.tif",
+      "prev_current_r": 0.49628573656082153,
+      "current_next_r": 0.4971218407154083,
+      "prev_next_r": 0.957977294921875
+    }
+  ],
+  "nuc_input_tiffs_with_datetime_tag": 0,
+  "nuc_ld_exact_sha_anchors": [
+    [
+      "nuc_001.tif",
+      "ld_001.tif"
+    ],
+    [
+      "nuc_159.tif",
+      "ld_036.tif"
+    ]
+  ],
+  "target_d4_max_r": 0.9486901164054871,
+  "target_d4_nuc_count_r_ge_099": 0,
+  "target_best_shifted_r_among_top20_d4_candidates": 0.9491295218467712
+}

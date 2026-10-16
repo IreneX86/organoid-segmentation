@@ -7,15 +7,20 @@ The frozen 2D Nuc model, its split, and all source TIFFs/masks remain unchanged.
 ## Evidence and the gate
 
 The 167 paired Nuc TIFFs are single-page 1200×1200 files named
-`nuc_001.tif`–`nuc_167.tif`. Their TIFF tags contain only shape and `tifffile.py`
-software information; there is no acquisition, organoid/field, or Z identifier.
+`nuc_001.tif`–`nuc_167.tif`. Beyond standard TIFF tags, their
+`ImageDescription` contains only shape and `Software` is `tifffile.py`;
+there is no acquisition, organoid/field, or Z identifier.
 SHA256 comparison found **zero exact byte matches** between the 167 Nuc inputs
 and the 1,330 `organoid_data/*/fluo/*.tif` files. This does not exclude a
 re-exported or transformed copy, but it supplies no correspondence. The
 [data audit](nuc_data_audit_20261015.md) also found a correlation-based
-component of 148/167 similar inputs, and 29/34 current validation images have
-a training neighbor with correlation at least 0.99. Image similarity warns
-about dependence; it cannot certify that two files are consecutive Z planes,
+component of 148/167 similar inputs. Under a later thumbnail definition,
+32/34 current validation images have a training neighbor with correlation
+at least 0.99 (the earlier definition yielded 29/34). A further
+[source-batch audit](../reports/nuc_provenance_followup_20261016.md) found that
+the 148-image component matches one export-time cohort exactly, and some
+numeric positions interrupt an otherwise smooth sequence. Image similarity
+warns about dependence; it cannot certify that two files are consecutive Z planes,
 their direction, spacing, field identity, or an organoid boundary.
 
 Before any 2.5D fit, create and freeze a read-only provenance manifest with,
@@ -84,10 +89,17 @@ record whether existing masks follow a reproducible center-plane convention.
    one-channel and is not a directly reusable 2.5D model. Preserve the 2D
    baseline and compare after training from scratch on the same group splits.
 
-These gates also apply to prospective prediction. A folder of apparently
-numbered `fluo_###` files alone is insufficient to assert physical Z order or
-spacing; validate its own acquisition record before using neighbors. Without
-that record, the supported prediction route remains independent 2D images.
+The user has since confirmed that each target `cell_*` folder represents one
+independent organoid with consecutive TIFF slices. A [read-only stack
+audit](../reports/nuc_25d_decision_and_domain_shift_20261016.md) found ten
+gap-free target folders with strong adjacent-image continuity and no sampled
+integer-pixel XY shift. This makes them plausible **future inference** inputs
+for a trained stack-to-center model. Their TIFF headers still do not record
+physical Z spacing or direction, so those details and full-stack alignment
+should be verified against acquisition information. Crucially, knowing the
+target stacks are ordered does **not** create missing neighbor/source mappings
+for the 167 training masks. Without that mapping, the supported current
+prediction route remains the independent 2D model.
 
 ## One possible 2D preprocessing control, separately gated
 

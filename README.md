@@ -245,6 +245,15 @@ protocol](experiments/nuc_25d_feasibility_protocol.md) is prepared, but no
 multi-slice model or new background-corrected model was trained; the original
 2D Nuc prototype remains the working model.
 
+The [Nuc 2.5D decision and domain-shift follow-up](reports/nuc_25d_decision_and_domain_shift_20261016.md)
+checks all ten independent target `fluo` folders, source-export interruptions
+inside the 167-image labelled pool, and whether rough missed-nucleus hints
+become clearer in adjacent images. The target folders are plausible 2.5D
+inference stacks, but the labelled Nuc TIFFs cannot yet be mapped to verified
+neighboring Z planes or independent source groups. The report includes four
+aggregate figures and a prioritized, source-grouped comparison plan; no new
+Nuc model was trained and the working 2D checkpoint is unchanged.
+
 For LD, use the versioned derived labels and
 `code/ld_train.py` instead, with the frozen map and a fresh output root:
 

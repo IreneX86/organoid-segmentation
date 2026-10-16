@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="590" viewBox="0 0 1050 590">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="235" y="32" font-size="20" font-family="Arial" fill="#111827">Input-only local-detail distribution</text>
+<text x="235" y="53" font-size="12" font-family="Arial" fill="#475569">Frozen training inputs (n=133) versus 12 equally spaced images per target folder; no target labels used</text>
+<rect x="636.8" y="80" width="184.9" height="472" fill="#dbeafe" opacity=".55"/>
+<line x1="235.0" x2="235.0" y1="80" y2="535" stroke="#e5e7eb"/>
+<text x="235.0" y="548" text-anchor="middle" font-size="11" font-family="Arial" fill="#6b7280">0.000</text>
+<line x1="384.0" x2="384.0" y1="80" y2="535" stroke="#e5e7eb"/>
+<text x="384.0" y="548" text-anchor="middle" font-size="11" font-family="Arial" fill="#6b7280">0.005</text>
+<line x1="533.0" x2="533.0" y1="80" y2="535" stroke="#e5e7eb"/>
+<text x="533.0" y="548" text-anchor="middle" font-size="11" font-family="Arial" fill="#6b7280">0.010</text>
+<line x1="682.0" x2="682.0" y1="80" y2="535" stroke="#e5e7eb"/>
+<text x="682.0" y="548" text-anchor="middle" font-size="11" font-family="Arial" fill="#6b7280">0.015</text>
+<line x1="831.0" x2="831.0" y1="80" y2="535" stroke="#e5e7eb"/>
+<text x="831.0" y="548" text-anchor="middle" font-size="11" font-family="Arial" fill="#6b7280">0.020</text>
+<line x1="980.0" x2="980.0" y1="80" y2="535" stroke="#e5e7eb"/>
+<text x="980.0" y="548" text-anchor="middle" font-size="11" font-family="Arial" fill="#6b7280">0.025</text>
+<text x="223" y="99" text-anchor="end" font-size="11" font-family="Arial" fill="#374151">Frozen train (133)</text>
+<line x1="636.8" x2="821.6" y1="95" y2="95" stroke="#1d4ed8" stroke-width="5" stroke-linecap="round"/>
+<circle cx="771.1" cy="95" r="6" fill="#1d4ed8" stroke="white" stroke-width="2"/>
+<text x="223" y="141" text-anchor="end" font-size="11" font-family="Arial" fill="#374151">cell_22375_NZ_100</text>
+<line x1="532.2" x2="598.2" y1="137" y2="137" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+<circle cx="552.2" cy="137" r="6" fill="#ea580c" stroke="white" stroke-width="2"/>
+<text x="223" y="183" text-anchor="end" font-size="11" font-family="Arial" fill="#374151">cell_22376_NZ_100</text>
+<line x1="569.4" x2="645.8" y1="179" y2="179" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+<circle cx="577.4" cy="179" r="6" fill="#ea580c" stroke="white" stroke-width="2"/>
+<text x="223" y="225" text-anchor="end" font-size="11" font-family="Arial" fill="#374151">cell_22377_NZ_120</text>
+<line x1="566.5" x2="636.9" y1="221" y2="221" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+<circle cx="605.2" cy="221" r="6" fill="#ea580c" stroke="white" stroke-width="2"/>
+<text x="223" y="267" text-anchor="end" font-size="11" font-family="Arial" fill="#374151">cell_22378_NZ_150</text>
+<line x1="543.0" x2="656.3" y1="263" y2="263" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+<circle cx="630.4" cy="263" r="6" fill="#ea580c" stroke="white" stroke-width="2"/>
+<text x="223" y="309" text-anchor="end" font-size="11" font-family="Arial" fill="#374151">cell_22379_NZ_150</text>
+<line x1="541.3" x2="559.1" y1="305" y2="305" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+<circle cx="549.9" cy="305" r="6" fill="#ea580c" stroke="white" stroke-width="2"/>
+<text x="223" y="351" text-anchor="end" font-size="11" font-family="Arial" fill="#374151">cell_22380_150</text>
+<line x1="498.1" x2="594.3" y1="347" y2="347" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+<circle cx="549.9" cy="347" r="6" fill="#ea580c" stroke="white" stroke-width="2"/>
+<text x="223" y="393" text-anchor="end" font-size="11" font-family="Arial" fill="#374151">cell_22381_140</text>
+<line x1="500.3" x2="614.6" y1="389" y2="389" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+<circle cx="584.6" cy="389" r="6" fill="#ea580c" stroke="white" stroke-width="2"/>
+<text x="223" y="435" text-anchor="end" font-size="11" font-family="Arial" fill="#374151">cell_22382_140</text>
+<line x1="571.7" x2="622.7" y1="431" y2="431" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+<circle cx="585.0" cy="431" r="6" fill="#ea580c" stroke="white" stroke-width="2"/>
+<text x="223" y="477" text-anchor="end" font-size="11" font-family="Arial" fill="#374151">cell_22383_140</text>
+<line x1="541.2" x2="803.4" y1="473" y2="473" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+<circle cx="591.1" cy="473" r="6" fill="#ea580c" stroke="white" stroke-width="2"/>
+<text x="223" y="519" text-anchor="end" font-size="11" font-family="Arial" fill="#374151">cell_22385_140</text>
+<line x1="504.6" x2="594.8" y1="515" y2="515" stroke="#ea580c" stroke-width="5" stroke-linecap="round"/>
+<circle cx="519.5" cy="515" r="6" fill="#ea580c" stroke="white" stroke-width="2"/>
+<text x="607.5" y="574" text-anchor="middle" font-size="12" font-family="Arial" fill="#374151">p1–99.8 normalized 5×5 high-pass absolute residual q90 (unitless)</text>
+<text x="945" y="69" text-anchor="end" font-size="11" font-family="Arial" fill="#64748b">line = p10–p90; dot = median</text>
+</svg>

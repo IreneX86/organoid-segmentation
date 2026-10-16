@@ -1,0 +1,127 @@
+{
+  "counts": {
+    "covered": 14,
+    "intermediate": 1,
+    "missed": 11
+  },
+  "covered_proxy": {
+    "median": [
+      -0.0767979621887207,
+      -0.07695727050304413,
+      -0.07674011588096619,
+      -0.07554443925619125,
+      -0.07328366488218307,
+      -0.07077576965093613,
+      -0.06811217963695526,
+      -0.06136780232191086,
+      -0.05504260212182999,
+      -0.05349089205265045
+    ],
+    "q25": [
+      -0.12960004061460495,
+      -0.12804696708917618,
+      -0.12688251212239265,
+      -0.126080684363842,
+      -0.12546639889478683,
+      -0.12599658966064453,
+      -0.11548400670289993,
+      -0.09966684877872467,
+      -0.09103391319513321,
+      -0.07605598121881485
+    ],
+    "q75": [
+      -0.05090757831931114,
+      -0.04995541647076607,
+      -0.049410030245780945,
+      -0.04955512657761574,
+      -0.04894452542066574,
+      -0.047753408551216125,
+      -0.04814724251627922,
+      -0.047811515629291534,
+      -0.04764098674058914,
+      -0.04704246670007706
+    ]
+  },
+  "fluo_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "input_integrity": {
+    "archived_hint_json_sha256": "99aa456a5d7a53f81fd85299c1723220aa1ae7af6f5b093c3a75515656fcac6f",
+    "image_sha256": {
+      "fluo_001.tif": "3471aae1d988d0e0fa3490060b1b6c60fd0844e1d1d0286a186ab49f8885a6cd",
+      "fluo_002.tif": "1d287cdcc255679d1789b78bd348853e37a29eaaeebf4fdb34f605f5b2215db2",
+      "fluo_003.tif": "147a250b4cb4ec865df72f4e530a211a5013f2f1ee08a6bbe697a6b1eea69820",
+      "fluo_004.tif": "27962e3993f67aad4229dc4952da3cc43ef0878a28fee41ee8e7d1b67d9d6764",
+      "fluo_005.tif": "12e1f84aa74cbb0e06493b9ef53d0dd5e79957be159e2f7d6b9390ed1aea163b",
+      "fluo_006.tif": "6e904312077a10219e797734bd90625ea0c99cf707c2fda7890b24f437ba1015",
+      "fluo_007.tif": "7730ed938fe34c1213942e27e3d54534fdfc9d4b9c1eaebfb37674bc81bab3cb",
+      "fluo_008.tif": "28896ba68ae977df4ceb2cd88816aa898d7d437b388e57c2a711a35d81163013",
+      "fluo_009.tif": "8c59e6d2eb156c29a3efe98ca6176824987b30b85335c9a63358667ca86068f3",
+      "fluo_010.tif": "ea1a9270c4b6f6572eb51b9ada5acee5b70b9e244c5e2cbdcf15b30bbdde0c9a"
+    }
+  },
+  "method": {
+    "caveats": [
+      "Rough screenshot hints are not complete or pixel-accurate ground truth.",
+      "The boxes are fixed in XY with no registration; tissue can drift through the apparent sequence.",
+      "The first frame is a stack boundary for a symmetric 3/5-slice model unless earlier images exist.",
+      "Groups were selected after seeing baseline predictions; this is selection-exposed descriptive analysis.",
+      "Numeric filename adjacency is not verified physical Z order; these results do not prove 2.5D benefit."
+    ],
+    "grouping": "archived fluo_001 frozen-baseline rough-core coverage <0.05 missed; >=0.50 covered; middle excluded",
+    "input_images": "fluo_001.tif through fluo_010.tif",
+    "normalization": "independent p1-p99.8 per complete image, unchanged from 2D baseline",
+    "proxy": "fixed approximate ellipse mean(core radius<0.45) minus mean(ring 0.85<=radius<1.25)",
+    "purpose": "descriptive fixed-location image-only context check; no fitting or target GT",
+    "stronger_definition": "a more negative proxy than fluo_001 by >0.02 normalized intensity units"
+  },
+  "missed_any_later_stronger_by_0_02": 3,
+  "missed_early_context_stronger_by_0_02": 1,
+  "missed_proxy": {
+    "median": [
+      -0.0453968346118927,
+      -0.04711437225341797,
+      -0.0463109016418457,
+      -0.04430399835109711,
+      -0.04500377178192139,
+      -0.04746362566947937,
+      -0.04851818084716797,
+      -0.04169246554374695,
+      -0.04135715961456299,
+      -0.041622698307037354
+    ],
+    "q25": [
+      -0.07580727338790894,
+      -0.0832185447216034,
+      -0.0843760073184967,
+      -0.08319778740406036,
+      -0.08022157847881317,
+      -0.07413274049758911,
+      -0.07057733833789825,
+      -0.06745325773954391,
+      -0.06365752220153809,
+      -0.05982545018196106
+    ],
+    "q75": [
+      -0.03494781255722046,
+      -0.0356329083442688,
+      -0.03604483604431152,
+      -0.03660094738006592,
+      -0.036968789994716644,
+      -0.036126188933849335,
+      -0.0349944531917572,
+      -0.0337626188993454,
+      -0.03107549250125885,
+      -0.0291375070810318
+    ]
+  }
+}

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="590" viewBox="0 0 1200 590">
+<rect width="1200" height="590" fill="white"/>
+<style>text{font:15px Arial,sans-serif;fill:#18212b}.title{font:bold 24px Arial,sans-serif}.note{font:13px Arial,sans-serif;fill:#475569}</style>
+<text x="45" y="38" class="title">Nuc filenames mix export cohorts and interrupt a smooth image sequence</text>
+<text x="45" y="65" class="note">Input-only adjacent-image Pearson r; filesystem dates are export clues, not biological Z coordinates.</text>
+<line x1="80" y1="420" x2="1090" y2="420" stroke="#444"/>
+<line x1="80" y1="130" x2="80" y2="420" stroke="#444"/>
+<line x1="80" y1="420.0" x2="1090" y2="420.0" stroke="#e8edf2"/><text x="39" y="425.0">0.00</text>
+<line x1="80" y1="347.5" x2="1090" y2="347.5" stroke="#e8edf2"/><text x="39" y="352.5">0.25</text>
+<line x1="80" y1="275.0" x2="1090" y2="275.0" stroke="#e8edf2"/><text x="39" y="280.0">0.50</text>
+<line x1="80" y1="202.5" x2="1090" y2="202.5" stroke="#e8edf2"/><text x="39" y="207.5">0.75</text>
+<line x1="80" y1="130.0" x2="1090" y2="130.0" stroke="#e8edf2"/><text x="39" y="135.0">1.00</text>
+<line x1="80.0" y1="420" x2="80.0" y2="426" stroke="#444"/><text x="80.0" y="445" text-anchor="middle">1</text>
+<line x1="196.3" y1="420" x2="196.3" y2="426" stroke="#444"/><text x="196.3" y="445" text-anchor="middle">20</text>
+<line x1="318.7" y1="420" x2="318.7" y2="426" stroke="#444"/><text x="318.7" y="445" text-anchor="middle">40</text>
+<line x1="441.2" y1="420" x2="441.2" y2="426" stroke="#444"/><text x="441.2" y="445" text-anchor="middle">60</text>
+<line x1="563.6" y1="420" x2="563.6" y2="426" stroke="#444"/><text x="563.6" y="445" text-anchor="middle">80</text>
+<line x1="686.0" y1="420" x2="686.0" y2="426" stroke="#444"/><text x="686.0" y="445" text-anchor="middle">100</text>
+<line x1="808.4" y1="420" x2="808.4" y2="426" stroke="#444"/><text x="808.4" y="445" text-anchor="middle">120</text>
+<line x1="930.8" y1="420" x2="930.8" y2="426" stroke="#444"/><text x="930.8" y="445" text-anchor="middle">140</text>
+<line x1="1053.3" y1="420" x2="1053.3" y2="426" stroke="#444"/><text x="1053.3" y="445" text-anchor="middle">160</text>
+<line x1="80.0" y1="125" x2="80.0" y2="420" stroke="#d75a5a" stroke-width="1" opacity=".42"/>
+<line x1="177.9" y1="125" x2="177.9" y2="420" stroke="#d75a5a" stroke-width="1" opacity=".42"/>
+<line x1="226.9" y1="125" x2="226.9" y2="420" stroke="#d75a5a" stroke-width="1" opacity=".42"/>
+<line x1="306.5" y1="125" x2="306.5" y2="420" stroke="#d75a5a" stroke-width="1" opacity=".42"/>
+<line x1="477.9" y1="125" x2="477.9" y2="420" stroke="#d75a5a" stroke-width="1" opacity=".42"/>
+<line x1="526.8" y1="125" x2="526.8" y2="420" stroke="#d75a5a" stroke-width="1" opacity=".42"/>
+<line x1="692.1" y1="125" x2="692.1" y2="420" stroke="#d75a5a" stroke-width="1" opacity=".42"/>
+<line x1="857.4" y1="125" x2="857.4" y2="420" stroke="#d75a5a" stroke-width="1" opacity=".42"/>
+<line x1="1041.0" y1="125" x2="1041.0" y2="420" stroke="#d75a5a" stroke-width="1" opacity=".42"/>
+<line x1="1047.2" y1="125" x2="1047.2" y2="420" stroke="#d75a5a" stroke-width="1" opacity=".42"/>
+<line x1="135.1" y1="125" x2="135.1" y2="420" stroke="#c99321" stroke-width="1" opacity=".42"/>
+<line x1="1053.3" y1="125" x2="1053.3" y2="420" stroke="#c99321" stroke-width="1" opacity=".42"/>
+<line x1="1059.4" y1="125" x2="1059.4" y2="420" stroke="#c99321" stroke-width="1" opacity=".42"/>
+<line x1="1065.5" y1="125" x2="1065.5" y2="420" stroke="#c99321" stroke-width="1" opacity=".42"/>
+<line x1="1071.6" y1="125" x2="1071.6" y2="420" stroke="#c99321" stroke-width="1" opacity=".42"/>
+<line x1="1077.8" y1="125" x2="1077.8" y2="420" stroke="#c99321" stroke-width="1" opacity=".42"/>
+<line x1="1083.9" y1="125" x2="1083.9" y2="420" stroke="#c99321" stroke-width="1" opacity=".42"/>
+<line x1="1090.0" y1="125" x2="1090.0" y2="420" stroke="#c99321" stroke-width="1" opacity=".42"/>
+<line x1="1096.1" y1="125" x2="1096.1" y2="420" stroke="#c99321" stroke-width="1" opacity=".42"/>
+<polyline fill="none" stroke="#245a81" stroke-width="2.4" points="80.0,152.0 86.1,130.1 92.2,130.1 98.4,130.1 104.5,130.2 110.6,130.2 116.7,130.2 122.8,130.2 129.0,305.1 135.1,305.2 141.2,130.2 147.3,130.3 153.5,130.3 159.6,130.3 165.7,130.3 171.8,162.4 177.9,162.2 184.1,130.2 190.2,130.3 196.3,130.3 202.4,130.3 208.5,130.3 214.7,130.3 220.8,164.7 226.9,164.8 233.0,130.4 239.2,130.4 245.3,130.3 251.4,130.4 257.5,130.4 263.6,130.4 269.8,130.3 275.9,130.4 282.0,130.3 288.1,130.3 294.2,130.3 300.4,166.5 306.5,165.5 312.6,130.3 318.7,130.4 324.8,130.4 331.0,130.4 337.1,130.4 343.2,130.4 349.3,130.4 355.5,130.5 361.6,130.5 367.7,130.5 373.8,130.4 379.9,130.4 386.1,130.4 392.2,130.3 398.3,130.3 404.4,130.3 410.5,130.2 416.7,130.3 422.8,130.3 428.9,130.3 435.0,130.4 441.2,130.5 447.3,130.4 453.4,130.5 459.5,130.5 465.6,130.5 471.8,166.6 477.9,165.8 484.0,130.4 490.1,130.4 496.2,130.4 502.4,130.4 508.5,130.4 514.6,130.4 520.7,168.7 526.8,169.0 533.0,130.4 539.1,130.4 545.2,130.4 551.3,130.4 557.5,130.4 563.6,130.5 569.7,130.4 575.8,130.4 581.9,130.5 588.1,130.5 594.2,130.4 600.3,130.4 606.4,130.4 612.5,130.4 618.7,130.5 624.8,130.6 630.9,130.5 637.0,130.5 643.2,130.6 649.3,130.6 655.4,130.5 661.5,130.6 667.6,130.6 673.8,130.5 679.9,130.5 686.0,172.4 692.1,172.4 698.2,130.5 704.4,130.6 710.5,130.5 716.6,130.4 722.7,130.5 728.8,130.5 735.0,130.5 741.1,130.6 747.2,130.6 753.3,130.5 759.5,130.5 765.6,130.6 771.7,130.6 777.8,130.5 783.9,130.5 790.1,130.5 796.2,130.5 802.3,130.4 808.4,130.4 814.5,130.4 820.7,130.4 826.8,130.5 832.9,130.4 839.0,130.4 845.2,130.5 851.3,171.4 857.4,171.5 863.5,130.5 869.6,130.6 875.8,130.5 881.9,130.5 888.0,130.6 894.1,130.5 900.2,130.4 906.4,130.4 912.5,130.4 918.6,130.4 924.7,130.4 930.8,130.5 937.0,130.4 943.1,130.5 949.2,130.5 955.3,130.5 961.5,130.5 967.6,130.6 973.7,130.6 979.8,130.5 985.9,130.5 992.1,130.6 998.2,130.5 1004.3,130.5 1010.4,130.5 1016.5,130.6 1022.7,130.5 1028.8,130.6 1034.9,174.1 1041.0,180.7 1047.2,397.5 1053.3,347.1 1059.4,333.8 1065.5,356.1 1071.6,363.0 1077.8,395.3 1083.9,276.1 1090.0,275.8"/>
+<text x="380" y="474">Filename index i for adjacent pair (nuc_i, nuc_{i+1})</text>
+<text x="25" y="300" transform="rotate(-90 25 300)">Pearson r</text>
+<line x1="55" y1="507" x2="85" y2="507" stroke="#d75a5a" stroke-width="3"/>
+<text x="93" y="512">Oct 2025 cohort (10)</text>
+<line x1="315" y1="507" x2="345" y2="507" stroke="#c99321" stroke-width="3"/>
+<text x="353" y="512">May 2026 additions (9)</text>
+<line x1="580" y1="507" x2="610" y2="507" stroke="#245a81" stroke-width="3"/>
+<text x="618" y="512">Adjacent image correlation</text>
+<text x="55" y="544" class="note">All 148 Nov 2025 files exactly form the largest r ≥ 0.99 connected component; 19 other-cohort files lie outside it.</text>
+<text x="55" y="565" class="note">At nuc_010, r(009,011)=0.99913 while r(009,010)=0.39616; numeric adjacency is unsafe for 2.5D training.</text>
+</svg>

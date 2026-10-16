@@ -300,3 +300,38 @@ scientific protocols and fold maps remain in `experiments/`.
   from each labelled TIFF/mask to original organoid, field, and Z plane.
   Until it is verified, keep the original 2D Nuc model. Do not concatenate
   files by filename, tune against the target red circles, or train 2.5D.
+
+### Target-stack and labelled-source follow-up on 2026-10-16
+
+- [Decision report](reports/nuc_25d_decision_and_domain_shift_20261016.md),
+  [labelled-source batch audit](reports/nuc_provenance_followup_20261016.md),
+  [target-stack continuity chart](reports/assets/nuc_target_stack_audit_20261016.svg),
+  [target-domain chart](reports/assets/nuc_target_domain_audit_20261016.svg),
+  and [fixed rough-hint context chart](reports/assets/nuc_fixed_hint_context_20261016.svg)
+  are the new read-only research outputs.
+- User confirms each target `cell_*` folder is an independent organoid with
+  consecutive slices. All ten `fluo` folders together hold 1,330 gap-free,
+  single-page 1200×1200 uint16 TIFFs. Sampled adjacent-image similarity and
+  native-pixel XY checks support candidate 3–5-slice inference, though TIFF
+  headers do not give physical Z spacing or direction.
+- In the labelled Nuc pool, the 148-image high-similarity component matches
+  the November 2025 export-time cohort exactly. Several October/May files
+  interrupt the numeric sequence (e.g. `nuc_009` and `nuc_011` correlate
+  0.999 while `nuc_010` correlates only about 0.396 with either). The export
+  timestamps do not identify biological sources. No exact or credible
+  rotation/reflection/shift mapping to current target stacks was found.
+- The pre-existing 133 training inputs have median fixed local-detail q90
+  0.01799 versus 0.01129 on 120 systematic target inputs; 103/120 target
+  samples are below the training tenth percentile. This is an input
+  distribution difference, not proof of a particular imaging cause or a
+  correction that improves segmentation. In 11 low-coverage rough hints on
+  `fluo_001`, only one showed much stronger dark-core/bright-ring contrast
+  in `fluo_002/003` at the same unregistered XY box; this does not establish
+  that 2.5D will or will not help.
+- No model training, GPU resource, data/mask overwrite, baseline edit, or
+  Desktop `Nuc_label` change occurred. Current gating task: recover the
+  acquisition/export mapping for the **labelled** Nuc files and verify at
+  least several independent organoids and center-plane mask semantics.
+  Only then compare source-grouped 2D and 3-channel 2.5D models under the
+  existing conditional protocol. Without this provenance or new independent
+  complete target labels, do not claim a reliably improved Nuc model.
