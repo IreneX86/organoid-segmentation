@@ -267,6 +267,35 @@ coverage, but produces 285 outside-mask review points; the confirmed no-nucleus
 `nuc_005` alone has 39 such points. This same-batch check supports manual review
 only, not automatic label filling or a target-data accuracy claim.
 
+### Current Nuc prediction method for human review
+
+After inspecting the first ten organoid `fluo` images, the project owner chose
+the [0.03-threshold Nuc review method](reports/nuc_review_postprocessing_20261019.md)
+as the main **operational** Nuc mask style. It uses the original frozen 2D Nuc
+checkpoint, not a newly trained model. The method removes <500-pixel regions,
+fills holes, guards radius-4 closing against merges, smooths edges, and
+separates only unambiguous two-core touching regions with a curved, smoothed
+gap. The 0.45 strong cores guide splitting; they are model predictions, not
+manual labels. Output TIFFs keep each input's name and size and encode
+background as 0 and Nuc as 255.
+
+Use [`code/nuc_predict_review.py`](code/nuc_predict_review.py) with the frozen
+`nuc_unet.keras` checkpoint and a **fresh** output directory. For example:
+
+```bash
+python code/nuc_predict_review.py \
+  --input-dir "$HOME/Desktop/Organoid/organoid_data/cell_22375_NZ_100/fluo" \
+  --output-dir "$HOME/Desktop/Organoid/organoid_data/cell_22375_NZ_100/Nuc_label_review_new" \
+  --model "$PWD/runpod_results/nuc_internal_20261015/full_results/model/nuc_unet.keras"
+```
+
+The script verifies the reviewed checkpoint SHA256 and records source/output
+hashes and per-image processing decisions. The ten approved preview masks
+remain local and Git-ignored. This preference came from target-image visual
+review, so it does not demonstrate a higher external Dice or justify treating
+these predictions as manually labelled nuclei. The original `Nuc_label`,
+167-pair training data, and internal prototype remain unchanged.
+
 For LD, use the versioned derived labels and
 `code/ld_train.py` instead, with the frozen map and a fresh output root:
 

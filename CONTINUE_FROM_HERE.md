@@ -394,3 +394,20 @@ scientific protocols and fold maps remain in `experiments/`.
   sourced target annotation set or verifiable labelled-stack/source mapping.
   Until then retain the frozen 2D Nuc model and treat the target review pack
   as qualitative only.
+
+### Nuc operational review-mask choice on 2026-10-19
+
+- The user reviewed the first ten `cell_22375_NZ_100/fluo` predictions and
+  selected the 0.03-threshold, minimum-500-pixel, hole-filled, merge-guarded
+  radius-4 closing, smoothed-edge, curved two-core separation style as the
+  main Nuc **review prediction** method. The [method record](reports/nuc_review_postprocessing_20261019.md)
+  explains the exact transformation and limitations.
+- The original Nuc checkpoint remains frozen. The ten masks and SHA256
+  manifest remain local under Git-ignored
+  `runpod_results/nuc_threshold003_preview_20261019/`. No original TIFF,
+  manual label, or earlier `Nuc_label` mask was replaced.
+- Reusable inference is `code/nuc_predict_review.py`, writing same-name,
+  same-size `uint8` 0/255 masks to a fresh directory. This was a qualitative
+  choice on viewed organoid images, **not** evidence of external accuracy or
+  a new scientific baseline. Further batches require human review; a target
+  Dice claim requires independently sourced complete annotations.
