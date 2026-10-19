@@ -76,7 +76,13 @@ def _guarded_close(base: np.ndarray, base_labels: np.ndarray) -> tuple[np.ndarra
     for component_id in range(1, count + 1):
         region = candidate_labels == component_id
         origins = np.unique(base_labels[region])
-        if np.count_nonzero(origins) > 1:
+        source_count = np.count_nonzero(origins)
+        if source_count == 0:
+            # Radius-4 closing can create a detached foreground island between
+            # nearby objects. It has no source nucleus and must not become a
+            # new component in the review mask.
+            safe[region] = False
+        elif source_count > 1:
             # The closing would join two original objects: retain only their
             # hole-filled shapes, rather than allowing a new bridge.
             safe[region] = filled[region]
@@ -250,6 +256,11 @@ def postprocess_nucleus_masks(
     smoothing_mode = "global_median5"
     try:
         before_count = _check_identity(base, cleaned)
+        # The median can close a narrow background opening while preserving
+        # the number of nuclei. Reject that candidate so review masks stay
+        # hole-free without introducing foreground during smoothing.
+        if np.any(ndimage.binary_fill_holes(cleaned) & ~cleaned):
+            raise ValueError("Global median created an enclosed hole")
     except ValueError:
         cleaned = _smooth_without_merging(closed)
         before_count = _check_identity(base, cleaned)

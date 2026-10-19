@@ -14,7 +14,7 @@ from scipy import ndimage
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from nuc_postprocess import postprocess_nucleus_masks
+from nuc_postprocess import _guarded_close, postprocess_nucleus_masks
 
 
 CONNECT8 = np.ones((3, 3), dtype=bool)
@@ -70,6 +70,37 @@ class NucPostprocessTests(unittest.TestCase):
         self.assertEqual(report["components_after_split"], 2)
         self.assertTrue(result[35, 30])
         self.assertTrue(result[35, 64])
+
+    def test_closing_drops_foreground_unconnected_to_any_source(self) -> None:
+        # A radius-4 close can make a detached island between nearby objects.
+        # Lower the area guard only for this tiny geometric regression fixture;
+        # production still requires 500-pixel source and final components.
+        base = np.zeros((21, 21), dtype=bool)
+        base[12, 1] = base[12, 8] = base[17, 4] = True
+        base_labels, source_count = ndimage.label(base, CONNECT8)
+        self.assertEqual(source_count, 3)
+        with patch("nuc_postprocess._MIN_AREA", 1):
+            closed, reverted_groups = _guarded_close(base, base_labels)
+        np.testing.assert_array_equal(closed, base)
+        self.assertEqual(reverted_groups, 0)
+
+    def test_global_median_hole_uses_remove_only_smoothing(self) -> None:
+        # Median5 bridges a narrow background opening in this large object,
+        # making a hole despite leaving its component count unchanged.
+        closed = np.zeros((80, 80), dtype=bool)
+        closed[5:75, 5:75] = True
+        closed[5:40, 40:41] = False
+        closed[30:35, 39:42] = False
+        self.assertFalse(np.any(ndimage.binary_fill_holes(closed) & ~closed))
+        global_median = ndimage.median_filter(closed, size=5, mode="nearest")
+        self.assertTrue(np.any(ndimage.binary_fill_holes(global_median) & ~global_median))
+        # Isolate the smoother: a real radius-4 close would fill this fixture's
+        # narrow opening before the median runs.
+        with patch("nuc_postprocess._guarded_close", return_value=(closed, 0)):
+            result, report = postprocess_nucleus_masks(closed, np.zeros_like(closed))
+        self.assertEqual(report["smoothing_mode"], "per_component_remove_only_median5")
+        self.assertFalse(np.any(ndimage.binary_fill_holes(result) & ~result))
+        self.assertFalse(np.any(result & ~closed))
 
     def test_two_high_cores_split_one_component_at_image_edge(self) -> None:
         low = np.zeros((120, 180), dtype=bool)
