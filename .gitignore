@@ -1,4 +1,4 @@
-# Biological images and annotations are local-only.
+# Raw biological images and human annotations are local-only.
 data/
 label_ref/
 organoid_data/
@@ -19,6 +19,8 @@ organoid_data/
 !deliverables/ld_auto_labels/*/fluo_label.zip
 # Separate 1/5 vote masks; no exception for other ZIPs or source data.
 !deliverables/ld_vote1_auto_labels/*/fluo_label_vote1.zip
+# Explicitly requested Nuc auto-mask delivery; original fluo TIFFs remain ignored.
+!deliverables/nuc_auto_labels/*/Nuc_label.zip
 artifacts/
 outputs/
 predictions/

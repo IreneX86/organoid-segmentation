@@ -1,0 +1,91 @@
+{
+  "batch_plan_sha256": "4ab18f18b299e58bd284f5c47023a1a326390d4752339bc5ea819f88e7e74f07",
+  "cells": [
+    {
+      "archive": "cell_22375_NZ_100/Nuc_label.zip",
+      "archive_sha256": "a236bab264266001b9ff1a45ce4629a08cc0bd4156d52eb1d0cec1e0780446af",
+      "archive_size_bytes": 1677507,
+      "cell": "cell_22375_NZ_100",
+      "mask_count": 100,
+      "portable_manifest_sha256": "7af7687cc340cb05532f3ab286f982af2aa9e30157b1c33a3f85cb9160dc8c02"
+    },
+    {
+      "archive": "cell_22376_NZ_100/Nuc_label.zip",
+      "archive_sha256": "b2ba63bcb545c47e0267750597efb8cedc6d62d918896ac934147b7ddd003353",
+      "archive_size_bytes": 1575899,
+      "cell": "cell_22376_NZ_100",
+      "mask_count": 100,
+      "portable_manifest_sha256": "4b15e7398a1229dace8beea80a3f9dbed12c273cdb083603cd8bf28d5dcff8eb"
+    },
+    {
+      "archive": "cell_22377_NZ_120/Nuc_label.zip",
+      "archive_sha256": "0fb93f5d6fcd04f89e3bac6924515a8b07db6b6f31b13382383ae7059bd77e11",
+      "archive_size_bytes": 1159582,
+      "cell": "cell_22377_NZ_120",
+      "mask_count": 120,
+      "portable_manifest_sha256": "492ec9daad4e98f76799b438d947426bf30b8326351e18e7c310ddccdc3e0adc"
+    },
+    {
+      "archive": "cell_22378_NZ_150/Nuc_label.zip",
+      "archive_sha256": "c8c90f453d473148b5ecf1843558d4fc391dd6ed68075434addcc7ba26d29262",
+      "archive_size_bytes": 947150,
+      "cell": "cell_22378_NZ_150",
+      "mask_count": 150,
+      "portable_manifest_sha256": "667ab9dcd6ac64aa62fb1564beba9cc96980cd64cc34ffeea84ce752f5632ab3"
+    },
+    {
+      "archive": "cell_22379_NZ_150/Nuc_label.zip",
+      "archive_sha256": "bfa27719f8ce4f26a314aea80474248ea4593a83733bd104acf11e617a6df6d6",
+      "archive_size_bytes": 1862510,
+      "cell": "cell_22379_NZ_150",
+      "mask_count": 150,
+      "portable_manifest_sha256": "72afb485b15f2a8d3fb00db74a969b839c737c0df749500ec3edef9720154cfc"
+    },
+    {
+      "archive": "cell_22380_150/Nuc_label.zip",
+      "archive_sha256": "6173c08a9080b941b5f7a7431f6df777423d6618dbb584bd142bb412920e9bbb",
+      "archive_size_bytes": 1496714,
+      "cell": "cell_22380_150",
+      "mask_count": 150,
+      "portable_manifest_sha256": "75d0b4ebb8d5800b87b8bee416046dc9df2fbcfe0279725ebceab8cdc62d1cd9"
+    },
+    {
+      "archive": "cell_22381_140/Nuc_label.zip",
+      "archive_sha256": "ad6df5694f12161c2d435e70d84b5cb191936add16473650b50fe0e00ec0c188",
+      "archive_size_bytes": 1789508,
+      "cell": "cell_22381_140",
+      "mask_count": 140,
+      "portable_manifest_sha256": "846dcbca7d4aeb10247da229af0f67e872ab6c2900ada8951616dfd92e7c3a24"
+    },
+    {
+      "archive": "cell_22382_140/Nuc_label.zip",
+      "archive_sha256": "ad9360400d2a0ee027859d986854861e004bd60dac9f2f9714b5a2e9fb4b0a43",
+      "archive_size_bytes": 1449393,
+      "cell": "cell_22382_140",
+      "mask_count": 140,
+      "portable_manifest_sha256": "4c0491783189903386b8350522ecb3d5be2bb2cbb482b20a3ac081653784a521"
+    },
+    {
+      "archive": "cell_22383_140/Nuc_label.zip",
+      "archive_sha256": "2c8e8d15268fb4ceb55d35c4711040870ea9ad312a684bcc7c499690309c2783",
+      "archive_size_bytes": 584284,
+      "cell": "cell_22383_140",
+      "mask_count": 140,
+      "portable_manifest_sha256": "e1776c1b3551e9533b28fd547b56a3a1f17c8fe13dff352bd5bafb810e921a6f"
+    },
+    {
+      "archive": "cell_22385_140/Nuc_label.zip",
+      "archive_sha256": "a9f570755da1870f756623b722b2542d0a427fbe207bf08282958180e9f284de",
+      "archive_size_bytes": 1196066,
+      "cell": "cell_22385_140",
+      "mask_count": 140,
+      "portable_manifest_sha256": "b9b50d4843a4b91e7875ca326fc426f38881eb183f292dbb319a496be23b7c4f"
+    }
+  ],
+  "delivery_status": "automatic_predictions_for_expert_review_not_ground_truth",
+  "method": "nuc_review_2d_low003_core045_min500_close4_curved_split_v1",
+  "model_sha256": "c1191f00e327d6f73acc73f202a3a8e44895cb669bbfa2c6a1f3f664cc986b9e",
+  "schema_version": 1,
+  "target": "nuc",
+  "total_masks": 1330
+}

@@ -65,6 +65,9 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
   contains the separately packaged **1/5** voting masks for the same ten cells.
   These are the human-preferred review outputs, not manual labels or an
   independently validated accuracy improvement.
+- [`deliverables/nuc_auto_labels/`](deliverables/nuc_auto_labels/README.md)
+  contains ten checksum-verified ZIPs with **1,330 preliminary Nuc masks**.
+  They are automatic predictions for human review, not manual labels.
 - [`runpod_ready/`](runpod_ready/) records the GPU setup and smoke-test scripts.
   [`MITO_EXPERIMENT_LOG.md`](MITO_EXPERIMENT_LOG.md) and
   [`OPTIMIZATION_GOALS.md`](OPTIMIZATION_GOALS.md) index the research history
@@ -290,11 +293,13 @@ python code/nuc_predict_review.py \
 ```
 
 The script verifies the reviewed checkpoint SHA256 and records source/output
-hashes and per-image processing decisions. The ten approved preview masks
-remain local and Git-ignored. This preference came from target-image visual
-review, so it does not demonstrate a higher external Dice or justify treating
-these predictions as manually labelled nuclei. The original `Nuc_label`,
-167-pair training data, and internal prototype remain unchanged.
+hashes and per-image processing decisions. All ten current Desktop cell folders
+now contain `Nuc_label/` with **1,330** GPU-generated masks, packaged as
+[Nuc delivery ZIPs](deliverables/nuc_auto_labels/README.md). The earlier
+approved preview masks remain local and Git-ignored. This preference came from
+target-image visual review, so it does not demonstrate a higher external Dice
+or justify treating these predictions as manually labelled nuclei. The
+167-pair training data and internal prototype remain unchanged.
 
 For LD, use the versioned derived labels and
 `code/ld_train.py` instead, with the frozen map and a fresh output root:
