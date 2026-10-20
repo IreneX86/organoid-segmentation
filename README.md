@@ -350,8 +350,56 @@ input/ld_001.tif -> output/ld_001.tif
 `prediction_manifest.json` records the model, threshold, tiling parameters,
 input dimensions, and foreground fraction for every generated mask.
 
+## Exploratory tissue and lumen gate
+
+[`code/tissue_roi.py`](code/tissue_roi.py) adds an optional second stage for a
+**manually guided, same-grid** tissue mask. It reads a fluorescence TIFF plus
+separate antialiased `org` (tissue) and `bk` (outside background) TIFFs. The
+declared 16-bit midpoint converts each guide to a candidate region. It finds
+the largest enclosed region marked by neither guide as the putative lumen,
+checks its topology, and saves a tissue mask and review class map (outside 0,
+uncontested tissue 1, lumen 2, uncertain 255). The conservative inference gate
+removes predictions only in definite outside or lumen pixels; it preserves
+uncertain pixels for human review. For conventional `cell_*` paths, the tool
+checks cell-directory identity and slice number for cross-channel fluo/Mito
+pairs, then requires explicit XY-alignment confirmation. Outputs and SHA256
+provenance go into fresh paths;
+existing organelle predictions remain unchanged.
+
+```bash
+python code/tissue_roi.py prepare \
+  --fluo /path/to/fluo_094.tif --org /path/to/org.tif --bk /path/to/bk.tif \
+  --tissue-out outputs/tissue_pilot/fluo_094_tissue.tif \
+  --class-out outputs/tissue_pilot/fluo_094_classes.tif \
+  --manifest-out outputs/tissue_pilot/prepare.json
+
+python code/tissue_roi.py apply \
+  --fluo /path/to/fluo_094.tif --prediction /path/to/Mito_094.tif \
+  --tissue outputs/tissue_pilot/fluo_094_tissue.tif \
+  --class-map outputs/tissue_pilot/fluo_094_classes.tif \
+  --prepare-manifest outputs/tissue_pilot/prepare.json \
+  --out outputs/tissue_pilot/Mito_094.tif \
+  --manifest-out outputs/tissue_pilot/gate.json \
+  --cross-channel-alignment-confirmed
+```
+
+The cross-channel flag records an explicit XY-alignment check for differently
+named fluorescence and Mito images; the tool performs no registration. On the
+reviewed `cell_22382_140` slice 094, this conservative gate removes 2,463
+existing Mito-positive pixels in the putative lumen while preserving 669
+positive pixels in uncertain guide regions for review and keeping the
+original 1200×1200 pixel grid. It cannot correct errors inside tissue, and
+an inaccurate tissue boundary can remove true organelles. The project has one
+paired tissue/background guide, so this example cannot establish a general
+tissue model or an external Dice gain. A future automatic tissue model needs
+representative manual guides from multiple organoids and validation grouped by
+organoid; this pilot is for reviewing the two-stage workflow.
+
 ## Scope
 
-This pipeline does not use organoid IDs, Z indices, adjacent slices, 2.5D
-inputs, 3D reconstruction, or 3D neural networks. StarDist, connected-component
+The segmentation models use independent 2D images and do not use organoid IDs,
+Z indices, adjacent slices, 2.5D inputs, 3D reconstruction, or 3D neural
+networks. The optional tissue gate checks cell-folder and slice-name identity
+only to prevent accidental cross-image pairing; it does not use neighboring
+slices as model input. StarDist, connected-component
 analysis, watershed, clDice, and skeleton metrics remain optional later phases.
