@@ -354,11 +354,14 @@ input dimensions, and foreground fraction for every generated mask.
 
 [`code/tissue_roi.py`](code/tissue_roi.py) adds an optional second stage for a
 **manually guided, same-grid** tissue mask. It reads a fluorescence TIFF plus
-separate antialiased `org` (tissue) and `bk` (outside background) TIFFs. The
-declared 16-bit midpoint converts each guide to a candidate region. It finds
-the largest enclosed region marked by neither guide as the putative lumen,
-checks its topology, and saves a tissue mask and review class map (outside 0,
-uncontested tissue 1, lumen 2, uncertain 255). The conservative inference gate
+separate antialiased `org` (tissue) and `bk` (outside background) TIFFs, with
+an optional explicit `lumen` TIFF. The declared 16-bit midpoint converts each
+guide to a candidate region. With only two guides, it finds the largest
+enclosed region marked by neither guide as a *putative* lumen and checks its
+topology. With an explicit third guide, it accepts an open lumen touching the
+image border. Conflicting and unassigned guide pixels stay uncertain. The
+review class map uses outside 0, uncontested tissue 1, lumen 2, and uncertain
+255. The conservative inference gate
 removes predictions only in definite outside or lumen pixels; it preserves
 uncertain pixels for human review. For conventional `cell_*` paths, the tool
 checks cell-directory identity and slice number for cross-channel fluo/Mito
@@ -394,6 +397,16 @@ paired tissue/background guide, so this example cannot establish a general
 tissue model or an external Dice gain. A future automatic tissue model needs
 representative manual guides from multiple organoids and validation grouped by
 organoid; this pilot is for reviewing the two-stage workflow.
+
+The supplied `fluo_105.tif` has a lumen that opens at the bottom image edge,
+so the two-guide enclosed-hole rule is unsuitable there. If all three manual
+guides are available, pass `--lumen /path/to/lumen_105.tif` to `prepare`; the
+same `apply` command then accepts the new preparation manifest. This explicit
+three-class option does **not** make tissue segmentation automatic. A fixed
+unsupervised local-texture rule trialled on ten `fluo_100.tif` slices produced
+incomplete tissue candidates on most slices and is not used to gate existing
+organelle masks. Automatic tissue/lumen/background segmentation needs separate
+validation, including edge-open cavities, before any batch deployment.
 
 ## Scope
 

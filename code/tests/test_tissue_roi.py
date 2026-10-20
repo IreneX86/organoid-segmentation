@@ -14,7 +14,8 @@ import tifffile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from tissue_roi import _check_explicit_pair, apply_gate, derive_tissue_roi, prepare
+from tissue_roi import (EXPLICIT_LUMEN_POLICY, _check_explicit_pair, apply_gate,
+                        derive_tissue_roi, prepare)
 
 
 def annulus(size: int = 80) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
@@ -28,11 +29,89 @@ def annulus(size: int = 80) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     return fluo, org, bk
 
 
+def open_lumen_guides(size: int = 80) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    """A manually marked cavity reaches the image border through an open rim."""
+
+    fluo, org, bk = annulus(size)
+    lumen = np.zeros_like(fluo)
+    yy, xx = np.ogrid[:size, :size]
+    radius = np.hypot(yy - size // 2, xx - size // 2)
+    lumen[radius < 13] = 65535
+    lumen[size // 2:, size // 2 - 2:size // 2 + 3] = 65535
+    org[lumen > 0] = 0
+    bk[lumen > 0] = 0
+    return fluo, org, bk, lumen
+
+
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 class TissueRoiTests(unittest.TestCase):
+    def test_explicit_open_border_lumen_and_uncertain_pixels(self) -> None:
+        fluo, org, bk, lumen = open_lumen_guides()
+        with self.assertRaisesRegex(ValueError, "No dominant enclosed"):
+            derive_tissue_roi(fluo, org, bk)
+        # Antialiased boundaries may cross or leave a tiny gap. Neither is
+        # force-assigned to a biological class.
+        org[40, 60] = 65535
+        lumen[40, 60] = 65535
+        org[40, 61] = 0
+        bk[40, 61] = 0
+        tissue, classes, qc = derive_tissue_roi(fluo, org, bk, lumen=lumen)
+        self.assertEqual(classes[79, 40], 2)
+        self.assertEqual(classes[40, 40], 2)
+        self.assertEqual(classes[0, 0], 0)
+        self.assertEqual(classes[40, 62], 1)
+        self.assertEqual(classes[40, 60], 255)
+        self.assertEqual(classes[40, 61], 255)
+        self.assertEqual(tissue[40, 60], 255)
+        self.assertTrue(qc["lumen_touches_image_edge"])
+        self.assertEqual(qc["org_lumen_overlap_pixels"], 1)
+        self.assertGreaterEqual(qc["unassigned_pixels"], 1)
+
+    def test_explicit_lumen_prepare_apply_provenance_and_major_conflict(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            fluo, org, bk, lumen = open_lumen_guides()
+            source = root / "cell_001" / "fluo"
+            source.mkdir(parents=True)
+            paths = [source / "fluo_105.tif", root / "org.tif", root / "bk.tif",
+                     root / "lumen.tif"]
+            for path, image in zip(paths, (fluo, org, bk, lumen)):
+                tifffile.imwrite(path, image, metadata=None)
+            source_hashes = [sha256(path) for path in paths]
+            tissue_path = root / "derived" / "tissue.tif"
+            class_path = root / "derived" / "classes.tif"
+            prepare_manifest = root / "derived" / "prepare.json"
+            prepared = prepare(*paths[:3], tissue_path, class_path, prepare_manifest,
+                               lumen_path=paths[3])
+            self.assertEqual(prepared["policy"], EXPLICIT_LUMEN_POLICY)
+            self.assertEqual(prepared["source_sha256"]["lumen"], source_hashes[3])
+            self.assertEqual(prepared["source_names"]["lumen"], "lumen.tif")
+            prediction_path = root / "cell_001" / "Nuc_label" / "fluo_105.tif"
+            prediction_path.parent.mkdir()
+            prediction = np.zeros_like(fluo, dtype=np.uint8)
+            prediction[79, 40] = 255  # Open-border lumen debris.
+            prediction[40, 62] = 255  # Tissue object.
+            tifffile.imwrite(prediction_path, prediction, metadata=None)
+            output = root / "gated" / "fluo_105.tif"
+            gated = apply_gate(paths[0], prediction_path, tissue_path, class_path,
+                               prepare_manifest, output, root / "gated" / "gate.json")
+            mask = tifffile.imread(output)
+            self.assertEqual(int(mask[79, 40]), 0)
+            self.assertEqual(int(mask[40, 62]), 255)
+            self.assertEqual(gated["policy"], EXPLICIT_LUMEN_POLICY)
+            self.assertEqual([sha256(path) for path in paths], source_hashes)
+            with self.assertRaises(FileExistsError):
+                prepare(*paths[:3], tissue_path, class_path, prepare_manifest,
+                        lumen_path=paths[3])
+
+        fluo, org, bk, lumen = open_lumen_guides()
+        lumen[org > 0] = 65535
+        with self.assertRaisesRegex(ValueError, "Major org/lumen conflict"):
+            derive_tissue_roi(fluo, org, bk, lumen=lumen)
+
     def test_rejects_wrong_cell_or_slice_pairing(self) -> None:
         fluo = Path("/tmp/cell_001/fluo/fluo_094.tif")
         wrong_cell = Path("/tmp/cell_002/Mito_label/Mito_094.tif")

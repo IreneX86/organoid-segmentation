@@ -1,14 +1,15 @@
 """Exploratory 2D tissue ROI from explicit, same-grid manual guide masks.
 
-``org`` marks tissue and ``bk`` marks outside/background. They are separate
-antialiased uint16 TIFFs, not model predictions. Pixels above the declared
-16-bit midpoint are positive. This policy has NOT been validated as an
-automatic tissue segmenter and must not be used to tune organelle models.
+``org`` marks tissue and ``bk`` marks outside/background; an optional
+``lumen`` guide explicitly marks the cavity. They are separate antialiased
+uint16 TIFFs, not model predictions. Pixels above the declared 16-bit
+midpoint are positive. Neither guide policy is an automatic tissue segmenter.
 
 The conservative gate preserves org-positive and uncertain pixels. The class
-map marks conflicting boundaries and other unclassified enclosed regions as
-255 for review/training exclusion. Only definite outside and the putative
-lumen are removed. The lumen topology must pass conservative checks.
+map marks conflicting boundaries and unassigned regions as 255 for review or
+training exclusion. Only definite outside and lumen are removed. The inferred
+two-guide lumen must pass conservative topology checks; an explicit lumen
+guide may include a cavity that reaches the image edge.
 No spatial registration, resampling, or automatic cross-channel pairing occurs.
 """
 
@@ -29,7 +30,8 @@ from scipy import ndimage as ndi
 
 
 POLICY = "manual_org_bk_midpoint_enclosed_lumen_v1"
-CLASS_VALUES = {0, 1, 2, 255}  # outside, tissue, putative lumen, uncertain
+EXPLICIT_LUMEN_POLICY = "manual_org_bk_lumen_midpoint_v1"
+CLASS_VALUES = {0, 1, 2, 255}  # outside, tissue, lumen, uncertain
 DEFAULT_THRESHOLD = 32767
 GATE_POLICY = "remove_outside_and_lumen_preserve_uncertain_v1"
 
@@ -93,12 +95,15 @@ def derive_tissue_roi(
     bk: np.ndarray,
     *,
     threshold: int = DEFAULT_THRESHOLD,
+    lumen: np.ndarray | None = None,
 ) -> tuple[np.ndarray, np.ndarray, dict[str, Any]]:
     """Build tissue 0/255 and a four-class QC map from aligned manual guides.
 
     The threshold is a *declared coverage convention* for exploratory
     antialiased masks, never selected from organelle predictions or Dice.
-    Any severe org/bk contradiction or missing enclosed lumen fails closed.
+    With an explicit lumen guide, unassigned and conflicting pixels remain
+    uncertain. Without it, only a dominant enclosed unclaimed region can be
+    inferred as putative lumen; ambiguous geometry fails closed.
     """
 
     if not 0 <= threshold < 65535:
@@ -106,12 +111,57 @@ def derive_tissue_roi(
     for name, array in (("fluo", fluo), ("org", org), ("bk", bk)):
         if array.ndim != 2 or array.dtype != np.uint16:
             raise ValueError(f"{name} must be one 2D uint16 plane; got {array.shape} {array.dtype}")
-    height, width = _same_grid(fluo, org, bk)
+    if lumen is not None and (lumen.ndim != 2 or lumen.dtype != np.uint16):
+        raise ValueError(f"lumen must be one 2D uint16 plane; got {lumen.shape} {lumen.dtype}")
+    height, width = _same_grid(fluo, org, bk, *([lumen] if lumen is not None else []))
     total = height * width
     org_positive = org > threshold
     bk_positive = bk > threshold
     if not org_positive.any() or not bk_positive.any():
         raise ValueError("Both org and bk must have positive pixels; inspect the guide masks")
+
+    if lumen is not None:
+        lumen_positive = lumen > threshold
+        if not lumen_positive.any():
+            raise ValueError("The explicit lumen guide has no positive pixels")
+        positives = (org_positive, bk_positive, lumen_positive)
+        names = ("org", "bk", "lumen")
+        conflicts: dict[str, int] = {}
+        for i in range(3):
+            for j in range(i + 1, 3):
+                overlap_count = int(np.count_nonzero(positives[i] & positives[j]))
+                conflicts[f"{names[i]}_{names[j]}_overlap_pixels"] = overlap_count
+                smaller_region = min(int(positives[i].sum()), int(positives[j].sum()))
+                if overlap_count / smaller_region > 0.10 or overlap_count / total > 0.05:
+                    raise ValueError(
+                        f"Major {names[i]}/{names[j]} conflict: {overlap_count} pixels; "
+                        "manual review required"
+                    )
+        count = sum(positive.astype(np.uint8) for positive in positives)
+        classes = np.full((height, width), 255, dtype=np.uint8)
+        for label, positive in ((1, org_positive), (0, bk_positive),
+                                (2, lumen_positive)):
+            classes[positive & (count == 1)] = label
+        tissue = org_positive.astype(np.uint8) * 255
+        qc: dict[str, Any] = {
+            "height": height,
+            "width": width,
+            "threshold": threshold,
+            "org_positive_pixels": int(org_positive.sum()),
+            "bk_positive_pixels": int(bk_positive.sum()),
+            "lumen_pixels": int(lumen_positive.sum()),
+            "lumen_touches_image_edge": bool(np.any(lumen_positive[0, :])
+                                              or np.any(lumen_positive[-1, :])
+                                              or np.any(lumen_positive[:, 0])
+                                              or np.any(lumen_positive[:, -1])),
+            "unassigned_pixels": int(np.count_nonzero(count == 0)),
+            "conflicting_pixels": int(np.count_nonzero(count > 1)),
+            "uncertain_pixels": int(np.count_nonzero(classes == 255)),
+            "class_counts": {str(value): int(np.count_nonzero(classes == value))
+                             for value in (0, 1, 2, 255)},
+            **conflicts,
+        }
+        return tissue, classes, qc
 
     overlap = org_positive & bk_positive
     overlap_count = int(overlap.sum())
@@ -235,18 +285,26 @@ def prepare(
     manifest_out: Path,
     *,
     threshold: int = DEFAULT_THRESHOLD,
+    lumen_path: Path | None = None,
 ) -> dict[str, Any]:
     """Write new ROI TIFFs and a traceable manifest; never change sources."""
 
-    _check_output_paths([fluo_path, org_path, bk_path],
+    input_paths = [fluo_path, org_path, bk_path]
+    if lumen_path is not None:
+        input_paths.append(lumen_path)
+    _check_output_paths(input_paths,
                         [tissue_out, class_out, manifest_out], [".tif", ".tif", ".json"])
     fluo = _read_tiff(fluo_path, dtype=np.dtype("uint16"))
     org = _read_tiff(org_path, dtype=np.dtype("uint16"))
     bk = _read_tiff(bk_path, dtype=np.dtype("uint16"))
-    tissue, classes, qc = derive_tissue_roi(fluo, org, bk, threshold=threshold)
-    source_sha = {name: _sha256(path) for name, path in (
-        ("fluo", fluo_path), ("org", org_path), ("bk", bk_path)
-    )}
+    lumen = (_read_tiff(lumen_path, dtype=np.dtype("uint16"))
+             if lumen_path is not None else None)
+    tissue, classes, qc = derive_tissue_roi(fluo, org, bk, threshold=threshold,
+                                            lumen=lumen)
+    source_paths = {"fluo": fluo_path, "org": org_path, "bk": bk_path}
+    if lumen_path is not None:
+        source_paths["lumen"] = lumen_path
+    source_sha = {name: _sha256(path) for name, path in source_paths.items()}
     # File-level checksums are computed after deterministic, staged TIFF writes.
     # The manifest records array checksums independent of TIFF metadata.
     array_sha = {
@@ -254,16 +312,18 @@ def prepare(
         "class_map_array_sha256": hashlib.sha256(classes.tobytes()).hexdigest(),
     }
     manifest: dict[str, Any] = {
-        "policy": POLICY,
+        "policy": EXPLICIT_LUMEN_POLICY if lumen_path is not None else POLICY,
         "status": "exploratory_manual_guides_not_validated_tissue_model",
-        "source_names": {"fluo": fluo_path.name, "org": org_path.name, "bk": bk_path.name},
+        "source_names": {name: path.name for name, path in source_paths.items()},
         "source_sha256": source_sha,
         "output_names": {"tissue": tissue_out.name, "class_map": class_out.name},
         "gate_policy": GATE_POLICY,
         "class_definitions": {
             "0": "outside/background", "1": "uncontested tissue",
-            "2": "largest enclosed neither-marked putative lumen",
-            "255": "uncertain overlap or other enclosed neither-marked regions",
+            "2": ("explicit manual lumen" if lumen_path is not None else
+                  "largest enclosed neither-marked putative lumen"),
+            "255": ("unassigned or conflicting manual guides" if lumen_path is not None else
+                    "uncertain overlap or other enclosed neither-marked regions"),
         },
         "output_array_sha256": array_sha,
         "qc": qc,
@@ -288,7 +348,7 @@ def apply_gate(
     _check_output_paths([fluo_path, prediction_path, tissue_path, class_path,
                          prepare_manifest_path], [output_path, manifest_out], [".tif", ".json"])
     prepared = json.loads(prepare_manifest_path.read_text(encoding="utf-8"))
-    if prepared.get("policy") != POLICY:
+    if prepared.get("policy") not in {POLICY, EXPLICIT_LUMEN_POLICY}:
         raise ValueError("Preparation manifest policy mismatch")
     if prepared.get("gate_policy") != GATE_POLICY:
         raise ValueError("Preparation manifest gate policy mismatch")
@@ -334,7 +394,7 @@ def apply_gate(
     if np.any((gated > 0) & ~predicted):
         raise AssertionError("Gate unexpectedly created organelle positives")
     manifest = {
-        "policy": POLICY,
+        "policy": prepared["policy"],
         "status": "exploratory_gated_prediction_not_validated_accuracy",
         "gate_policy": GATE_POLICY,
         "cell_id": cell_id,
@@ -366,6 +426,10 @@ def main(argv: list[str] | None = None) -> int:
     prepare_parser = commands.add_parser("prepare", help="Build an exploratory manual tissue ROI")
     for flag in ("fluo", "org", "bk", "tissue-out", "class-out", "manifest-out"):
         prepare_parser.add_argument(f"--{flag}", required=True, type=Path)
+    prepare_parser.add_argument(
+        "--lumen", type=Path,
+        help="Optional explicit same-grid uint16 lumen guide; supports open-border cavities",
+    )
     prepare_parser.add_argument("--threshold", type=int, default=DEFAULT_THRESHOLD)
     apply_parser = commands.add_parser("apply", help="Gate one same-grid 0/255 prediction")
     apply_flags = (
@@ -381,7 +445,8 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.command == "prepare":
         result = prepare(args.fluo, args.org, args.bk, args.tissue_out,
-                         args.class_out, args.manifest_out, threshold=args.threshold)
+                         args.class_out, args.manifest_out, threshold=args.threshold,
+                         lumen_path=args.lumen)
     else:
         result = apply_gate(args.fluo, args.prediction, args.tissue,
                             args.class_map, args.prepare_manifest, args.out,
