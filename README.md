@@ -72,6 +72,11 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
   [`MITO_EXPERIMENT_LOG.md`](MITO_EXPERIMENT_LOG.md) and
   [`OPTIMIZATION_GOALS.md`](OPTIMIZATION_GOALS.md) index the research history
   and evaluation rules.
+- [`membrane_cellpose/`](membrane_cellpose/README.md) is a separate snapshot of
+  the membrane-based **cell instance** segmentation code and general usage
+  notes. Its raw TIFFs, hand-corrected labels, predictions, model checkpoints,
+  and local SHA256 inventory are not included. This snapshot does not change the
+  independent 2D organelle pipelines above.
 
 The first batch-prediction stage is complete. Its input TIFFs remain in the
 local `organoid_data/` directory and are not tracked by Git. The delivered

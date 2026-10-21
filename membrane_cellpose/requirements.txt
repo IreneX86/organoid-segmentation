@@ -1,0 +1,16 @@
+# Python 3.9 (tested with 3.9.13, via the `py -3.9` launcher on Windows)
+# Install torch/torchvision from the CUDA 12.1 wheel index BEFORE the rest:
+#   pip install torch==2.4.1 torchvision==0.19.1 --index-url https://download.pytorch.org/whl/cu121
+# then:
+#   pip install -r requirements.txt
+
+tifffile
+imagecodecs
+packaging
+cellpose==4.2.1.1
+napari[pyqt5]
+
+# NOTE: the "cpdino" backbone (a lighter/faster alternative to the default
+# "cpsam_v2") requires the separate `dinov3` package, which in turn requires
+# Python >=3.11. Not usable in this Python 3.9 environment without a full
+# separate venv -- not installed here, see README.md.
