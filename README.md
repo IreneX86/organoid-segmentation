@@ -78,6 +78,40 @@ This directory implements Phase 1 and Phase 2 of the project: three independent
   and local SHA256 inventory are not included. This snapshot does not change the
   independent 2D organelle pipelines above.
 
+### Membrane whole-stack cell instances
+
+For the four currently complete `Memb.tif` + `fluo.tif` organoids, the selected
+**review workflow** retains every v4 cell pixel and ID and conservatively adds
+only v7 regions that pass the frozen spatial, membrane/fluo, temporal and 3D
+identity checks. It uses the original `cpsam_finetuned_v4` and experimental
+`cpsam_finetuned_v7` checkpoints with Cellpose 4.2.1.1, channel order
+`Memb, fluo`, global-Z-indexed 11-slice p1/p99 normalization, 10-slice 2D
+inference chunks, and a single global 3D stitch. It does **not** merge binary
+masks, retrain either model, or use hand labels to accept additions. The method
+and its limitations are documented in the
+[full-stack fusion report](reports/membrane-v4-v7-fusion-full-stack-qc-20261023.md).
+
+The reproducible entry points are
+[`membrane_v4_v7_prepare_100.py`](experiments/membrane_v4_v7_prepare_100.py)
+for source-hashed 100-Z profiles,
+[`membrane_v4_v7_cf100_infer.py`](experiments/membrane_v4_v7_cf100_infer.py)
+for the frozen GPU prediction,
+[`membrane_v4_v7_verify_100.py`](experiments/membrane_v4_v7_verify_100.py)
+for a downloaded result archive, and
+[`membrane_v4_v7_fuse_stack_20261023.py`](experiments/membrane_v4_v7_fuse_stack_20261023.py)
+for the same conservative fusion on a complete stack. The
+[`membrane_v4_v7_export.py`](experiments/membrane_v4_v7_export.py) command
+copies a SHA-checked numerical instance TIFF to a separate review directory
+and renders a display-only comparison PNG. The checkpoint weights, biological
+TIFFs, large predictions and Runpod logs are excluded from Git.
+
+The four delivered instance TIFFs and per-organoid review images are indexed
+in the [Membrane batch handoff](reports/membrane-v4-v7-batch-handoff-20261026.md).
+This is an operational, human-selected workflow; existing annotations may
+have been involved in model development, so these outputs do not establish an
+independent generalization score. Ambiguous dark `fluo` structures are review
+clues, not a forced one-nucleus/one-cell constraint.
+
 The first batch-prediction stage is complete. Its input TIFFs remain in the
 local `organoid_data/` directory and are not tracked by Git. The delivered
 masks were generated with the frozen **fold-0** checkpoint, not a final model
