@@ -1,0 +1,100 @@
+{
+  "purpose": "exploratory organoid-grouped Golgi pilot; no independent test",
+  "train_organoid": "cell_16471_NZ_150",
+  "validation_organoid": "cell_16472_NZ_150",
+  "train": [
+    "mask_004.tif",
+    "mask_005.tif",
+    "mask_010.tif",
+    "mask_020.tif",
+    "mask_033.tif",
+    "mask_038.tif",
+    "mask_046.tif",
+    "mask_076.tif",
+    "mask_098.tif",
+    "mask_111.tif",
+    "mask_112.tif"
+  ],
+  "validation": [
+    "mask_029.tif",
+    "mask_052.tif",
+    "mask_075.tif"
+  ],
+  "sha256": {
+    "mask_004.tif": {
+      "input": "b6540a1016c6f46ed91a5d8c6c50f94986e11b2feae680a159c4a54c20c55ed4",
+      "mask": "e469b534d64e680e81294cb42784ee75e3734814f120ce4001f58966a700fa8c"
+    },
+    "mask_005.tif": {
+      "input": "0c1807825872897db808bcbb1505d687ac759723e7dc7b251827c22b5fd4f38e",
+      "mask": "dc7a1a9e353a6c08c8e1d1c1a21e9d8ea8b081be0e774e2a486b59f4c93fd81d"
+    },
+    "mask_010.tif": {
+      "input": "39eb33a210715598f078e228221faeba17b59f7c205b72fcd3d792bd191b0852",
+      "mask": "3dfb0c60fa99024b06bb4d84818b6b6a5f9fc0f92e6a64957f18d17fa7987df3"
+    },
+    "mask_020.tif": {
+      "input": "b24834d8ad20734c29a0438cd1ae15bff125bd48072accb836931bdd63b033b3",
+      "mask": "8cdc1da4e1d375fd6ba8bb78d856b158cba099a10a8be0503948218ce9e0c051"
+    },
+    "mask_029.tif": {
+      "input": "4ce6d0a64b58ca377bca346e2247f566adde4d66f62fc10f990b417895ce7378",
+      "mask": "7b1c68c48058132f1fb6be04a483e45cf6992bb9618d6081a3b53bec61f50c88"
+    },
+    "mask_033.tif": {
+      "input": "60265797a94455cf9bf72180a2c7f1eddaff6029b0573101db0d30671cb59b30",
+      "mask": "a31fedfadd824027c5d2a744b77ced8052cf396eddc15da188a33fafd286127b"
+    },
+    "mask_038.tif": {
+      "input": "ccae7b0c2918e7904ce7aeb90df1c12619cfa92a10fb06eef4c8e599a5c9b6bb",
+      "mask": "4e587a93a83e8e6881fa3a6a897e27085ed8ea1e78ded011b5e5a5cee45b4408"
+    },
+    "mask_046.tif": {
+      "input": "93ee552c6b7db2a3ce3736249d75c99cf7881ceb05302e694b9fda4848d1e77e",
+      "mask": "23d4822e42d891265fef4861a663d5cdd2a865a52a2faa955ba3c3837e300077"
+    },
+    "mask_052.tif": {
+      "input": "658f3cc3dc97e2074a9d8a098daf1fc542b6e87b225f8a18b5a69097b9c08c42",
+      "mask": "8074e973dd9e83d412107f2bd087c238546da4fbb0c1895ea71d7656a4095060"
+    },
+    "mask_075.tif": {
+      "input": "5de7f78c22243aa3e37e0253f125b7f3c3fa8eca83ca44b7706c0afda95f7383",
+      "mask": "ca50aca26f96782bda8299e55bca36d6ced1409bf16d0c3639ecd825055c7222"
+    },
+    "mask_076.tif": {
+      "input": "db7d546e8298f23f8de962687e4181d8d8cbbd5d0fc9f940f7e9c041f865f1d4",
+      "mask": "621f3f86bae4f6a63213caee87c3eca02ba712bd6815b60683b39a1c66ef2267"
+    },
+    "mask_098.tif": {
+      "input": "204f84a68efb58c595aec6ab2ef55f62e1aa7be6c14b4db3ac607e499a4e6fa7",
+      "mask": "e8fcd7d52296f9ee637b0174ad61fc6ed9bb00814cc4d3b5ddc58bf5a0428154"
+    },
+    "mask_111.tif": {
+      "input": "ca11641676abff9efe38acc0e7a661831aa4358fe59dab8ea27cc8ee8d2c8fdd",
+      "mask": "52fd255d7cf28ebc58273e94283b85573d8b09f57f77ed51fcc18a742c5b1ab7"
+    },
+    "mask_112.tif": {
+      "input": "1cae8cf119362d6f719256af7a7249603b3ff66068eec97771a4e3ea1bfbc838",
+      "mask": "d62f996e183d663e391221c61e79626ad0577a62d3c94f9fd527622f6d635dad"
+    }
+  },
+  "model": "2D U-Net base_filters=32",
+  "loss": "BCE + soft Dice",
+  "patch_size": 512,
+  "overlap": 128,
+  "batch_size": 4,
+  "steps_per_epoch": 40,
+  "max_epochs": 60,
+  "positive_patch_probability": 0.6,
+  "normalization_percentiles": [
+    1.0,
+    99.8
+  ],
+  "learning_rate": 0.0001,
+  "checkpoint_monitor": "full-image validation Dice at threshold 0.5",
+  "early_stopping_patience": 12,
+  "seed": 42,
+  "python": "3.11.17 (main, Oct 13 2026, 16:45:47) [GCC 15.3.0]",
+  "tensorflow": "2.21.0",
+  "numpy": "2.4.6"
+}

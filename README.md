@@ -1,8 +1,9 @@
 # Organoid 2D semantic segmentation
 
-This directory implements Phase 1 and Phase 2 of the project: three independent
-2D semantic-segmentation pipelines for mitochondria (`mito`), lipid droplets
-(`ld`), and nuclei (`nuc`). Each TIFF is treated as an independent 2D image.
+This directory implements Phase 1 and Phase 2 of the project: three established
+independent 2D semantic-segmentation pipelines for mitochondria (`mito`), lipid
+droplets (`ld`), and nuclei (`nuc`), plus a separate exploratory Golgi pilot.
+Each organelle TIFF is treated as an independent 2D image.
 
 ## Repository guide and current stage
 
@@ -111,6 +112,32 @@ This is an operational, human-selected workflow; existing annotations may
 have been involved in model development, so these outputs do not establish an
 independent generalization score. Ambiguous dark `fluo` structures are review
 clues, not a forced one-nucleus/one-cell constraint.
+
+### Golgi spheroid pilot
+
+The [Golgi pilot model card](model_releases/golgi_pilot_20261026/README.md)
+links to the downloadable `golgi_unet.keras` checkpoint and gives a portable
+folder-inference command. The checkpoint was trained **from scratch** with the
+existing 2D U-Net architecture, BCE + soft-Dice loss, 512×512 foreground-aware
+patches, per-image p1–p99.8 normalization and full-resolution sliding-window
+validation. It did not reuse earlier Mito or LD weights. Eleven manually
+labelled images from `cell_16471_NZ_150` formed the training set; three from
+`cell_16472_NZ_150` formed the validation set. The best checkpoint was epoch
+30 of 42 completed epochs. At the fixed 0.5 threshold, validation mean Dice
+was **0.7623**, IoU **0.6173**, precision **0.6455**, recall **0.9327**.
+The [full report](reports/golgi-pilot-20261026.md) records the per-image
+results and comparison with older predictions. Only one held-out spheroid was
+available, so these are exploratory validation values, **not** independent
+test performance or evidence of transfer to other spheroids. The new model
+finds more labelled pixels but also produces more false positives.
+
+Use [`code/golgi_predict_folder.py`](code/golgi_predict_folder.py) for
+same-name, same-size 2D TIFF predictions. Its fixed checkpoint SHA256,
+preprocessing, overlap and threshold reproduce the ten-image local preview;
+the first-image CLI regression check produced a pixel-identical mask. The
+[training source](code/golgi_pilot_train.py) and
+[small run records](experiments/results/golgi_pilot_20261026/) are tracked,
+while raw TIFFs, masks, predictions and GPU logs stay out of Git.
 
 The first batch-prediction stage is complete. Its input TIFFs remain in the
 local `organoid_data/` directory and are not tracked by Git. The delivered
