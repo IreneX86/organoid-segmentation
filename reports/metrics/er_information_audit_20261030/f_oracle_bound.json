@@ -1,0 +1,27 @@
+{
+ "23298": {
+  "batch": "MCF7",
+  "labelled_neighbourhood_frac": 0.5436244447688976,
+  "oracle_dice": 0.703658863351715
+ },
+ "23300": {
+  "batch": "MCF7",
+  "labelled_neighbourhood_frac": 0.4499618637588911,
+  "oracle_dice": 0.6203188790227526
+ },
+ "23961": {
+  "batch": "WT",
+  "labelled_neighbourhood_frac": 0.08223104875712471,
+  "oracle_dice": 0.15159342167296455
+ },
+ "23963": {
+  "batch": "WT",
+  "labelled_neighbourhood_frac": 0.2006242192096058,
+  "oracle_dice": 0.33408282386317323
+ },
+ "23966": {
+  "batch": "WT",
+  "labelled_neighbourhood_frac": 0.3341205696892808,
+  "oracle_dice": 0.49995376839705435
+ }
+}
