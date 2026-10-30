@@ -139,6 +139,45 @@ the first-image CLI regression check produced a pixel-identical mask. The
 [small run records](experiments/results/golgi_pilot_20261026/) are tracked,
 while raw TIFFs, masks, predictions and GPU logs stay out of Git.
 
+### Exploratory ER mask pipeline
+
+[`code/er_classical_segment.py`](code/er_classical_segment.py) batch-processes
+aligned `ER.tif` and `fluo.tif` stacks into same-size, 0/255 ER candidate masks.
+This is **classical image processing, not U-Net**: Fluo defines a broad tissue
+support region, ER residual and relative contrast find candidate structures,
+and a conservative shape/Fluo check rejects some round bright artifacts.
+The single-image user-reviewed exclusion is optional and never generalized
+across the stack by default. See the
+[algorithm, commands and limitations](docs/er_classical_segmentation.md).
+
+The later user-selected [relaxed ridge candidate](docs/er_ridge_batch_preview.md)
+adds multiscale ER features and adjacent-Z consistency. Its batch command is
+[`code/er_ridge_batch_predict.py`](code/er_ridge_batch_predict.py); results
+remain exploratory until checked against complete ER annotations.
+
+For new ER/Fluo fields, [`code/er_bright_line_pipeline.py`](code/er_bright_line_pipeline.py)
+adds bright-structure screening, weak-fragment filtering and gentle line
+refinement to the ridge candidate. It writes both the broad bright mask and
+the narrower line candidate to a new output directory. Hand-drawn review
+regions are optional and are never assumed to generalize to another image.
+See the [batch commands and validation limits](docs/er_bright_line_pipeline.md).
+The currently user-selected **3D ER line candidate** is
+[`code/er_coherent_fiber_batch.py`](code/er_coherent_fiber_batch.py): it adds
+adjacent-Z-supported coherent fine fibers to the historical line, narrows
+overly broad regions, and protects existing connected regions from splitting.
+It writes its masks and SHA256 manifest to a new directory and leaves the
+historical pipeline unchanged. Five reviewed planes matched the frozen pilot
+pixel-for-pixel; ER ground-truth accuracy has not been established.
+For the current eight-cell ER set, an [explicit per-cell imaging profile map](experiments/er_imaging_profiles_20261028.json)
+keeps the original settings for seven cells and enables a brighter-sensitive
+candidate only for the dim `cell_20260904_23966_NZ_100` organoid; it does not
+automatically change previously generated predictions.
+Two user-reviewed last-five-slice corrections can be reproduced with
+[`code/er_reviewed_tail_batch.py`](code/er_reviewed_tail_batch.py) and the
+[cell-specific review configuration](experiments/er_last5_review_rois_20261028.json).
+They are exploratory corrections for those two stacks, not a general
+improvement claim for other organoids.
+
 The first batch-prediction stage is complete. Its input TIFFs remain in the
 local `organoid_data/` directory and are not tracked by Git. The delivered
 masks were generated with the frozen **fold-0** checkpoint, not a final model
@@ -482,3 +521,9 @@ networks. The optional tissue gate checks cell-folder and slice-name identity
 only to prevent accidental cross-image pairing; it does not use neighboring
 slices as model input. StarDist, connected-component
 analysis, watershed, clDice, and skeleton metrics remain optional later phases.
+
+## ER Fluo-only research update (2026-10-30)
+
+[Expanded-crop paired fivefold experiment](reports/ER_diverse_cv_20261030.md): completed with whole-specimen isolation. Under the frozen1,000-update budget, expansion reduced mean pseudo-label Dice from0.1914 to0.0908 (allfivefolds worse). Experimental checkpoints are retained locally; neither arm is production approved. This is pseudo-label agreement, not manual ER accuracy. See the report for sampling/exposure limitations, complete comparisons and verified Runpod cleanup.
+
+[Inner-validation convergence follow-up](reports/ER_inner_convergence_20261030.md): five matched folds completed with three training specimens per fold and checkpoint selection isolated from outer labels. Mean pseudo-label Dice was0.2072 for the original pool and0.1753 for the expanded pool; expansion remains unapproved. Results/checkpoints verified locally and GPU resources deleted; approximately US$0.24 spent, zero ongoing spend.

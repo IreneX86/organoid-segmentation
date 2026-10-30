@@ -1,0 +1,244 @@
+{
+  "mean": {
+    "control": {
+      "dice": 0.7433823544969592,
+      "iou": 0.5950468431156795,
+      "precision": 0.7262232273985652,
+      "recall": 0.7685526554052929,
+      "positive_fraction": 0.634503173828125,
+      "ignored_positive_fraction": 0.6179626555232505
+    },
+    "mesh": {
+      "dice": 0.774777612121555,
+      "iou": 0.6347723637248142,
+      "precision": 0.7272672288975218,
+      "recall": 0.8326419534136879,
+      "positive_fraction": 0.6794714355468751,
+      "ignored_positive_fraction": 0.6641225787067746
+    }
+  },
+  "paired_dice_change": [
+    0.004170827881510353,
+    -0.021216241851088724,
+    -0.0017416432471968335,
+    0.012944034201800014,
+    -0.003250722499123615,
+    0.09953597268638281,
+    0.0364851328301391,
+    0.1242347009943432
+  ],
+  "improved_crops": 5,
+  "rows": [
+    {
+      "file": "cell_20260904_23965_NZ_140_z020_y240_x480.npz",
+      "control": {
+        "dice": 0.7573368665120901,
+        "iou": 0.6094466361019298,
+        "precision": 0.7352241301691427,
+        "recall": 0.7808209821733488,
+        "positive_fraction": 0.6081640625,
+        "ignored_positive_fraction": 0.5708160273637919,
+        "tp": 11432,
+        "fp": 4117,
+        "fn": 3209
+      },
+      "mesh": {
+        "dice": 0.7615076943936004,
+        "iou": 0.6148667141058624,
+        "precision": 0.7558710719332481,
+        "recall": 0.7672290144115839,
+        "positive_fraction": 0.595009765625,
+        "ignored_positive_fraction": 0.5627656975323724,
+        "tp": 11233,
+        "fp": 3628,
+        "fn": 3408
+      }
+    },
+    {
+      "file": "cell_20260904_23965_NZ_140_z020_y560_x320.npz",
+      "control": {
+        "dice": 0.7886444128391756,
+        "iou": 0.6510428656936323,
+        "precision": 0.7130610186585981,
+        "recall": 0.8821511011292034,
+        "positive_fraction": 0.54931640625,
+        "ignored_positive_fraction": 0.513225201865761,
+        "tp": 14140,
+        "fp": 5690,
+        "fn": 1889
+      },
+      "mesh": {
+        "dice": 0.7674281709880869,
+        "iou": 0.6226234876739744,
+        "precision": 0.6967830601649191,
+        "recall": 0.8540145985401459,
+        "positive_fraction": 0.5437890625,
+        "ignored_positive_fraction": 0.5078421149049505,
+        "tp": 13689,
+        "fp": 5957,
+        "fn": 2340
+      }
+    },
+    {
+      "file": "cell_20260904_23965_NZ_140_z048_y320_x240.npz",
+      "control": {
+        "dice": 0.7387917784666684,
+        "iou": 0.5857809724459867,
+        "precision": 0.7448261371992856,
+        "recall": 0.732854411080676,
+        "positive_fraction": 0.606689453125,
+        "ignored_positive_fraction": 0.6038399551538084,
+        "tp": 14180,
+        "fp": 4858,
+        "fn": 5169
+      },
+      "mesh": {
+        "dice": 0.7370501352194716,
+        "iou": 0.5835941360566628,
+        "precision": 0.7417176950855707,
+        "recall": 0.7324409530208279,
+        "positive_fraction": 0.60212890625,
+        "ignored_positive_fraction": 0.5963282180646066,
+        "tp": 14172,
+        "fp": 4935,
+        "fn": 5177
+      }
+    },
+    {
+      "file": "cell_20260904_23965_NZ_140_z048_y640_x320.npz",
+      "control": {
+        "dice": 0.7007073675046251,
+        "iou": 0.5392991155186277,
+        "precision": 0.626025745731731,
+        "recall": 0.7956207987346777,
+        "positive_fraction": 0.63908203125,
+        "ignored_positive_fraction": 0.6178405362113742,
+        "tp": 16097,
+        "fp": 9616,
+        "fn": 4135
+      },
+      "mesh": {
+        "dice": 0.7136514017064252,
+        "iou": 0.5547884940778341,
+        "precision": 0.6376011200995644,
+        "recall": 0.8103005140371689,
+        "positive_fraction": 0.661474609375,
+        "ignored_positive_fraction": 0.6535153880845372,
+        "tp": 16394,
+        "fp": 9318,
+        "fn": 3838
+      }
+    },
+    {
+      "file": "cell_20260904_23965_NZ_140_z090_y240_x160.npz",
+      "control": {
+        "dice": 0.8656219061647309,
+        "iou": 0.7630805909148963,
+        "precision": 0.8003929624006431,
+        "recall": 0.942425995057574,
+        "positive_fraction": 0.792509765625,
+        "ignored_positive_fraction": 0.7654200372555916,
+        "tp": 17924,
+        "fp": 4470,
+        "fn": 1095
+      },
+      "mesh": {
+        "dice": 0.8623711836656073,
+        "iou": 0.7580426684727396,
+        "precision": 0.7954515169013459,
+        "recall": 0.9415847310584152,
+        "positive_fraction": 0.858603515625,
+        "ignored_positive_fraction": 0.8520327744994594,
+        "tp": 17908,
+        "fp": 4605,
+        "fn": 1111
+      }
+    },
+    {
+      "file": "cell_20260904_23965_NZ_140_z090_y640_x160.npz",
+      "control": {
+        "dice": 0.6699472759226713,
+        "iou": 0.5036997885835095,
+        "precision": 0.7050120214536711,
+        "recall": 0.6382052569897874,
+        "positive_fraction": 0.549462890625,
+        "ignored_positive_fraction": 0.5337380806989526,
+        "tp": 7624,
+        "fp": 3190,
+        "fn": 4322
+      },
+      "mesh": {
+        "dice": 0.7694832486090541,
+        "iou": 0.625333420076768,
+        "precision": 0.7372861854721178,
+        "recall": 0.8046207935710699,
+        "positive_fraction": 0.664990234375,
+        "ignored_positive_fraction": 0.6465545586922824,
+        "tp": 9612,
+        "fp": 3425,
+        "fn": 2334
+      }
+    },
+    {
+      "file": "cell_20260904_23965_NZ_140_z118_y320_x160.npz",
+      "control": {
+        "dice": 0.715372907153729,
+        "iou": 0.556872037914692,
+        "precision": 0.7114744171964881,
+        "recall": 0.7193143556779921,
+        "positive_fraction": 0.6677734375,
+        "ignored_positive_fraction": 0.6675977294082818,
+        "tp": 11750,
+        "fp": 4765,
+        "fn": 4585
+      },
+      "mesh": {
+        "dice": 0.7518580399838681,
+        "iou": 0.6023818316100443,
+        "precision": 0.7100495130311769,
+        "recall": 0.7988980716253443,
+        "positive_fraction": 0.73119140625,
+        "ignored_positive_fraction": 0.7271943260950714,
+        "tp": 13050,
+        "fp": 5329,
+        "fn": 3285
+      }
+    },
+    {
+      "file": "cell_20260904_23965_NZ_140_z118_y640_x80.npz",
+      "control": {
+        "dice": 0.7106363214119833,
+        "iou": 0.5511527377521613,
+        "precision": 0.7737693863789615,
+        "recall": 0.6570283423990839,
+        "positive_fraction": 0.66302734375,
+        "ignored_positive_fraction": 0.6712236762284427,
+        "tp": 4590,
+        "fp": 1342,
+        "fn": 2396
+      },
+      "mesh": {
+        "dice": 0.8348710224063265,
+        "iou": 0.7165481577246283,
+        "precision": 0.7433776684922321,
+        "recall": 0.9520469510449471,
+        "positive_fraction": 0.778583984375,
+        "ignored_positive_fraction": 0.7667475517809169,
+        "tp": 6651,
+        "fp": 2296,
+        "fn": 335
+      }
+    }
+  ],
+  "checkpoints": {
+    "control": "1e0b35a44301c991c847c8dcb99319883406ab6534d70346d72e9da4c2a72d36",
+    "mesh": "ebe38097b4f3aec1f86c53349f9ec70a40327eadd48d6c3dd577f168e541bdc7"
+  },
+  "verification": "PASS",
+  "scope": "Eight previously seen validation crops from ONE specimen; partial pseudo-label agreement, not biological accuracy or independent generalization",
+  "production_approved": false,
+  "arm_semantics": {
+    "control": "mesh only",
+    "mesh": "same mesh plus gap-negative candidates"
+  }
+}

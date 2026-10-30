@@ -1,0 +1,9 @@
+# ER versus Fluo input diagnostic — locked before training
+
+User approved diagnosing binary-label failure, including an ER-input control. Use the same forty 320px crops, same preserved binary labels (yellow positive, gray/blue background inside selected crops only), same 32-train/four-specimen and eight-validation/one-specimen split. ER reference crops are verified against their existing crop manifest and paired to unchanged Fluo crops. No whole stacks required.
+
+Two matched arms, Fluo and ER, start from exactly the same freshly initialized existing base16 U-Net weights. This avoids favoring Fluo with a Fluo-pretrained checkpoint. Per-input-crop p1–p99.8 normalization, seed20261030, deterministic TF operations, Adam0.0003, 1000 updates, batch4 one crop/specimen, identical sampling sequence, existing BN/dropout training behavior, no augmentation. Final checkpoint only, threshold0.5, no early stopping, threshold selection or tuning after inspection. Save all train/validation probabilities and checkpoints. This is a new paired diagnostic, not a direct optimization comparison to the previous frozen-BN500-update pilot.
+
+ER-input is a teacher-channel positive control: labels were derived from ER, so high ER agreement is partly circular and cannot establish biological accuracy. Poor ER performance would not by itself prove bad labels: optimization and preprocessing remain possible causes. Better ER than Fluo would support an input/transfer limitation under this configuration, not prove that ER is unrecoverable from Fluo. Only one reused validation specimen; no independent test claim. Do not promote either model automatically.
+
+One SecureCloudGPU, incremental ceilingUS$1, no additional storage resource. QuickGPUpreflight, max10minutes/arm, download SHA256 verification before terminating the Pod. Do not modify raw images, existing labels or checkpoints.

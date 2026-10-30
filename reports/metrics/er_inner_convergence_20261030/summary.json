@@ -1,0 +1,195 @@
+{
+  "status": "VERIFIED",
+  "summary": {
+    "control": {
+      "dice_mean": 0.20717150683825075,
+      "crop_std": 0.0650213180280966,
+      "specimen_std": 0.03171311445581242,
+      "median": 0.2195807721713633,
+      "min": 0.05421487603305785,
+      "max": 0.3514009543619234,
+      "iou": 0.11702241383189045,
+      "precision": 0.2626628184856554,
+      "recall": 0.18682090780407706
+    },
+    "expanded": {
+      "dice_mean": 0.17525031014870907,
+      "crop_std": 0.08078386861958338,
+      "specimen_std": 0.04027983752144444,
+      "median": 0.17476326029187017,
+      "min": 0.021848110736999625,
+      "max": 0.3194234569336278,
+      "iou": 0.09818121742959575,
+      "precision": 0.2532530049692844,
+      "recall": 0.14983727000999097
+    }
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "outer": "cell_20260814_23298_NZ_50",
+      "inner": "cell_20260814_23299_NZ_200",
+      "arms": {
+        "control": {
+          "selected_step": 1250,
+          "completed_step": 2250,
+          "inner_dice": 0.20644854680453184,
+          "inner_dice_step1000": 0.10259783370464536,
+          "stopped_by_patience": true,
+          "seconds": 113.00673913955688,
+          "dice": 0.26589775725983844,
+          "iou": 0.15394407658522677,
+          "precision": 0.2854139474876259,
+          "recall": 0.2559250140233506
+        },
+        "expanded": {
+          "selected_step": 1500,
+          "completed_step": 2500,
+          "inner_dice": 0.12715385390730005,
+          "inner_dice_step1000": 0.05209211268533276,
+          "stopped_by_patience": true,
+          "seconds": 115.5955958366394,
+          "dice": 0.20280517978559787,
+          "iou": 0.1132084938662324,
+          "precision": 0.2533005229178022,
+          "recall": 0.17033023629806338
+        }
+      },
+      "delta": -0.06309257747424057
+    },
+    {
+      "fold": 1,
+      "outer": "cell_20260814_23299_NZ_200",
+      "inner": "cell_20260904_23961_NZ_100",
+      "arms": {
+        "control": {
+          "selected_step": 1250,
+          "completed_step": 2250,
+          "inner_dice": 0.17530603208483192,
+          "inner_dice_step1000": 0.15788896380892692,
+          "stopped_by_patience": true,
+          "seconds": 101.62437319755554,
+          "dice": 0.1747268513941132,
+          "iou": 0.0964573769320002,
+          "precision": 0.2723295189008984,
+          "recall": 0.13296036021256072
+        },
+        "expanded": {
+          "selected_step": 1000,
+          "completed_step": 2000,
+          "inner_dice": 0.18735470738104626,
+          "inner_dice_step1000": 0.18735470738104626,
+          "stopped_by_patience": true,
+          "seconds": 87.28685331344604,
+          "dice": 0.20165362863196262,
+          "iou": 0.11450468177778952,
+          "precision": 0.2488437052161342,
+          "recall": 0.17945727849441867
+        }
+      },
+      "delta": 0.02692677723784942
+    },
+    {
+      "fold": 2,
+      "outer": "cell_20260904_23961_NZ_100",
+      "inner": "cell_20260904_23962_NZ_170",
+      "arms": {
+        "control": {
+          "selected_step": 2000,
+          "completed_step": 3000,
+          "inner_dice": 0.2932618239501391,
+          "inner_dice_step1000": 0.22895035610836162,
+          "stopped_by_patience": true,
+          "seconds": 127.27710700035095,
+          "dice": 0.18672278266565331,
+          "iou": 0.10401977526382453,
+          "precision": 0.16475301783734653,
+          "recall": 0.22112563550947942
+        },
+        "expanded": {
+          "selected_step": 1000,
+          "completed_step": 2000,
+          "inner_dice": 0.27857155021564006,
+          "inner_dice_step1000": 0.27857155021564006,
+          "stopped_by_patience": true,
+          "seconds": 87.30595755577087,
+          "dice": 0.16792588827225155,
+          "iou": 0.0938028779204918,
+          "precision": 0.1655379076021754,
+          "recall": 0.18454875290772138
+        }
+      },
+      "delta": -0.018796894393401764
+    },
+    {
+      "fold": 3,
+      "outer": "cell_20260904_23962_NZ_170",
+      "inner": "cell_20260904_23965_NZ_140",
+      "arms": {
+        "control": {
+          "selected_step": 2000,
+          "completed_step": 3000,
+          "inner_dice": 0.18574164490549971,
+          "inner_dice_step1000": 0.1349715575128503,
+          "stopped_by_patience": true,
+          "seconds": 134.36143136024475,
+          "dice": 0.21103808241065844,
+          "iou": 0.11834989629045514,
+          "precision": 0.32958764221428677,
+          "recall": 0.16206404629825127
+        },
+        "expanded": {
+          "selected_step": 1000,
+          "completed_step": 2000,
+          "inner_dice": 0.11772204122611812,
+          "inner_dice_step1000": 0.11772204122611812,
+          "stopped_by_patience": true,
+          "seconds": 98.20851182937622,
+          "dice": 0.20444494601687546,
+          "iou": 0.11475761878565574,
+          "precision": 0.3518654563861888,
+          "recall": 0.14929275490902677
+        }
+      },
+      "delta": -0.006593136393782978
+    },
+    {
+      "fold": 4,
+      "outer": "cell_20260904_23965_NZ_140",
+      "inner": "cell_20260814_23298_NZ_50",
+      "arms": {
+        "control": {
+          "selected_step": 1250,
+          "completed_step": 2250,
+          "inner_dice": 0.24921364853827166,
+          "inner_dice_step1000": 0.17798071936895438,
+          "stopped_by_patience": true,
+          "seconds": 105.13786435127258,
+          "dice": 0.1974720604609902,
+          "iou": 0.11234094408794565,
+          "precision": 0.26122996598811954,
+          "recall": 0.16202948297674336
+        },
+        "expanded": {
+          "selected_step": 1500,
+          "completed_step": 2500,
+          "inner_dice": 0.2066146891837436,
+          "inner_dice_step1000": 0.10490742213603636,
+          "stopped_by_patience": true,
+          "seconds": 107.30411720275879,
+          "dice": 0.09942190803685783,
+          "iou": 0.05463241479780926,
+          "precision": 0.24671743272412122,
+          "recall": 0.06555732744072465
+        }
+      },
+      "delta": -0.09805015242413237
+    }
+  ],
+  "paired": {
+    "mean_dice_delta": -0.03192119668954165,
+    "improved_crops": 13,
+    "improved_folds": 1
+  },
+  "production_approved": false
+}

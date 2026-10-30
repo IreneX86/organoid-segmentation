@@ -1,0 +1,28 @@
+{
+  "totals": {
+    "new_negative": 1832,
+    "positive": 25759,
+    "negative_before": 7379,
+    "negative_after": 9211,
+    "ignored_before": 32398,
+    "ignored_after": 30566
+  },
+  "per_cell_added": {
+    "cell_20260814_23299_NZ_200": 488,
+    "cell_20260904_23961_NZ_100": 379,
+    "cell_20260814_23298_NZ_50": 501,
+    "cell_20260904_23962_NZ_170": 464
+  },
+  "fully_ignored_gaps_after": 77,
+  "remaining_ignored_gap_pixels": 5716,
+  "remaining_ignored_gap_fraction": 0.6688509244090802,
+  "source_checks": "PASS",
+  "synthetic_tests": {
+    "dark_core_selected": true,
+    "bright_unlabelled_line_protected": true,
+    "uniform_ER_rejected": true,
+    "positive_untouched": true
+  },
+  "labels_promoted": false,
+  "training_started": false
+}

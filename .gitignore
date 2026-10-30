@@ -56,3 +56,6 @@ id_ed25519*
 *.key
 known_hosts*
 .netrc
+
+# Isolated Noise2Void environment
+.venv-n2v/

@@ -1,0 +1,6 @@
+{
+  "cell_20260814_23298_NZ_50": {
+    "seed_xy": [300, 140],
+    "note": "User identified upper-left bright cluster as non-ER in this cell. Track its ER-ridge component over Z; do not apply to other cells."
+  }
+}

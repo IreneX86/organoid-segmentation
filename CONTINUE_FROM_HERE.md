@@ -17,7 +17,7 @@ scientific protocols and fold maps remain in `experiments/`.
   by the original runner. Its verified archive SHA256 is
   `b3fc6bd8db4946644a12a77fbd81d73ebefdb29bc0fb5946ba6a83b0baaf1bf1`.
 - The original runner was stopped. A separate, guarded fold-4-only resume on
-  the same Secure Cloud A40 Pod `786a4s19lh6zmo` verified all source/data/lock
+  the same Secure Cloud A40 Pod `[pod-id-redacted]` verified all source/data/lock
   hashes, trained only the missing fold, and exited 0. Its reviewed source is
   `runpod_ready/ld_component_resume_fold4.sh`. The Pod was terminated after
   fold 4 and final metadata were downloaded; RunPod listed no remaining Pods,
@@ -69,7 +69,7 @@ scientific protocols and fold maps remain in `experiments/`.
   `0cbc8e4588748e0633549726dc4e04cdfbeb542f5533fb2c961a241b29977405`.
 - A one-image prediction check confirmed same-name 1200×1200 `uint8` 0/255
   output; it was a training image and provides no independent Dice estimate.
-  The RunPod Pod `ochexmpzgnriwh` was deleted after local verification.
+  The RunPod Pod `[pod-id-redacted]` was deleted after local verification.
   RunPod listed zero Pods, network volumes, and endpoints. Its itemized bill
   had not yet posted at the first check; estimated GPU time was about US$0.26,
   excluding disk or billing adjustments.
@@ -102,7 +102,7 @@ scientific protocols and fold maps remain in `experiments/`.
   baseline and existing `fluo_label` remain untouched. Detailed paired results,
   FP/FN audit, figures and limitations are in
   [the report](reports/ld_highlight_p9995_20261014/README.md).
-- RunPod Pod `gyptsee63uws8v` was terminated after local verification; live
+- RunPod Pod `[pod-id-redacted]` was terminated after local verification; live
   Pod, Endpoint and Network Volume lists were empty. The cost-guard automation
   is paused. The observed GPU rate was US$0.59/hour; approximately US$1.10
   including temporary disk is the Pod-lifetime estimate, while US$0.586682
@@ -160,7 +160,7 @@ scientific protocols and fold maps remain in `experiments/`.
   21,917→23,516 and distant FP increased 6,636→8,105. This is exploratory
   internal evidence, not an independent external confirmation. **Reject focal
   for production; retain the frozen baseline and existing `fluo_label`.**
-- The sole A40 Pod `8p4tkdl8ffda12` was deleted after local verification.
+- The sole A40 Pod `[pod-id-redacted]` was deleted after local verification.
   Live Pod, Endpoint, Network Volume and Cluster lists were empty. The
   observed rate was US$0.59/hour. Estimated lifetime cost was about US$1.10;
   the itemized bill was delayed (US$0.579292 posted at the latest read), so
@@ -221,7 +221,7 @@ scientific protocols and fold maps remain in `experiments/`.
   the original fluorescence TIFFs, older first-cell output, checkpoints and
   RunPod logs are not in Git. The full local-only audit is under Git-ignored
   `runpod_results/ld_focal_bulk_20261015/`.
-- The A40 Pod `bmyathrhq8j7hx` finished with exit 0 and was deleted after
+- The A40 Pod `[pod-id-redacted]` finished with exit 0 and was deleted after
   all nine remote result archives and the combined archive had passed local
   SHA256/full-output verification. RunPod listed zero active Pods, Endpoints,
   Network Volumes and Clusters. No further GPU work is running.
@@ -251,7 +251,7 @@ scientific protocols and fold maps remain in `experiments/`.
   recover many user-circled nuclei. See the [paired report](reports/nuc_low_local_contrast_20261016.md).
 - Keep the original Nuc prototype and existing Desktop `Nuc_label` untouched.
   Candidate previews, masks, checkpoint, logs and raw TIFF copies are all
-  local-only. The one Runpod Pod `21spiybvyusvqx` was deleted after SHA256
+  local-only. The one Runpod Pod `[pod-id-redacted]` was deleted after SHA256
   verification; Pod, Endpoint, Network Volume and Cluster lists are empty.
   Estimated GPU charge is about US$0.66 plus small disk cost; Runpod billing
   buckets were incomplete at the last read.
@@ -411,3 +411,183 @@ scientific protocols and fold maps remain in `experiments/`.
   choice on viewed organoid images, **not** evidence of external accuracy or
   a new scientific baseline. Further batches require human review; a target
   Dice claim requires independently sourced complete annotations.
+
+## 2026-10-29 ER Noise2Void experiment completed
+- Official CAREamics0.3.5 2D N2V, five train specimens /23963 validation /23966 target; original data and historical masks unchanged.
+- 19epochs, selected12, full23966 100-plane inference + NLM and six Otsu/local candidate stacks; all verified in `outputs/er_n2v_20261029/verification.json`.
+- Report: `reports/ER_Noise2Void_20261029.md`. Five comparisons and residual details available.
+- NOT production approved: simple thresholds still select nonspecific texture/bright tissue. No manual GT accuracy claims. No automatic retraining, no paid resources used.
+
+## 2026-10-29 ER user-selected ROI student — ready, not trained
+- User approved next small-scale experiment after 40 enriched crops. Five original examples remain unchanged.
+- New code `code/er_roi_student.py`, protocol `docs/er_roi_student_protocol_20261029.md`; GPU-only training, 32 train /8 exploratory validation crops, Fluo only, partial masked BCE+Dice,40epochs max/patience8/fixed0.5.
+- Ready data `outputs/er_roi_student_ready_20261029`; bundle `outputs/er_roi_student_bundle_20261029.tar.gz` with adjacent SHA256; no ER-channel TIFFs or credentials packaged.
+- Dataset verifies40 paired crops, disjoint specimen splits. Loss unit test confirms ignored pixels have zero gradient; exterior-background test skipped because this TF environment lacks SciPy (not used by ROI trainer).
+- Current session has no exposed Runpod MCP tools; runpodctl/flash absent from PATH; RUNPOD_API_KEY absent and ~/.runpod/config.toml absent. Restore authenticated control before deployment. No Pod created, upload performed, or training started in this step; no new fees incurred.
+- These remain incomplete pseudo-labels with provisional negatives, not manual truth. Historical23965 was seen before and is only exploratory validation. Do not advertise independent generalization.
+
+## 2026-10-29 ER ROI pilot completed, no active Pod
+- Browser authenticated Runpod control worked. OneA40 Pod[pod-id-redacted] used, then terminated after verified result download. Balance4.86,spend0,approx cost0.39.
+-17epochs,best9; fixed0.5 outputs all-positive on validation. Reject for production; pseudo-Dice0.7703 is degenerate all-positive baseline, not success.
+-Report `reports/ER_ROI_student_pilot_20261029.md`; full results `outputs/er_roi_student_run_20261029/extracted/results/student/`. SHA verified and checkpoint loads locally. No retraining initiated.
+
+## ER ROI BN train-only recalibration completed
+- `experiments/er_roi_bn_recalibrate.py`: exact layerwise population moments from32 training inputs only, no labels/validation calibration, no optimization. Original checkpoint unchanged, trainable weights identical.
+- Output `outputs/er_roi_bn_recalibration_20261029/`; validation pseudoDice0.8170,precision0.7272,recall0.9322,positive area75.04%. Still broad tissue-like regions, not ER fine network; NOT production approved.
+- Report `reports/ER_ROI_BN_recalibration_20261029.md`. Next: inspect trusted within-ROI inter-line negative supervision; do not automatically convert all unlabeled pixels to negatives. No GPU fees.
+
+## ER inter-line negative candidates — prepared, not trained
+- `experiments/er_interline_negative_review.py` applied one fixed geometry+ER-trough rule to32 train crops only. Validation unopened/unchanged.
+- Added75,178 provisional negatives; positives425,365 unchanged. Most pixels remain ignored. Not manually confirmed, not automatically promoted.
+- Output `outputs/er_interline_negative_review_20261029`, fixed8-panel review `eight_training_proposals.png`; report `reports/ER_interline_negative_review_20261029.md`.
+- Source/hash/readback/positive-preservation/synthetic checks PASS. No training or paid resources. Next training comparison must retain original validation labels and explicitly handle BN; no threshold search based on these previews.
+
+## ER inter-line ablation completed — Pod deleted
+- Supersedes prepared-only status above. One fixed experiment:32 train crops,75,178 extra provisional negatives; original8 validation files unchanged.19 epochs,best11,EarlyStopping.
+- Same train-only BN calibration: pseudo-Dice0.8170→0.8198,precision0.7272→0.7495,recall0.9322→0.9046; positive area75.04%→70.03%. Only4/8 crops improve, still broad regions, REJECT for production.
+- Report `reports/ER_interline_ablation_20261029.md`; comparison `outputs/er_interline_bn_calibrated_20261029/paired_all8.png`; all checkpoints/archives preserved and verified.
+- Pod [pod-id-redacted] terminated; Billing resources0,spend$0/hour,balance$4.79; approx new cost$0.07. No active work or automatic retraining.
+- Next useful step: single-training-crop line-fitting diagnostic, not more negative-ratio scanning. Original images and masks unchanged.
+
+## ER train-only supervision diagnostic completed
+- `experiments/er_supervision_identifiability.py`:32 train crops,75.23% pixels ignored. Constructed wider masks add596,279 unknown positives with identical masked loss; actual TF loss/zero ignored-gradient test PASS.
+- These are constructed counterexamples, NOT model predictions. Report `reports/ER_supervision_identifiability_20261029.md`; figure under `outputs/er_supervision_diagnostic_20261029/`.
+- Prepared `experiments/er_single_roi_fit.py` (syntax checked only):GPU-only fixed first training crop,calibrated checkpoint,frozen BN/dropout off,500 updates/10min maximum. NOT YET RUN. No new paid resources.
+- Do not conclude all causes are labels: calibrated training known-pixel Dice0.793 also suggests fitting limitation. Next run diagnoses capacity; no validation selection or production promotion.
+
+## ER single-ROI GPU diagnostic attempt — infrastructure timeout
+- One A40 Pod [pod-id-redacted] created2026-10-29~09:12UTC,CA-MTL-1,$0.59GPU+$0.007disk/hour. Stayed initializing ~10min; no SSH, container/system logs empty. No uploads, no training.
+- Stopped then terminated~09:24UTC. Billing verifiedGPU0,vCPU0,storage0,endpoint0,spend$0/hour,balance$4.79 (same displayed value). No second Pod created.
+- Reusable payload7.46MB and runner under `outputs/er_single_roi_run_20261029/`; SHA25679c1b2af1b86333f1c2bbe47143801681018012904b8ac2686b1c2f63d4fd8c2. Only one Fluo crop,partial label,source model,code. No ER raw channel or validation data.
+- `docs/er_single_roi_fit_protocol_20261029.md`, `experiments/er_single_roi_review.py` prepared. Experiment NOT completed. Next resume same protocol in new unique attempt directory; do not claim fitting results or rerun preceding full experiments.
+
+## ER single-ROI fitting diagnostic COMPLETE (retry1)
+- One Secure A40 [pod-id-redacted] in Europe succeeded; original failed allocation remained deleted. Same payload/science, no validation data.
+-500 updates,18.36s; known-pixel train Dice0.71388→1.0,precision/recall1.0; ignored-positive fraction63.37%→24.19%. This is memorization, NOT a production/generalization result. Unknown regions still coarse.
+- Report `reports/ER_single_ROI_fit_20261029.md`; complete model/logs/probabilities/figure under `outputs/er_single_roi_retry1_20261029/`. ArchiveSHA verified,checkpoint ZIP/load pass,sourceunchanged. CPU/GPU probabilities maxdiff0.05925,meandiff0.000306;32 threshold differences allignored,knownmetricsunchanged; retained originalGPUoutputs.
+- Pod stopped+terminated,accountGPU0/storage0/endpoints0,spend$0/hour. Balance$4.72,approxnewcost$0.07. No paid resources or ongoing training.
+- Next: improve complete trustworthy within-ROI line/interline supervision plus controlled stable-normalization training; do not relabel allunknown asbackground or deploysinglecropcheckpoint.
+
+## ER dense supervision window audit — do not train this set
+- `experiments/er_dense_supervision_windows.py` selected15 non-overlapping64px loss windows with320px context from32traincrops,≥75% known labels (aggregate84.39%),no new labels/validation reads. Output `outputs/er_dense_windows_20261029/`.
+- Visual review reveals mostly dark nucleus-like interiors and boundary arcs. REJECT coverage-only selection for next training. Descriptive audit: only16/164 overlapping candidates have majority negatives within8px of lines; all23962. Not independent examples or validated biological threshold.
+- Report `reports/ER_dense_window_audit_20261029.md`. Original data/masks unchanged,no training/no GPU fees.
+- Next selection must target ER internal mesh+inter-line troughs across training specimens, not coverage/positive area alone. Preserve uncertain labels; do not deploy the single-crop memorization model or train the rejected15-window set.
+
+## ER mesh-specific windows prepared
+- `experiments/er_mesh_supervision_windows.py`: train-only topology+ER-contrast selection,16 windows (4/specimen),64px loss support with320px Fluo context. Unlike rejected coverage-only set, review shows internal mesh/gaps.
+- Output `outputs/er_mesh_windows_20261029/`, manifest/protocol/verification and per-window reviews; report `reports/ER_mesh_window_selection_20261029.md`.
+- No new positive/negative labels. Known coverage50.56%,positive amongknown77.73%; incomplete weak supervision remains. Source masks may be thick,Fluo detail can be weak. No GT/generalization claim.
+- Synthetic single-loop reject/grid accept,source hashes,label preservation/readback pass. No validation images/labels opened,no training,no paid resources.
+- Next controlled comparison needs identical stable BN settings in original-crop control and mesh-window arm to separate normalization stability from sampling effects; fixed original8val labels/threshold0.5. Do not promote on pseudoDice alone or change reviewed selection rules after outcomes.
+
+## ER mesh controlled pilot — infrastructure failure before upload
+- Fixed two-arm script and protocol ready: `experiments/er_mesh_controlled_train.py`, `docs/er_mesh_controlled_protocol_20261029.md`. Both arms500 updates,same calibrated source,frozenBN/dropoutoff,threshold0.5; no new labels or validation selection.
+- Payload `outputs/er_mesh_controlled_20261029/payload.tar.gz` verified56 NPZ,16.51MB,no sourceER TIFF.
+- Secure A40 Pod [pod-id-redacted] (EU-SE-1) immediately failed container creation: NVIDIA GPU requires reset. No SSH/upload/training; no experiment outcome. Stopped and terminated; resources0. Displayed balance$4.72.
+- Resume from payload/protocol on a healthy host, excluding this failed host if possible; do not repeat prior scientific experiments or alter science. No result/checkpoint exists for this attempt.
+- After Billing refresh: confirmed spend$0.00/hour,GPUs0,vCPUs0,storage0,endpoints0,balance$4.72; cleanup proof in attempt directory.
+
+## ER mesh retry1 — 2026-10-30 Sydney, blocked by stock
+- Reused unchanged SHA256-verified payload/protocol. No Pod created, no upload/training, new cost$0.
+- Alternative regions excluded known failed EU-SE-1/CA-MTL-1 but offered no A40. Any-region A40 briefly appeared at$0.59/hour then disappeared before selection; final full catalogue had no A40 and Deploy disabled.
+- Resume same controlled pilot once A40 available; no scientific changes or new results. Attempt state: `outputs/er_mesh_controlled_retry1_20261030/run_state.json`.
+
+## ER mesh controlled GPU retry — active 2026-10-30
+- User authorized alternative GPU. One Secure Cloud RTX A6000 48GB Pod [pod-id-redacted],EU-SE-1,$0.597/h total,starting displayed balance$4.72.
+- Same unchanged payload/science; local task root outputs/er_mesh_controlled_gpu_20261030. Runner started once,collector session [pid-redacted] downloads/verifies results. No second Pod. New spending cap$1; save results and delete promptly.
+
+## ER mesh comparison COMPLETE — 2026-10-30 Sydney
+- Supersedes blocked/active statuses above. AlternativeGPU authorized;SecureRTXA6000 [pod-id-redacted] completed both500-update arms,unchanged science.
+- Pseudo-valDice control0.6080 vsmesh0.7704 (8/8 crops improve);positivearea38.12%→65.00%;mesh remains coarse/broad. REJECT for production,do not deploy or relabel with these checkpoints. One previously seen validation specimen,notindependentaccuracy.
+- Both checkpoints,16predictions and archive SHA256/ZIPverified locally at outputs/er_mesh_controlled_gpu_20261030. Report reports/ER_mesh_controlled_20261030.md.
+- Pod deleted;resources0,spend$0/hour,balance$4.66;approxnewcost$0.06. No running training/resources.
+- Next useful work is reliable aligned line/inter-line supervision/evaluation audit,notmorepositivecropping or thresholdsearch. Originaldata/masks/previousmodelsunchanged.
+
+## ER gap-supervision audit COMPLETE
+- Read16trainwindows only,sourcehashesPASS,no validation reads/newlabels/training/GPUfees.153geometricgaps;7548/8546gappixelsignored(88.32%);120/153gapsentirelyunsupervised.
+- Rawintensityrim-vs-gapAUCmedian ER0.705,Fluo0.548 (12/16Fluo<0.6);descriptive crosschannelcontrast,notaccuracy/proof ofunidentifiability.
+- Report reports/ER_mesh_gap_audit_20261030.md;reviews outputs/er_mesh_gap_audit_20261030/eight_gap_reviews.png.
+- Next prepare conservative ER-supported gap-negative proposals within sameROIs,retainuncertainty,noautomaticallholebackground andnoGPUuntilreviewable. Currentstudentremainsrejected.
+
+## ER enclosed-gap weak-negative proposals READY — no training
+- New derived16windowset outputs/er_gap_negative_candidates_20261030;1832additionalweaknegatives,25759positivespreserved,old7379negativespreserved. Sourcesunchanged/hash/readback/syntheticchecksPASS.
+- Report reports/ER_gap_negative_candidates_20261030.md;cyanproposals on fixed8windowoverview. NotmanualGT/notproductionapproved;mostgapuncertaintyremains. No validationopened,noGPUcost.
+- Technicalmanifestduplicatekeyfailurepreservedin_partial_technical;correctedwithoutchangingrule.
+- Next scientificallycleancomparison: SAME16meshwindowswith/withoutgapnegatives,samecheckpoint/updates/BN/threshold. Noarchitecture/losschange,noautomaticpromotion.
+
+## ER gap-only ablation active — 2026-10-30
+- One A6000 Pod[pod-id-redacted],$0.597/hour,cap$1. Local outputs/er_gap_controlled_20261030,protocol docs/er_gap_controlled_protocol_20261030.md.
+- Same16inputs perarm,only1832ignored→negativepixelschanged;pairedinput/labelchecksPASS. No validationselection. Awaitcontainer/execution,downloadverifythenDELETE. No secondconcurrentPod.
+
+## ER gap-only ablation COMPLETE — 2026-10-30
+- Supersedes active status. Both500updatearmsfinished,allmodels/resultsarchived andSHA256/ZIPverifiedat outputs/er_gap_controlled_20261030.
+- Same16meshwindows,1832negativeproposalsonly. PseudoDice0.7434→0.7748,5/8cropsimprove;positivearea63.45%→67.95%;broadmaskspersists. REJECTproduction;noGT/generalizationclaim. Report reports/ER_gap_controlled_20261030.md.
+- Priororiginalmesh0.7704vscurrent0.7434 showsnondeterministicrunvariation;notfixed byseedalone. Noextraseeds/sweepsrun.
+- Pod[pod-id-redacted]deleted;accountresources0,spend$0/hour,balance$4.59;approxnewcost$0.07.
+- Nextinformativeoption: ER-inputpositivecontrol withsamepartiallabels toseparatelabel/objectiveissuesfromFluocrosschannelinformationissues;NOTYETRUN,noproductionchange. Do notkeepaddinggapnegativesorsearchthresholds.
+
+## ER binary ROI semantics change — user authorized, run active
+- UserclarifiedyellowER,gray/blueBACKGROUND. Newlabels map1→1,0/255→0 withinoriginal40selected320pxcrops ONLY. Not16artificial64pxsupportlabels andnotfullstacks. Oldpositives/sourcefilesunchanged.32train4specimens/8validation1specimenunchanged;newmetricsemanticsnotcomparabletopartialDice.
+- Fixed500stepFluo-onlypilot,sourcecalibratedcheckpoint,frozenBN/dropoutoff,0.5threshold,noearlyselection. Protocol docs/er_binary_roi_protocol_20261030.md.
+- OneA6000 [pod-id-redacted],EU-SE-1,$0.597/hour,budget$1,startbalance$4.59. Resultsroot outputs/er_binary_roi_20261030;collector [pid-redacted]. DownloadverifythenDELETE;do notlaunchduplicate.
+
+## ER binary ROI pilot COMPLETE — supersedes active status above
+- 500-step pilot finished; new binary validation Dice 0.1558, recall 0.1164; train Dice 0.7528. Reject for production, no new run.
+- All results/checkpoint downloaded and SHA256 verified under outputs/er_binary_roi_20261030. See reports/ER_binary_roi_20261030.md and local all8_binary_before_after.png.
+- Pod [pod-id-redacted] deleted; console resources zero and $0/hour. Balance $4.53; approximate incremental cost $0.06.
+- Next proposed diagnostic: ER-input positive control with the same binary labels/split; not started. Preserve originals and old checkpoints.
+
+## ER matched input control active — 2026-10-30
+- User approved probability diagnostic and ER-input control. Probability check complete: threshold0.1 recall0.195 versus0.116 at0.5, FP nearly doubled; no threshold adopted. See reports/ER_binary_probability_20261030.md.
+- Matched fresh initial weights: Fluo vs ER input, 1000fixedupdates each, existingbase16UNet, same32train/8valcropbinarylabels/split, seed20261030; no selection. Protocol docs/er_channel_control_protocol_20261030.md.
+- Exactly one Secure A6000 Pod [pod-id-redacted], rate~$0.597/hour, newcap$1, startingbalance$4.53. SSH[ssh-endpoint-redacted]. Runroot/workspace/channel_control_run. Payload11.74MB only40pairedcropsandlabels.
+- Collector exec [pid-redacted] auto-downloads and verifies archive under outputs/er_channel_control_20261030; runner exec [pid-redacted]. Do not launch duplicates. Run experiments/er_channel_control_review.py after transfer; downloadverifiedbeforedelete; deletePod thenverify$0/hour.
+
+## ER channel control COMPLETE — supersedes active status above
+- Both1000-update matched arms complete and verified. Fluo train/valDice0.8466/0.1642; ER0.9049/0.7425; ERbetter8/8correlatedvalcrops. Report reports/ER_channel_control_20261030.md; figure outputs/er_channel_control_20261030/all8_channel_control.png.
+- No production promotion. Labels ERderived, validationonepreviouslyseen specimen. Difference supports cross-channelgeneralization limitation, not impossibility. Nextsuggestedread-onlyalignment/domainaudit, notanotherthresholdscan.
+- Pod[pod-id-redacted]deleted; allresources0 and$0/hour. ApproxUS$0.06; balance$4.47. Allcheckpointsand80predictionNPZs downloaded/SHAverified. Noactiverunneroradditionaltraining.
+
+## ER alignment audit complete — 2026-10-30
+- 40pairedcrops matched originalTIFFcoordinates/Z exactly. Bounded label-freeXY±16px/Z±2 correlation diagnostics show no consistent small globaloffset explaining failure; NOT proof of perfectalignment. ValidationdetailmedianXY0/0, gain0, Zgain0.00169. No transformations applied.
+- Validation simpleFluointensity/texturestats lie withintraining-specimenranges; uniformbrightnessaloneunproven. See reports/ER_alignment_audit_20261030.md and outputs/er_alignment_audit_20261030/five_specimen_alignment.png.
+- Nextrecommendation: morediversefixed-rulepairedcropsfromexistingdata + organoid-groupedvalidation, notthresholdorarchitectureblindsearch. NoGPU/no newtraining; originalTIFF/masks/modelsunchanged.
+
+## ER diverse ROI expansion prepared — 2026-10-30
+-114newpaired320pxcrops +40immutableanchors=154, same5specimens. outputs/er_diverse_roi_20261030/manifest.json; allhashes/shapes/labelsverified; noexactduplicateinputs. Newlabelsareautomaticcandidates, notnewmanualtruth.
+-5groupedfoldslocked; same8oldtestanchors/fold forcontrolvs expanded; wholeheldoutspecimenexcluded, itsnewcropsunused. Control32trainvs expanded122–125train. Protocol docs/er_diverse_roi_cv_protocol_20261030.md.
+- NoGPU ortrainingstarted. Next is10matchedshortfits onlyafterexecutionbudgetresolved; no claims ofCVimprovementyet. OriginalTIFF/masks/modelsunchanged.
+
+## ER diverse paired CV ACTIVE — 2026-10-30
+- Supersedes prepared-only status. One Secure A6000 Pod [pod-id-redacted] at about $0.597/hour; new cap $1. Hard cleanup by 04:30 UTC. Training launched once with lock; CUDA/TF preflight passed.
+- Frozen 5 grouped folds, 2 arms each, 1,000 updates, same per-fold initial weights. Only crop pool changes. No held-out selection or production promotion.
+- Local outputs/er_diverse_cv_20261030; collector session [pid-redacted] automatically downloads and SHA256 verifies. Run experiments/er_diverse_roi_cv_review.py after collection, then delete Pod after verified checkpoint preservation. No duplicate training or Pod.
+
+## ER diverse paired CV COMPLETE — supersedes active entry
+- All10fits/5folds complete, downloaded and verified; outputs/er_diverse_cv_20261030. Original-pool OOF Dice0.1914 vs expanded0.0908; 0/5folds and2/40crops improve. REJECT expanded configuration; neither arm production-ready.
+- Recall0.1773→0.0653; newcrop meanforeground6.78%vs old13.43%; fixedupdates reduceanchor exposure. Poorertrainingfit suggests optimization/exposure is also a confound; do not claim moredata intrinsically harmful.
+- All10checkpoints SHA256/ZIP verified, all80heldout predictions verified; protocol/source/initialization/split and recomputedcountsPASS. No further experiment launched.
+- Pod[pod-id-redacted] terminated afterverification. Console GPUs/vCPU/storage/endpoints0, spend$0/hour; balance$4.31, approximate cost$0.15.
+- Report reports/ER_diverse_cv_20261030.md; smallmetrics reports/metrics/er_diverse_cv_20261030. Next: training-crop label/visibility and exposureaudit before preregistering a new training-only/inner-validation convergence comparison; do not tune on outer-foldresults.
+
+## ER exposure audit complete — 2026-10-30
+- Read-only exact sampler replay: anchor exposure125→32.53; actual sampledpositivefraction13.42%→8.49%. NewFluopositivecontrast0.1219vs old0.0736; globallydimmernewpositives explanationunsupported. Fixedmedian-densityreview10crops saved. No exhaustive manualtruth; labelcompleteness unresolved, no labelchanges.
+- Report reports/ER_diverse_exposure_audit_20261030.md; outputs/er_diverse_exposure_audit_20261030. NoGPU/no newtraining.
+- Next proposed: preregister specimen-isolated INNER validation convergence comparison with matched original/expanded pools, same science; never chooseupdates on previouslyseen outerfoldscores. Do not auto-promote or conflate sufficienttraining with guaranteedgeneralization.
+
+## ER inner-convergence study prepared — 2026-10-30
+- Frozen 5 folds:3training/1inner-validation/1outer specimen; same24oldanchors vs91–94expandedtrainingcrops. Hash-locked outputs/er_inner_convergence_20261030/protocol.json.
+- GPU-only runner experiments/er_inner_convergence.py: matchedweights,1000–4000updates,innercheck250,patience4,min_delta.002,threshold.5. No outerdata loaded by selection runner; all10decisions must lock before separateouterevaluation.
+- Local isolation/hash/tie/compile checksPASS. No Pod or newtraining. Proposed newbudgetUS$1; estimated$0.4–0.7 using prior rate, livepricecheckrequired. Previous studybudgetnotreused. Docs docs/er_inner_convergence_protocol_20261030.md.
+
+## ER inner-convergence historical launch — superseded by completion below
+- One SecureA6000 [pod-id-redacted] created~2026-10-30T05:05UTC; rate~$0.597/hr, balance$4.30; hard cleanup06:25UTC. No secondPod. SSH[ssh-endpoint-redacted] pinnedknown_hosts under outputs/er_inner_convergence_20261030.
+- Runner exec [pid-redacted], collector [pid-redacted]; remote /workspace/inner_convergence_run. Fixed protocol unchanged. All ten innerdecisions lock before outer evaluation. No CPUtraining.
+- Collector downloads+SHA256verifies; then experiments/er_inner_convergence_review.py verifies20checkpoints,decisions,80OOFoutputs. Downloadverifiedbeforedelete; verifyzeroresources/spend. Do not rerun for poor metrics.
+
+## ER inner-convergence COMPLETE / CLEANED UP — 2026-10-30
+- Five matched folds / ten models completed with locked inner-only selection before any outer evaluation. Control Dice0.2072, expanded0.1753; paired−0.0319, 1/5folds and13/40crops improved. No production approval, no retraining.
+- Local outputs/er_inner_convergence_20261030: archive SHA256 verified;20 checkpoints and80outer predictions verified; decisions unchanged. Review report reports/ER_inner_convergence_20261030.md; complete per-fold figures and learning curves retained.
+- Pod [pod-id-redacted] deleted after verification. Console GPU/vCPU/storage/endpoint0, spend$0/hour; balance$4.06; approximate new cost$0.24 withinUS$1. No active task/resource remains from this experiment.
+- Next: training-only cross-channel target completeness/visible-structure audit before any new protocol. Do not use outer results to retroactively reselect checkpoints or thresholds; original sources/labels/models unchanged.

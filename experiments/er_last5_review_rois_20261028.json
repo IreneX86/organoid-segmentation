@@ -1,0 +1,24 @@
+{
+  "status": "user-guided exploratory correction, not transferable ground truth",
+  "cells": {
+    "cell_20260814_23299_NZ_200": {
+      "z_zero_based": [195, 196, 197, 198, 199],
+      "review": {
+        "exclude_ellipses": [
+          {"center_xy": [400, 660], "radius_xy": [300, 520]},
+          {"center_xy": [940, 100], "radius_xy": [95, 110]}
+        ]
+      },
+      "reason": "The user marked diffuse, unclear candidates and an upper-edge candidate on Z200. Approximate source-pixel review regions were propagated to the adjacent last five slices."
+    },
+    "cell_20260904_23966_NZ_100": {
+      "z_zero_based": [95, 96, 97, 98, 99],
+      "review": {
+        "rescue_ellipses": [
+          {"center_xy": [170, 200], "radius_xy": [155, 170]}
+        ]
+      },
+      "reason": "The user marked missed upper-left ER-like rings on Z100. The ellipse only restricts where relaxed ridge evidence may add pixels; it is never pasted into the mask."
+    }
+  }
+}

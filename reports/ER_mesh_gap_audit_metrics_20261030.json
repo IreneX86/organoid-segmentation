@@ -1,0 +1,1056 @@
+{
+  "totals": {
+    "gap_pixels": 8546,
+    "negative_gap_pixels": 998,
+    "ignored_gap_pixels": 7548,
+    "gaps": 153,
+    "fully_ignored_gaps": 120,
+    "ignored_gap_fraction": 0.8832202199859583,
+    "median_ER_auc": 0.7047478203780768,
+    "median_Fluo_auc": 0.5483504540197854,
+    "Fluo_auc_below_0_6": 12
+  },
+  "records": [
+    {
+      "window": "mesh_00.npz",
+      "cell": "cell_20260814_23299_NZ_200",
+      "z": 29,
+      "gap_pixels": 641,
+      "negative_gap_pixels": 82,
+      "ignored_gap_pixels": 559,
+      "gaps": 11,
+      "fully_ignored_gaps": 8,
+      "ER_rim_vs_gap_auc": 0.6911216989220109,
+      "Fluo_rim_vs_gap_auc": 0.35824982548851503,
+      "ER_rim_minus_gap": 3414.0,
+      "Fluo_rim_minus_gap": -841.0,
+      "ER_Fluo_spearman": 0.33123153101141567,
+      "gap_details": [
+        {
+          "area": 4,
+          "negative": 0,
+          "ignored": 4
+        },
+        {
+          "area": 10,
+          "negative": 0,
+          "ignored": 10
+        },
+        {
+          "area": 117,
+          "negative": 16,
+          "ignored": 101
+        },
+        {
+          "area": 89,
+          "negative": 0,
+          "ignored": 89
+        },
+        {
+          "area": 6,
+          "negative": 0,
+          "ignored": 6
+        },
+        {
+          "area": 33,
+          "negative": 0,
+          "ignored": 33
+        },
+        {
+          "area": 55,
+          "negative": 0,
+          "ignored": 55
+        },
+        {
+          "area": 6,
+          "negative": 0,
+          "ignored": 6
+        },
+        {
+          "area": 92,
+          "negative": 13,
+          "ignored": 79
+        },
+        {
+          "area": 223,
+          "negative": 53,
+          "ignored": 170
+        },
+        {
+          "area": 6,
+          "negative": 0,
+          "ignored": 6
+        }
+      ]
+    },
+    {
+      "window": "mesh_01.npz",
+      "cell": "cell_20260814_23299_NZ_200",
+      "z": 29,
+      "gap_pixels": 524,
+      "negative_gap_pixels": 73,
+      "ignored_gap_pixels": 451,
+      "gaps": 10,
+      "fully_ignored_gaps": 7,
+      "ER_rim_vs_gap_auc": 0.7346370498595306,
+      "Fluo_rim_vs_gap_auc": 0.6021276142909844,
+      "ER_rim_minus_gap": 4311.0,
+      "Fluo_rim_minus_gap": 247.0,
+      "ER_Fluo_spearman": 0.5453635878045835,
+      "gap_details": [
+        {
+          "area": 17,
+          "negative": 0,
+          "ignored": 17
+        },
+        {
+          "area": 10,
+          "negative": 0,
+          "ignored": 10
+        },
+        {
+          "area": 96,
+          "negative": 5,
+          "ignored": 91
+        },
+        {
+          "area": 20,
+          "negative": 0,
+          "ignored": 20
+        },
+        {
+          "area": 96,
+          "negative": 5,
+          "ignored": 91
+        },
+        {
+          "area": 212,
+          "negative": 63,
+          "ignored": 149
+        },
+        {
+          "area": 29,
+          "negative": 0,
+          "ignored": 29
+        },
+        {
+          "area": 15,
+          "negative": 0,
+          "ignored": 15
+        },
+        {
+          "area": 17,
+          "negative": 0,
+          "ignored": 17
+        },
+        {
+          "area": 12,
+          "negative": 0,
+          "ignored": 12
+        }
+      ]
+    },
+    {
+      "window": "mesh_02.npz",
+      "cell": "cell_20260904_23961_NZ_100",
+      "z": 84,
+      "gap_pixels": 706,
+      "negative_gap_pixels": 66,
+      "ignored_gap_pixels": 640,
+      "gaps": 10,
+      "fully_ignored_gaps": 7,
+      "ER_rim_vs_gap_auc": 0.6608049601795927,
+      "Fluo_rim_vs_gap_auc": 0.49791544176599495,
+      "ER_rim_minus_gap": 35.5,
+      "Fluo_rim_minus_gap": -1.0,
+      "ER_Fluo_spearman": 0.7336125564579633,
+      "gap_details": [
+        {
+          "area": 202,
+          "negative": 53,
+          "ignored": 149
+        },
+        {
+          "area": 4,
+          "negative": 0,
+          "ignored": 4
+        },
+        {
+          "area": 10,
+          "negative": 0,
+          "ignored": 10
+        },
+        {
+          "area": 75,
+          "negative": 0,
+          "ignored": 75
+        },
+        {
+          "area": 24,
+          "negative": 0,
+          "ignored": 24
+        },
+        {
+          "area": 18,
+          "negative": 0,
+          "ignored": 18
+        },
+        {
+          "area": 13,
+          "negative": 0,
+          "ignored": 13
+        },
+        {
+          "area": 77,
+          "negative": 0,
+          "ignored": 77
+        },
+        {
+          "area": 205,
+          "negative": 8,
+          "ignored": 197
+        },
+        {
+          "area": 78,
+          "negative": 5,
+          "ignored": 73
+        }
+      ]
+    },
+    {
+      "window": "mesh_03.npz",
+      "cell": "cell_20260904_23961_NZ_100",
+      "z": 64,
+      "gap_pixels": 628,
+      "negative_gap_pixels": 84,
+      "ignored_gap_pixels": 544,
+      "gaps": 11,
+      "fully_ignored_gaps": 8,
+      "ER_rim_vs_gap_auc": 0.7228653813048718,
+      "Fluo_rim_vs_gap_auc": 0.6014992898949906,
+      "ER_rim_minus_gap": 70.0,
+      "Fluo_rim_minus_gap": 53.5,
+      "ER_Fluo_spearman": 0.8012557728743991,
+      "gap_details": [
+        {
+          "area": 237,
+          "negative": 68,
+          "ignored": 169
+        },
+        {
+          "area": 4,
+          "negative": 0,
+          "ignored": 4
+        },
+        {
+          "area": 8,
+          "negative": 0,
+          "ignored": 8
+        },
+        {
+          "area": 14,
+          "negative": 0,
+          "ignored": 14
+        },
+        {
+          "area": 159,
+          "negative": 8,
+          "ignored": 151
+        },
+        {
+          "area": 7,
+          "negative": 0,
+          "ignored": 7
+        },
+        {
+          "area": 5,
+          "negative": 0,
+          "ignored": 5
+        },
+        {
+          "area": 118,
+          "negative": 8,
+          "ignored": 110
+        },
+        {
+          "area": 9,
+          "negative": 0,
+          "ignored": 9
+        },
+        {
+          "area": 30,
+          "negative": 0,
+          "ignored": 30
+        },
+        {
+          "area": 37,
+          "negative": 0,
+          "ignored": 37
+        }
+      ]
+    },
+    {
+      "window": "mesh_04.npz",
+      "cell": "cell_20260814_23298_NZ_50",
+      "z": 31,
+      "gap_pixels": 624,
+      "negative_gap_pixels": 49,
+      "ignored_gap_pixels": 575,
+      "gaps": 11,
+      "fully_ignored_gaps": 9,
+      "ER_rim_vs_gap_auc": 0.6920801989808298,
+      "Fluo_rim_vs_gap_auc": 0.4978110086548572,
+      "ER_rim_minus_gap": 311.0,
+      "Fluo_rim_minus_gap": 66.0,
+      "ER_Fluo_spearman": 0.7407301197173649,
+      "gap_details": [
+        {
+          "area": 147,
+          "negative": 41,
+          "ignored": 106
+        },
+        {
+          "area": 72,
+          "negative": 0,
+          "ignored": 72
+        },
+        {
+          "area": 39,
+          "negative": 0,
+          "ignored": 39
+        },
+        {
+          "area": 41,
+          "negative": 0,
+          "ignored": 41
+        },
+        {
+          "area": 34,
+          "negative": 0,
+          "ignored": 34
+        },
+        {
+          "area": 37,
+          "negative": 0,
+          "ignored": 37
+        },
+        {
+          "area": 97,
+          "negative": 8,
+          "ignored": 89
+        },
+        {
+          "area": 4,
+          "negative": 0,
+          "ignored": 4
+        },
+        {
+          "area": 23,
+          "negative": 0,
+          "ignored": 23
+        },
+        {
+          "area": 96,
+          "negative": 0,
+          "ignored": 96
+        },
+        {
+          "area": 34,
+          "negative": 0,
+          "ignored": 34
+        }
+      ]
+    },
+    {
+      "window": "mesh_05.npz",
+      "cell": "cell_20260904_23962_NZ_170",
+      "z": 59,
+      "gap_pixels": 277,
+      "negative_gap_pixels": 40,
+      "ignored_gap_pixels": 237,
+      "gaps": 10,
+      "fully_ignored_gaps": 9,
+      "ER_rim_vs_gap_auc": 0.7540716278306531,
+      "Fluo_rim_vs_gap_auc": 0.5709304233672464,
+      "ER_rim_minus_gap": 53.0,
+      "Fluo_rim_minus_gap": 176.0,
+      "ER_Fluo_spearman": 0.6538873215279775,
+      "gap_details": [
+        {
+          "area": 9,
+          "negative": 0,
+          "ignored": 9
+        },
+        {
+          "area": 9,
+          "negative": 0,
+          "ignored": 9
+        },
+        {
+          "area": 6,
+          "negative": 0,
+          "ignored": 6
+        },
+        {
+          "area": 196,
+          "negative": 40,
+          "ignored": 156
+        },
+        {
+          "area": 7,
+          "negative": 0,
+          "ignored": 7
+        },
+        {
+          "area": 17,
+          "negative": 0,
+          "ignored": 17
+        },
+        {
+          "area": 10,
+          "negative": 0,
+          "ignored": 10
+        },
+        {
+          "area": 12,
+          "negative": 0,
+          "ignored": 12
+        },
+        {
+          "area": 5,
+          "negative": 0,
+          "ignored": 5
+        },
+        {
+          "area": 6,
+          "negative": 0,
+          "ignored": 6
+        }
+      ]
+    },
+    {
+      "window": "mesh_06.npz",
+      "cell": "cell_20260904_23961_NZ_100",
+      "z": 84,
+      "gap_pixels": 604,
+      "negative_gap_pixels": 142,
+      "ignored_gap_pixels": 462,
+      "gaps": 10,
+      "fully_ignored_gaps": 8,
+      "ER_rim_vs_gap_auc": 0.7433493689866301,
+      "Fluo_rim_vs_gap_auc": 0.5436711233287517,
+      "ER_rim_minus_gap": 42.0,
+      "Fluo_rim_minus_gap": 18.0,
+      "ER_Fluo_spearman": 0.6114566787257989,
+      "gap_details": [
+        {
+          "area": 25,
+          "negative": 0,
+          "ignored": 25
+        },
+        {
+          "area": 19,
+          "negative": 0,
+          "ignored": 19
+        },
+        {
+          "area": 8,
+          "negative": 0,
+          "ignored": 8
+        },
+        {
+          "area": 43,
+          "negative": 0,
+          "ignored": 43
+        },
+        {
+          "area": 15,
+          "negative": 0,
+          "ignored": 15
+        },
+        {
+          "area": 9,
+          "negative": 0,
+          "ignored": 9
+        },
+        {
+          "area": 244,
+          "negative": 97,
+          "ignored": 147
+        },
+        {
+          "area": 7,
+          "negative": 0,
+          "ignored": 7
+        },
+        {
+          "area": 6,
+          "negative": 0,
+          "ignored": 6
+        },
+        {
+          "area": 228,
+          "negative": 45,
+          "ignored": 183
+        }
+      ]
+    },
+    {
+      "window": "mesh_07.npz",
+      "cell": "cell_20260814_23299_NZ_200",
+      "z": 169,
+      "gap_pixels": 225,
+      "negative_gap_pixels": 0,
+      "ignored_gap_pixels": 225,
+      "gaps": 10,
+      "fully_ignored_gaps": 10,
+      "ER_rim_vs_gap_auc": 0.596,
+      "Fluo_rim_vs_gap_auc": 0.5573093093093093,
+      "ER_rim_minus_gap": 19.0,
+      "Fluo_rim_minus_gap": 24.0,
+      "ER_Fluo_spearman": 0.5048120754589174,
+      "gap_details": [
+        {
+          "area": 9,
+          "negative": 0,
+          "ignored": 9
+        },
+        {
+          "area": 63,
+          "negative": 0,
+          "ignored": 63
+        },
+        {
+          "area": 6,
+          "negative": 0,
+          "ignored": 6
+        },
+        {
+          "area": 8,
+          "negative": 0,
+          "ignored": 8
+        },
+        {
+          "area": 49,
+          "negative": 0,
+          "ignored": 49
+        },
+        {
+          "area": 5,
+          "negative": 0,
+          "ignored": 5
+        },
+        {
+          "area": 19,
+          "negative": 0,
+          "ignored": 19
+        },
+        {
+          "area": 21,
+          "negative": 0,
+          "ignored": 21
+        },
+        {
+          "area": 37,
+          "negative": 0,
+          "ignored": 37
+        },
+        {
+          "area": 8,
+          "negative": 0,
+          "ignored": 8
+        }
+      ]
+    },
+    {
+      "window": "mesh_08.npz",
+      "cell": "cell_20260904_23961_NZ_100",
+      "z": 34,
+      "gap_pixels": 317,
+      "negative_gap_pixels": 0,
+      "ignored_gap_pixels": 317,
+      "gaps": 9,
+      "fully_ignored_gaps": 9,
+      "ER_rim_vs_gap_auc": 0.5984844328624331,
+      "Fluo_rim_vs_gap_auc": 0.45959402002468797,
+      "ER_rim_minus_gap": 17.5,
+      "Fluo_rim_minus_gap": -52.5,
+      "ER_Fluo_spearman": 0.8182752380974366,
+      "gap_details": [
+        {
+          "area": 102,
+          "negative": 0,
+          "ignored": 102
+        },
+        {
+          "area": 30,
+          "negative": 0,
+          "ignored": 30
+        },
+        {
+          "area": 4,
+          "negative": 0,
+          "ignored": 4
+        },
+        {
+          "area": 25,
+          "negative": 0,
+          "ignored": 25
+        },
+        {
+          "area": 13,
+          "negative": 0,
+          "ignored": 13
+        },
+        {
+          "area": 64,
+          "negative": 0,
+          "ignored": 64
+        },
+        {
+          "area": 34,
+          "negative": 0,
+          "ignored": 34
+        },
+        {
+          "area": 26,
+          "negative": 0,
+          "ignored": 26
+        },
+        {
+          "area": 19,
+          "negative": 0,
+          "ignored": 19
+        }
+      ]
+    },
+    {
+      "window": "mesh_09.npz",
+      "cell": "cell_20260904_23962_NZ_170",
+      "z": 143,
+      "gap_pixels": 731,
+      "negative_gap_pixels": 102,
+      "ignored_gap_pixels": 629,
+      "gaps": 9,
+      "fully_ignored_gaps": 6,
+      "ER_rim_vs_gap_auc": 0.6608977825851812,
+      "Fluo_rim_vs_gap_auc": 0.600833518913244,
+      "ER_rim_minus_gap": 61.0,
+      "Fluo_rim_minus_gap": 247.0,
+      "ER_Fluo_spearman": 0.5614367483383422,
+      "gap_details": [
+        {
+          "area": 72,
+          "negative": 0,
+          "ignored": 72
+        },
+        {
+          "area": 164,
+          "negative": 39,
+          "ignored": 125
+        },
+        {
+          "area": 53,
+          "negative": 0,
+          "ignored": 53
+        },
+        {
+          "area": 63,
+          "negative": 0,
+          "ignored": 63
+        },
+        {
+          "area": 15,
+          "negative": 0,
+          "ignored": 15
+        },
+        {
+          "area": 13,
+          "negative": 0,
+          "ignored": 13
+        },
+        {
+          "area": 183,
+          "negative": 41,
+          "ignored": 142
+        },
+        {
+          "area": 40,
+          "negative": 0,
+          "ignored": 40
+        },
+        {
+          "area": 128,
+          "negative": 22,
+          "ignored": 106
+        }
+      ]
+    },
+    {
+      "window": "mesh_10.npz",
+      "cell": "cell_20260814_23298_NZ_50",
+      "z": 17,
+      "gap_pixels": 288,
+      "negative_gap_pixels": 0,
+      "ignored_gap_pixels": 288,
+      "gaps": 9,
+      "fully_ignored_gaps": 9,
+      "ER_rim_vs_gap_auc": 0.73540982484948,
+      "Fluo_rim_vs_gap_auc": 0.516463122605364,
+      "ER_rim_minus_gap": 85.5,
+      "Fluo_rim_minus_gap": 0.0,
+      "ER_Fluo_spearman": 0.5680982980983519,
+      "gap_details": [
+        {
+          "area": 7,
+          "negative": 0,
+          "ignored": 7
+        },
+        {
+          "area": 71,
+          "negative": 0,
+          "ignored": 71
+        },
+        {
+          "area": 40,
+          "negative": 0,
+          "ignored": 40
+        },
+        {
+          "area": 14,
+          "negative": 0,
+          "ignored": 14
+        },
+        {
+          "area": 10,
+          "negative": 0,
+          "ignored": 10
+        },
+        {
+          "area": 44,
+          "negative": 0,
+          "ignored": 44
+        },
+        {
+          "area": 24,
+          "negative": 0,
+          "ignored": 24
+        },
+        {
+          "area": 37,
+          "negative": 0,
+          "ignored": 37
+        },
+        {
+          "area": 41,
+          "negative": 0,
+          "ignored": 41
+        }
+      ]
+    },
+    {
+      "window": "mesh_11.npz",
+      "cell": "cell_20260904_23962_NZ_170",
+      "z": 143,
+      "gap_pixels": 737,
+      "negative_gap_pixels": 100,
+      "ignored_gap_pixels": 637,
+      "gaps": 9,
+      "fully_ignored_gaps": 6,
+      "ER_rim_vs_gap_auc": 0.6281223534554197,
+      "Fluo_rim_vs_gap_auc": 0.6010558859151467,
+      "ER_rim_minus_gap": 42.5,
+      "Fluo_rim_minus_gap": 202.5,
+      "ER_Fluo_spearman": 0.4849534859621826,
+      "gap_details": [
+        {
+          "area": 7,
+          "negative": 0,
+          "ignored": 7
+        },
+        {
+          "area": 13,
+          "negative": 0,
+          "ignored": 13
+        },
+        {
+          "area": 68,
+          "negative": 0,
+          "ignored": 68
+        },
+        {
+          "area": 151,
+          "negative": 21,
+          "ignored": 130
+        },
+        {
+          "area": 23,
+          "negative": 0,
+          "ignored": 23
+        },
+        {
+          "area": 24,
+          "negative": 0,
+          "ignored": 24
+        },
+        {
+          "area": 176,
+          "negative": 42,
+          "ignored": 134
+        },
+        {
+          "area": 233,
+          "negative": 37,
+          "ignored": 196
+        },
+        {
+          "area": 42,
+          "negative": 0,
+          "ignored": 42
+        }
+      ]
+    },
+    {
+      "window": "mesh_12.npz",
+      "cell": "cell_20260814_23299_NZ_200",
+      "z": 69,
+      "gap_pixels": 738,
+      "negative_gap_pixels": 43,
+      "ignored_gap_pixels": 695,
+      "gaps": 9,
+      "fully_ignored_gaps": 7,
+      "ER_rim_vs_gap_auc": 0.7133806526153036,
+      "Fluo_rim_vs_gap_auc": 0.52196905981599,
+      "ER_rim_minus_gap": 162.0,
+      "Fluo_rim_minus_gap": 11.0,
+      "ER_Fluo_spearman": 0.605358140370209,
+      "gap_details": [
+        {
+          "area": 18,
+          "negative": 0,
+          "ignored": 18
+        },
+        {
+          "area": 83,
+          "negative": 0,
+          "ignored": 83
+        },
+        {
+          "area": 31,
+          "negative": 0,
+          "ignored": 31
+        },
+        {
+          "area": 103,
+          "negative": 0,
+          "ignored": 103
+        },
+        {
+          "area": 145,
+          "negative": 26,
+          "ignored": 119
+        },
+        {
+          "area": 46,
+          "negative": 0,
+          "ignored": 46
+        },
+        {
+          "area": 211,
+          "negative": 17,
+          "ignored": 194
+        },
+        {
+          "area": 62,
+          "negative": 0,
+          "ignored": 62
+        },
+        {
+          "area": 39,
+          "negative": 0,
+          "ignored": 39
+        }
+      ]
+    },
+    {
+      "window": "mesh_13.npz",
+      "cell": "cell_20260904_23962_NZ_170",
+      "z": 59,
+      "gap_pixels": 424,
+      "negative_gap_pixels": 46,
+      "ignored_gap_pixels": 378,
+      "gaps": 9,
+      "fully_ignored_gaps": 6,
+      "ER_rim_vs_gap_auc": 0.7786019626010782,
+      "Fluo_rim_vs_gap_auc": 0.5304024174528302,
+      "ER_rim_minus_gap": 55.0,
+      "Fluo_rim_minus_gap": 86.5,
+      "ER_Fluo_spearman": 0.5081492584571269,
+      "gap_details": [
+        {
+          "area": 145,
+          "negative": 39,
+          "ignored": 106
+        },
+        {
+          "area": 19,
+          "negative": 0,
+          "ignored": 19
+        },
+        {
+          "area": 42,
+          "negative": 0,
+          "ignored": 42
+        },
+        {
+          "area": 47,
+          "negative": 0,
+          "ignored": 47
+        },
+        {
+          "area": 11,
+          "negative": 0,
+          "ignored": 11
+        },
+        {
+          "area": 59,
+          "negative": 5,
+          "ignored": 54
+        },
+        {
+          "area": 68,
+          "negative": 2,
+          "ignored": 66
+        },
+        {
+          "area": 20,
+          "negative": 0,
+          "ignored": 20
+        },
+        {
+          "area": 13,
+          "negative": 0,
+          "ignored": 13
+        }
+      ]
+    },
+    {
+      "window": "mesh_14.npz",
+      "cell": "cell_20260814_23298_NZ_50",
+      "z": 7,
+      "gap_pixels": 676,
+      "negative_gap_pixels": 151,
+      "ignored_gap_pixels": 525,
+      "gaps": 8,
+      "fully_ignored_gaps": 5,
+      "ER_rim_vs_gap_auc": 0.7720231367595239,
+      "Fluo_rim_vs_gap_auc": 0.5946579349777276,
+      "ER_rim_minus_gap": 297.5,
+      "Fluo_rim_minus_gap": 296.5,
+      "ER_Fluo_spearman": 0.6013388423822921,
+      "gap_details": [
+        {
+          "area": 20,
+          "negative": 0,
+          "ignored": 20
+        },
+        {
+          "area": 126,
+          "negative": 24,
+          "ignored": 102
+        },
+        {
+          "area": 239,
+          "negative": 81,
+          "ignored": 158
+        },
+        {
+          "area": 161,
+          "negative": 46,
+          "ignored": 115
+        },
+        {
+          "area": 12,
+          "negative": 0,
+          "ignored": 12
+        },
+        {
+          "area": 104,
+          "negative": 0,
+          "ignored": 104
+        },
+        {
+          "area": 5,
+          "negative": 0,
+          "ignored": 5
+        },
+        {
+          "area": 9,
+          "negative": 0,
+          "ignored": 9
+        }
+      ]
+    },
+    {
+      "window": "mesh_15.npz",
+      "cell": "cell_20260814_23298_NZ_50",
+      "z": 31,
+      "gap_pixels": 406,
+      "negative_gap_pixels": 20,
+      "ignored_gap_pixels": 386,
+      "gaps": 8,
+      "fully_ignored_gaps": 6,
+      "ER_rim_vs_gap_auc": 0.6961149881408502,
+      "Fluo_rim_vs_gap_auc": 0.5530297847108192,
+      "ER_rim_minus_gap": 166.0,
+      "Fluo_rim_minus_gap": 38.0,
+      "ER_Fluo_spearman": 0.5718212146867215,
+      "gap_details": [
+        {
+          "area": 93,
+          "negative": 12,
+          "ignored": 81
+        },
+        {
+          "area": 87,
+          "negative": 0,
+          "ignored": 87
+        },
+        {
+          "area": 117,
+          "negative": 8,
+          "ignored": 109
+        },
+        {
+          "area": 34,
+          "negative": 0,
+          "ignored": 34
+        },
+        {
+          "area": 5,
+          "negative": 0,
+          "ignored": 5
+        },
+        {
+          "area": 35,
+          "negative": 0,
+          "ignored": 35
+        },
+        {
+          "area": 14,
+          "negative": 0,
+          "ignored": 14
+        },
+        {
+          "area": 21,
+          "negative": 0,
+          "ignored": 21
+        }
+      ]
+    }
+  ],
+  "source_verification": "PASS",
+  "validation_opened": false,
+  "new_labels": 0,
+  "scope": "16 previously selected training windows; geometric gaps are not certified biological negatives; raw-intensity AUC is not model accuracy"
+}

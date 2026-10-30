@@ -1,0 +1,6 @@
+# Versions used for the user-reviewed ER ridge batch candidate on Python 3.12.11.
+numpy==2.2.6
+scipy==1.16.2
+scikit-image==0.25.2
+tifffile==2025.9.9
+Pillow==11.3.0

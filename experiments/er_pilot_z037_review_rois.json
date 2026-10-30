@@ -1,0 +1,13 @@
+{
+  "MCF-7_20260814/cell_20260814_23298_NZ_50": {
+    "36": [
+      {
+        "center_xy": [493, 83],
+        "radius_xy": [115, 65],
+        "component_area_min": 60,
+        "solidity_min": 0.75,
+        "note": "User-reviewed red oval, only for this one image; do not generalize."
+      }
+    ]
+  }
+}
