@@ -1,0 +1,48 @@
+{
+ "params": {
+  "smooth": 0.7,
+  "bg_sigma": 12.0,
+  "contrast_sigma": 16.0,
+  "region_sigma": 10.0,
+  "region_min_px": 3000,
+  "region_dilate": 4,
+  "ridge_sigmas": [
+   1.0,
+   1.5,
+   2.0
+  ],
+  "hi_pct": 90.0,
+  "lo_pct": 72.0,
+  "min_obj": 15
+ },
+ "items": [
+  {
+   "specimen": "23300",
+   "z": 74,
+   "mask_px": 86963,
+   "region_frac_tissue": 0.37934477675811895,
+   "mask_frac_region": 0.2658622186622969,
+   "width_median": 3.4721359549995796,
+   "old_px": 85734,
+   "old_covered_by_new": 0.7713173818652131,
+   "new_px_outside_old": 0.1296068442901004,
+   "ridge_in_region_covered_new": 0.8468848888340936,
+   "ridge_in_region_covered_old": 0.7454382936752558,
+   "source_er_sha256": "a58bcb3803d3d506218d426d080a673e38e9087aacabfdedd6f8cf5bd4d35101"
+  },
+  {
+   "specimen": "23963",
+   "z": 20,
+   "mask_px": 23550,
+   "region_frac_tissue": 0.2174340007963631,
+   "mask_frac_region": 0.26457998629352086,
+   "width_median": 3.4721359549995796,
+   "old_px": 21138,
+   "old_covered_by_new": 0.5455197132616487,
+   "new_px_outside_old": 0.16369426751592356,
+   "ridge_in_region_covered_new": 0.653084585596337,
+   "ridge_in_region_covered_old": 0.5465062471078205,
+   "source_er_sha256": "fa3940c4000b1d64043bdd7456b911c480eb0ae380162c66c253d0cf431a7e2b"
+  }
+ ]
+}

@@ -23,11 +23,12 @@ SPECIMENS = {
     "23963": ("WT-ER-20260904 ", "cell_20260904_23963_NZ_40"),
     "23966": ("WT-ER-20260904 ", "cell_20260904_23966_NZ_100"),
 }
-BATCH = {"23298": "MCF7", "23300": "MCF7", "23961": "WT", "23963": "WT", "23966": "WT"}
+SPECIMENS_ALL = dict(SPECIMENS, **{"23965": ("WT-ER-20260904 ", "cell_20260904_23965_NZ_140")})
+BATCH = {"23298": "MCF7", "23300": "MCF7", "23961": "WT", "23963": "WT", "23966": "WT", "23965": "WT"}
 
 
 def paths(spec: str):
-    batch, cell = SPECIMENS[spec]
+    batch, cell = SPECIMENS_ALL[spec]
     d = ROOT / batch / cell
     return d / "ER.tif", d / "fluo.tif", PL_ROOT / batch / cell / "ER_mask_line.tif"
 
