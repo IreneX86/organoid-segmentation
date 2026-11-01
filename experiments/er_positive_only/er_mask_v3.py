@@ -9,6 +9,11 @@
    hundreds of ordinary junctions per image; rejected.) Network junctions are about as bright as
    the tubules they join, so they are kept. Each punctum is removed with a disk of
    radius 2*sigma+1 around its peak plus the candidate itself; fragments < 30 px dropped.
+3. Small bright dots (component level, added 2026-11-02 on user request): after 1-2,
+   a connected mask piece is removed when it is (a) small (bounding extent < 25 px) and
+   on average >= 1.5x as bright as the image's median mask pixel, or (b) compact
+   (extent < 80 px) and >= 3x as bright (dense punctate clusters). Large network
+   pieces are never removed by this rule.
 2. Width cap: mask pixels farther than 2.5 px from the mask skeleton are removed
    (no structure wider than ~5 px; thin tubules unchanged).
 """
@@ -19,7 +24,8 @@ from skimage.feature import hessian_matrix, hessian_matrix_eigvals
 from skimage.morphology import disk, remove_small_objects, skeletonize
 from er_mask_v2 import er_mask as er_mask_v2, P as P2
 
-P3 = dict(blob_sigmas=(1.5, 2.5), blob_ratio=0.6, peak_ratio=2.0, ref_pct=90.0, local_px=30, min_obj_after=30, max_halfwidth=2.5)
+P3 = dict(blob_sigmas=(1.5, 2.5), blob_ratio=0.6, peak_ratio=2.0, ref_pct=90.0, local_px=30, min_obj_after=30, max_halfwidth=2.5,
+          dot_ext=25, dot_bright=1.5, cluster_ext=80, cluster_bright=3.0)
 
 
 def puncta(E, M, R):
@@ -60,5 +66,24 @@ def er_mask(E, tissue):
     M1 = remove_small_objects(M & ~B, max_size=P3["min_obj_after"])
     S = skeletonize(M1)
     M2 = remove_small_objects(M1 & (distance_transform_edt(~S) <= P3["max_halfwidth"]), max_size=P3["min_obj_after"])
-    info = dict(v2_px=int(M.sum()), puncta=n, removed_puncta_px=int((M & ~M1).sum()), removed_width_px=int((M1 & ~M2).sum()), v3_px=int(M2.sum()))
-    return M2, R, info
+    M3, ndots = drop_bright_pieces(E, M2)
+    info = dict(v2_px=int(M.sum()), puncta=n, removed_puncta_px=int((M & ~M1).sum()), removed_width_px=int((M1 & ~M2).sum()),
+                dots=ndots, removed_dot_px=int((M2 & ~M3).sum()), v3_px=int(M3.sum()))
+    return M3, R, info
+
+
+def drop_bright_pieces(E, M):
+    e = gaussian_filter(E.astype(np.float32), P2["smooth"])
+    hp = e - gaussian_filter(e, P2["bg_sigma"])
+    if not M.any():
+        return M, 0
+    med = np.median(hp[M])
+    lab, k = label(M, structure=np.ones((3, 3)))
+    out = M.copy(); n = 0
+    for i, sl in enumerate(find_objects(lab), 1):
+        c = lab[sl] == i
+        ext = max(sl[0].stop - sl[0].start, sl[1].stop - sl[1].start)
+        b = hp[sl][c].mean() / max(med, 1e-6)
+        if (ext < P3["dot_ext"] and b >= P3["dot_bright"]) or (ext < P3["cluster_ext"] and b >= P3["cluster_bright"]):
+            out[sl][c] = False; n += 1
+    return out, n
