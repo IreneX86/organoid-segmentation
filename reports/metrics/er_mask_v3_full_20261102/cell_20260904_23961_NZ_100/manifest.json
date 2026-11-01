@@ -1,0 +1,43 @@
+{
+ "specimen": "23961",
+ "cell": "cell_20260904_23961_NZ_100",
+ "batch_folder": "WT-ER-20260904",
+ "n_planes": 100,
+ "params_v2": {
+  "smooth": 0.7,
+  "bg_sigma": 12.0,
+  "contrast_sigma": 16.0,
+  "region_sigma": 10.0,
+  "region_min_px": 3000,
+  "region_dilate": 4,
+  "ridge_sigmas": [
+   1.0,
+   1.5,
+   2.0
+  ],
+  "hi_pct": 90.0,
+  "lo_pct": 72.0,
+  "min_obj": 15
+ },
+ "params_v3": {
+  "blob_sigmas": [
+   1.5,
+   2.5
+  ],
+  "blob_ratio": 0.6,
+  "peak_ratio": 2.0,
+  "ref_pct": 90.0,
+  "local_px": 30,
+  "min_obj_after": 30,
+  "max_halfwidth": 2.5,
+  "dot_ext": 25,
+  "dot_bright": 1.5,
+  "cluster_ext": 80,
+  "cluster_bright": 3.0
+ },
+ "source_er_sha256": "4181b8f533c5c5d55bc2fef9c117ef03093324508d65f75384798424d9fc3c23",
+ "source_fluo_sha256": "192510eea018d0a3cbf8c64f13f2e6162c3df7cb8c79d304fd76a09afd28d45f",
+ "mask_sha256": "aa51d7cc2cad340dcd50339570c975940234d7280b35bac8ca443b75a5bf9d38",
+ "region_sha256": "b02defe860768986c1b6e2324449f5bb4d56e6f3691ca12d3eba76f156b97740",
+ "seconds": 475
+}

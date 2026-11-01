@@ -1,0 +1,62 @@
+[
+ {
+  "specimen": "23298",
+  "batch": "MCF7",
+  "planes": 50,
+  "empty_planes": 0,
+  "mean_mask_px": 60110.64,
+  "mean_region_frac": 0.19751893055555556,
+  "puncta": 1597,
+  "dots": 1308
+ },
+ {
+  "specimen": "23300",
+  "batch": "MCF7",
+  "planes": 100,
+  "empty_planes": 0,
+  "mean_mask_px": 63148.81,
+  "mean_region_frac": 0.1872034513888889,
+  "puncta": 1321,
+  "dots": 741
+ },
+ {
+  "specimen": "23961",
+  "batch": "WT",
+  "planes": 100,
+  "empty_planes": 0,
+  "mean_mask_px": 44019.02,
+  "mean_region_frac": 0.14009763194444444,
+  "puncta": 764,
+  "dots": 263
+ },
+ {
+  "specimen": "23963",
+  "batch": "WT",
+  "planes": 40,
+  "empty_planes": 0,
+  "mean_mask_px": 31292.45,
+  "mean_region_frac": 0.09765119791666667,
+  "puncta": 251,
+  "dots": 59
+ },
+ {
+  "specimen": "23965",
+  "batch": "WT",
+  "planes": 140,
+  "empty_planes": 0,
+  "mean_mask_px": 49568.31428571429,
+  "mean_region_frac": 0.14673443452380952,
+  "puncta": 1399,
+  "dots": 379
+ },
+ {
+  "specimen": "23966",
+  "batch": "WT",
+  "planes": 100,
+  "empty_planes": 0,
+  "mean_mask_px": 72936.06,
+  "mean_region_frac": 0.21635600694444446,
+  "puncta": 1394,
+  "dots": 398
+ }
+]
