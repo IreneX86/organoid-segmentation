@@ -2,7 +2,7 @@ import json, csv, numpy as np, tifffile, matplotlib; matplotlib.use("Agg"); impo
 from scipy.ndimage import binary_dilation
 from skimage.morphology import disk
 from common import load_plane, SPECIMENS_ALL, BATCH
-S=["23298","23300","23961","23963","23965","23966"]
+S=["23298","23299","23300","23961","23962","23963","23965","23966"]
 fig,ax=plt.subplots(len(S),4,figsize=(18,4.6*len(S))); summ=[]
 for i,s in enumerate(S):
     cell=SPECIMENS_ALL[s][1]; d=f"full_v3/{cell}"

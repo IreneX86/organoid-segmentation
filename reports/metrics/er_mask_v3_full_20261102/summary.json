@@ -10,6 +10,16 @@
   "dots": 1308
  },
  {
+  "specimen": "23299",
+  "batch": "MCF7",
+  "planes": 200,
+  "empty_planes": 0,
+  "mean_mask_px": 60969.755,
+  "mean_region_frac": 0.1822177048611111,
+  "puncta": 2623,
+  "dots": 2377
+ },
+ {
   "specimen": "23300",
   "batch": "MCF7",
   "planes": 100,
@@ -28,6 +38,16 @@
   "mean_region_frac": 0.14009763194444444,
   "puncta": 764,
   "dots": 263
+ },
+ {
+  "specimen": "23962",
+  "batch": "WT",
+  "planes": 170,
+  "empty_planes": 0,
+  "mean_mask_px": 63227.2294117647,
+  "mean_region_frac": 0.18966133578431374,
+  "puncta": 2444,
+  "dots": 357
  },
  {
   "specimen": "23963",
