@@ -42,7 +42,7 @@ SPECIMENS = ["23298", "23300", "23961", "23963", "23965", "23966"]
 
 def norm(f):
     lo, hi = np.percentile(f, [1, 99.8])
-    return np.clip((f.astype(np.float32) - lo) / max(hi - lo, 1e-6), 0, 1.5)
+    return np.clip((f.astype(np.float32) - lo) / max(hi - lo, 1e-6), 0, 1.5).astype(np.float32)
 
 
 class Block(nn.Sequential):
