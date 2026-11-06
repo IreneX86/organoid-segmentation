@@ -1,0 +1,80 @@
+{
+ "v2_25D_z1_fold0.npz": {
+  "source": "B25D_fold0.keras",
+  "source_sha256": "15e19c6852cbd3bdb72b8ab8472040cde99d368a3c0cd28c49c207f7816d0f40",
+  "sha256": "c8c7c028a6a01a35d25e295dd0176640a4fa7ccc35a2b2bbabfad8fd6603c0f0",
+  "z_offsets": [
+   -1,
+   0,
+   1
+  ],
+  "bytes": 14382906
+ },
+ "v2_25D_z1_fold1.npz": {
+  "source": "B25D_fold1.keras",
+  "source_sha256": "b62f7ba75bb0c92f1dc1e1562535736a8cc9dd9618b12a8f1ac3667150d79243",
+  "sha256": "e48c386699ee2ef829ad853401e5acdb8c8476a9ac5b23545ae96f52c8751d81",
+  "z_offsets": [
+   -1,
+   0,
+   1
+  ],
+  "bytes": 14387321
+ },
+ "v2_25D_z1_fold2.npz": {
+  "source": "B25D_fold2.keras",
+  "source_sha256": "491f56f5bd216f99ed4f28d15e6b707a1f08cd7565a536ab7619de09f0cd52cf",
+  "sha256": "659857ea3afee1e7d3921d0c5eda565a644f022a59fafb22f5b913982e42df75",
+  "z_offsets": [
+   -1,
+   0,
+   1
+  ],
+  "bytes": 14392794
+ },
+ "v3_C7_z3_fold0.npz": {
+  "source": "C7_fold0.keras",
+  "source_sha256": "102d8f5582f4b3b133048c63e691ea977884b1b8a660430ab5e868030690576b",
+  "sha256": "d10bf64892089a3bde4e4c1377bee9502d93c80b256641e2f62e4fd1dbbfad7f",
+  "z_offsets": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "bytes": 14378487
+ },
+ "v3_C7_z3_fold1.npz": {
+  "source": "C7_fold1.keras",
+  "source_sha256": "556432d9fdd388da53bfad2fa98d622d600f74405e961da50cfb5da2245712ad",
+  "sha256": "20799f3de8cc41b515f5f29475ccc96f01b6a425a6acc370bb73732f7e3ab928",
+  "z_offsets": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "bytes": 14392712
+ },
+ "v3_C7_z3_fold2.npz": {
+  "source": "C7_fold2.keras",
+  "source_sha256": "b55accf3086162a119d09cc3b5d6c452763ee4e5625fdaedec6136d12063e221",
+  "sha256": "4252f6c1a9c45cb3cea854a034e80259abf85a21d798c545257086f7eb48ccbe",
+  "z_offsets": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "bytes": 14368883
+ }
+}
