@@ -38,6 +38,6 @@ python golgi_predict.py /path/to/cell_xxx/fluo --out out_folder --planes 30,40-4
 
 ## 文件
 - `golgi_predict.py`：工具本体。
-- `models/*.npz`：6 个模型的权重（16 位浮点，每个 13 MB）。**权重不在 GitHub 上**（约 86 MB），保存在本地 `outputs/golgi_fluo_tool_20261104/models/`；放进 `models/` 后，工具会按 `MODELS.json` 校验 SHA256。
+- `models/*.npz`：6 个模型的权重（16 位浮点，每个 13 MB）。已包含在仓库中（共约 86 MB），工具启动时会按 `MODELS.json` 校验 SHA256。
 - `models/MODELS.json`：每个模型的来源和 SHA256。
 - 训练代码见本仓库 `golgi_fluo_only/training/`；完整结果（模型、概率图）只保存在本地 `outputs/golgi_fluo_student_v*_2026110*/`。

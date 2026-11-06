@@ -59,3 +59,6 @@ known_hosts*
 
 # Isolated Noise2Void environment
 .venv-n2v/
+
+# Fluo-only Golgi tool weights (6 x ~14 MB fp16 NumPy), explicitly requested 2026-11-06; other NPZ stays ignored.
+!golgi_fluo_only/tool/models/*.npz
