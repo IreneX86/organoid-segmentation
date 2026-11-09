@@ -1,0 +1,47 @@
+{
+ "v7_soft_z3_fold0.npz": {
+  "source": "V7_fold0.keras",
+  "source_sha256": "d8f15fc9c794843987517acc34ac4fc989d86ae820990ee70ba147ba9421bd0d",
+  "sha256": "4e477b307669967c0bbcafb7d72b1d2a6893d4236d25fba56c9b018ca407fa49",
+  "z_offsets": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "bytes": 14427190
+ },
+ "v7_soft_z3_fold1.npz": {
+  "source": "V7_fold1.keras",
+  "source_sha256": "b535ad44ab0bbfab857789ca55d773450745d4952e61e4f3d10d35f0586879a1",
+  "sha256": "c9f0000ed38111322cff616390810779a7636f4dbed33a11051f39a12e37baab",
+  "z_offsets": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "bytes": 14432136
+ },
+ "v7_soft_z3_fold2.npz": {
+  "source": "V7_fold2.keras",
+  "source_sha256": "7afcff20b64a9966a94e915c3ca8243c8f0f71dd0d416fcb54804a4ed6c354d7",
+  "sha256": "a715415c9770754eb8b1c826ed8134f08c362126c318a61e465dbc5664bd2bcf",
+  "z_offsets": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "bytes": 14432940
+ }
+}
