@@ -63,3 +63,4 @@ known_hosts*
 # Fluo-only Golgi tool weights (6 x ~14 MB fp16 NumPy), explicitly requested 2026-11-06; other NPZ stays ignored.
 !golgi_fluo_only/tool/models/*.npz
 !golgi_fluo_only/tool_v7/models/*.npz
+!golgi_fluo_only/tool_v9/models/*.npz

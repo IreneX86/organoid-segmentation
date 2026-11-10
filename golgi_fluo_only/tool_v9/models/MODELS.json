@@ -1,0 +1,50 @@
+{
+ "v9_allplanes_z3_fold0.npz": {
+  "source": "V9_fold0.keras",
+  "source_sha256": "fef5728d9318203d50349808425d5625f85af4d9822be97da4f92a342071c427",
+  "sha256": "e3e99d2cbb92f225ddfe81d95c51b86f742ad5ed1e03ec2533e521ae1611ac85",
+  "z_offsets": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "bytes": 14423532,
+  "threshold_recommended": 0.6
+ },
+ "v9_allplanes_z3_fold1.npz": {
+  "source": "V9_fold1.keras",
+  "source_sha256": "04cc8242556f9dfe408ad843e3f3c824f4e54f8f79e2227f3d0f7c64d51f0118",
+  "sha256": "df094dae44498ea139cfbca40c0b6735c6422192dc7259c3014b4d5d6e1a3c26",
+  "z_offsets": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "bytes": 14429948,
+  "threshold_recommended": 0.6
+ },
+ "v9_allplanes_z3_fold2.npz": {
+  "source": "V9_fold2.keras",
+  "source_sha256": "dea8f89958a0bb705b1e264e604deb39f6bfdd280b2054bd39f98ffa14ff9797",
+  "sha256": "cd645711a444c84b02e7d5c87a7e9f74d73a450656ebb5d90884772196c87ac3",
+  "z_offsets": [
+   -3,
+   -2,
+   -1,
+   0,
+   1,
+   2,
+   3
+  ],
+  "bytes": 14425036,
+  "threshold_recommended": 0.6
+ }
+}
